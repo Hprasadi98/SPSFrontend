@@ -15,20 +15,22 @@ import Auth from "layouts/Auth.js";
 import Landing from "views/Landing.js";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
+import EstimateForm from "./views/estimate/EstimateForm"; // Import EstimateForm
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Switch>
-      {/* add routes with layouts */}
-      <Route path="/admin" component={Admin} />
-      <Route path="/auth" component={Auth} />
-      {/* add routes without layouts */}
-      <Route path="/landing" exact component={Landing} />
-      <Route path="/profile" exact component={Profile} />
-      <Route path="/" exact component={Index} />
-      {/* add redirect for first page */}
-      <Redirect from="*" to="/" />
-    </Switch>
-  </BrowserRouter>,
-  document.getElementById("root")
+    <BrowserRouter>
+        <Switch>
+            {/* add routes with layouts */}
+            <Route path="/admin" component={Admin} />
+            <Route path="/auth" component={Auth} />
+            {/* add routes without layouts */}
+            <Route path="/landing" exact component={Landing} />
+            <Route path="/profile" exact component={Profile} />
+            <Route path="/" exact component={Index} />
+            <Route path="/estimate" component={EstimateForm} /> {/* Add the EstimateForm route */}
+            {/* add redirect for first page */}
+            <Redirect from="*" to="/" />
+        </Switch>
+    </BrowserRouter>,
+    document.getElementById("root")
 );

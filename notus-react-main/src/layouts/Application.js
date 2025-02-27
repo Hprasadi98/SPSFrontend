@@ -14,7 +14,7 @@ export default function Application() {
         <>
           <Sidebar />
           <div className="relative md:ml-64 bg-blueGray-100">
-            <div className="bg-lightBlue-600 pt-32 ">
+            <div className="bg-lightBlue-600 pt-32">
             </div>
             <div className="relative px-4 md:px-10 mx-auto w-full -m-24">
               <Switch>

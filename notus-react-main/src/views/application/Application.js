@@ -36,7 +36,7 @@ const Tabs = () => {
                   <input
                     type="text"
                     name="tempId"
-                    className="w-full p-2 border rounded"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     placeholder="Enter Temp Id"
                   />
                   <div className="flex items-center text-white bg-blueGray-800 rounded-lg ml-2">
@@ -51,7 +51,7 @@ const Tabs = () => {
                 <label className="block text-sm font-bold mb-2">Area</label>
                 <select
                   name="area"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 >
                   <option value="AREA - MAWANELLA">AREA - MAWANELLA</option>
                   <option value="AREA - OTHER">AREA - OTHER</option>
@@ -65,7 +65,7 @@ const Tabs = () => {
                 <select
                   name="applicationType"
                   disabled
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 >
                   <option value="AREA - MAWANELLA">BS</option>
                   <option value="AREA - OTHER">BA</option>
@@ -79,7 +79,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="costCenter"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
               </div>
 
@@ -90,7 +90,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Enter description"
                 />
               </div>
@@ -102,7 +102,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="consumerReference"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Enter reference"
                 />
               </div>
@@ -128,7 +128,7 @@ const Tabs = () => {
                 <input
                   type="date"
                   name="date"
-                  className="w-full text-xs p-2 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
               </div>
               <div>
@@ -138,7 +138,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="costCenterName"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
               </div>
 
@@ -148,7 +148,7 @@ const Tabs = () => {
                 </label>
                 <select
                   name="foundSource"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 >
                   <option value="ADB">ADB</option>
                   <option value="Other">Other</option>
@@ -161,7 +161,7 @@ const Tabs = () => {
                 </label>
                 <select
                   name="natureOfSupply"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 >
                   <option value="Permanent">Permanent</option>
                   <option value="Temporary">Temporary</option>
@@ -175,7 +175,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="representative"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Enter representative"
                 />
               </div>
@@ -185,7 +185,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="jobName"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="Enter job name"
                 />
               </div>
@@ -200,13 +200,13 @@ const Tabs = () => {
       content: (
         <form>
           <div className="flex justify-center">
-            <div className="w-1/2 pr-4">
+            <div className="pr-4">
               <div className="md:col-span-2">
                 <label className="block text-sm font-bold mb-2">Id Type</label>
                 <input
                   type="text"
                   name="idType"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -217,7 +217,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="firstname"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -228,7 +228,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -237,7 +237,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="city"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -248,7 +248,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -257,7 +257,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -268,23 +268,23 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
             </div>
-            <div className="w-1/2 pr-4">
+            <div className="pr-4">
               <div className="md:col-span-2">
                 <label className="block text-sm font-bold mb-2">Id No</label>
                 <div className="flex ">
                   <input
                     type="text"
                     name="idType"
-                    className="w-full text-xs p-1 border-0 rounded mb-3"
+                    className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     placeholder="NIC No"
                   />
-                  <div className="flex items-center text-white bg-blueGray-800 rounded-lg ml-2 mb-3">
-                    <button className="text-xs px-4 h-full border-0 rounded-lg">
+                  <div className="flex items-center text-white bg-blueGray-800 rounded-lg ml-2">
+                    <button className="text-sm px-4 h-full border-0 rounded-lg">
                       Search
                     </button>
                   </div>
@@ -297,7 +297,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="firstname"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -306,7 +306,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -317,7 +317,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="city"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -328,7 +328,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -339,7 +339,7 @@ const Tabs = () => {
                 <input
                   type="text"
                   name="description"
-                  className="w-full text-xs p-1 border-0 rounded mb-3"
+                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   disabled
                 />
               </div>
@@ -369,7 +369,7 @@ const Tabs = () => {
   return (
     <div className="w-full min-h-screen bg-blueGray-200">
       <div className="max-w-sm mx-auto p-4 rounded-lg">
-        <div className="flex border-b">
+        <div className="flex border-b justify-center">
           {tabs.map((tab, index) => (
             <button
               key={index}
@@ -384,6 +384,7 @@ const Tabs = () => {
             </button>
           ))}
         </div>
+        <hr className="border-b-4 border-blueGray-500" />
         <div className="p-4 text-gray-700">{tabs[activeTab].content}</div>
       </div>
     </div>

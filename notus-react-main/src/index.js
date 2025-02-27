@@ -9,14 +9,13 @@ import "assets/styles/tailwind.css";
 
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
+import Application from "layouts/Application.js";
 
 // views without layouts
 
 import Landing from "views/Landing.js";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
-import Tabs from "views/Application.js";
-import NewApp from "views/NewApp";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -24,10 +23,9 @@ ReactDOM.render(
       {/* add routes with layouts */}
       <Route path="/admin" component={Admin} />
       <Route path="/auth" component={Auth} />
+      <Route path="/application" component={Application} />
       {/* add routes without layouts */}
       <Route path="/landing" exact component={Landing} />
-      <Route path="/tabs" exact component={Tabs} />
-      <Route path="/newapp" exact component={NewApp} />
       <Route path="/profile" exact component={Profile} />
       <Route path="/" exact component={Index} />
       {/* add redirect for first page */}

@@ -1,5 +1,6 @@
+// TreeView.js
 import React, { useState } from "react";
-import "./TreeView.css"; // Import the CSS file
+import "./TreeView.css";
 
 const treeData = {
   name: "MATERIAL",
@@ -40,7 +41,7 @@ const treeData = {
 
 const TreeNode = ({ node }) => {
   const [expanded, setExpanded] = useState(false);
-  
+
   const hasChildren = node.children && node.children.length > 0;
 
   return (

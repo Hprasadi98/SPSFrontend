@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import EstimatePage1 from './EstimatePage1';
-import EstimatePage2 from './EstimatePage2';
-import EstimatePage3 from './EstimatePage3';
-import './styles.css';
+import CardEstimatePage1 from 'components/Cards/CardEstimatePage1';
+import CardEstimatePage2 from 'components/Cards/CardEstimatePage2';
+import CardEstimatePage3 from 'components/Cards/CardEstimatePage3';
 
 function EstimateForm() {
-    const [activePage, setActivePage] = useState('Page 1');
+    const [activePage, setActivePage] = useState('Estimate Details');
     const [formData, setFormData] = useState({
         estimateNo: '600.41/CN/17/0032',
         costCenter: '600.41',
@@ -32,7 +31,6 @@ function EstimateForm() {
         peg2: '',
     });
     const [errors, setErrors] = useState({});
-    const [darkMode, setDarkMode] = useState(false);
 
     const handlePageChange = (page) => {
         setActivePage(page);
@@ -64,61 +62,56 @@ function EstimateForm() {
         }
     };
 
-    const handleDarkModeToggle = () => {
-        setDarkMode(!darkMode);
-        document.body.classList.toggle('dark-mode');
-    };
-
     const renderPage = () => {
         switch (activePage) {
-            case 'Page 1':
+            case 'Estimate Details':
                 return (
-                    <EstimatePage1
+                    <CardEstimatePage1
                         formData={formData}
                         onChange={handleFormDataChange}
                         errors={errors}
                         onNext={() => {
                             if (validateForm()) {
-                                handlePageChange('Page 2');
+                                handlePageChange('Cost & Measurement');
                             }
                         }}
                     />
                 );
-            case 'Page 2':
+            case 'Cost & Measurement':
                 return (
                     <div>
-                        <EstimatePage2
+                        <CardEstimatePage2
                             formData={formData}
                             onChange={handleFormDataChange}
                             errors={errors}
-                            onBack={() => handlePageChange('Page 1')}
+                            onBack={() => handlePageChange('Estimate Details')}
                             onNext={() => {
                                 if (validateForm()) {
-                                    handlePageChange('Page 3');
+                                    handlePageChange('Pegging Schedule');
                                 }
                             }}
                         />
-                        <div className="submit-container">
+                        {/* <div className="submit-container">
                             <button className="submit-button" onClick={handleSubmit} aria-label="Submit Form">
                                 Submit
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 );
-            case 'Page 3':
+            case 'Pegging Schedule':
                 return (
                     <div>
-                        <EstimatePage3
+                        <CardEstimatePage3
                             formData={formData}
                             onChange={handleFormDataChange}
                             errors={errors}
-                            onBack={() => handlePageChange('Page 2')}
+                            onBack={() => handlePageChange('Cost & Measurement')}
                         />
-                        <div className="submit-container">
+                        {/* <div className="submit-container">
                             <button className="submit-button" onClick={handleSubmit} aria-label="Submit Form">
                                 Submit
                             </button>
-                        </div>
+                        </div> */}
                     </div>
                 );
             default:
@@ -127,37 +120,29 @@ function EstimateForm() {
     };
 
     return (
-        <div className={`form-container ${darkMode ? 'dark-mode' : ''}`}>
-            <div className="form-wrapper">
-                <div className="sidebar">
-                    <button
-                        className={`sidebar-button ${activePage === 'Page 1' ? 'active' : ''}`}
-                        onClick={() => handlePageChange('Page 1')}
-                        aria-label="Go to Page 1"
-                    >
-                        General Information
-                    </button>
-                    <button
-                        className={`sidebar-button ${activePage === 'Page 2' ? 'active' : ''}`}
-                        onClick={() => handlePageChange('Page 2')}
-                        aria-label="Go to Page 2"
-                    >
-                        Cost & Measurement
-                    </button>
-                    <button
-                        className={`sidebar-button ${activePage === 'Page 3' ? 'active' : ''}`}
-                        onClick={() => handlePageChange('Page 3')}
-                        aria-label="Go to Page 3"
-                    >
-                        Pegging Schedule
-                    </button>
-                    <button onClick={handleDarkModeToggle}>
-                        {darkMode ? 'Light Mode' : 'Dark Mode'}
-                    </button>
-                </div>
-                <div className="content">
-                    {renderPage()}
-                </div>
+        <div>
+            <div className="tab-container">
+                <button
+                    className={`tab-button ${activePage === 'Estimate Details' ? 'active' : ''}`}
+                    onClick={() => handlePageChange('Estimate Details')}
+                >
+                    Estimate Details
+                </button>
+                <button
+                    className={`tab-button ${activePage === 'Cost & Measurement' ? 'active' : ''}`}
+                    onClick={() => handlePageChange('Cost & Measurement')}
+                >
+                    Cost & Measurement
+                </button>
+                <button
+                    className={`tab-button ${activePage === 'Pegging Schedule' ? 'active' : ''}`}
+                    onClick={() => handlePageChange('Pegging Schedule')}
+                >
+                    Pegging Schedule
+                </button>
+            </div>
+            <div className="content">
+                {renderPage()}
             </div>
         </div>
     );

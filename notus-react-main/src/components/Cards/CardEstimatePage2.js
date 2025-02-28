@@ -83,22 +83,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
               </div>
             </div>
 
-            <div className="w-full lg:w-6/12 px-4">
-              <div className="relative w-full mb-3">
-                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="fileRef">
-                  File Ref
-                </label>
-                <input
-                  type="text"
-                  id="fileRef"
-                  className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${errors.fileRef ? 'border-red-500' : ''}`}
-                  value={formData.fileRef}
-                  onChange={onChange}
-                  placeholder="Enter File Reference"
-                />
-                {errors.fileRef && <p className="text-red-500 text-xs mt-1">{errors.fileRef}</p>}
-              </div>
-            </div>
+    
 
             <div className="w-full lg:w-6/12 px-4">
               <div className="relative w-full mb-3">

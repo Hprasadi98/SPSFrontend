@@ -91,6 +91,23 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
               </div>
             </div>
 
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="fileRef">
+                  File Reference
+                </label>
+                <input
+                  type="text"
+                  id="fileRef"
+                  className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${errors.fileRef ? 'border-red-500' : ''}`}
+                  value={formData.fileRef}
+                  onChange={onChange}
+                  placeholder="Enter File Reference"
+                />
+                {errors.fileRef && <p className="text-red-500 text-xs mt-1">{errors.fileRef}</p>}
+              </div>
+            </div>
+
             {/* Third Row (New Fields) */}
             <div className="w-full lg:w-6/12 px-4">
               <div className="relative w-full mb-3">
@@ -140,22 +157,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
               </div>
             </div>
 
-            {/* Fifth Row */}
-            <div className="w-full lg:w-6/12 px-4">
-              <div className="relative w-full mb-3">
-                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="eCSC">
-                  E CSC
-                </label>
-                <input
-                  type="text"
-                  id="eCSC"
-                  className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
-                  value={formData.eCSC}
-                  onChange={onChange}
-                  placeholder="Enter E CSC"
-                />
-              </div>
-            </div>
+          
           </div>
 
           <hr className="mt-6 border-b-1 border-blueGray-300" />
@@ -207,9 +209,23 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
                   onChange={onChange}
                   placeholder="Enter Area"
                 />
+              </div> 
+            </div>
+              {/* Fifth Row */}
+              <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="eCSC">
+                  E CSC
+                </label>
+                <input
+                  type="text"
+                  id="eCSC"
+                  className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
+                  value={formData.eCSC}
+                  onChange={onChange}
+                  placeholder="Enter E CSC"
+                />
               </div>
-
-              
             </div>
           </div>
         </form>

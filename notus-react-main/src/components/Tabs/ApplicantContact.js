@@ -26,7 +26,7 @@ const ApplicantContact = () => {
                 <div className="flex space-x-4">
                   <label className="mr-3"><input type="radio" name="idType" value="NIC" /> NIC</label>
                   <label className="mr-3"><input type="radio" name="idType" value="Passport" /> Passport</label>
-                  <label><input type="radio" name="idType" value="BusRegNo" /> Bus Reg No</label>
+                  <label><input type="radio" name="idType" value="BusRegNo" /> Business Reg No</label>
                 </div>
                
               </div>
@@ -143,7 +143,7 @@ const ApplicantContact = () => {
                 </label>
                 <div className="flex space-x-4">
                   <label className="mr-3"><input type="radio" name="idType" value="yes" /> Yes</label>
-                  <label><input type="radio" name="idType" value="no" /> No</label>
+                  <label><input type="radio" name="idType" value="no" defaultChecked/> No</label>
                 
                 </div>
                
@@ -160,7 +160,7 @@ const ApplicantContact = () => {
                 </label>
                 <div className="flex space-x-4">
                   <label className="mr-3"><input type="radio" name="idType" value="sinhala" />Sinhala</label>
-                  <label><input type="radio" name="idType" value="english" /> Engilsh</label>
+                  <label><input type="radio" name="idType" value="english" defaultChecked /> Engilsh</label>
                 
                 </div>
                

@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
-const TechnicalDetails = ({ setFormData, formData }) => {
-  const [data, setData] = useState(formData.technicalDetails || {
+const TechnicalDetails = () => {
+  const [formData, setFormData] = useState({
     tempId: "0",
-    mvlinetype: "",
+    mvlinetype: "MV Line - OTHER",
     demand: "",
     fundSource: "",
     SINno: "",
@@ -16,53 +16,38 @@ const TechnicalDetails = ({ setFormData, formData }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setData({ ...data, [name]: value });
-
-    // Update parent state in Tabs.js
-    setFormData((prev) => ({
-      ...prev,
-      technicalDetails: { ...data, [name]: value },
-    }));
+    setFormData({ ...formData, [name]: value });
   };
 
   return (
     <form>
       <div className="flex flex-wrap">
-        {[
-          { label: "Demand", name: "demand", type: "text" },
-          { label: "Fund Source", name: "fundSource", type: "text" },
-          { label: "SIN No", name: "SINno", type: "text" },
-          { label: "Existing Capacity (kVA)", name: "existingCapacity", type: "text" },
-          { label: "New Capacity (kVA)", name: "newCapacity", type: "text" },
-          { label: "Voltage Level", name: "voltLevel", type: "text" },
-          { label: "Line Length in Customer Premises (m)", name: "lineLengthCustomer", type: "text" },
-          { label: "Line Length of MV Line Outside (km)", name: "lineLengthOutside", type: "text" },
-        ].map((field, index) => (
-          <div key={index} className="w-full lg:w-6/12 px-4 py-3">
-            <div className="relative w-full mb-3">
-              <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
-                Demand
-              </label>
-              <input
-                type={field.type}
-                name={field.name}
-                value={data[field.name]}
-                onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-        ))}
-
-        {/* Dropdown: MV Line Type */}
         <div className="w-full lg:w-6/12 px-4 py-3">
           <div className="relative w-full mb-3">
-            <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Demand
+            </label>
+            <input
+              type="email"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue="0"
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-6/12 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
               MV Line Type
             </label>
             <select
               name="mvlinetype"
-              value={data.mvlinetype}
+              value={formData.mvlinetype}
               onChange={handleChange}
               className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
             >
@@ -73,7 +58,112 @@ const TechnicalDetails = ({ setFormData, formData }) => {
             </select>
           </div>
         </div>
-        
+        <div className="w-full lg:w-6/12 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Fund Source
+            </label>
+            <input
+              type="text"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue=""
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-6/12 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              SIN No
+            </label>
+            <input
+              type="text"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue=""
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-6/12 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Existing Capacity(kVA)
+            </label>
+            <input
+              type="text"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue=""
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-6/12 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              New Capacity(kVA)
+            </label>
+            <input
+              type="text"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue=""
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-6/12 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Voltage Level
+            </label>
+            <input
+              type="text"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue=""
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-1 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Line Length of the Customer Premises(m) (Maximum values : 100m for
+              95kVA and 200m for 70kVA)
+            </label>
+            <input
+              type="text"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue=""
+            />
+          </div>
+        </div>
+        <div className="w-full lg:w-1 px-4 py-3">
+          <div className="relative w-full mb-3">
+            <label
+              className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+              htmlFor="grid-password"
+            >
+              Line Length of MV Line Outside the Customer Premises(km)
+            </label>
+            <input
+              type="text"
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              defaultValue=""
+            />
+          </div>
+        </div>
       </div>
     </form>
   );

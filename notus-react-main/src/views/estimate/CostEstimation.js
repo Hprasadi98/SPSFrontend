@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import axios from "axios";
-
+import { useState } from "react";
 import GeneralInfo from "../../components/EstimationForms/GeneralInfo";
 import TechnicalDetails from "../../components/EstimationForms/TechnicalDetails";
 import CostMeasurements from "../../components/EstimationForms/CostMeasurements";
@@ -18,14 +16,6 @@ const Tabs = () => {
     { name: "Actions", content: <Actions /> },
   ];
 
-  const [formData, setFormData] = useState({
-    generalInfo: {},
-    technicalDetails: {},
-    costMeasurements: {},
-    standardRates: {},
-    actions: {},
-  });
-
   const handleNext = () => {
     if (activeTab < tabs.length - 1) {
       setActiveTab(activeTab + 1);
@@ -35,17 +25,6 @@ const Tabs = () => {
   const handlePrev = () => {
     if (activeTab > 0) {
       setActiveTab(activeTab - 1);
-    }
-  };
-
-  const handleSubmit = async () => {
-    try {
-      const response = await axios.post("http://localhost:8081/api/estimation", formData);
-      console.log("Success:", response.data);
-      alert("Data saved successfully!");
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Failed to save data.");
     }
   };
 

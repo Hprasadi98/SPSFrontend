@@ -17,11 +17,9 @@ const AppDetails = () => {
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="430.00/ABS/25/xxxx"
                 />
-                <div className="flex items-center text-white bg-lightBlue-600 rounded-lg ml-2">
-                  <button className="text-sm px-4 h-full border-0 rounded-lg">
+                  <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
                     Search
                   </button>
-                </div>
               </div>
             </div>
           </div>
@@ -225,7 +223,7 @@ const AppDetails = () => {
               </label>
               <div className="flex gap-4 mt-6">
                 <label className="text-sm mr-4">
-                  <input type="radio" name="isLoanApp" value="Yes" /> Yes - 75%
+                  <input type="radio" name="isLoanApp" defaultChecked value="Yes" /> Yes - 75%
                   Loan Scheme
                 </label>
                 <label className="text-sm">

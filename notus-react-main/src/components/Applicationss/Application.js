@@ -1,6 +1,7 @@
 import AppDetails from "components/Tabs/AppDetail";
 import LocationalDetails from "components/Tabs/LocationalDetail";
 import PersonalDetails from "components/Tabs/PersonalDetail";
+import TechDetails from "components/Tabs/TechDetails";
 import { useState } from "react";
 
 const Application = () => {
@@ -13,6 +14,7 @@ const Application = () => {
           { id: "application", label: "Application Details" },
           { id: "personal", label: "Personal Details" },
           { id: "locational", label: "Locational Details" },
+          { id: "technical", label: "Technical Details" },
         ].map((tab) => (
           <button
             key={tab.id}
@@ -33,7 +35,7 @@ const Application = () => {
         {activeTab === "application" && (
           <>
             <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
-              <AppDetails/>
+              <AppDetails />
             </div>
           </>
         )}
@@ -41,7 +43,7 @@ const Application = () => {
         {activeTab === "personal" && (
           <>
             <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
-              <PersonalDetails/>
+              <PersonalDetails />
             </div>
           </>
         )}
@@ -49,7 +51,15 @@ const Application = () => {
         {activeTab === "locational" && (
           <>
             <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
-              <LocationalDetails/>
+              <LocationalDetails />
+            </div>
+          </>
+        )}
+
+        {activeTab === "technical" && (
+          <>
+            <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
+              <TechDetails />
             </div>
           </>
         )}

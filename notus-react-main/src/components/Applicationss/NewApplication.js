@@ -19,8 +19,15 @@ const tabs = [
   { id: "technical", label: "Technical Details", component: <TechDetails /> },
 ];
 
-const NewApplication = () => {
+const NewApplication = ({ onFormSubmit }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const [formData, setFormData] = useState({
+    appDetails: {},
+    personalDetails: {},
+    locationalDetails: {},
+    techDetails: {},
+  });
 
   const handleNext = () => {
     if (currentIndex < tabs.length - 1) {
@@ -34,8 +41,15 @@ const NewApplication = () => {
     }
   };
 
+  const handleInputChange = (section, data) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [section]: { ...prevData[section], ...data },
+    }));
+  };
+
   const handleSubmit = () => {
-    alert("Form Submitted!");
+    onFormSubmit(formData);
   };
 
   return (
@@ -80,7 +94,30 @@ const NewApplication = () => {
       {/* Tab Content */}
       <div className="p-6">
         <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
-          {tabs[currentIndex].component}
+          {tabs[currentIndex].id === "application" && (
+            <AppDetails
+              onInputChange={(data) => handleInputChange("appDetails", data)}
+            />
+          )}
+          {tabs[currentIndex].id === "personal" && (
+            <PersonalDetails
+              onInputChange={(data) => handleInputChange("personalDetails", data)}
+            />
+          )}
+          {tabs[currentIndex].id === "locational" && (
+            <LocationalDetails
+              onInputChange={(data) =>
+                handleInputChange("locationalDetails", data)
+              }
+            />
+          )}
+          {tabs[currentIndex].id === "technical" && (
+            <TechDetails
+              onInputChange={(data) =>
+                handleInputChange("techDetails", data)
+              }
+            />
+          )}
         </div>
       </div>
     </div>

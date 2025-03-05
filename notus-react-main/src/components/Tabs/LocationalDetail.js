@@ -1,4 +1,20 @@
-const LocationalDetails = () => {
+import { useState } from "react";
+
+const LocationalDetails = ({ onInputChange }) => {
+  const [locationalData, setLocationalData] = useState({
+    streetAddress: "matara",
+    suburb: "galle",
+    city: "galler",
+    postalCode: "86010",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newData = { ...locationalData, [name]: value };
+    setLocationalData(newData);
+    onInputChange(newData);
+  };
+
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
@@ -13,6 +29,9 @@ const LocationalDetails = () => {
               </label>
               <input
                 type="text"
+                name="address"
+                value={locationalData.address}
+                onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -27,6 +46,9 @@ const LocationalDetails = () => {
               </label>
               <input
                 type="text"
+                name="suburb"
+                value={locationalData.suburb}
+                onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -41,6 +63,9 @@ const LocationalDetails = () => {
               </label>
               <input
                 type="text"
+                name="city"
+                value={locationalData.city}
+                onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -56,11 +81,14 @@ const LocationalDetails = () => {
               <div className="flex">
                 <input
                   type="text"
+                  name="zipCode"
+                  value={locationalData.zipCode}
+                  onChange={handleChange}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
                 <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
-                    Search
-                  </button>
+                  Search
+                </button>
               </div>
             </div>
           </div>
@@ -185,7 +213,13 @@ const LocationalDetails = () => {
               </label>
               <div className="flex gap-4 mt-4">
                 <label className="text-sm mr-4">
-                  <input type="radio" name="ownership" defaultChecked value="owner" /> Owner
+                  <input
+                    type="radio"
+                    name="ownership"
+                    defaultChecked
+                    value="owner"
+                  />{" "}
+                  Owner
                 </label>
                 <label className="text-sm mr-4">
                   <input type="radio" name="ownership" value="rent" /> Rent
@@ -206,7 +240,13 @@ const LocationalDetails = () => {
               </label>
               <div className="flex gap-4 mt-4">
                 <label className="text-sm mr-4">
-                  <input type="radio" name="ownercertify" defaultChecked value="Yes" /> Yes
+                  <input
+                    type="radio"
+                    name="ownercertify"
+                    defaultChecked
+                    value="Yes"
+                  />{" "}
+                  Yes
                 </label>
                 <label className="text-sm">
                   <input type="radio" name="ownercertify" value="No" /> No
@@ -223,8 +263,14 @@ const LocationalDetails = () => {
                 Is Government Place
               </label>
               <div className="flex gap-4 mt-4">
-              <label className="text-sm mr-4">
-                  <input type="radio" name="isgovern" defaultChecked value="Yes" /> Yes
+                <label className="text-sm mr-4">
+                  <input
+                    type="radio"
+                    name="isgovern"
+                    defaultChecked
+                    value="Yes"
+                  />{" "}
+                  Yes
                 </label>
                 <label className="text-sm">
                   <input type="radio" name="isgovern" value="No" /> No

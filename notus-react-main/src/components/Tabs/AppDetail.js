@@ -1,4 +1,18 @@
-const AppDetails = () => {
+import { useState } from "react";
+
+const AppDetails = ({ onInputChange }) => {
+  const [appData, setAppData] = useState({
+    description: "",
+    jobName: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newData = { ...appData, [name]: value };
+    setAppData(newData);
+    onInputChange(newData);
+  };
+
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
@@ -17,9 +31,9 @@ const AppDetails = () => {
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="430.00/ABS/25/xxxx"
                 />
-                  <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
-                    Search
-                  </button>
+                <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                  Search
+                </button>
               </div>
             </div>
           </div>
@@ -163,6 +177,9 @@ const AppDetails = () => {
               </label>
               <input
                 type="text"
+                name="description"
+                value={appData.description}
+                onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -209,6 +226,9 @@ const AppDetails = () => {
               </label>
               <input
                 type="text"
+                name="jobName"
+                value={appData.jobName}
+                onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -223,8 +243,13 @@ const AppDetails = () => {
               </label>
               <div className="flex gap-4 mt-6">
                 <label className="text-sm mr-4">
-                  <input type="radio" name="isLoanApp" defaultChecked value="Yes" /> Yes - 75%
-                  Loan Scheme
+                  <input
+                    type="radio"
+                    name="isLoanApp"
+                    defaultChecked
+                    value="Yes"
+                  />{" "}
+                  Yes - 75% Loan Scheme
                 </label>
                 <label className="text-sm">
                   <input type="radio" name="isLoanApp" value="No" /> No

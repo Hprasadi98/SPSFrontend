@@ -12,7 +12,6 @@ const Tabs = () => {
       idNo: "233",
       preparedBy: "ha",
       status:"bn",
-      // Add other hardcoded fields as needed
     };
 
     // Merge hardcoded data with form data
@@ -32,6 +31,7 @@ const Tabs = () => {
 
       if (response.ok) {
         alert("Form submitted successfully!");
+        setFormData(null);
       } else {
         alert("Form submission failed!");
       }

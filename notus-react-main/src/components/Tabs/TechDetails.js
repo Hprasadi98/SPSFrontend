@@ -1,4 +1,24 @@
+import React, { useState } from "react";
+import { useDropzone } from "react-dropzone";
+import { FaCloudUploadAlt, FaTrash, FaCheck } from "react-icons/fa";
+import { BsFileEarmark } from "react-icons/bs";
+
 const TechDetails = () => {
+  const [files, setFiles] = useState([]);
+  const [selectedDoc, setSelectedDoc] = useState("");
+
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: "image/*,application/pdf",
+    maxSize: 1024 * 1024, // 1MB limit
+    onDrop: (acceptedFiles) => {
+      setFiles([...files, ...acceptedFiles]);
+    },
+  });
+
+  const removeFile = (name) => {
+    setFiles(files.filter((file) => file.name !== name));
+  };
+
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
@@ -108,6 +128,84 @@ const TechDetails = () => {
                 <option value="Industry">Industry</option>
                 <option value="AREA - OTHER">OTHER</option>
               </select>
+            </div>
+          </div>
+          <div className="w-full lg:w-6/12 px-4">
+            <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+              Document to Be Submitted
+            </label>
+            <select
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              onChange={(e) => setSelectedDoc(e.target.value)}
+            >
+              <option value="">Select Document</option>
+              <option value="id_proof">ID Proof</option>
+              <option value="address_proof">Address Proof</option>
+            </select>
+
+            <div
+              {...getRootProps()}
+              className="mt-4 p-8 border-2 border-blue-600 border-dashed rounded-lg text-center cursor-pointer"
+            >
+              <input {...getInputProps()} />
+              <FaCloudUploadAlt size={35} className="mx-auto text-gray-500" />
+              <p className="block text-blueGray-600 text-xs mb-2">
+                Drag & Drop files here or click to upload
+              </p>
+            </div>
+
+            <div className="mt-4 space-y-2">
+              {files.map((file) => (
+                <div
+                  key={file.name}
+                  className="flex items-center justify-between p-2 border rounded-lg"
+                >
+                  <span className="truncate">{file.name}</span>
+                  <FaTrash
+                    className="text-red-500 cursor-pointer"
+                    onClick={() => removeFile(file.name)}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="w-full lg:w-6/12 px-4">
+            <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+              Document to Be Submitted
+            </label>
+            <select
+              className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              onChange={(e) => setSelectedDoc(e.target.value)}
+            >
+              <option value="">Select Document</option>
+              <option value="id_proof">ID Proof</option>
+              <option value="address_proof">Address Proof</option>
+            </select>
+
+            <div
+              {...getRootProps()}
+              className="mt-4 p-8 border-2 border-blue-600 border-dashed rounded-lg text-center cursor-pointer"
+            >
+              <input {...getInputProps()} />
+              <FaCloudUploadAlt size={35} className="mx-auto text-gray-500" />
+              <p className="block text-blueGray-600 text-xs mb-2">
+                Drag & Drop files here or click to upload
+              </p>
+            </div>
+
+            <div className="mt-4 space-y-2">
+              {files.map((file) => (
+                <div
+                  key={file.name}
+                  className="flex items-center justify-between p-2 border rounded-lg"
+                >
+                  <span className="truncate">{file.name}</span>
+                  <FaTrash
+                    className="text-red-500 cursor-pointer"
+                    onClick={() => removeFile(file.name)}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </div>

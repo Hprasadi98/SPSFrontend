@@ -3,6 +3,7 @@ import LocationalDetails from "components/Tabs/LocationalDetail";
 import PersonalDetails from "components/Tabs/PersonalDetail";
 import TechDetails from "components/Tabs/TechDetails";
 import { useState } from "react";
+import React from "react";
 
 const tabs = [
   {
@@ -101,7 +102,9 @@ const NewApplication = ({ onFormSubmit }) => {
           )}
           {tabs[currentIndex].id === "personal" && (
             <PersonalDetails
-              onInputChange={(data) => handleInputChange("personalDetails", data)}
+              onInputChange={(data) =>
+                handleInputChange("personalDetails", data)
+              }
             />
           )}
           {tabs[currentIndex].id === "locational" && (
@@ -113,9 +116,7 @@ const NewApplication = ({ onFormSubmit }) => {
           )}
           {tabs[currentIndex].id === "technical" && (
             <TechDetails
-              onInputChange={(data) =>
-                handleInputChange("techDetails", data)
-              }
+              onInputChange={(data) => handleInputChange("techDetails", data)}
             />
           )}
         </div>
@@ -125,3 +126,4 @@ const NewApplication = ({ onFormSubmit }) => {
 };
 
 export default NewApplication;
+

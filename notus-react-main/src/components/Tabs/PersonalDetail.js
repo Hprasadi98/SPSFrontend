@@ -1,6 +1,20 @@
-const PersonalDetails = () => {
+import React, { useState } from 'react';
+
+const PersonalDetails = ({ onInputChange }) => {
+  const [personalData, setpersonalData] = useState({
+    idType:"",
+    idNo: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newData = { ...personalData, [name]: value };
+    setpersonalData(newData);
+    onInputChange(newData);
+  };
+
   return (
-    <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
+    <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
       <form>
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
@@ -13,6 +27,9 @@ const PersonalDetails = () => {
               </label>
               <input
                 type="text"
+                name="idType"
+                value={personalData.idType}
+                onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -28,6 +45,9 @@ const PersonalDetails = () => {
               <div className="flex ">
                 <input
                   type="text"
+                  name="idNo"
+                  value={personalData.idNo}
+                  onChange={handleChange}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
                 <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">

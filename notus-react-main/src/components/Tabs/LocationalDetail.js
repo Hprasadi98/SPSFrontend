@@ -2,10 +2,10 @@ import { useState } from "react";
 
 const LocationalDetails = ({ onInputChange }) => {
   const [locationalData, setLocationalData] = useState({
-    streetAddress: "matara",
-    suburb: "galle",
-    city: "galler",
-    postalCode: "86010",
+    streetAddress: "",
+    suburb: "",
+    city: "",
+    postalCode: "",
   });
 
   const handleChange = (e) => {
@@ -16,7 +16,7 @@ const LocationalDetails = ({ onInputChange }) => {
   };
 
   return (
-    <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
+    <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
       <form>
         <div className="flex flex-wrap">
           <div className="w-full lg:w-3/12 px-4">
@@ -29,8 +29,8 @@ const LocationalDetails = ({ onInputChange }) => {
               </label>
               <input
                 type="text"
-                name="address"
-                value={locationalData.address}
+                name="streetAddress"
+                value={locationalData.streetAddress}
                 onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
@@ -81,8 +81,8 @@ const LocationalDetails = ({ onInputChange }) => {
               <div className="flex">
                 <input
                   type="text"
-                  name="zipCode"
-                  value={locationalData.zipCode}
+                  name="postalCode"
+                  value={locationalData.postalCode}
                   onChange={handleChange}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />

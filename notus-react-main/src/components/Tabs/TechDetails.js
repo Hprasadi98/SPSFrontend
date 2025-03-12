@@ -20,7 +20,7 @@ const TechDetails = () => {
   };
 
   return (
-    <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
+    <div className="flex-auto px-4 lg:px-10 pt-2">
       <form>
         <div className="flex flex-wrap">
           <div className="w-full lg:w-3/12 px-4">

@@ -7,7 +7,7 @@ import HeaderNoStats from "components/Headers/HeaderNoStats.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 import CostEstimation from "views/estimate/CostEstimation.js";
-
+import StandardRates from "views/estimate/StandardRates.js";
 
 export default function Estimation() {
   return (
@@ -20,6 +20,7 @@ export default function Estimation() {
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Switch>
             <Route path="/estimate/estimate" exact component={CostEstimation} />
+            <Route path="/estimate/standard-rates" exact component={StandardRates} />
 
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>

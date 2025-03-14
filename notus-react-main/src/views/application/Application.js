@@ -26,7 +26,9 @@ const Tabs = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            Authorization: "Basic " + btoa("user:admin123"),
           },
+          credentials: "include",
           body: JSON.stringify(mergedData),
         }
       );

@@ -16,6 +16,7 @@ export default function Login() {
           Authorization: "Basic " + btoa("user:admin123"),
         },
         body: JSON.stringify({ email, password }),
+        credentials: "include",
       });
       // const data = await response.json();
       const contentType = response.headers.get("content-type");
@@ -28,6 +29,9 @@ export default function Login() {
       if (response.ok) {
         // Extract user level from the response
         const userlevel = data.userLevel; // Ensure the backend sends this value
+
+        sessionStorage.setItem("user", JSON.stringify(data));
+        sessionStorage.setItem("isAuthenticated", "true");
 
         if (userlevel === "CE") {
           history.push("/admin/dashboardCE");

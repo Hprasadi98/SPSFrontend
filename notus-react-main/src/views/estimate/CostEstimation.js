@@ -82,18 +82,36 @@ const Tabs = () => {
   }, [generalInfo, technicalDetails, costMeasurements]);
 
   const handleSubmit = async () => {
-    // Check if appNo, stdNo, and deptId are not empty
-    if (!generalInfo.appNo || !generalInfo.stdNo || !generalInfo.deptId) {
-      alert("Please fill in appNo, stdNo, and deptId.");
-      return; // Prevent the form submission
+    if (!generalInfo.stdNo || !generalInfo.deptId) {
+      alert("Please fill in stdNo and deptId.");
+      return;
     }
-
+  
     const payload = {
-      generalInfo,
-      technicalDetails,
-      costMeasurements,
+      stdNo: "1483369", // Hardcoded stdNo
+      deptId: "510.00",  // Hardcoded deptId
+      jobName: "Job Name Example", // Hardcoded job name
+      description: "Job Description Example", // Hardcoded description
+      beneficiaries: "Beneficiaries Info", // Hardcoded beneficiaries
+      powerSupply: "Power Supply Info", // Hardcoded power supply info
+      rejectedReason: null, // Hardcoded rejected reason
+      entryDate: new Date().toISOString(), // Use the current date for entry
+      demand: "Demand Example", // Hardcoded demand
+      mvlinetype: "MV Line - OTHER", // Hardcoded mvlinetype
+      fundSource: "Fund Source Info", // Hardcoded fund source
+      sinNo: "SIN123456", // Hardcoded SIN number
+      existingCapacity: "100", // Hardcoded existing capacity
+      newCapacity: "150", // Hardcoded new capacity
+      voltageLevel: "11kV", // Hardcoded voltage level
+      lineLengthCustomerPremises: "200", // Hardcoded line length for customer premises
+      lineLengthMVLineOutsideCustomerPremises: "300", // Hardcoded line length for MV Line outside customer premises
+      securityDeposit: "5000", // Hardcoded security deposit
+      vat: "1000", // Hardcoded VAT
+      nbt: "2000", // Hardcoded NBT
+      loanPercentage: "5", // Hardcoded loan percentage
+      totalCost: "25000", // Hardcoded total cost
     };
-
+  
     try {
       const response = await fetch("http://localhost:8081/api/estimation", {
         method: "POST",
@@ -102,9 +120,9 @@ const Tabs = () => {
         },
         body: JSON.stringify(payload),
       });
-
+  
       if (response.ok) {
-        alert("Details saved successfully!");
+        alert(`Details saved successfully! AppNo: ${payload.appNo}`);
       } else {
         alert("Failed to save details");
       }
@@ -113,6 +131,8 @@ const Tabs = () => {
       alert("Error saving details");
     }
   };
+  
+  
 
   const tabs = [
     {
@@ -174,35 +194,37 @@ const Tabs = () => {
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
       <div className="w-full max-w-4xl px-4">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded p-1">
-          
-         {/* Stepper */}
-      <div className="flex justify-between items-center mb-4 mt-4">
-        {tabs.map((tab, index) => (
-          <div
-            key={tab.id}
-            className={`flex-1 flex flex-col items-center cursor-pointer ${
-              index <= activeTab
-                ? "text-blue-600 uppercase"
-                : index === activeTab
-                ? "text-blue-600 uppercase"
-                : "text-gray-400 uppercase"
-            }`}
-          >
-            <div
-              className={`w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all ${
-                index < activeTab
-                  ? "bg-emerald-400 text-white border-blue-600"
-                  : index === activeTab
-                  ? "bg-red-400 text-white border-orange-600"
-                  : "border-gray-400"
-              }`}
-            >
-              {index + 1}
-            </div>
-            <span className="text-xs mt-2">{tab.name}</span>
+          {/* Stepper */}
+          <div className="flex justify-between items-center mb-4 mt-4 relative w-full">
+            {tabs.map((tab, index) => (
+              <div
+                key={index}
+                className="relative flex-1 flex flex-col items-center"
+              >
+                {index < tabs.length - 1 && (
+                  <div
+                    className={`absolute top-5 left-1/2 w-full h-1 -z-10 ${
+                      completedTabs[index] ? "bg-emerald-400" : "bg-gray-300"
+                    }`}
+                  />
+                )}
+
+                {/* Step circle */}
+                <div
+                  className={`relative z-10 w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all ${
+                    completedTabs[index]
+                      ? "bg-emerald-400 text-white border-blue-600"
+                      : index === activeTab
+                      ? "bg-red-400 text-white border-orange-600"
+                      : "border-gray-400"
+                  }`}
+                >
+                  {index + 1}
+                </div>
+                <span className="text-xs mt-2">{tab.name}</span>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>    
 
           <div className="flex justify-between items-center mb-1">
             <h6 className="px-6 py-0 text-xl font-bold text-blueGray-700">

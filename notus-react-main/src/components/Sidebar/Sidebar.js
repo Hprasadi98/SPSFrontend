@@ -220,15 +220,15 @@ export default function Sidebar() {
                   Cost Estimation
                 </Link>
               </li>
-              {/* <li className="items-center">
+              <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/estimate2" // Add this if you have an Estimate2 component
+                  to="/estimate/standard-rates"
                 >
                   <i className="fas fa-file-invoice-dollar mr-2 text-blueGray-400 text-sm"></i>
-                  Estimate 2
+                  CEB Standard Rates
                 </Link>
-              </li> */}
+              </li>
             </ul>
 
             {/* Divider */}

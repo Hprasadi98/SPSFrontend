@@ -5,11 +5,9 @@ const Tabs = () => {
 
   const handleFormSubmit = async (data) => {
     const hardcodedData = {
-      applicationId: "ha",
-      deptId: "har",
-      applicationType: "jj",
+      applicationId: "145",
+      applicationType: "gy",
       submitDate: "2021-09-01",
-      preparedBy: "ha",
       status: "bn",
     };
 

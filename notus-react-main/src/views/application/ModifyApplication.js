@@ -1,9 +1,9 @@
 import NewApplication from "components/Applicationss/NewApplication";
 import { useState, useEffect } from "react";
-const NewApp = () => {
+const ModifyApp = () => {
   const [formData, setFormData] = useState();
 
-  const handleFormSubmit = async (data) => {
+  const handleFormModify = async (data) => {
     const hardcodedData = {
       applicationId: "145",
       applicationType: "gy",
@@ -19,7 +19,7 @@ const NewApp = () => {
     // Send the data to the backend via REST API
     try {
       const response = await fetch(
-        "http://localhost:8081/api/application/save",
+        "http://localhos/modify",
         {
           method: "POST",
           headers: {
@@ -32,9 +32,9 @@ const NewApp = () => {
       );
 
       if (response.ok) {
-        alert("Form submitted successfully!");
+        alert("Form modified successfully!");
       } else {
-        alert("Form submission failed!");
+        alert("Form modification failed!");
       }
     } catch (error) {
       alert("An error occurred!");
@@ -45,10 +45,10 @@ const NewApp = () => {
   return (
     <div className="container mx-auto rounded-lg">
       <div className="flex justify-center px-4 mb-5 mx-48 mt-5 md:px-10 lg:px-20 rounded-lg">
-        <NewApplication onFormSubmit={handleFormSubmit} isModify={false}/>
+        <NewApplication onFormSubmit={handleFormModify} isModify={true}/>
       </div>
     </div>
   );
 };
 
-export default NewApp;
+export default ModifyApp;

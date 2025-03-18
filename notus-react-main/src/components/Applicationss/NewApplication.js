@@ -21,7 +21,7 @@ const tabs = [
   { id: "technical", label: "Technical Details", component: <TechDetails /> },
 ];
 
-const NewApplication = ({ onFormSubmit }) => {
+const NewApplication = ({ onFormSubmit, isModify }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [formData, setFormData] = useState({
     appDetails: {},
@@ -154,7 +154,7 @@ const NewApplication = ({ onFormSubmit }) => {
             onClick={handleSubmit}
             className="bg-emerald-400 text-white active:bg-emerald-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
-            Submit
+            {isModify ? "Modify" : "Submit"}
           </button>
         )}
       </div>

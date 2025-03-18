@@ -5,8 +5,8 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import Sidebar from "components/Sidebar/Sidebar.js";
 
 //views
-import NewApp from "views/application/NewApp";
-import Tabs from "views/application/Application";
+import NewApp from "views/application/Application";
+import ModifyApp from "views/application/ModifyApplication";
 
 export default function Application() {
     return (
@@ -17,9 +17,10 @@ export default function Application() {
             </div>
             <div className="relative px-4 md:px-10 mx-auto w-full h-screen -m-24">
               <Switch>
-                <Route path="/application/newapp" exact component={NewApp} />
-                <Route path="/application/tabs" exact component={Tabs} />
-                <Redirect from="/application" to="/application/newapp" />
+                {/* <Route path="/application/newapp" exact component={NewApp} /> */}
+                <Route path="/application/new" exact component={NewApp} />
+                <Route path="/application/modify" exact component={ModifyApp} />
+                {/* <Redirect from="/application" to="/application/newapp" /> */}
               </Switch>
             </div>
           </div>

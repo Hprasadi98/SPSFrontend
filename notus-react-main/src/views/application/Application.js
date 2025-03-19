@@ -1,18 +1,30 @@
 import NewApplication from "components/Applicationss/NewApplication";
 import { useState, useEffect } from "react";
 const NewApp = () => {
-  const [formData, setFormData] = useState();
+  const [isModify, setisModify] = useState(false);
+
+  const [formData, setFormData] = useState({
+    appDetails: {},
+    personalDetails: {},
+    locationalDetails: {},
+    techDetails: {},
+  });
 
   const handleFormSubmit = async (data) => {
     const hardcodedData = {
-      applicationId: "145",
       applicationType: "gy",
       submitDate: "2021-09-01",
       status: "bn",
     };
 
     // Merge hardcoded data with form data
-    const mergedData = { ...data, idNo: data.personalDetails?.idNo || "", ...hardcodedData };
+    const mergedData = {
+      ...data,
+      idNo: data.personalDetails?.idNo || "",
+      applicationId: data.appDetails?.applicationId || "",
+      description: data.appDetails?.description || "",
+      ...hardcodedData,
+    };
 
     setFormData(mergedData);
     console.log(mergedData);
@@ -45,7 +57,7 @@ const NewApp = () => {
   return (
     <div className="container mx-auto rounded-lg">
       <div className="flex justify-center px-4 mb-5 mx-48 mt-5 md:px-10 lg:px-20 rounded-lg">
-        <NewApplication onFormSubmit={handleFormSubmit} isModify={false}/>
+        <NewApplication onFormSubmit={handleFormSubmit} isModify={isModify} formData={formData} setFormData={setFormData}/>
       </div>
     </div>
   );

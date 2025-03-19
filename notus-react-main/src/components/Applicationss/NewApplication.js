@@ -21,14 +21,14 @@ const tabs = [
   { id: "technical", label: "Technical Details", component: <TechDetails /> },
 ];
 
-const NewApplication = ({ onFormSubmit, isModify }) => {
+const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleSearch }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [formData, setFormData] = useState({
-    appDetails: {},
-    personalDetails: {},
-    locationalDetails: {},
-    techDetails: {},
-  });
+  // const [formData, setFormData] = useState({
+  //   appDetails: {},
+  //   personalDetails: {},
+  //   locationalDetails: {},
+  //   techDetails: {},
+  // });
 
   const handleNext = () => {
     if (currentIndex < tabs.length - 1) setCurrentIndex((prev) => prev + 1);
@@ -104,11 +104,15 @@ const NewApplication = ({ onFormSubmit, isModify }) => {
         {tabs[currentIndex].id === "application" && (
           <AppDetails
             onInputChange={(data) => handleInputChange("appDetails", data)}
+            isModify={isModify}
+            data={formData.appDetails}
+            handleSearch={handleSearch}
           />
         )}
         {tabs[currentIndex].id === "personal" && (
           <PersonalDetails
             onInputChange={(data) => handleInputChange("personalDetails", data)}
+            data={formData.PersonalDetails}
           />
         )}
         {tabs[currentIndex].id === "locational" && (
@@ -116,11 +120,13 @@ const NewApplication = ({ onFormSubmit, isModify }) => {
             onInputChange={(data) =>
               handleInputChange("locationalDetails", data)
             }
+            data={formData.LocationalDetails}
           />
         )}
         {tabs[currentIndex].id === "technical" && (
           <TechDetails
             onInputChange={(data) => handleInputChange("techDetails", data)}
+            //data={formData.TechDetails}
           />
         )}
       </div>
@@ -130,7 +136,7 @@ const NewApplication = ({ onFormSubmit, isModify }) => {
         {currentIndex === 0 ? (
           <button
             disabled
-            className="bg-lightBlue-300 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            className="bg-lightBlue-300 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor:not-allowed"
           >
             Previous
           </button>
@@ -154,7 +160,7 @@ const NewApplication = ({ onFormSubmit, isModify }) => {
             onClick={handleSubmit}
             className="bg-emerald-400 text-white active:bg-emerald-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
-            {isModify ? "Modify" : "Submit"}
+            {isModify ? "Update" : "Submit"}
           </button>
         )}
       </div>

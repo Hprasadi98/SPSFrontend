@@ -1,12 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 
-const PersonalDetails = ({ onInputChange}) => {
+const PersonalDetails = ({ onInputChange, data }) => {
   const [personalData, setpersonalData] = useState({
-    idType:"",
+    idType: "",
     idNo: "",
-    fname: '',
-    lname: '',
+    fname: "",
+    lname: "",
   });
+
+  useEffect(() => {
+      if (data) {
+        setpersonalData(data);
+      }
+    }, [data]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,45 +24,46 @@ const PersonalDetails = ({ onInputChange}) => {
   const handleSearch = async (e) => {
     e.preventDefault();
     if (!personalData.idNo) {
-      alert('Please enter an ID number');
+      alert("Please enter an ID number");
       return;
     }
-  
+
     try {
-      const response = await fetch(`http://localhost:8081/api/v1/search?nicno=${personalData.idNo}`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: "Basic " + btoa("user:admin123"),
-        },
-        credentials: "include",
-      });
-  
+      const response = await fetch(
+        `http://localhost:8081/api/v1/search?nicno=${personalData.idNo}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa("user:admin123"),
+          },
+          credentials: "include",
+        }
+      );
+
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-  
+
       const data = await response.json(); // Parse JSON response properly
-  
+
       setpersonalData((prevData) => ({
         ...prevData,
-        fname: data.fname || '',
-        lname: data.lname || '',
+        fname: data.fname || "",
+        lname: data.lname || "",
       }));
-  
+
       // Call onInputChange with updated state
       onInputChange({
         ...personalData,
-        fname: data.fname || '',
-        lname: data.lname || '',
+        fname: data.fname || "",
+        lname: data.lname || "",
       });
-  
     } catch (error) {
-      console.error('Error fetching data:', error);
-      alert('Failed to retrieve details. Please check the ID number.');
+      console.error("Error fetching data:", error);
+      alert("Failed to retrieve details. Please check the ID number.");
     }
   };
-  
 
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
@@ -95,9 +102,12 @@ const PersonalDetails = ({ onInputChange}) => {
                   onChange={handleChange}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
-                <button onClick={handleSearch} className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
-                    Search
-                  </button>
+                <button
+                  onClick={handleSearch}
+                  className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                >
+                  Search
+                </button>
               </div>
             </div>
           </div>

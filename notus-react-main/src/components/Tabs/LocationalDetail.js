@@ -1,12 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const LocationalDetails = ({ onInputChange }) => {
+const LocationalDetails = ({ onInputChange, data }) => {
   const [locationalData, setLocationalData] = useState({
     streetAddress: "",
     suburb: "",
     city: "",
     postalCode: "",
   });
+
+  useEffect(() => {
+      if (data) {
+        setLocationalData(data);
+      }
+    }, [data]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

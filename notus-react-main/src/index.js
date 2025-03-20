@@ -8,27 +8,34 @@ import "assets/styles/tailwind.css";
 // layouts
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
+import Application from "layouts/Application.js";
 import Estimation from "layouts/Estimation.js";
 
 // views without layouts
 import Landing from "views/Landing.js";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
+import SessionCheck from "views/CheckSession";
 
 ReactDOM.render(
   <BrowserRouter>
-    <Switch>
-      {/* add routes with layouts */}
-      <Route path="/admin" component={Admin} />
-      <Route path="/auth" component={Auth} />
-      <Route path="/estimate" component={Estimation} />
-      {/* add routes without layouts */}
-      <Route path="/landing" exact component={Landing} />
-      <Route path="/profile" exact component={Profile} />
-      <Route path="/" exact component={Index} />
-      {/* add redirect for first page */}
-      <Redirect from="*" to="/" />
-    </Switch>
+    <>
+      <SessionCheck />
+      <Switch>
+        {/* add routes with layouts */}
+        <Route path="/admin" component={Admin} />
+        <Route path="/auth" component={Auth} />
+        <Route path="/application" component={Application} />
+        <Route path="/estimate" component={Estimation} />
+        {/* add routes without layouts */}
+        <Route path="/landing" exact component={Landing} />
+        <Route path="/profile" exact component={Profile} />
+        <Route path="/" exact component={Index} />
+        {/* add redirect for first page */}
+        <Redirect from="*" to="/" />
+      </Switch>
+    </>
+
   </BrowserRouter>,
   document.getElementById("root")
 );

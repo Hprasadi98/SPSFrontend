@@ -1,5 +1,5 @@
 import NewApplication from "components/Applicationss/NewApplication";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 const ModifyApp = () => {
   const [formData, setFormData] = useState({
     appDetails: {},
@@ -7,8 +7,6 @@ const ModifyApp = () => {
     locationalDetails: {},
     techDetails: {},
   });
-
-  const [isModify, setisModify] = useState(false);
 
   const handleFormModify = async (data) => {
     const hardcodedData = {
@@ -22,17 +20,19 @@ const ModifyApp = () => {
       ...data,
       idNo: data.personalDetails?.idNo || "",
       applicationId: data.appDetails?.applicationId || "",
+      description: data.appDetails?.description || "",
       ...hardcodedData,
     };
 
     setFormData(mergedData);
     console.log(mergedData);
     // Send the data to the backend via REST API
+    const applicationId = mergedData.applicationId;
     try {
       const response = await fetch(
-        "http://localhost:8081/api/application/update",
+        `http://localhost:8081/api/application/update?applicationId=${applicationId}`,
         {
-          method: "PUT",
+          method: "PATCH",
           headers: {
             "Content-Type": "application/json",
             Authorization: "Basic " + btoa("user:admin123"),

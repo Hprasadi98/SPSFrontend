@@ -23,15 +23,34 @@ const tabs = [
 
 const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleSearch }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [formData, setFormData] = useState({
-  //   appDetails: {},
-  //   personalDetails: {},
-  //   locationalDetails: {},
-  //   techDetails: {},
-  // });
+
+  // const validateCurrentTab = () => {
+  //   const currentTab = tabs[currentIndex].id;
+  //   const currentData = formData[currentTab];
+  //   if (!currentData) return false;
+
+  //   // Add validation logic for each tab
+  //   switch (currentTab) {
+  //     // case "application":
+  //     //   return currentData.applicationId && currentData.description;
+  //     case "personal":
+  //       return currentData.fname && currentData.lname;
+  //     // case "locational":
+  //     //   return currentData.address && currentData.city;
+  //     // case "technical":
+  //       // return currentData.techField1 && currentData.techField2;
+  //     default:
+  //       return true;
+  //   }
+  // };
 
   const handleNext = () => {
     if (currentIndex < tabs.length - 1) setCurrentIndex((prev) => prev + 1);
+    // if (validateCurrentTab()) {
+    //   if (currentIndex < tabs.length - 1) setCurrentIndex((prev) => prev + 1);
+    // } else {
+    //   alert("Please fill all required fields before proceeding.");
+    // }
   };
 
   const handlePrevious = () => {
@@ -112,7 +131,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         {tabs[currentIndex].id === "personal" && (
           <PersonalDetails
             onInputChange={(data) => handleInputChange("personalDetails", data)}
-            data={formData.PersonalDetails}
+            data={formData.personalDetails}
           />
         )}
         {tabs[currentIndex].id === "locational" && (
@@ -120,7 +139,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
             onInputChange={(data) =>
               handleInputChange("locationalDetails", data)
             }
-            data={formData.LocationalDetails}
+            data={formData.locationalDetails}
           />
         )}
         {tabs[currentIndex].id === "technical" && (

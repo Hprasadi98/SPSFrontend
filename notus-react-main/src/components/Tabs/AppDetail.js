@@ -20,52 +20,6 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
     onInputChange(newData);
   };
 
-  // const handleSearch = async (e) => {
-  //   e.preventDefault();
-  //   if (!appData.applicationId) {
-  //     alert("Please enter an ID number");
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await fetch(
-  //       `http://localhost:8081/api/application/search?applicationId=${appData.applicationId}`,
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: "Basic " + btoa("user:admin123"),
-  //         },
-  //         credentials: "include",
-  //       }
-  //     );
-
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! Status: ${response.status}`);
-  //     }
-
-  //     const data = await response.json(); // Parse JSON response properly
-
-  //     setAppData((prevData) => ({
-  //       ...prevData,
-  //       description: data.description || "",
-  //       jobName: data.jobName || "",
-  //     }));
-
-  //     // Call onInputChange with updated state
-  //     onInputChange({
-  //       ...setAppData,
-  //       description: data.description || "",
-  //       jobName: data.jobName || "",
-  //     });
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //     alert("Failed to retrieve details. Please check the ID number.");
-  //   }
-  // };
-
-  //console.log("isModyfy:", isModify); 
-
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
       <form>

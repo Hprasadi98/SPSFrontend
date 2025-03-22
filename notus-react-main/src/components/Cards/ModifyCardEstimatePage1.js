@@ -1,0 +1,191 @@
+import React, { useState, useEffect } from "react";
+
+function ModifyCardEstimatePage1({ formData, onChange, errors, onNext }) {
+  const [previousEstimates, setPreviousEstimates] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8082/api/pcesthtt/estimateNos")
+      .then((response) => response.json())
+      .then((data) => setPreviousEstimates(data))
+      .catch((error) => {
+        console.error("Error fetching estimate numbers:", error);
+        setPreviousEstimates([]);
+      });
+  }, []);
+
+  const fetchEstimateDetails = (estimateNo) => {
+    if (!estimateNo) return;
+
+    fetch(`http://localhost:8082/api/pcesthtt/estimate/${estimateNo}`)
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to fetch estimate details");
+        return response.json();
+      })
+      .then((data) => {
+        onChange({ target: { id: "estimateNo", value: data.id.estimateNo || "" } });
+        onChange({ target: { id: "costCenter", value: data.projectNo || "" } });
+        onChange({ target: { id: "estimateDt", value: data.etimateDt ? data.etimateDt.split("T")[0] : "" } });
+        onChange({ target: { id: "fileRef", value: data.fileRef || "" } });
+        onChange({ target: { id: "rejectReason", value: data.rejectReason || "" } });
+        onChange({ target: { id: "esName", value: data.clientNm || "" } });
+        onChange({ target: { id: "descr", value: data.descr || "" } });
+        onChange({ target: { id: "stdCost", value: data.stdCost || "" } });
+        onChange({ target: { id: "catCd", value: data.catCd || "" } });
+        onChange({ target: { id: "omsRefNo", value: data.omsRefNo || "" } });
+        onChange({ target: { id: "fundSource", value: data.fundSource || "" } });
+        onChange({ target: { id: "fundId", value: data.fundId || "" } });
+        onChange({ target: { id: "pivDate", value: data.pivDate ? data.pivDate.split("T")[0] : "" } });
+        onChange({ target: { id: "pivNumber", value: data.pivNumber || "" } });
+        onChange({ target: { id: "pivAmount", value: data.pivAmount || "" } });
+        onChange({ target: { id: "custContrib", value: data.custContrib || "" } });
+      })
+      .catch((error) => {
+        console.error("Error fetching estimate details:", error);
+        onChange({ target: { id: "costCenter", value: "" } });
+        onChange({ target: { id: "estimateDt", value: "" } });
+        onChange({ target: { id: "fileRef", value: "" } });
+        onChange({ target: { id: "rejectReason", value: "" } });
+        onChange({ target: { id: "esName", value: "" } });
+        onChange({ target: { id: "descr", value: "" } });
+        onChange({ target: { id: "stdCost", value: "" } });
+        onChange({ target: { id: "catCd", value: "" } });
+        onChange({ target: { id: "omsRefNo", value: "" } });
+        onChange({ target: { id: "fundSource", value: "" } });
+        onChange({ target: { id: "fundId", value: "" } });
+        onChange({ target: { id: "pivDate", value: "" } });
+        onChange({ target: { id: "pivNumber", value: "" } });
+        onChange({ target: { id: "pivAmount", value: "" } });
+        onChange({ target: { id: "custContrib", value: "" } });
+      });
+  };
+
+  return (
+    <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-white border-0">
+      <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
+        <form onSubmit={(e) => { e.preventDefault(); onNext(); }}>
+          <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">General Information</h6>
+          <div className="flex flex-wrap">
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="estimateNo">
+                  Estimate No
+                </label>
+                <select
+                  id="estimateNo"
+                  className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${errors.estimateNo ? "border-red-500" : ""}`}
+                  value={formData.estimateNo || ""}
+                  onChange={(e) => {
+                    onChange(e);
+                    fetchEstimateDetails(e.target.value);
+                  }}
+                >
+                  <option value="">--Select--</option>
+                  {previousEstimates.map((estimate, index) => (
+                    <option key={index} value={estimate}>{estimate}</option>
+                  ))}
+                </select>
+                {errors.estimateNo && <p className="text-red-500 text-xs mt-1">{errors.estimateNo}</p>}
+              </div>
+            </div>
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="costCenter">
+                  Cost Center (Project No)
+                </label>
+                <input
+                  type="text"
+                  id="costCenter"
+                  className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${errors.costCenter ? "border-red-500" : ""}`}
+                  value={formData.costCenter || ""}
+                  onChange={onChange}
+                  placeholder="Enter Cost Center"
+                  required
+                />
+                {errors.costCenter && <p className="text-red-500 text-xs mt-1">{errors.costCenter}</p>}
+              </div>
+            </div>
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="estimateDt">
+                  Estimate Date
+                </label>
+                <input
+                  type="date"
+                  id="estimateDt"
+                  className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${errors.estimateDt ? "border-red-500" : ""}`}
+                  value={formData.estimateDt || ""}
+                  onChange={onChange}
+                  required
+                />
+                {errors.estimateDt && <p className="text-red-500 text-xs mt-1">{errors.estimateDt}</p>}
+              </div>
+            </div>
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="fileRef">
+                  File Reference
+                </label>
+                <input
+                  type="text"
+                  id="fileRef"
+                  className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${errors.fileRef ? "border-red-500" : ""}`}
+                  value={formData.fileRef || ""}
+                  onChange={onChange}
+                  placeholder="Enter File Reference"
+                  required
+                />
+                {errors.fileRef && <p className="text-red-500 text-xs mt-1">{errors.fileRef}</p>}
+              </div>
+            </div>
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="rejectReason">
+                  Reject Reason
+                </label>
+                <input
+                  type="text"
+                  id="rejectReason"
+                  className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
+                  value={formData.rejectReason || ""}
+                  onChange={onChange}
+                  placeholder="Enter Reject Reason"
+                />
+              </div>
+            </div>
+            <div className="w-full lg:w-6/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="esName">
+                  Client Name
+                </label>
+                <input
+                  type="text"
+                  id="esName"
+                  className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
+                  value={formData.esName || ""}
+                  onChange={onChange}
+                  placeholder="Enter Client Name"
+                />
+              </div>
+            </div>
+            <div className="w-full lg:w-12/12 px-4">
+              <div className="relative w-full mb-3">
+                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="descr">
+                  Description
+                </label>
+                <textarea
+                  id="descr"
+                  className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full h-48 resize-vertical"
+                  value={formData.descr || ""}
+                  onChange={onChange}
+                  placeholder="Enter Description"
+                />
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default ModifyCardEstimatePage1;

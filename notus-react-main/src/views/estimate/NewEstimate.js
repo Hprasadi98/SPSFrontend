@@ -12,9 +12,6 @@ const Tabs = () => {
   const [completedTabs, setCompletedTabs] = useState(Array(6).fill(false));
 
   const [generalInfo, setGeneralInfo] = useState({
-    // appNo: "",
-    // stdNo: "12",
-    // deptId: "510",
 
     appNo: "",
     stdNo: "",
@@ -88,28 +85,32 @@ const Tabs = () => {
     }
   
     const payload = {
-      stdNo: "1483369", // Hardcoded stdNo
+      appNo: generalInfo.appNo,
+      stdNo: generalInfo.appNo, 
       deptId: "510.00",  // Hardcoded deptId
-      jobName: "Job Name Example", // Hardcoded job name
-      description: "Job Description Example", // Hardcoded description
-      beneficiaries: "Beneficiaries Info", // Hardcoded beneficiaries
-      powerSupply: "Power Supply Info", // Hardcoded power supply info
-      rejectedReason: null, // Hardcoded rejected reason
+      jobName: generalInfo.jobDescription,
+      description: generalInfo.jobDescription,
+      contingency: "none", // Hardcoded contingency 
+      beneficiaries: generalInfo.beneficiaries,
+      powerSupply: generalInfo.powerSupply, 
+      rejectedReason: generalInfo.rejectedReason,
       entryDate: new Date().toISOString(), // Use the current date for entry
-      demand: "Demand Example", // Hardcoded demand
-      mvlinetype: "MV Line - OTHER", // Hardcoded mvlinetype
-      fundSource: "Fund Source Info", // Hardcoded fund source
-      sinNo: "SIN123456", // Hardcoded SIN number
-      existingCapacity: "100", // Hardcoded existing capacity
-      newCapacity: "150", // Hardcoded new capacity
-      voltageLevel: "11kV", // Hardcoded voltage level
-      lineLengthCustomerPremises: "200", // Hardcoded line length for customer premises
-      lineLengthMVLineOutsideCustomerPremises: "300", // Hardcoded line length for MV Line outside customer premises
-      securityDeposit: "5000", // Hardcoded security deposit
-      vat: "1000", // Hardcoded VAT
-      nbt: "2000", // Hardcoded NBT
-      loanPercentage: "5", // Hardcoded loan percentage
-      totalCost: "25000", // Hardcoded total cost
+
+      demand: technicalDetails.demand,
+      mvlinetype: technicalDetails.mvlinetype, 
+      fundSource: technicalDetails.fundSource,  
+      sinNo: technicalDetails.SinNo,
+      exCapacity: technicalDetails.ExistingCapacity,  
+      newCapacity: technicalDetails.NewCapacity,  
+      voltageLevel: technicalDetails.VoltageLevel, 
+      lineLength: technicalDetails.LineLengthCustomerPremises,  
+      lineLengthMVLineOutsideCustomerPremises: technicalDetails.LineLengthMVLineOutsideCustomerPremises, 
+
+      secDeposit: costMeasurements.securityDeposit,
+      vatCost: costMeasurements.vat,  
+      nbtCost: costMeasurements.nbt,
+      loanPercentage: costMeasurements.loanPercentage, 
+      totalCost: costMeasurements.totalCost,
     };
   
     try {

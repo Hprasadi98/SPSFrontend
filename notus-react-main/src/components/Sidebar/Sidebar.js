@@ -205,7 +205,7 @@ export default function Sidebar() {
 
             <hr className="my-4 md:min-w-full" />
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-            Estimate Layout Pages
+            Standard Estimate
             </h6>
             
            
@@ -217,9 +217,20 @@ export default function Sidebar() {
                   to="/estimate/estimate"
                 >
                   <i className="fas fa-file-invoice mr-2 text-blueGray-400 text-sm"></i>
-                  Cost Estimation
+                  New Estimate
                 </Link>
               </li>
+
+              <li className="items-center">
+                <Link
+                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  font-bold block"
+                  to="/estimate/modify-estimate"
+                >
+                  <i className="fas fa-file-invoice mr-2 text-blueGray-400 text-sm"></i>
+                  Modify Estimate
+                </Link>
+              </li>
+
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"

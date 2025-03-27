@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import ceb from "../../assets/img/ceb.png"
+import backgroundImage from "../../assets/img/bg.jpg";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -58,8 +60,14 @@ export default function Login() {
       <div className="container mx-auto px-4 h-full">
         <div className="flex content-center items-center justify-center h-full">
           <div className="w-full lg:w-4/12 px-4">
-            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
-              <div className="rounded-t mb-0 px-6 py-6">
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">-
+              <div className="flex justify-center items-center">
+                <img 
+                alt="ceb logo"
+                className="w-20 h-20"
+                src={ceb}/>
+              </div>
+              {/* <div className="rounded-t mb-0 px-6 py-6">
                 <div className="text-center mb-3">
                   <h6 className="text-blueGray-500 text-sm font-bold">
                     Sign in with
@@ -90,11 +98,11 @@ export default function Login() {
                   </button>
                 </div>
                 <hr className="mt-6 border-b-1 border-blueGray-300" />
-              </div>
-              <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <div className="text-blueGray-400 text-center mb-3 font-bold">
+              </div> */}
+              <div className="flex-auto px-4 lg:px-10 py-10 pt-0 mt-8">
+                {/* <div className="text-blueGray-400 text-center mb-3 font-bold">
                   <small>Or sign in with credentials</small>
-                </div>
+                </div> */}
                 <form onSubmit={handleSubmit}>
                   <div className="relative w-full mb-3">
                     <label

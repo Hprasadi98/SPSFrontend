@@ -1,45 +1,76 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 
-
-
 const nicRegex = /^(\d{9}[Vv]|\d{12})$/; // Validates both old and new NIC formats
 
-const ApplicantInfo = ({ onInputChange, onSearch }) => {
-  const [appData, setAppData] = useState({});
+const ApplicantInfo = ({ applicant = {}, onInputChange ,onSearch,handleSearch,isModify,data={},appData={},setAppData = () => {}}) => {
+  //const [appData, setAppData] = useState({});
   const [nicError, setNicError] = useState(""); // State to handle error messages
   const [loading, setLoading] = useState(false); // To show loading state during API call
 
-
-
+  // Now safely access applicant.idNo with a fallback
+  const idNo = applicant?.idNo || "";
+  
   const handleChange = (e) => {
     const { name, value } = e.target;
-
+   // const newData = { ...appData, [name]: value };
+    //setAppData(newData); // Ensure this is a valid function
+    onInputChange({ [name]: value });
+    
     
     // Validate NIC number
-    if (name === "idNo" && !nicRegex.test(value)) {
-     // if (!nicRegex.test(value)) {
+    if (name === "idNo") {
+      if (!nicRegex.test(value)) {
         setNicError("Invalid NIC number. Use 9 digits with v or 12 digits.");
       } else {
         setNicError(""); // Clear error if valid
       }
-
-    //const { name, value } = e.target;
-    const newData = { ...appData, [name]: value };
-    setAppData((prev) => ({ ...prev, [name]: value }));
-    onInputChange({ ...appData, [name]: value });
-  };
-
-  //edit
-  const handleSearch = async () => {
-    if (!appData.idNo) {
-      alert("Please enter a valid NIC number before searching.");
-      return;
     }
 
 
+      // Make sure appData is defined before spreading it
+      const newData = { ...(appData || {}), [name]: value };
+      console.log("New Data:", newData);
+      
+      // Only call setAppData if it's a function
+      if (typeof setAppData === 'function') {
+        setAppData(newData);
+      }
+      
+       
+  // Call onInputChange with the updated field
+  if (typeof onInputChange === 'function') {
+    onInputChange({ [name]: value });
+  }
+    };
 
-    setLoading(true);
+  // const handleSearch = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const data = await onSearch(appData.idNo); // Call the passed handleSearch function
+  //     if (data) {
+  //       setAppData((prevData) => ({
+  //         ...prevData,
+  //         firstName: data.firstName || "",
+  //         lastName: data.lastName || "",
+  //         fullName: data.fullName || "",
+  //       }));
+  //     }
+  //   } catch (error) {
+  //     console.error("Search Error:", error);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+  //edit
+//   const handleSearch = async () => {
+//     if (!appData.idNo) {
+//       alert("Please enter a valid NIC number before searching.");
+//       return;
+//     }
+
+//     setLoading(true);
 //     try {
        
     
@@ -59,10 +90,6 @@ const ApplicantInfo = ({ onInputChange, onSearch }) => {
 // console.log("Response Status:", response.status);
 // console.log("Response Headers:", response.headers);
 
-// if (response.status === 404) {
-//   alert("NIC not found in the database.");
-//   return;
-// }
 
 
 //       if (!response.ok) {
@@ -75,23 +102,12 @@ const ApplicantInfo = ({ onInputChange, onSearch }) => {
 //         throw new Error("NIC not found in database.");
 //       }
   
-//       // setAppData({
-//       //   ...appData,
-//       //   firstName: data.firstName || "",
-//       //   lastName: data.lastName || "",
-//       //   fullName: data.fullName || "",
+//       setAppData({
+//         ...appData,
+//         firstName: data.firstName || "",
+//         lastName: data.lastName || "",
         
-//       // });
-//       // Update ApplicantInfo and ApplicantContact data
-//     onInputChange("applicantInfo", {
-//       firstName: data.firstName || "",
-//       lastName: data.lastName || "",
-//     });
-
-//     onInputChange("applicantContact", {
-//       phone: data.phone || "",
-//       email: data.email || "",
-//     });
+//       });
 
 //       // Update state with fetched data
 //       // const updatedData = {
@@ -109,27 +125,6 @@ const ApplicantInfo = ({ onInputChange, onSearch }) => {
 //     }
 //   };
   //end
-  try {
-    const data = await onSearch(appData.idNo); // Call the passed function
-    if (data) {
-      setAppData((prev) => ({
-        ...prev,
-        firstName: data.firstName || "",
-        lastName: data.lastName || "",
-        fullName: data.fullName || "",
-      }));
-
-      onInputChange({
-        firstName: data.firstName || "",
-        lastName: data.lastName || "",
-        fullName: data.fullName || "",
-      });
-    }
-  } catch (error) {
-    alert(error.message);
-  } finally {
-    setLoading(false);
-  }};
 
 
   return (
@@ -168,22 +163,24 @@ const ApplicantInfo = ({ onInputChange, onSearch }) => {
       <input
         type="text"
         name="idNo"
-        value={appData.idNo || ""}
+        value={(appData && appData.idNo) || ""}
         onChange={handleChange}
         className={`border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${
           nicError ? "border-red-500" : ""
         }`}
         placeholder="NIC No"
       />
-
+{/* 
+//{isModify && ( */}
       <button className="bg-lightBlue-500 text-white px-4 py-2 rounded ml-2"
        type="button"
        onClick={handleSearch}
        disabled={loading}>
         {loading ? "Searching..." : "Search"}
         </button>
+{/* //)} */}
     </div>
-    {/* {nicError && <p className="text-red-500 text-xs mt-1">{nicError}</p>} */}
+    {nicError && <p className="text-red-500 text-xs mt-1">{nicError}</p>}
   </div>
 </div>
 

@@ -5,7 +5,7 @@ import { useState } from "react";
 const phoneRegex = /^\+?([1-9]{1,3})?[-.\s]?\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})(?:\s*x(\d+))?$/;
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const ApplicantContact = ({ onInputChange ,contactData}) => {
+const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
   const [appData, setAppData] = useState({
     mobileNo: "",
     email: "",
@@ -22,7 +22,7 @@ const ApplicantContact = ({ onInputChange ,contactData}) => {
     const { name, value } = e.target;
     const newData = { ...appData, [name]: value };
     setAppData(newData);
-    onInputChange({ [name]: value });
+    onInputChange(newData);
 
     setErrors((prevErrors) => {
       let updatedErrors = { ...prevErrors };

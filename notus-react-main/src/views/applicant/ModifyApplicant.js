@@ -12,62 +12,137 @@
 // };
 
 // export default NewApplicant;
-import ApplicantInfo from "../../components/Tabs/ApplicantInfo";
+
 import Applicant from "components/Applicant/Applicant";
-import ApplicantContact from "../../components/Tabs/ApplicantContact";
 import React, { useState } from "react";
-import ModApplicant from "layouts/ModApplicant";
 
 const ModifyApplicant = () => {
-console.log("handleSearch in ModifyApplicant:", handleSearch);
+  const [isModify, setIsModify] = useState(true);
+  const [appData, setAppData] = useState({
+    idNo:"",
+    firstName: "", 
+    lastName: "",
+    fullName: "",
+    streetAddress: "",
+    email: ""
+  }); // State to hold applicant data
+  const [loading, setLoading] = useState(false);
+  
+ // Function to call the search API
+ //   const handleSearch = async () => {
+//     if (!appData.idNo) {
+//       alert("Please enter a valid NIC number before searching.");
+//       return;
+//     }
 
-  const [currentPage, setCurrentPage] = useState("info"); 
-  const [applicantInfo, setApplicantInfo] = useState({});
-  const [applicantContact, setApplicantContact] = useState({});
-
-  const handleInputChange = (section, data) => {
-    if (section === "applicantInfo") {
-      setApplicantInfo(data);
-    } else if (section === "applicantContact") {
-      setApplicantContact(data);
-    }
-  };
-  const handleSearch = async (idNo) => {
-    try {
-      const response = await fetch(
-        `http://localhost:8081/api/applicants/search?idNo=${idNo}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          credentials: "include",
-        }
-      );
-
-      if (response.status === 404) {
-        alert("NIC not found in the database.");
-        return null;
-      }
-
-      if (!response.ok) {
-        throw new Error(`Error: ${response.status}`);
-      }
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("Error fetching applicant data:", error);
-      throw error;
-    }
-  };
-
- 
-    const handleFormSubmit =async (formData,data) => {
-      console.log("Final Form Data:", formData);
-      // Add logic to send formData to the backend or handle it as needed
+//     setLoading(true);
+//     try {
+       
     
+//      // Encode credentials in Base64
+    
+//       // const token = localStorage.getItem("authToken"); // Adjust based on where you store
+//       const response = await fetch(`http://localhost:8081/api/applicants/search?idNo=${appData.idNo}`
+//         , {
+//           method: "GET",
+//           headers: {
+//             "Content-Type": "application/json",
+//              //"Authorization": `Bearer ${credentials}`, // Include if authentication is required
+//           },
+//           credentials: "include", // Include cookies in the request
+//         }
+// );
+// console.log("Response Status:", response.status);
+// console.log("Response Headers:", response.headers);
 
-  // const handleFormSubmit = async (data) => {
+
+
+//       if (!response.ok) {
+//         throw new Error(`NIC not found (Status: ${response.status})`);
+//       }
+//       const data = await response.json();
+//       console.log("API Response Data:", data);
+
+//       if (!data || Object.keys(data).length === 0) {
+//         throw new Error("NIC not found in database.");
+//       }
+  
+//       setAppData({
+//         ...appData,
+//         firstName: data.firstName || "",
+//         lastName: data.lastName || "",
+        
+//       });
+
+//       // Update state with fetched data
+//       // const updatedData = {
+//       //   ...appData,
+//       //   firstName: data.firstName || "",
+//       //   lastName: data.lastName || "",
+//       // };
+//       // setAppData(updatedData);
+//       // onInputChange(updatedData);
+//     } catch (error) {
+//       alert(error.message);
+//       console.error("Error:", error);
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+ // Function to call the search API
+ const handleSearch = async () => {
+  console.log("NIC Entered:", appData.idNo);
+  if (!appData.idNo) {
+   // console.log("id",appData.idNo);
+    alert("Please enter a valid NIC number before searching.");
+    return;
+  }
+
+  setLoading(true);
+  try {
+    console.log(appData);
+    const response = await fetch(
+      `http://localhost:8081/api/applicants/search?idNo=${appData.idNo}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // credentials: "include", // Include cookies in the request
+      }
+    );
+
+    console.log(response);
+
+    if (!response.ok) {
+      throw new Error(`NIC not found (Status: ${response.status})`);
+    }
+    const data = await response.json();
+    console.log("API Response Data:", data);
+
+    if (!data || Object.keys(data).length === 0) {
+      throw new Error("NIC not found in database.");
+    }
+
+    // Update state with fetched data
+    setAppData({
+      ...appData,
+      firstName: data.firstName || "",
+      lastName: data.lastName || "",
+      fullName: data.fullName || "",
+      streetAddress: data.streetAddress || "",
+    });
+  } catch (error) {
+    alert(error.message);
+    console.error("Error:", error);
+  } finally {
+    setLoading(false);
+  }
+};
+
+
+  const handleFormSubmit = async (data) => {
     const hardcodedData = {
       preferredLanguage: "EN",
       // idNo: "12345678",
@@ -80,14 +155,14 @@ console.log("handleSearch in ModifyApplicant:", handleSearch);
     // Merge hardcoded data with form data
     // const mergedData = { ...data};
     const mergedData = { 
-      ...data, 
-      idNo: data.applicantInfo?.idNo || "", 
-      firstName: data.applicantInfo?.firstName || hardcodedData.firstName, 
-      lastName: data.applicantInfo?.lastName || hardcodedData.lastName,
-      fullName: data.applicantInfo?.fullName || hardcodedData.fullName,
-      streetAddress: data.applicantContact?.streetAddress || hardcodedData.streetAddress,
-      
-      ...hardcodedData 
+      ...hardcodedData,  // Base properties first
+      ...data,           // Form data overwrites base properties
+      // Ensure these fields are never undefined
+      idNo: data?.idNo || "",
+      firstName: data?.firstName || "",
+      lastName: data?.lastName || "",
+      fullName: data?.fullName || "",
+      streetAddress: data?.streetAddress || ""
     };
     
 
@@ -102,32 +177,29 @@ console.log("handleSearch in ModifyApplicant:", handleSearch);
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include",
         body: JSON.stringify(mergedData),
       });
 
       if (response.ok) {
         alert("Form submitted successfully!");
       } else {
-        const errorData = await response.json();
-      console.error("Error response from backend:", errorData);
         alert("Form submission failed!");
       }
     } catch (error) {
       alert("An error occurred!");
       console.error(error);
     }
-    };
+  };
 
   return (
     <div className="container mx-auto rounded-lg">
       <div className="flex justify-center px-4 mb-5 mx-48 mt-5 md:px-10 lg:px-20 rounded-lg">
-        <Applicant 
-        onFormSubmit={handleFormSubmit}
-        onSearch={handleSearch} // Pass the handleSearch function
-          onInputChange={handleInputChange} // Pass the handleInputChange function
-          // 
-           />
+        <Applicant onFormSubmit={handleFormSubmit}
+        isModify={isModify} 
+        handleSearch={handleSearch} 
+        appData={appData}
+        setAppData={setAppData}
+        />
       </div>
     </div>
   );

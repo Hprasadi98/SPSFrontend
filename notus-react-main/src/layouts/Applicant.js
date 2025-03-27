@@ -7,6 +7,7 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 //views
 import NewApplicant from "views/applicant/NewApplicant";
+import ModifyApplicant from "views/applicant/ModifyApplicant";
 
 export default function Applicant() {
     return (
@@ -19,6 +20,7 @@ export default function Applicant() {
               <div className="relative px-4 md:px-10 mx-auto w-full  -m-24  ">
                 <Switch>
                   <Route path="/applicant/newapplicant" exact component={NewApplicant} />
+                  <Route path="/applicant/modifyapplicant" exact component={ModifyApplicant} />
                   <Redirect from="/applicant" to="/applicant/newapplicant" />
                 </Switch>
               </div>

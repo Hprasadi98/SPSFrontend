@@ -17,6 +17,7 @@ import Applicant from "components/Applicant/Applicant";
 import React, { useState } from "react";
 
 const NewApplicant = () => {
+  const [isModify, setIsModify] = useState(false);
 
   const handleFormSubmit = async (data) => {
     const hardcodedData = {
@@ -45,6 +46,7 @@ const NewApplicant = () => {
 
     //setFormData(mergedData);
     console.log(mergedData);
+    console.log(isModify);
 
     // Send the data to the backend via REST API
     try {
@@ -53,12 +55,15 @@ const NewApplicant = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        credentials: "include",
         body: JSON.stringify(mergedData),
       });
 
       if (response.ok) {
         alert("Form submitted successfully!");
       } else {
+        const errorData = await response.json();
+      console.error("Error response from backend:", errorData);
         alert("Form submission failed!");
       }
     } catch (error) {
@@ -70,7 +75,8 @@ const NewApplicant = () => {
   return (
     <div className="container mx-auto rounded-lg">
       <div className="flex justify-center px-4 mb-5 mx-48 mt-5 md:px-10 lg:px-20 rounded-lg">
-        <Applicant onFormSubmit={handleFormSubmit} />
+        <Applicant onFormSubmit={handleFormSubmit}
+        isModify={isModify} />
       </div>
     </div>
   );

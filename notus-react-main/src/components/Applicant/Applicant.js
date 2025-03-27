@@ -76,34 +76,45 @@
 import { useState } from "react";
 import ApplicantContact from "components/Tabs/ApplicantContact";
 import ApplicantInfo from "components/Tabs/ApplicantInfo";
+import { data } from "autoprefixer";
+// For named export
+//import { ApplicantInfo } from "components/Tabs/ApplicantInfo";
 
-
-const tabs = [
-  {
-    id: "info",
-    // label: "Applicant Information",
-    component: <ApplicantInfo />,
-  },
-  {
-    id: "contact",
-    // label: "Applicant Contact Details",
-    component: <ApplicantContact />,
-  },
-];
-
-const Applicant = ({ onFormSubmit,onSearch, onInputChange  }) => {
-  console.log("onSearch in Applicant:", onSearch);
-
+const Applicant = ({ onFormSubmit ,handleSearch,isModify,appData,setAppData }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  
   const [formData, setFormData] = useState({
     applicantInfo: {},
     applicantContact: {},
   });
 
-  const handleSearch = (searchData) => {
-    console.log("Search triggered with data:", searchData);
-    // Add your search logic here
-  };
+  
+
+const tabs = [
+  {
+    id: "info",
+    // label: "Applicant Information",
+    component: (<ApplicantInfo 
+    onInputChange={(data) => handleInputChange("applicantInfo", data)}
+    isModify={isModify}
+    data={formData.applicantInfo}
+    handleSearch={handleSearch}
+    appData={appData}
+    setAppData={setAppData}
+    />),
+  },
+  {
+    id: "contact",
+    // label: "Applicant Contact Details",
+    component: (<ApplicantContact 
+    onInputChange={(data) => handleInputChange("applicantContact", data)}
+    data={formData.applicantContact}
+    />),
+  },
+];
+
+
+  
   
 
   const handleNext = () => {
@@ -132,10 +143,7 @@ const Applicant = ({ onFormSubmit,onSearch, onInputChange  }) => {
 
   return (
     <div className="w-full max-w-2xl bg-white  rounded-lg p-6">
-
-     
-
-
+ 
 {/* Stepper */}
 <div className="flex justify-center items-center mt-4">
   {tabs.map((tab, index) => (
@@ -186,8 +194,12 @@ const Applicant = ({ onFormSubmit,onSearch, onInputChange  }) => {
         <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
           {tabs[currentIndex].id === "info" && (
             <ApplicantInfo
+            handleSearch={handleSearch}
               onInputChange={(data) => handleInputChange("applicantInfo", data)}
-              onSearch={onSearch} // Pass the onSearch function as a prop
+              applicant={appData || { idNo: "" }}
+              appData={appData}
+              isModify={isModify}
+              setAppData={setAppData}
             />
           )}
           {tabs[currentIndex].id === "contact" && (
@@ -224,7 +236,7 @@ const Applicant = ({ onFormSubmit,onSearch, onInputChange  }) => {
         onClick={handleSubmit}
         className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
       >
-        Submit
+       {isModify ? "Update" : "Submit"}
       </button>
     )}
   </div>

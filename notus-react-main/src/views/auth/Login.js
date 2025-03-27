@@ -9,6 +9,7 @@ export default function Login() {
   const history = useHistory();
 
   const handleSubmit = async (e) => {
+    history.push("/admin/dashboardCE");
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:8081/api/v1/login", {

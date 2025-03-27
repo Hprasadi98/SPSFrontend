@@ -11,10 +11,12 @@ import Auth from "layouts/Auth.js";
 import Application from "layouts/Application.js";
 import Estimation from "layouts/Estimation.js";
 
+
 // views without layouts
 import Landing from "views/Landing.js";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
+import Applicant from "layouts/Applicant";
 import SessionCheck from "views/CheckSession";
 
 ReactDOM.render(
@@ -25,6 +27,7 @@ ReactDOM.render(
         {/* add routes with layouts */}
         <Route path="/admin" component={Admin} />
         <Route path="/auth" component={Auth} />
+        <Route path="/applicant" component={Applicant} />
         <Route path="/application" component={Application} />
         <Route path="/estimate" component={Estimation} />
         {/* add routes without layouts */}
@@ -36,7 +39,6 @@ ReactDOM.render(
         <Redirect from="*" to="/auth" />
       </Switch>
     </>
-
   </BrowserRouter>,
   document.getElementById("root")
 );

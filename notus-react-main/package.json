@@ -6,6 +6,7 @@
   "license": "MIT",
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.15.3",
+    "@material-tailwind/react": "^2.1.10",
     "@popperjs/core": "2.9.1",
     "@tailwindcss/forms": "0.2.1",
     "autoprefixer": "10.2.5",
@@ -15,6 +16,7 @@
     "postcss": "8.4.39",
     "react": "18.3.1",
     "react-dom": "18.3.1",
+    "react-icons": "^5.5.0",
     "react-router": "5.3.4",
     "react-router-dom": "5.3.4",
     "react-scripts": "5.0.1",
@@ -45,5 +47,8 @@
   },
   "optionalDependencies": {
     "typescript": "4.2.3"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
   }
 }

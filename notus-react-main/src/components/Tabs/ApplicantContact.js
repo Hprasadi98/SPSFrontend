@@ -1,177 +1,192 @@
-const ApplicantContact = () => {
-    return (
-      <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
-        <form>
-     
+import { useState } from "react";
 
-            {/* <div className="w-full lg:w-6/12 px-4">
-                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">ID Type</label>
-                <div className="flex space-x-4">
-                  <label><input type="radio" name="idType" value="NIC" /> NIC</label>
-                  <label><input type="radio" name="idType" value="Passport" /> Passport</label>
-                  <label><input type="radio" name="idType" value="BusRegNo" /> Bus Reg No</label>
-                </div>
-              </div> */}
-        {/* //new */}
-          <div className="flex flex-wrap ">
-            <div className="flex"></div>
-            <div className="w-full lg:w-6/12 px-4">
-              <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                 
-                >
-                  ID Type
-                </label>
-                <div className="flex space-x-4">
-                  <label className="mr-3"><input type="radio" name="idType" value="NIC" /> NIC</label>
-                  <label className="mr-3"><input type="radio" name="idType" value="Passport" /> Passport</label>
-                  <label><input type="radio" name="idType" value="BusRegNo" /> Business Reg No</label>
-                </div>
-               
-              </div>
-            </div>
-            
-              {/* <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Email address
-                </label>
-                <input
-                  type="email"
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="jesse@example.com"
-                />
-              </div> */}
-               <div className="w-full lg:w-6/12 px-4">
-               <div className="relative w-full mb-3">
-                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2"  htmlFor="grid-password">ID No</label>
-                <div className="flex">
-                  <input type="text" className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150" placeholder="NIC No" />
-                  
-                  <button className="bg-lightBlue-500 text-white px-4 py-2 rounded ml-2">Search</button>
-                </div>
-              </div>
-              </div>
-            
+//const phoneRegex = /^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$/;
 
-            {/* <div className="w-full lg:w-12/12 px-4">
-              <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Full Name/Requested By/Cost Center
-                </label>
-                <input
-                  type="text"
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                />
-              </div>
-            </div> */}
-            {/* personal/corporate */}
-            <div className="w-full lg:w-12/12 px-4">
-            <div className="relative w-full mb-3">
-                <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">Personal/Corporate</label>
-                <select className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                  <option>Personal</option>
-                  <option>Corporate</option>
-                </select>
-                </div>
-              </div>
-            {/* raw 2 */}
-            <div className="w-full lg:w-6/12 px-4">
-              <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  First Name (Initials)/Company Name/Requested By
-                </label>
-                <input
-                  type="text"
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Lucky"
-                />
-              </div>
-            </div>
-            <div className="w-full lg:w-6/12 px-4">
-              <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Last Name/Company Type
-                </label>
-                <input
-                  type="text"
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Jesse"
-                />
-              </div>
-            </div>
-          </div>
-          <div className="w-full lg:w-12/12 px-4">
-              <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                  htmlFor="grid-password"
-                >
-                  Full Name/Requested By/Cost Center
-                </label>
-                <input
-                  type="text"
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
-                />
-              </div>
-            </div>
+const phoneRegex = /^\+?([1-9]{1,3})?[-.\s]?\(?([0-9]{3})\)?[-.\s]?([0-9]{3})[-.\s]?([0-9]{4})(?:\s*x(\d+))?$/;
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+const ApplicantContact = ({ onInputChange ,contactData}) => {
+  const [appData, setAppData] = useState({
+    mobileNo: "",
+    email: "",
+    // land: "",
+    streetAddress: "",
+    suburb: "",
+    city: "",
+    postalCode: "",
+  });
 
-            
-            
-            <div className="w-full lg:w-6/12 px-4">
-              <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                 
-                >
-                  CEB Employee
-                </label>
-                <div className="flex space-x-4">
-                  <label className="mr-3"><input type="radio" name="idType" value="yes" /> Yes</label>
-                  <label><input type="radio" name="idType" value="no" defaultChecked/> No</label>
-                
-                </div>
-               
-              </div>
-            </div>
+  const [errors, setErrors] = useState({});
 
-            <div className="w-full lg:w-6/12 px-4">
-              <div className="relative w-full mb-3">
-                <label
-                  className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                 
-                >
-                  Preferred Language
-                </label>
-                <div className="flex space-x-4">
-                  <label className="mr-3"><input type="radio" name="idType" value="sinhala" />Sinhala</label>
-                  <label><input type="radio" name="idType" value="english" defaultChecked /> Engilsh</label>
-                
-                </div>
-               
-              </div>
-            </div>
-          
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    const newData = { ...appData, [name]: value };
+    setAppData(newData);
+    onInputChange({ [name]: value });
 
-          {/* test */}
-          </form>
-      </div>
-    );
+    setErrors((prevErrors) => {
+      let updatedErrors = { ...prevErrors };
+
+      if (name === "mobileNo") {
+        updatedErrors.mobileNo = phoneRegex.test(value.trim()) ? "" : "Invalid phone number format";
+      }
+
+      if (name === "email") {
+        updatedErrors.email = emailRegex.test(value.trim()) ? "" : "Invalid email format";
+      }
+
+      return updatedErrors;
+    });
   };
   
-  export default ApplicantContact;
+
+  return (
+    <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
+      <form>
+      <div className="block uppercase text-blueGray-600 text-m font-bold mb-3 ml-3">Applicant Contact Details</div>
+        {/* <div className="flex flex-wrap"> */}
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Mobile No
+              </label>
+              <input
+                type="text"
+                name="mobileNo"
+                value={appData.mobileNo}
+                onChange={handleChange}
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Enter your mobile number"
+              />
+               {errors.mobileNo && (
+              <p className="text-red-500 text-xs mt-1">{errors.mobileNo}</p>
+            )}
+            </div>
+          </div>
+
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Email address
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={appData.email}
+                onChange={handleChange}
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Enter your email"
+              />
+             {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
+            </div>
+          </div>
+         
+        
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Land/CDMA No
+              </label>
+              <input
+                type="text"
+                name="land"
+                value={appData.land}
+                onChange={handleChange}
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                defaultValue="Jesse"
+              />
+            </div>
+          </div>
+        {/* </div> */}
+        <div className="flex flex-wrap">
+          <div className="w-full lg:w-12/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Street Address
+              </label>
+              <input
+                type="text"
+                name="streetAddress"
+                value={appData.streetAddress}
+                onChange={handleChange}
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-4/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Suburb
+              </label>
+              <input
+                type="text"
+                name="suburb"
+                value={appData.suburb}
+                onChange={handleChange}
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                defaultValue="New York"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-4/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                City
+              </label>
+              <input
+                type="text"
+                name="city"
+                value={appData.city}
+                onChange={handleChange}
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                defaultValue="United States"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-4/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Postal Code
+              </label>
+              <input
+                type="text"
+                name="postalCode"
+                value={appData.postalCode}
+                onChange={handleChange}
+                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                defaultValue="Postal Code"
+              />
+            </div>
+          </div>
+        </div>
+       
+       
+
+      </form>
+    </div>
+  );
+};
+
+export default ApplicantContact;

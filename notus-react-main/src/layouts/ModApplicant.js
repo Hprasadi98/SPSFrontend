@@ -6,9 +6,9 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 
 //views
-import NewApplicant from "views/applicant/NewApplicant";
+import ModifyApplicant from "views/applicant/ModifyApplicant";
 
-export default function Applicant() {
+export default function ModApplicant() {
     return (
         <>
           <Sidebar />
@@ -18,7 +18,7 @@ export default function Applicant() {
               <div className="bg-lightBlue-600 pt-32"></div>
               <div className="relative px-4 md:px-10 mx-auto w-full  -m-24  ">
                 <Switch>
-                  <Route path="/applicant/newapplicant" exact component={NewApplicant} />
+                  <Route path="/applicant/modifyapplicant" exact component={ModifyApplicant} />
                   <Redirect from="/applicant" to="/applicant/newapplicant" />
                 </Switch>
               </div>

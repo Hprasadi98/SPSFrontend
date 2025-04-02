@@ -55,7 +55,8 @@
   "optionalDependencies": {
     "typescript": "4.2.3"
   },
-  "proxy": "http://localhost:8082"
+  "proxy": "http://localhost:8082",
+  
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "gulp": "^5.0.0"

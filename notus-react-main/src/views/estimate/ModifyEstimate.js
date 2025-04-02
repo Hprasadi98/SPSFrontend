@@ -24,9 +24,11 @@ const Tabs = () => {
       .then((data) => {
         // Check the data structure and log it to confirm it's what you expect
         console.log(data); // Expected: ["appNo1", "appNo2", ...]
-  
+
         // Filter out any invalid appNo values (if needed)
-        const validApplications = data.filter(app => app && typeof app === 'string');
+        const validApplications = data.filter(
+          (app) => app && typeof app === "string"
+        );
         setApplications(validApplications);
         setLoading(false);
       })
@@ -36,17 +38,39 @@ const Tabs = () => {
         setLoading(false);
       });
   }, []);
-  
 
   const fetchApplicationDetails = (appNo) => {
     fetch(`http://localhost:8081/api/estimation/${appNo}`)
       .then((response) => response.json())
       .then((data) => {
-        setGeneralInfo(data.generalInfo || {});
-        setTechnicalDetails(data.technicalDetails || {});
-        setCostMeasurements(data.costMeasurements || {});
+        if (data) {
+          setGeneralInfo({
+            stdNo: data.stdNo || "",
+            deptId: data.deptId || "",
+            jobDescription: data.jobName || "",
+            beneficiaries: data.contingency || "", // adjust based on actual field
+            powerSupply: data.description || "",
+            rejectedReason: data.rejReasonEe || "",
+          });
+
+          setTechnicalDetails({
+            lineLength: data.lineLength || "",
+            newCapacity: data.newCapacity || "",
+            exCapacity: data.exCapacity || "",
+            balCapacity: data.balCapacity || "",
+          });
+
+          setCostMeasurements({
+            totalCost: data.totalCost || "",
+            secDeposit: data.secDeposit || "",
+            vat: data.vat || "",
+            nbtCost: data.nbtCost || "",
+            vatCost: data.vatCost || "",
+            sctCost: data.sctCost || "",
+          });
+        }
       })
-      .catch((error) => console.error("Error fetching details:", error));
+      .catch((error) => console.error("error fetching details:", error));
   };
 
   const handleApplicationChange = (e) => {
@@ -80,8 +104,8 @@ const Tabs = () => {
                   <option value="">select application</option>
                   {applications.length > 0 ? (
                     applications.map((app, index) => (
-                      <option key={index} value={app.appNo || ""}>
-                        {app.appNo || "No application reference"}
+                      <option key={index} value={app}>
+                        {app}
                       </option>
                     ))
                   ) : (

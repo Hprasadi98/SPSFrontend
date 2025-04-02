@@ -14,14 +14,13 @@ import Register from "views/auth/Register.js";
 export default function Auth() {
   return (
     <>
-      <Navbar transparent />
+      {/* <Navbar transparent /> */}
       <main>
-        <section className="relative w-full h-full py-40 min-h-screen">
+        <section className="relative w-full h-full py-40 min-h-screen" style={{ height: "100vh" }}>
           <div
             className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full"
             style={{
-              backgroundImage:
-                "url(" + require("assets/img/register_bg_2.png").default + ")",
+              backgroundImage: "linear-gradient(to bottom, #fcf577, #f3ce56, #e7a73c, #d8802a, #ba3e30, #a8253c, #901145, #2f2d4e, #1e293b, #1e293b, #1e293b, #1e293b)",
             }}
           ></div>
           <Switch>
@@ -29,7 +28,7 @@ export default function Auth() {
             <Route path="/auth/register" exact component={Register} />
             <Redirect from="/auth" to="/auth/login" />
           </Switch>
-          <FooterSmall absolute />
+          {/* <FooterSmall absolute /> */}
         </section>
       </main>
     </>

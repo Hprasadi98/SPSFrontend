@@ -20,9 +20,9 @@ export default function Estimation() {
         <HeaderNoStats />
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Switch>
-            <Route path="/estimate/estimate" exact component={NewEstimate} />
-            <Route path="/estimate/standard-rates" exact component={StandardRates} />
-            <Route path="/estimate/modify-estimate" exact component={ModifyEstimate} />
+            <Route path="/estimation/estimate" exact component={NewEstimate} />
+            <Route path="/estimation/standard-rates" exact component={StandardRates} />
+            <Route path="/estimation/modify-estimate" exact component={ModifyEstimate} />
 
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>

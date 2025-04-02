@@ -8,6 +8,7 @@ import "assets/styles/tailwind.css";
 // layouts
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
+import Estimate from "layouts/Estimate";
 import Application from "layouts/Application.js";
 import Estimation from "layouts/Estimation.js";
 
@@ -31,7 +32,8 @@ ReactDOM.render(
         <Route path="/applicant" component={Applicant} />
         <Route path="/modifyProgress" component={ModifyProgress} />
         <Route path="/application" component={Application} />
-        <Route path="/estimate" component={Estimation} />
+        <Route path="/estimation" component={Estimation} />
+        <Route path="/estimate" component={Estimate} />
         {/* add routes without layouts */}
         <Route path="/landing" exact component={Landing} />
         <Route path="/profile" exact component={Profile} />

@@ -1,6 +1,12 @@
+
+
+
+
+
 /*eslint-disable*/
 import React from "react";
 import { Link } from "react-router-dom";
+import ceb from "../../assets/img/ceb.png";
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
@@ -24,7 +30,9 @@ export default function Sidebar() {
             className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             to="/"
           >
-            Notus React
+            <div className="flex justify-center items-center">
+              <img alt="ceb logo" className="w-20 h-20" src={ceb} />
+            </div>
           </Link>
           {/* User */}
           <ul className="md:hidden items-center flex flex-wrap list-none">
@@ -50,7 +58,9 @@ export default function Sidebar() {
                     className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
                     to="/"
                   >
-                    Notus React
+                    <div className="flex justify-center items-center">
+                      <img alt="ceb logo" className="w-20 h-20" src={ceb} />
+                    </div>
                   </Link>
                 </div>
                 <div className="w-6/12 flex justify-end">
@@ -75,15 +85,16 @@ export default function Sidebar() {
               </div>
             </form>
 
-            {/* Divider */}
+            {/* Divider
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               Admin Layout Pages
-            </h6>
+            </h6> */}
             {/* Navigation */}
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none"> */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
                   className={
@@ -105,6 +116,8 @@ export default function Sidebar() {
                   Dashboard
                 </Link>
               </li>
+              <li className="items-center">
+              </li> */}
 
               {/* <li className="items-center">
                 <Link
@@ -150,7 +163,7 @@ export default function Sidebar() {
                 </Link>
               </li> */}
 
-              <li className="items-center">
+              {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -171,7 +184,6 @@ export default function Sidebar() {
                   Settings
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
                   className={
@@ -193,7 +205,6 @@ export default function Sidebar() {
                   Tables
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
                   className={
@@ -215,11 +226,10 @@ export default function Sidebar() {
                   Maps
                 </Link>
               </li>
-            </ul>
+            </ul> */}
 
-
-           {/* Divider */}
-           <hr className="my-4 md:min-w-full" />
+            {/* Divider */}
+            <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               Customer
@@ -231,7 +241,8 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/applicant/newapplicant") !== -1
+                    (window.location.href.indexOf("/applicant/newapplicant") !==
+                    -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -240,7 +251,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/applicant/newapplicant") !== -1
+                      (window.location.href.indexOf(
+                        "/applicant/newapplicant"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -252,7 +265,9 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/applicant/modifyapplicant") !== -1
+                    (window.location.href.indexOf(
+                      "/applicant/modifyapplicant"
+                    ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -261,7 +276,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/applicant/modifyapplicant") !== -1
+                      (window.location.href.indexOf(
+                        "/applicant/modifyapplicant"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -327,10 +344,6 @@ export default function Sidebar() {
               </li>
             </ul>
 
-             
-             
-            
-
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
@@ -338,6 +351,7 @@ export default function Sidebar() {
               Application
             </h6>
             {/* Navigation */}
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"> */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               {/* <li className="items-center">
@@ -396,7 +410,8 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/application/modify") !== -1
+                      (window.location.href.indexOf("/application/modify") !==
+                      -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -407,14 +422,14 @@ export default function Sidebar() {
             </ul>
 
             {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
+            {/* <hr className="my-4 md:min-w-full" /> */}
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               Auth Layout Pages
-            </h6>
+            </h6> */}
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
@@ -424,7 +439,6 @@ export default function Sidebar() {
                   Login
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
@@ -434,85 +448,148 @@ export default function Sidebar() {
                   Register
                 </Link>
               </li>
-            </ul>
+            </ul> */}
 
             <hr className="my-4 md:min-w-full" />
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-            Standard Estimate
+              Standard Estimate
             </h6>
-            
-           
+
             {/* Navigation */}
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
                 <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  font-bold block"
-                  to="/estimate/estimate"
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/estimation/estimate") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimation/estimate"
                 >
-                  <i className="fas fa-file-invoice mr-2 text-blueGray-400 text-sm"></i>
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/estimation/estimate") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
                   New Estimate
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3  font-bold block"
-                  to="/estimate/modify-estimate"
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/estimation/modify-estimate") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimation/modify-estimate"
                 >
-                  <i className="fas fa-file-invoice mr-2 text-blueGray-400 text-sm"></i>
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/estimation/modify-estimate") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
                   Modify Estimate
                 </Link>
               </li>
 
               <li className="items-center">
                 <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/estimate/standard-rates"
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/estimation/standard-rates") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimation/standard-rates"
                 >
-                  <i className="fas fa-file-invoice-dollar mr-2 text-blueGray-400 text-sm"></i>
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/estimation/standard-rates") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
                   CEB Standard Rates
                 </Link>
               </li>
             </ul>
 
-            {/* Divider */}
             <hr className="my-4 md:min-w-full" />
-            {/* Heading */}
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              No Layout Pages
+              Work Estimate Pages
             </h6>
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"> */}
+            {/* Divider */}
+            {/* <hr className="my-4 md:min-w-full" /> */}
+            {/* Heading */}
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              No Layout Pages
+            </h6> */}
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="items-center">
                 <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/landing"
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/estimate/estimateform?mode=new") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimate/estimateform?mode=new"
                 >
-                  <i className="fas fa-newspaper text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Landing Page
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/estimate/estimateform?mode=new") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  New Estimate
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
-                  className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/profile"
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/estimate/estimateform?mode=modify") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimate/estimateform?mode=modify"
                 >
-                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Profile Page
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/estimate/estimateform?mode=modify") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Modify Estimate
                 </Link>
               </li>
             </ul>
 
             {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
+            {/* <hr className="my-4 md:min-w-full" /> */}
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               Documentation
-            </h6>
+            </h6> */}
             {/* Navigation */}
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/react/colors/notus"
@@ -523,7 +600,6 @@ export default function Sidebar() {
                   Styles
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus"
@@ -534,7 +610,6 @@ export default function Sidebar() {
                   CSS Components
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/notus"
@@ -545,7 +620,6 @@ export default function Sidebar() {
                   Angular
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus"
@@ -556,7 +630,6 @@ export default function Sidebar() {
                   Javascript
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus"
@@ -567,7 +640,6 @@ export default function Sidebar() {
                   NextJS
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus"
@@ -578,7 +650,6 @@ export default function Sidebar() {
                   React
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus"
@@ -589,7 +660,6 @@ export default function Sidebar() {
                   Svelte
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus"
@@ -600,10 +670,10 @@ export default function Sidebar() {
                   VueJS
                 </a>
               </li>
-            </ul>
+            </ul> */}
           </div>
         </div>
-      </nav>
+      </nav>  
     </>
   );
 }

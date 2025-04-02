@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
@@ -7,14 +8,10 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import HeaderStats from "components/Headers/HeaderStats.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 
-// views
-import Dashboard from "views/admin/Dashboard.js";
-import Maps from "views/admin/Maps.js";
-import Settings from "views/admin/Settings.js";
-import Tables from "views/admin/Tables.js";
+// components
+import EstimateForm from "../views/estimate/EstimateForm";
 
-
-export default function Admin() {
+export default function Estimate() {
   return (
     <>
       <Sidebar />
@@ -23,10 +20,7 @@ export default function Admin() {
         <HeaderStats />
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Switch>
-            <Route path="/admin/dashboard" exact component={Dashboard} />
-            <Route path="/admin/maps" exact component={Maps} />
-            <Route path="/admin/settings" exact component={Settings} />
-            <Route path="/admin/tables" exact component={Tables} />
+            <Route path="/estimate/estimateform" exact component={EstimateForm} />
             <Redirect from="/admin" to="/admin/dashboard" />
           </Switch>
           <FooterAdmin />
@@ -35,3 +29,4 @@ export default function Admin() {
     </>
   );
 }
+

@@ -18,6 +18,7 @@ import Profile from "views/Profile.js";
 import Index from "views/Index.js";
 import Applicant from "layouts/Applicant";
 import SessionCheck from "views/CheckSession";
+import ModifyProgress from "layouts/ModifyProgress";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -28,6 +29,7 @@ ReactDOM.render(
         <Route path="/admin" component={Admin} />
         <Route path="/auth" component={Auth} />
         <Route path="/applicant" component={Applicant} />
+        <Route path="/modifyProgress" component={ModifyProgress} />
         <Route path="/application" component={Application} />
         <Route path="/estimate" component={Estimation} />
         {/* add routes without layouts */}

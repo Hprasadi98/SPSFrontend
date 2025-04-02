@@ -8,6 +8,7 @@ import "assets/styles/tailwind.css";
 // layouts
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
+import Estimate from "layouts/Estimate";
 import Application from "layouts/Application.js";
 import Estimation from "layouts/Estimation.js";
 
@@ -21,6 +22,18 @@ import SessionCheck from "views/CheckSession";
 
 ReactDOM.render(
   <BrowserRouter>
+    <Switch>
+      {/* add routes with layouts */}
+      <Route path="/admin" component={Admin} />
+      <Route path="/auth" component={Auth} />
+      <Route path="/estimate" component={Estimate} />
+      {/* add routes without layouts */}
+      <Route path="/landing" exact component={Landing} />
+      <Route path="/profile" exact component={Profile} />
+      <Route path="/" exact component={Index} />
+      {/* add redirect for first page */}
+      <Redirect from="*" to="/" />
+    </Switch>
     <>
       <SessionCheck />
       <Switch>

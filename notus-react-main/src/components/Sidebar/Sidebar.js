@@ -1,3 +1,8 @@
+
+
+
+
+
 /*eslint-disable*/
 import React from "react";
 import { Link } from "react-router-dom";
@@ -87,6 +92,7 @@ export default function Sidebar() {
               Admin Layout Pages
             </h6> */}
             {/* Navigation */}
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
 
             {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
@@ -109,6 +115,8 @@ export default function Sidebar() {
                   ></i>{" "}
                   Dashboard
                 </Link>
+              </li>
+              <li className="items-center">
               </li> */}
 
               {/* <li className="items-center">
@@ -176,7 +184,6 @@ export default function Sidebar() {
                   Settings
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
                   className={
@@ -198,7 +205,6 @@ export default function Sidebar() {
                   Tables
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
                   className={
@@ -289,6 +295,7 @@ export default function Sidebar() {
               Application
             </h6>
             {/* Navigation */}
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               {/* <li className="items-center">
@@ -376,7 +383,6 @@ export default function Sidebar() {
                   Login
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
@@ -426,6 +432,11 @@ export default function Sidebar() {
               </li>
             </ul>
 
+            <hr className="my-4 md:min-w-full" />
+            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              Work Estimate Pages
+            </h6>
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
             {/* Divider */}
             {/* <hr className="my-4 md:min-w-full" /> */}
             {/* Heading */}
@@ -438,20 +449,19 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/landing"
+                  to="/estimate/estimateform?mode=new"
                 >
-                  <i className="fas fa-newspaper text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Landing Page
+                  <i className="fas fa-file-invoice mr-2 text-blueGray-400 text-sm"></i>
+                  New Estimate
                 </Link>
               </li>
-
               <li className="items-center">
                 <Link
                   className="text-blueGray-700 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-                  to="/profile"
+                  to="/estimate/estimateform?mode=modify"
                 >
-                  <i className="fas fa-user-circle text-blueGray-400 mr-2 text-sm"></i>{" "}
-                  Profile Page
+                  <i className="fas fa-file-invoice mr-2 text-blueGray-400 text-sm"></i>
+                  Modify Estimate
                 </Link>
               </li>
             </ul> */}
@@ -474,7 +484,6 @@ export default function Sidebar() {
                   Styles
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/react/alerts/notus"
@@ -485,7 +494,6 @@ export default function Sidebar() {
                   CSS Components
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/angular/overview/notus"
@@ -496,7 +504,6 @@ export default function Sidebar() {
                   Angular
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/js/overview/notus"
@@ -507,7 +514,6 @@ export default function Sidebar() {
                   Javascript
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus"
@@ -518,7 +524,6 @@ export default function Sidebar() {
                   NextJS
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/react/overview/notus"
@@ -529,7 +534,6 @@ export default function Sidebar() {
                   React
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/svelte/overview/notus"
@@ -540,7 +544,6 @@ export default function Sidebar() {
                   Svelte
                 </a>
               </li>
-
               <li className="inline-flex">
                 <a
                   href="https://www.creative-tim.com/learning-lab/tailwind/vue/overview/notus"

@@ -30,7 +30,7 @@ ReactDOM.render(
         <Route path="/auth" component={Auth} />
         <Route path="/applicant" component={Applicant} />
         <Route path="/application" component={Application} />
-        <Route path="/estimate" component={Estimation} />
+        <Route path="/estimation" component={Estimation} />
         <Route path="/estimate" component={Estimate} />
         {/* add routes without layouts */}
         <Route path="/landing" exact component={Landing} />

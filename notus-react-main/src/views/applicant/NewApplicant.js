@@ -32,13 +32,23 @@ const NewApplicant = () => {
     // Merge hardcoded data with form data
     // const mergedData = { ...data};
     const mergedData = { 
-      ...data, 
       idNo: data.applicantInfo?.idNo || "", 
       firstName: data.applicantInfo?.firstName || hardcodedData.firstName, 
       lastName: data.applicantInfo?.lastName || hardcodedData.lastName,
       fullName: data.applicantInfo?.fullName || hardcodedData.fullName,
       streetAddress: data.applicantContact?.streetAddress || hardcodedData.streetAddress,
-      
+
+      // Applicant Contact details
+    applicantContact: {
+      streetAddress: data.applicantContact?.streetAddress || "",
+      city: data.applicantContact?.city || "",
+      province: data.applicantContact?.province || "",
+      postalCode: data.applicantContact?.postalCode || "",
+      country: data.applicantContact?.country || "",
+      email: data.applicantContact?.email || "",
+      phoneNumber: data.applicantContact?.phoneNumber || "",
+      mobileNumber: data.applicantContact?.mobileNumber || "",
+    },
       ...hardcodedData 
     };
     

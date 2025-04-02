@@ -163,7 +163,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange ,onSearch,handleSearch,is
       <input
         type="text"
         name="idNo"
-        value={(appData && appData.idNo) || ""}
+        value={(appData && appData.idNo)}
         onChange={handleChange}
         className={`border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${
           nicError ? "border-red-500" : ""
@@ -238,7 +238,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange ,onSearch,handleSearch,is
               <input
                 type="text"
                 name="firstName"
-                value={appData.firstName || ""}
+                value={appData.firstName}
                 onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="Enter First Name"
@@ -256,7 +256,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange ,onSearch,handleSearch,is
               <input
                 type="text"
                 name="lastName"
-                value={appData.lastName || ""}
+                value={appData.lastName }
                 onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="Enter Last Name"

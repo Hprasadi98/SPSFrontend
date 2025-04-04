@@ -70,7 +70,7 @@ const ModifyProgressTab = ({ }) => {
                 className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Estimate No
+                Cost Center Estimate No
               </label>
               <div className="flex ">
                 <input

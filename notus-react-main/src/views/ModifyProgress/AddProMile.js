@@ -8,8 +8,8 @@ const API_URL ="http://localhost:8081";
 const AddProMile = () => {
   const [formData, setFormData] = useState({
     name: "",
-    prog_milestone_id: "",
-    dep_id: "",
+    id: "",
+    deptId: "",
     persentage: ""
   });
   const [loading, setLoading] = useState(false);
@@ -47,8 +47,8 @@ const AddProMile = () => {
       // Reset form after successful submission
       setFormData({
         name: "",
-        prog_milestone_id: "",
-        dep_id: "",
+        id: "",
+        deptId: "",
         persentage: ""
       });
     } catch (err) {

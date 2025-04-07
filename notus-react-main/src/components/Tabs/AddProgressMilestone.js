@@ -1,10 +1,50 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 import ModifyProgress from "layouts/ModifyProgress";
+import React, { useEffect } from 'react';
+import axios from 'axios';
 
 const nicRegex = /^(\d{9}[Vv]|\d{12})$/; // Validates both old and new NIC formats
 
 const AddProgressMilestone = ({ handleChange, formData = {}}) => {
+  const [deptId, setDeptId] = useState('');
+
+  useEffect(() => {
+    // Fetch session data from the backend
+    axios.get('http://localhost:8081/api/v1/session-info', {
+      withCredentials: true ,// Include cookies/session credentials
+      method: "GET",
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': 'Basic ' + btoa('user:admin123')
+      }
+    })
+    .then(response => {
+      if (response.data.deptId) {
+        setDeptId(response.data.deptId);
+
+         // Update formData with the deptId
+         if (handleChange) {
+          handleChange({
+            target: {
+              name: 'deptId',
+              value: response.data.deptId
+            }
+          });
+        }
+      }
+    })
+    .catch(error => {
+      console.error('Error fetching session data:', error);
+      // Set a fallback value or show a user-friendly message
+      setDeptId('Not authenticated - please log in');
+      
+      // Optionally redirect to login if needed
+      // if (error.response && error.response.status === 401) {
+      //   window.location.href = '/auth/login';
+      // }
+    });
+  }, [handleChange]);
  
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
@@ -67,10 +107,10 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
               <input
                 type="text"
                 name="deptId"
-                value={formData.deptId || ""}
-                onChange={handleChange}
+                value={deptId}
+               // onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
+              readOnly/>
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">

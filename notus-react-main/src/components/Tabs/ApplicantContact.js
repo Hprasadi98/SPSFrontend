@@ -12,6 +12,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
     // land: "",
     streetAddress: "",
     suburb: "",
+    telephoneNo: "",
     city: "",
     postalCode: "",
   });
@@ -94,16 +95,19 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
                 className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Land/CDMA No
+                LAND
               </label>
               <input
                 type="text"
-                name="land"
-                value={appData.land}
+                name="telephoneNo"
+                value={appData.telephoneNo}
                 onChange={handleChange}
                 className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                defaultValue="Jesse"
+                placeholder="Enter your Land number"
               />
+               {errors.telephoneNo && (
+              <p className="text-red-500 text-xs mt-1">{errors.telephoneNo}</p>
+            )}
             </div>
           </div>
         {/* </div> */}

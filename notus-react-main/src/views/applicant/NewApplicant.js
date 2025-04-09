@@ -20,7 +20,12 @@ const NewApplicant = () => {
   const [isModify, setIsModify] = useState(false);
 
   const handleFormSubmit = async (data) => {
+     // Get current date and time in ISO format
+     const currentDateTime = new Date().toISOString();
+    
 
+        // Get current date in YYYY-MM-DD format
+        const currentDate = new Date().toISOString().split('T')[0];
     
     const hardcodedData = {
       //preferredLanguage: "EN",
@@ -52,7 +57,9 @@ const NewApplicant = () => {
       telephoneNo: data.applicantContact?.telephoneNo || "",
       suburb: data.applicantContact?.mobileNo || "",
       mobileNo: data.applicantContact?.mobileNo || "",
-    
+      // Replace the previous line with this to use current date
+      addDate: currentDate,
+    //  submitDateTime: currentDateTime,
       ...hardcodedData 
     };
     

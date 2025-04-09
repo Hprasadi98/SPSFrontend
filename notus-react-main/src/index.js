@@ -19,6 +19,7 @@ import Profile from "views/Profile.js";
 import Index from "views/Index.js";
 import Applicant from "layouts/Applicant";
 import SessionCheck from "views/CheckSession";
+import JobTypeSet from "views/JobTypeSet";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -37,6 +38,7 @@ ReactDOM.render(
         <Route path="/profile" exact component={Profile} />
         <Route path="/index" exact component={Index} />
         <Route path="/auth" exact component={Index} />
+        <Route path="/jobtypeset" exact component={JobTypeSet} />
         {/* add redirect for first page */}
         <Redirect from="*" to="/auth" />
       </Switch>

@@ -1,9 +1,40 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function JobTypeSet() {
   const history = useHistory();
+  const [jobTypes, setJobTypes] = useState([]);
+  const [selectedJobType, setSelectedJobType] = useState("");
 
+  useEffect(() => {
+    fetch("http://localhost:8081/api/application/type", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Basic " + btoa("user:admin123"),
+      },
+      credentials: "include",
+    })
+      .then(async (res) => {
+        if (!res.ok) {
+          throw new Error(`HTTP error! Status: ${res.status}`);
+        }
+        const data = await res.json();
+        setJobTypes(data);
+        console.log("Fetched job types:", data);
+      })
+      .catch((err) => {
+        console.error("Error fetching job types:", err);
+      });
+  }, []);
+
+  const handleNext = () => {
+    if (selectedJobType) {
+      // Optionally save selectedJobType to context or localStorage
+      history.push("/applicant");
+    }
+  };
   return (
     <>
       <main>
@@ -29,30 +60,22 @@ export default function JobTypeSet() {
               <div className="relative w-full mb-3 flex">
                 <select
                   name="jobtype"
+                  id="jobtype"
+                  onChange={(e) => {
+                    console.log("Selected job type:", e.target.value);
+                  }}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue=""
                 >
                   <option value="" disabled>
                     --Please Select--
                   </option>
-                  <option value="bulksupply">Bulk Supply</option>
-                  <option value="costpaid">RE Cost Paid(DCB/PCB)</option>
-                  <option value="reprojects">RE-Projects</option>
-                  <option value="land">Land</option>
-                  <option value="minihydro">Mini Hydro</option>
-                  <option value="netplus">Net Plus Plus New</option>
-                  <option value="solarpower">Solar Power New</option>
-                  <option value="poleshifting">Pole Shifting - CEB Fund</option>
-                  <option value="disaster">Disaster Recovery</option>
-                  <option value="planing">Planing & Development</option>
-                  <option value="areaunit">Area Unit</option>
-                  <option value="acunit">AC Unit</option>
-                  <option value="other">Other</option>
-                  <option value="construction">Construction/CSC</option>
-                  <option value="maintenance">Maintenance</option>
-                  <option value="energymanagement">Energy Management</option>
-                  <option value="costrecovery">Cost Recovery Job</option>
-                  <option value="vsl">VSL</option>
+
+                  {jobTypes.map((type) => (
+                    <option key={type.apptype} value={type.apptype}>
+                      {type.description}
+                    </option>
+                  ))}
                 </select>
                 <button
                   onClick={() => {

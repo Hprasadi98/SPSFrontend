@@ -20,6 +20,9 @@ import Index from "views/Index.js";
 import Applicant from "layouts/Applicant";
 import SessionCheck from "views/CheckSession";
 import ModifyProgress from "layouts/ModifyProgress";
+import PIV from "layouts/PIV";
+import Allocation from "layouts/Allocation";
+// import PIV from "layouts/PIV";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -35,6 +38,9 @@ ReactDOM.render(
         <Route path="/estimation" component={Estimation} />
         <Route path="/estimate" component={Estimate} />
         {/* add routes without layouts */}
+        <Route path="/piv" component={PIV} />
+        <Route path="/allocation" component={Allocation} />
+
         <Route path="/landing" exact component={Landing} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/index" exact component={Index} />

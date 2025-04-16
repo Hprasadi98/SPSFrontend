@@ -107,6 +107,7 @@ const ModifyApplicant = () => {
       {
         method: "GET",
         headers: {
+          Authorization: "Basic " + btoa("user:admin123"),
           "Content-Type": "application/json",
         },
         // credentials: "include", // Include cookies in the request

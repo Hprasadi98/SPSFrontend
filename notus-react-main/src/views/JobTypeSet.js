@@ -31,10 +31,11 @@ export default function JobTypeSet() {
 
   const handleNext = () => {
     if (selectedJobType) {
-      // Optionally save selectedJobType to context or localStorage
+      console.log("Selected job type:", selectedJobType);
       history.push("/applicant");
     }
   };
+
   return (
     <>
       <main>
@@ -51,19 +52,25 @@ export default function JobTypeSet() {
           ></div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
-              <label
-                className="block uppercase text-blueGray-800 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Select Job Type
-              </label>
+              <div className="flex">
+                <label
+                  className="block uppercase text-blueGray-800 text-xs font-bold mb-2"
+                  htmlFor="grid-password"
+                >
+                  Select Job Type
+                </label>
+                {!selectedJobType && (
+                  <p className="text-red-500 text-xs ml-2">
+                    * Job type is required
+                  </p>
+                )}
+              </div>
               <div className="relative w-full mb-3 flex">
                 <select
                   name="jobtype"
                   id="jobtype"
-                  onChange={(e) => {
-                    console.log("Selected job type:", e.target.value);
-                  }}
+                  value={selectedJobType}
+                  onChange={(e) => setSelectedJobType(e.target.value)}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue=""
                 >
@@ -78,10 +85,14 @@ export default function JobTypeSet() {
                   ))}
                 </select>
                 <button
-                  onClick={() => {
-                    history.push("/applicant");
-                  }}
-                  className="ml-2 bg-blueGray-800 text-white active:bg-blueGray-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  onClick={handleNext}
+                  disabled={!selectedJobType}
+                  className={`ml-2 active:bg-blueGray-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150
+                    ${
+                      selectedJobType
+                        ? "bg-blueGray-800 text-white hover:bg-blueGray-600"
+                        : "bg-blueGray-600 text-white"
+                    }`}
                 >
                   Next
                 </button>

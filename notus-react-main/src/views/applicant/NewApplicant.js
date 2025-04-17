@@ -20,10 +20,17 @@ const NewApplicant = () => {
   const [isModify, setIsModify] = useState(false);
 
   const handleFormSubmit = async (data) => {
+     // Get current date and time in ISO format
+     const currentDateTime = new Date().toISOString();
+    
+
+        // Get current date in YYYY-MM-DD format
+        const currentDate = new Date().toISOString().split('T')[0];
+    
     const hardcodedData = {
-      preferredLanguage: "EN",
+      //preferredLanguage: "EN",
       // idNo: "12345678",
-      idType: "NIC",
+     // idType: "NIC",
       //firstName: "John",
       // lastName: "Doe",
       //fullName: "John Doe",
@@ -32,13 +39,27 @@ const NewApplicant = () => {
     // Merge hardcoded data with form data
     // const mergedData = { ...data};
     const mergedData = { 
-      ...data, 
-      idNo: data.applicantInfo?.idNo || "", 
-      firstName: data.applicantInfo?.firstName || hardcodedData.firstName, 
-      lastName: data.applicantInfo?.lastName || hardcodedData.lastName,
-      fullName: data.applicantInfo?.fullName || hardcodedData.fullName,
-      streetAddress: data.applicantContact?.streetAddress || hardcodedData.streetAddress,
       
+      idNo: data.applicantInfo?.idNo || "", 
+      firstName: data.applicantInfo?.firstName || "", 
+      lastName: data.applicantInfo?.lastName || "",
+      fullName: data.applicantInfo?.fullName || "",
+      streetAddress: data.applicantContact?.streetAddress || "",
+
+      // Applicant Contact details
+      personalCorporate: data.applicantInfo?.personalCorporate || "",
+      cebEmployee: data.applicantInfo?.cebEmployee|| "",
+      preferredLanguage: data.applicantInfo?.preferredLanguage || "",
+      idType: data.applicantInfo?.idType || "",
+      city: data.applicantContact?.city || "",
+      postalCode: data.applicantContact?.postalCode || "",
+      email: data.applicantContact?.email || "",
+      telephoneNo: data.applicantContact?.telephoneNo || "",
+      suburb: data.applicantContact?.mobileNo || "",
+      mobileNo: data.applicantContact?.mobileNo || "",
+      // Replace the previous line with this to use current date
+      addDate: currentDate,
+    //  submitDateTime: currentDateTime,
       ...hardcodedData 
     };
     
@@ -53,6 +74,7 @@ const NewApplicant = () => {
       const response = await fetch("http://localhost:8081/api/applicants/save", {
         method: "POST",
         headers: {
+          Authorization: "Basic " + btoa("user:admin123"),
           "Content-Type": "application/json",
         },
         credentials: "include",

@@ -10,6 +10,7 @@ import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
 import Estimate from "layouts/Estimate";
 import Application from "layouts/Application.js";
+import JobContractor from "layouts/JobContractor.js";
 import Estimation from "layouts/Estimation.js";
 
 
@@ -23,7 +24,6 @@ import JobTypeSet from "views/JobTypeSet";
 import ModifyProgress from "layouts/ModifyProgress";
 import PIV from "layouts/PIV";
 import Allocation from "layouts/Allocation";
-// import PIV from "layouts/PIV";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -36,12 +36,12 @@ ReactDOM.render(
         <Route path="/applicant" component={Applicant} />
         <Route path="/modifyProgress" component={ModifyProgress} />
         <Route path="/application" component={Application} />
+        <Route path="/jobcontractor" component={JobContractor} />
         <Route path="/estimation" component={Estimation} />
         <Route path="/estimate" component={Estimate} />
         {/* add routes without layouts */}
         <Route path="/piv" component={PIV} />
         <Route path="/allocation" component={Allocation} />
-
         <Route path="/landing" exact component={Landing} />
         <Route path="/profile" exact component={Profile} />
         <Route path="/index" exact component={Index} />

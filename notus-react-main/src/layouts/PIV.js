@@ -7,6 +7,8 @@ import FooterAdmin from "components/Footers/FooterAdmin.js";
 import ModProgress from "views/ModifyProgress/ModProgress";
 import AddProMile from "views/ModifyProgress/AddProMile";
 import NewPiv from "views/piv/NewPiv";
+import AdminNavbar from "components/Navbars/AdminNavbar";
+import HeaderStatsWithoutCards from "components/Headers/HeaderStatsWithoutCards";
 
 //views
 // import NewApplicant from "views/applicant/NewApplicant";
@@ -18,8 +20,10 @@ export default function PIV() {
           <Sidebar />
           <div className="relative md:ml-64 bg-blueGray-100 min-h-screen flex flex-col">
             {/* Content Wrapper */}
+            <AdminNavbar />
+            <HeaderStatsWithoutCards />
             <div className="flex-grow">
-              <div className="bg-lightBlue-600 pt-32"></div>
+              {/* <div className="bg-lightBlue-600 pt-32"></div> */}
               <div className="relative px-4 md:px-10 mx-auto w-full  -m-24  ">
                 <Switch>
                   {/* <Route path="/applicant/newapplicant" exact component={NewApplicant} /> */}

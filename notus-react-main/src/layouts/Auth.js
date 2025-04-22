@@ -1,5 +1,6 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
+import ceblogo from "assets/img/ceb-logo-and-wave.png";
 
 // components
 
@@ -16,11 +17,16 @@ export default function Auth() {
     <>
       {/* <Navbar transparent /> */}
       <main>
-        <section className="relative w-full h-full py-40 min-h-screen" style={{ height: "100vh" }}>
+        <section
+          className="relative w-full h-full min-h-screen"
+          style={{ height: "100vh" }}
+        >
           <div
-            className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full"
+            className="absolute top-0 w-full h-full bg-white bg-no-repeat bg-full"
             style={{
-              backgroundImage: "linear-gradient(to bottom, #fcf577, #f3ce56, #e7a73c, #d8802a, #ba3e30, #a8253c, #901145, #2f2d4e, #1e293b, #1e293b, #1e293b, #1e293b)",
+              backgroundImage: `url(${ceblogo})`,
+              backgroundPosition: "bottom", 
+              zIndex: -1,
             }}
           ></div>
           <Switch>

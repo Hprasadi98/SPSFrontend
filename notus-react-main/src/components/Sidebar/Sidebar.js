@@ -1,17 +1,13 @@
-
-
-
-
-
 /*eslint-disable*/
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ceb from "../../assets/img/ceb.png";
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
 
 export default function Sidebar() {
+  const location = useLocation();
   const [collapseShow, setCollapseShow] = React.useState("hidden");
   return (
     <>
@@ -119,7 +115,7 @@ export default function Sidebar() {
               <li className="items-center">
               </li> */}
 
-              {/* <li className="items-center">
+            {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -141,7 +137,7 @@ export default function Sidebar() {
                 </Link>
               </li> */}
 
-              {/* <li>
+            {/* <li>
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -163,7 +159,7 @@ export default function Sidebar() {
                 </Link>
               </li> */}
 
-              {/* <li className="items-center">
+            {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -288,23 +284,22 @@ export default function Sidebar() {
               </li>
             </ul>
 
-             
-             
             {/* Divider */}
-           <hr className="my-4 md:min-w-full" />
+            <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-            Progress Monitering
+              Progress Monitering
             </h6>
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-
-            <li className="items-center">
+              <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/modifyProgress/addProMile") !== -1
+                    (window.location.href.indexOf(
+                      "/modifyProgress/addProMile"
+                    ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -313,7 +308,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/modifyProgress/addProMile") !== -1
+                      (window.location.href.indexOf(
+                        "/modifyProgress/addProMile"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -325,7 +322,9 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/modifyProgress/modProgress") !== -1
+                    (window.location.href.indexOf(
+                      "/modifyProgress/modProgress"
+                    ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -334,7 +333,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/modifyProgress/modProgress") !== -1
+                      (window.location.href.indexOf(
+                        "/modifyProgress/modProgress"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -342,24 +343,19 @@ export default function Sidebar() {
                   Modify Progress
                 </Link>
               </li>
-            
-            
             </ul>
 
-
-
             {/* PIV */}
-   {/* Divider */}
-   <hr className="my-4 md:min-w-full" />
+            {/* Divider */}
+            <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-            PIV
+              PIV
             </h6>
             {/* Navigation */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-
-            <li className="items-center">
+              <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -380,62 +376,59 @@ export default function Sidebar() {
                   PIV NEW
                 </Link>
               </li>
-             
-            
-            
             </ul>
             {/* PIV END */}
 
+            
+            {/* Divider */}
+            {/* Navigation */}
+            <hr className="my-4 md:min-w-full" />
+            {/* Heading */}
+            <Link
+              className={
+                "text-s py-3 font-bold block " +
+                (window.location.href.indexOf("/application/new") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/application/new"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+                Application
+              </h6>
+            </Link>
+            
+
+          
             {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
             <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Application
+              Job Constructor
             </h6>
             {/* Navigation */}
             {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"> */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              {/* <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/application/newapp") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/application/newapp"
-                >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/application/newapp") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Application Page
-                </Link>
-              </li> */}
               <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/application/new") !== -1
+                    (window.location.href.indexOf("/jobcontractor/new") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/application/new"
+                  to="/jobcontractor/new"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/application/new") !== -1
+                      (window.location.href.indexOf("/jobcontractor/new") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  New Application
+                  New Job Constructor
                 </Link>
               </li>
 
@@ -443,22 +436,23 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/application/modify") !== -1
+                    (window.location.href.indexOf("/jobcontractor/modify") !==
+                    -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
-                  to="/application/modify"
+                  to="/jobcontractor/modify"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/application/modify") !==
+                      (window.location.href.indexOf("/jobcontractor/modify") !==
                       -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Modify Application
+                  Modify Job Constructor
                 </Link>
               </li>
             </ul>
@@ -512,7 +506,8 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/estimation/estimate") !== -1
+                      (window.location.href.indexOf("/estimation/estimate") !==
+                      -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -525,7 +520,9 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/estimation/modify-estimate") !== -1
+                    (window.location.href.indexOf(
+                      "/estimation/modify-estimate"
+                    ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -534,7 +531,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/estimation/modify-estimate") !== -1
+                      (window.location.href.indexOf(
+                        "/estimation/modify-estimate"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -547,7 +546,9 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/estimation/standard-rates") !== -1
+                    (window.location.href.indexOf(
+                      "/estimation/standard-rates"
+                    ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -556,7 +557,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/estimation/standard-rates") !== -1
+                      (window.location.href.indexOf(
+                        "/estimation/standard-rates"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -584,7 +587,9 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/estimate/estimateform?mode=new") !== -1
+                    (window.location.href.indexOf(
+                      "/estimate/estimateform?mode=new"
+                    ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -593,7 +598,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/estimate/estimateform?mode=new") !== -1
+                      (window.location.href.indexOf(
+                        "/estimate/estimateform?mode=new"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -605,7 +612,9 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/estimate/estimateform?mode=modify") !== -1
+                    (window.location.href.indexOf(
+                      "/estimate/estimateform?mode=modify"
+                    ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
@@ -614,7 +623,9 @@ export default function Sidebar() {
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/estimate/estimateform?mode=modify") !== -1
+                      (window.location.href.indexOf(
+                        "/estimate/estimateform?mode=modify"
+                      ) !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }
@@ -625,131 +636,135 @@ export default function Sidebar() {
             </ul>
 
             {/* allocation */}
-         
-<hr className="my-4 md:min-w-full" />
-{/* Heading */}
-<h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-  Letters
-</h6>
-{/* Navigation */}
 
-<ul className="md:flex-col md:min-w-full flex flex-col list-none">
-  <li className="items-center">
-    <div className="w-full">
-      <button
-        onClick={() => {
-          const submenu = document.getElementById("letterSubmenu");
-          submenu.classList.toggle("hidden");
-        }}
-        className={
-          "text-xs uppercase py-3 font-bold block w-full text-left outline-none focus:outline-none focus:ring-0 focus:shadow-none border-0" +
-          (window.location.href.indexOf("/letters/") !== -1
-            ? "text-lightBlue-500 hover:text-lightBlue-600"
-            : "text-blueGray-700 hover:text-blueGray-500")
-        }
-      >
-        <i
-          className={
-            "fas fa-envelope mr-2 text-sm " +
-            (window.location.href.indexOf("/letters/") !== -1
-              ? "opacity-75"
-              : "text-blueGray-300")
-          }
-        ></i>{" "}
-        Con/Mnt/Area/Phm
-        <i className="fas fa-chevron-down ml-2 text-xs"></i>
-      </button>
-      
-      <ul id="letterSubmenu" className="hidden pl-4">
-        <li className="items-center">
-          <Link
-            className={
-              "text-xs uppercase py-2 font-bold block " +
-              (window.location.href.indexOf("/allocation/allocationOCJ1") !== -1
-                ? "text-lightBlue-500 hover:text-lightBlue-600"
-                : "text-blueGray-700 hover:text-blueGray-500")
-            }
-            to="/allocation/allocationOCJ1"
-          >
-             <i
-        className={
-          "fas fa-file-alt mr-2 text-sm " +
-          (window.location.href.indexOf("/allocation/allocationOCJ1") !== -1
-            ? "opacity-75"
-            : "text-blueGray-300")
-        }
-      ></i>{" "}
-            Allocation Job
-          </Link>
-        </li>
-        <li className="items-center">
-    <Link
-      className="text-xs uppercase py-2 font-bold block text-blueGray-700 hover:text-lightBlue-500"
-      to="/letters/estimate-variance"
-    >
-      <i className="fas fa-file-alt mr-2 text-sm text-blueGray-300"></i>{" "}
-      Estimate Variance
-    </Link>
-  </li>
-  <li className="items-center">
-    <Link
-      className="text-xs uppercase py-2 font-bold block text-blueGray-700 hover:text-lightBlue-500"
-      to="/letters/contractor-offer"
-    >
-      <i className="fas fa-file-alt mr-2 text-sm text-blueGray-300"></i>{" "}
-      Contractor Offer
-    </Link>
-  </li>
-      </ul>
-      <button
-        onClick={() => {
-          const submenu = document.getElementById("letterSubmenu");
-          submenu.classList.toggle("hidden");
-        }}
-        className={
-          "text-xs uppercase py-3 font-bold block w-full text-left outline-none focus:outline-none focus:ring-0 focus:shadow-none border-0" +
-          (window.location.href.indexOf("/letters/") !== -1
-            ? "text-lightBlue-500 hover:text-lightBlue-600"
-            : "text-blueGray-700 hover:text-blueGray-500")
-        }
-      >
-        <i
-          className={
-            "fas fa-envelope mr-2 text-sm " +
-            (window.location.href.indexOf("/letters/") !== -1
-              ? "opacity-75"
-              : "text-blueGray-300")
-          }
-        ></i>{" "}
-        Maintenace
-        <i className="fas fa-chevron-down ml-2 text-xs"></i>
-      </button>
-      <button
-        onClick={() => {
-          const submenu = document.getElementById("letterSubmenu");
-          submenu.classList.toggle("hidden");
-        }}
-        className={
-          "text-xs uppercase py-3 font-bold block w-full text-left outline-none focus:outline-none focus:ring-0 focus:shadow-none border-0" +
-          (window.location.href.indexOf("/letters/") !== -1
-            ? "text-lightBlue-500 hover:text-lightBlue-600"
-            : "text-blueGray-700 hover:text-blueGray-500")
-        }
-      >
-        <i
-          className={
-            "fas fa-envelope mr-2 text-sm " +
-            (window.location.href.indexOf("/letters/") !== -1
-              ? "opacity-75"
-              : "text-blueGray-300")
-          }
-        ></i>{" "}
-        Area
-        <i className="fas fa-chevron-down ml-2 text-xs"></i>
-      </button>
-    </div>
-  </li>
-</ul>
+            <hr className="my-4 md:min-w-full" />
+            {/* Heading */}
+            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              Letters
+            </h6>
+            {/* Navigation */}
+
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <div className="w-full">
+                  <button
+                    onClick={() => {
+                      const submenu = document.getElementById("letterSubmenu");
+                      submenu.classList.toggle("hidden");
+                    }}
+                    className={
+                      "text-xs uppercase py-3 font-bold block w-full text-left outline-none focus:outline-none focus:ring-0 focus:shadow-none border-0" +
+                      (window.location.href.indexOf("/letters/") !== -1
+                        ? "text-lightBlue-500 hover:text-lightBlue-600"
+                        : "text-blueGray-700 hover:text-blueGray-500")
+                    }
+                  >
+                    <i
+                      className={
+                        "fas fa-envelope mr-2 text-sm " +
+                        (window.location.href.indexOf("/letters/") !== -1
+                          ? "opacity-75"
+                          : "text-blueGray-300")
+                      }
+                    ></i>{" "}
+                    Con/Mnt/Area/Phm
+                    <i className="fas fa-chevron-down ml-2 text-xs"></i>
+                  </button>
+
+                  <ul id="letterSubmenu" className="hidden pl-4">
+                    <li className="items-center">
+                      <Link
+                        className={
+                          "text-xs uppercase py-2 font-bold block " +
+                          (window.location.href.indexOf(
+                            "/allocation/allocationOCJ1"
+                          ) !== -1
+                            ? "text-lightBlue-500 hover:text-lightBlue-600"
+                            : "text-blueGray-700 hover:text-blueGray-500")
+                        }
+                        to="/allocation/allocationOCJ1"
+                      >
+                        <i
+                          className={
+                            "fas fa-file-alt mr-2 text-sm " +
+                            (window.location.href.indexOf(
+                              "/allocation/allocationOCJ1"
+                            ) !== -1
+                              ? "opacity-75"
+                              : "text-blueGray-300")
+                          }
+                        ></i>{" "}
+                        Allocation Job
+                      </Link>
+                    </li>
+                    <li className="items-center">
+                      <Link
+                        className="text-xs uppercase py-2 font-bold block text-blueGray-700 hover:text-lightBlue-500"
+                        to="/letters/estimate-variance"
+                      >
+                        <i className="fas fa-file-alt mr-2 text-sm text-blueGray-300"></i>{" "}
+                        Estimate Variance
+                      </Link>
+                    </li>
+                    <li className="items-center">
+                      <Link
+                        className="text-xs uppercase py-2 font-bold block text-blueGray-700 hover:text-lightBlue-500"
+                        to="/letters/contractor-offer"
+                      >
+                        <i className="fas fa-file-alt mr-2 text-sm text-blueGray-300"></i>{" "}
+                        Contractor Offer
+                      </Link>
+                    </li>
+                  </ul>
+                  <button
+                    onClick={() => {
+                      const submenu = document.getElementById("letterSubmenu");
+                      submenu.classList.toggle("hidden");
+                    }}
+                    className={
+                      "text-xs uppercase py-3 font-bold block w-full text-left outline-none focus:outline-none focus:ring-0 focus:shadow-none border-0" +
+                      (window.location.href.indexOf("/letters/") !== -1
+                        ? "text-lightBlue-500 hover:text-lightBlue-600"
+                        : "text-blueGray-700 hover:text-blueGray-500")
+                    }
+                  >
+                    <i
+                      className={
+                        "fas fa-envelope mr-2 text-sm " +
+                        (window.location.href.indexOf("/letters/") !== -1
+                          ? "opacity-75"
+                          : "text-blueGray-300")
+                      }
+                    ></i>{" "}
+                    Maintenace
+                    <i className="fas fa-chevron-down ml-2 text-xs"></i>
+                  </button>
+                  <button
+                    onClick={() => {
+                      const submenu = document.getElementById("letterSubmenu");
+                      submenu.classList.toggle("hidden");
+                    }}
+                    className={
+                      "text-xs uppercase py-3 font-bold block w-full text-left outline-none focus:outline-none focus:ring-0 focus:shadow-none border-0" +
+                      (window.location.href.indexOf("/letters/") !== -1
+                        ? "text-lightBlue-500 hover:text-lightBlue-600"
+                        : "text-blueGray-700 hover:text-blueGray-500")
+                    }
+                  >
+                    <i
+                      className={
+                        "fas fa-envelope mr-2 text-sm " +
+                        (window.location.href.indexOf("/letters/") !== -1
+                          ? "opacity-75"
+                          : "text-blueGray-300")
+                      }
+                    ></i>{" "}
+                    Area
+                    <i className="fas fa-chevron-down ml-2 text-xs"></i>
+                  </button>
+                </div>
+              </li>
+            </ul>
             {/* allocationend */}
 
             {/* Divider */}
@@ -843,7 +858,7 @@ export default function Sidebar() {
             </ul> */}
           </div>
         </div>
-      </nav>  
+      </nav>
     </>
   );
 }

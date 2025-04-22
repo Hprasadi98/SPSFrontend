@@ -73,7 +73,7 @@ export default function Register() {
                 <form onSubmit={handleSubmit}>
                   <div className="relative w-full mb-3">
                     <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
                       Name
@@ -89,7 +89,7 @@ export default function Register() {
 
                   <div className="relative w-full mb-3">
                     <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
                       Email
@@ -105,7 +105,7 @@ export default function Register() {
 
                   <div className="relative w-full mb-3">
                     <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
                       Electricity Account Number
@@ -133,7 +133,7 @@ export default function Register() {
 
                   <div className="relative w-full mb-3">
                     <label
-                      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="grid-password"
                     >
                       Password
@@ -176,8 +176,9 @@ export default function Register() {
 
                   <div className="text-center mt-6">
                     <button
-                      className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="text-white active:bg-red-600 text-sm font-bold px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="submit"
+                      style={{ backgroundColor: "#7c0000" }}
                     >
                       Create Account
                     </button>

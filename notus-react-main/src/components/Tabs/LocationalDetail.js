@@ -28,7 +28,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Street Address
@@ -45,7 +45,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Suburb
@@ -62,7 +62,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 City
@@ -79,7 +79,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Postal Code
@@ -92,7 +92,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
                   onChange={handleChange}
                   className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
-                <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
+                <button className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150">
                   Search
                 </button>
               </div>
@@ -101,7 +101,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 District
@@ -124,7 +124,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Devisional Sectrait
@@ -138,7 +138,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 GS Division
@@ -152,7 +152,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Electorate
@@ -175,7 +175,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 AGA Division
@@ -189,7 +189,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 C S C
@@ -212,7 +212,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-2">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-1"
+                className="block text-blueGray-600 text-sm font-bold mb-1"
                 htmlFor="grid-password"
               >
                 Ownership
@@ -239,7 +239,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-2">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-1"
+                className="block text-blueGray-600 text-sm font-bold mb-1"
                 htmlFor="grid-password"
               >
                 Occupy / Owner Certified
@@ -263,7 +263,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-2">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-1"
+                className="block text-blueGray-600 text-sm font-bold mb-1"
                 htmlFor="grid-password"
               >
                 Is Government Place

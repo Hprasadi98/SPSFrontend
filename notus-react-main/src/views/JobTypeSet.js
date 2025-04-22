@@ -44,11 +44,11 @@ export default function JobTypeSet() {
           style={{ height: "100vh" }}
         >
           <div
-            className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full"
-            style={{
-              backgroundImage:
-                "linear-gradient(to bottom, #fcf577, #f3ce56, #e7a73c, #d8802a, #ba3e30, #a8253c, #901145, #2f2d4e, #1e293b, #1e293b, #1e293b, #1e293b)",
-            }}
+            className="absolute top-0 w-full h-full bg-white bg-no-repeat bg-full"
+            // style={{
+            //   backgroundImage:
+            //     "linear-gradient(to bottom, #fcf577, #f3ce56, #e7a73c, #d8802a, #ba3e30, #a8253c, #901145, #2f2d4e, #1e293b, #1e293b, #1e293b, #1e293b)",
+            // }}
           ></div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">

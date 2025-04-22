@@ -8,7 +8,7 @@ export default function Login() {
   const history = useHistory();
 
   const handleSubmit = async (e) => {
-    history.push("/jobtypeset");
+    //history.push("/jobtypeset");
     e.preventDefault();
     try {
       const response = await fetch("http://localhost:8081/api/v1/login", {

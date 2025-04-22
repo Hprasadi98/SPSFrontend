@@ -396,27 +396,6 @@ export default function Sidebar() {
             {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"> */}
 
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              {/* <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/application/newapp") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/application/newapp"
-                >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/application/newapp") !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Application Page
-                </Link>
-              </li> */}
               <li className="items-center">
                 <Link
                   className={
@@ -459,6 +438,62 @@ export default function Sidebar() {
                     }
                   ></i>{" "}
                   Modify Application
+                </Link>
+              </li>
+            </ul>
+
+            {/* Divider */}
+            <hr className="my-4 md:min-w-full" />
+            {/* Heading */}
+            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              Job Constructor
+            </h6>
+            {/* Navigation */}
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"> */}
+
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/jobcontractor/new") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/jobcontractor/new"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/jobcontractor/new") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  New Job Constructor
+                </Link>
+              </li>
+
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-xs uppercase py-3 font-bold block " +
+                    (window.location.href.indexOf("/jobcontractor/modify") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/jobcontractor/modify"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/jobcontractor/modify") !==
+                      -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Modify Job Constructor
                 </Link>
               </li>
             </ul>

@@ -317,7 +317,7 @@ export default function Sidebar() {
               to="/modifyProgress/addProMile"
             >
               <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
-              Progress Monitering
+              Progress Monitoring
               </h6>
             </Link>
             {/* Divider */}
@@ -687,15 +687,30 @@ export default function Sidebar() {
             </ul>
 
             {/* allocation */}
-
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            <Link
+              className={
+                "text-s py-3 font-bold block " +
+                (window.location.href.indexOf("/allocation/allocationOCJ1") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/allocation/allocationOCJ1"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+                Letters
+              </h6>
+            </Link>
+
+            {/* <hr className="my-4 md:min-w-full" /> */}
+            {/* Heading */}
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               Letters
-            </h6>
+            </h6> */}
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <div className="w-full">
                   <button
@@ -815,7 +830,7 @@ export default function Sidebar() {
                   </button>
                 </div>
               </li>
-            </ul>
+            </ul> */}
             {/* allocationend */}
 
             {/* Divider */}

@@ -21,7 +21,10 @@ export default function ModifyProgress() {
         <div className="flex justify-end items-center">
             {/* Left-aligned "Previous" button */}
       <button
-        className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+        className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+        style={{
+          backgroundColor: "#620000",
+        }}
       >
        Update
       </button>

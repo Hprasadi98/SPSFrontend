@@ -80,7 +80,7 @@ export default function Register() {
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 height-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Name"
                       value={name}
                       onChange={(e) => setName(e.target.value)}
@@ -96,7 +96,7 @@ export default function Register() {
                     </label>
                     <input
                       type="email"
-                      className="border-0 px-3 height-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
@@ -112,7 +112,7 @@ export default function Register() {
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 height-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Electricity Account Number"
                       value={eAccountNo}
                       maxLength={10}
@@ -140,7 +140,7 @@ export default function Register() {
                     </label>
                     <input
                       type="password"
-                      className="border-0 px-3 height-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}

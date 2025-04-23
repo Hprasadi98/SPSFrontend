@@ -25,7 +25,7 @@ module.exports = withMT({
     },
     extend: {
       colors: {
-        'custom-red4': '#7c0000',
+        'red4': '#7c0000',
       },
       minHeight: {
         "screen-75": "75vh",

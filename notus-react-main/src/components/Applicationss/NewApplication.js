@@ -114,7 +114,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
               }`}
             ></div>
           )}
-            <span className="text-s mt-2">{tab.label}</span>
+            <span className="text-sm mt-2">{tab.label}</span>
           </div>
         ))}
       </div>
@@ -128,7 +128,8 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
           {!isModify && (
           <button
             onClick={handleUpdateClick}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
           >
             Edit
           </button>
@@ -169,14 +170,16 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         {currentIndex === 0 ? (
           <button
             disabled
-            className="bg-lightBlue-300 text-white font-bold text-sm px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor:not-allowed"
+            style={{backgroundColor: "#7c0000", opacity: 0.5}}
+            className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor:not-allowed"
           >
             Previous
           </button>
         ) : (
           <button
             onClick={handlePrevious}
-            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             Previous
           </button>
@@ -184,14 +187,16 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         {currentIndex < tabs.length - 1 ? (
           <button
             onClick={handleNext}
-            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             Next
           </button>
         ) : (
           <button
             onClick={handleSubmit}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#620000"}}
+            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             {isModify ? "Update" : "Submit"}
           </button>

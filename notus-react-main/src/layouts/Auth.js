@@ -2,11 +2,6 @@ import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import ceblogo from "assets/img/ceb-logo-and-wave.png";
 
-// components
-
-import Navbar from "components/Navbars/AuthNavbar.js";
-import FooterSmall from "components/Footers/FooterSmall.js";
-
 // views
 
 import Login from "views/auth/Login.js";
@@ -26,6 +21,7 @@ export default function Auth() {
             style={{
               backgroundImage: `url(${ceblogo})`,
               backgroundPosition: "bottom", 
+              opacity:0.6,
               zIndex: -1,
             }}
           ></div>

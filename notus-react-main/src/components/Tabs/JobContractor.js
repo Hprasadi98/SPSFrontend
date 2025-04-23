@@ -89,7 +89,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Code
@@ -100,12 +100,13 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
                   name="contractorId"
                   value={contractorData.contractorId}
                   onChange={handleChange}
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   //placeholder="430.00/ABS/25/xxxx"
                 />
                 {isModify && (
                   <button
-                    className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  style={{backgroundColor:"#7c0000"}}
+                    className="ml-2 text-white active:bg-lightBlue-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     //   onClick={handleSearch}
                   >
                     Search
@@ -117,7 +118,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-8/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Contractor Name
@@ -127,14 +128,14 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
                 name="name"
                 value={contractorData.name}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="address"
               >
                 Address
@@ -144,7 +145,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
                 value={contractorData.address}
                 onChange={handleChange}
                 rows="1"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Enter Address"
               ></textarea>
             </div>
@@ -154,7 +155,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Department ID
@@ -164,14 +165,14 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
                 name="deptId"
                 value={departmentId}
                 disabled
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Bond Number
@@ -179,14 +180,14 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
               <input
                 type="text"
                 name="bondnumber"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Bond Amount
@@ -194,7 +195,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
               <input
                 type="text"
                 name="bondamount"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -203,7 +204,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Tender Amount
@@ -211,14 +212,14 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
               <input
                 type="text"
                 name="tenderamount"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Start Date
@@ -226,14 +227,14 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
               <input
                 type="date"
                 name="startdate"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 End Date
@@ -241,7 +242,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
               <input
                 type="date"
                 name="enddate"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -250,7 +251,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Performance Amount
@@ -258,14 +259,14 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
               <input
                 type="text"
                 name="perforamount"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 VAT (%)
@@ -277,7 +278,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
                   name="vat"
                   value={vat}
                   onChange={handleVatChange}
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
               </div>
             </div>
@@ -285,7 +286,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block uppercase text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
                 NBT (%)
@@ -297,7 +298,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
                   name="nbt"
                   value={nbt}
                   onChange={handleNbtChange}
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
               </div>
             </div>

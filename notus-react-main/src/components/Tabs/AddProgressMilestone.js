@@ -49,7 +49,7 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
-   <div className="block uppercase text-blueGray-600 text-m font-bold mb-3 ml-3">Add Progress Milestone</div>
+   {/* <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Add Progress Milestone</div> */}
 
       {/* //new */}
         <div className="flex flex-wrap ">
@@ -59,7 +59,7 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
 <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Name
@@ -69,7 +69,7 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
                 name="name"
                 value={formData.name || ""}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -78,7 +78,7 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Progress Milestone ID Number
@@ -88,7 +88,7 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
                 name="id"
                 value={formData.id || ""}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
                     <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Department ID
@@ -109,24 +109,24 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
                 name="deptId"
                 value={deptId}
                // onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               readOnly/>
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                PERCENTAGE
+                Percentage
               </label>
               <input
                 type="text"
                 name="percentage"
                 value={formData.percentage || ""}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>

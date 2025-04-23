@@ -60,6 +60,9 @@ export default function AddProgress({ handleChange, handleSubmit, formData,isMod
       onClick={handleSubmit}
        type="button"
         className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+      style={{
+        backgroundColor: "#620000",
+      }}
       >
        Submit
       </button>

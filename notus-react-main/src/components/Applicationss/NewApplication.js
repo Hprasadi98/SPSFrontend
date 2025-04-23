@@ -71,7 +71,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
   };
 
   const handleUpdateClick = () => {
-    history.push("/application/modify"); // Navigate to /application/modify
+    history.push("/application/modify");
   };
 
   return (

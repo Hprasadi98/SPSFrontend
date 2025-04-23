@@ -1,9 +1,10 @@
 import JobContractor from "components/Tabs/JobContractor";
 import { useState } from "react";
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const NewJobContractor = ({  onFormSubmit, isModify, formData, setFormData, handleSearch }) => {
-
+  const history = useHistory();
   const downloadUserReport = () => {
     fetch("http://localhost:8081/api/users/report/download", {
         method: 'GET',
@@ -44,16 +45,27 @@ const NewJobContractor = ({  onFormSubmit, isModify, formData, setFormData, hand
     onFormSubmit(formData);
   };
 
-
+  const handleUpdateClick = () => {
+    history.push("/jobcontractor/modify");
+  };
 
   return (
     <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6">
       {/* Content */}
       <div className="p-6 bg-blueGray-100 rounded-lg">
-        <div className="px-12 ml-2">
+        <div className="flex justify-between px-12 ml-2">
           <h3 className="text-blueGray-700 text-lg font-bold pt-2">
             {isModify ? "Update Contractor" : "Add Contractor"}
           </h3>
+          {!isModify && (
+          <button
+            onClick={handleUpdateClick}
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+          >
+            Edit
+          </button>
+          )}
         </div>
           <JobContractor
             onInputChange={(data) => handleInputChange("contractorDetails", data)}
@@ -67,13 +79,15 @@ const NewJobContractor = ({  onFormSubmit, isModify, formData, setFormData, hand
       <div className="px-6 flex justify-end items-center mt-2 mb-4">
           <button
             onClick={handleSubmit}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             {isModify ? "Update" : "Submit"}
           </button>
           <button
             onClick={downloadUserReport}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             Download
           </button>

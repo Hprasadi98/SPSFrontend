@@ -42,13 +42,13 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
                   placeholder="430.00/ABS/25/xxxx"
                 />
                 {isModify && (
-                <button
-                  className="ml-2 text-white active:bg-lightBlue-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                  style={{ backgroundColor: "#7c0000" }}
-                  onClick={handleSearch}
-                >
-                  Search
-                </button>
+                  <button
+                    className="ml-2 text-white active:bg-lightBlue-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                    style={{ backgroundColor: "#7c0000" }}
+                    onClick={handleSearch}
+                  >
+                    Search
+                  </button>
                 )}
               </div>
             </div>
@@ -91,18 +91,18 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
                 className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
-                CostCenter Name
+                CostCenter
               </label>
               <input
                 type="text"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="Deputy General Manager"
+                placeholder="430.00"
               />
             </div>
           </div>
         </div>
         <div className="flex flex-wrap">
-          <div className="w-full lg:w-4/12 px-4">
+          <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
                 className="block text-blueGray-600 text-sm font-bold mb-2"
@@ -119,7 +119,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
               </select>
             </div>
           </div>
-          <div className="w-full lg:w-4/12 px-4">
+          <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
                 className="block text-blueGray-600 text-sm font-bold mb-2"
@@ -136,18 +136,69 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
               </select>
             </div>
           </div>
-          <div className="w-full lg:w-4/12 px-4">
+        </div>
+        <div className="flex flex-wrap">
+          <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
                 className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
-                CostCenter
+                Representative 1
               </label>
               <input
                 type="text"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                placeholder="430.00"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block text-blueGray-600 text-sm font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Description
+              </label>
+              <input
+                type="text"
+                name="description"
+                value={appData.description}
+                onChange={handleChange}
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-wrap">
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block text-blueGray-600 text-sm font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Consumer Reference
+              </label>
+              <input
+                type="text"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block text-blueGray-600 text-sm font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Job Name
+              </label>
+              <input
+                type="text"
+                name="jobName"
+                value={appData.jobName}
+                onChange={handleChange}
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -181,72 +232,6 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
                   className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
               </div>
-            </div>
-          </div>
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Description
-              </label>
-              <input
-                type="text"
-                name="description"
-                value={appData.description}
-                onChange={handleChange}
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Representative 1
-              </label>
-              <input
-                type="text"
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Consumer Reference
-              </label>
-              <input
-                type="text"
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Job Name
-              </label>
-              <input
-                type="text"
-                name="jobName"
-                value={appData.jobName}
-                onChange={handleChange}
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">

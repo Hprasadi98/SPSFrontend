@@ -44,22 +44,23 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
-      <div className="block uppercase text-blueGray-600 text-m font-bold mb-3 ml-3">Applicant Contact Details</div>
+      {/* <div className="block text-blueGray-600 text-m font-bold mb-3 ml-3">Applicant Contact Details</div> */}
         {/* <div className="flex flex-wrap"> */}
+        <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Mobile No
+                Mobile Number
               </label>
               <input
                 type="text"
                 name="mobileNo"
                 value={appData.mobileNo}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Enter your mobile number"
               />
                {errors.mobileNo && (
@@ -71,7 +72,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Email address
@@ -81,28 +82,29 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
                 name="email"
                 value={appData.email}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Enter your email"
               />
              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
           </div>
+          </div>
          
-        
+          <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                LAND
+                Land
               </label>
               <input
                 type="text"
                 name="telephoneNo"
                 value={appData.telephoneNo}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Enter your Land number"
               />
                {errors.telephoneNo && (
@@ -111,11 +113,11 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
             </div>
           </div>
         {/* </div> */}
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-12/12 px-4">
+       
+          <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Street Address
@@ -125,15 +127,18 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
                 name="streetAddress"
                 value={appData.streetAddress}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
               />
             </div>
           </div>
+          </div>
+
+          <div className="flex flex-wrap">
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Suburb
@@ -143,7 +148,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
                 name="suburb"
                 value={appData.suburb}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="New York"
               />
             </div>
@@ -151,7 +156,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 City
@@ -161,7 +166,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
                 name="city"
                 value={appData.city}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="United States"
               />
             </div>
@@ -169,7 +174,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Postal Code
@@ -179,7 +184,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
                 name="postalCode"
                 value={appData.postalCode}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="Postal Code"
               />
             </div>

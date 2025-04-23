@@ -50,7 +50,8 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
-        <div className="block uppercase text-blueGray-600 text-m font-bold mb-3 ml-3">Applicant Information</div>
+        
+        {/* <div className="block text-blueGray-600 text-m font-bold mb-3 ml-3">Applicant Information</div> */}
 
         {/* //new */}
         <div className="flex flex-wrap ">
@@ -58,7 +59,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
 
               >
                 ID Type
@@ -71,19 +72,19 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                     className="form-radio accent-blue-600" />
                   NIC
                 </label>
-                <label className="mr-3">
+                {/* <label className="mr-3">
                   <input type="radio" name="idType" value="PAS"
                     //checked={appData.idType === "PAS"}
                     onChange={handleChange}
                     className="form-radio accent-blue-600" />
                   Passport
-                </label>
+                </label> */}
                 <label className="mr-3">
                   <input type="radio" name="idType" value="BRN"
                    // checked={appData.idType === "BRN"}
                     onChange={handleChange}
                     className="form-radio accent-blue-600" />
-                  Business Reg No
+                  Business Registration Nomber
                 </label>
               </div>
 
@@ -94,8 +95,8 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
 
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
-              <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
-                ID No
+              <label className="block text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+                ID Number
               </label>
 
               <div className="flex">
@@ -104,13 +105,15 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                   name="idNo"
                   value={(appData && appData.idNo)}
                   onChange={handleChange}
-                  className={`border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${nicError ? "border-red-500" : ""
+                  className={`border-0 px-3 h-0.5  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${nicError ? "border-red-500" : ""
                     }`}
                   placeholder="NIC No"
                 />
                 {/* 
 //{isModify && ( */}
                 <button className="bg-lightBlue-500 text-white px-4 py-2 rounded ml-2"
+                style={{
+                  backgroundColor: "#7c0000",}}
                   type="button"
                   onClick={handleSearch}
                   disabled={loading}>
@@ -157,13 +160,13 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           {/* personal/corporate */}
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
-              <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">Personal/Corporate</label>
+              <label className="block  text-blueGray-600 text-xs font-bold mb-2">Personal/Corporate</label>
               <select
                name="personalCorporate"
               // value={appData.personalCorporate}
               //value={appData.personalCorporate || ""}
               onChange={handleChange}
-               className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+               className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                 <option value="Per" >Personal</option>
                 <option value="Cop" >Corporate</option>
               </select>
@@ -173,7 +176,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 First Name (Initials)/Company Name/Requested By
@@ -183,7 +186,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 name="firstName"
                 value={appData.firstName}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="Enter First Name"
               />
             </div>
@@ -191,7 +194,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Last Name/Company Type
@@ -201,7 +204,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 name="lastName"
                 value={appData.lastName}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="Enter Last Name"
               />
             </div>
@@ -210,7 +213,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Full Name/Requested By/Cost Center
@@ -220,7 +223,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 name="fullName"
                 value={appData.fullName}
                 onChange={handleChange}
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 defaultValue="Enter Full Name"
               />
             </div>
@@ -232,7 +235,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
 
               >
                 CEB Employee
@@ -255,7 +258,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
 
               >
                 Preferred Language

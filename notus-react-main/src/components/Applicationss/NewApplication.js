@@ -130,7 +130,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
             onClick={handleUpdateClick}
             className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
           >
-            Update
+            Edit
           </button>
           )}
         </div>

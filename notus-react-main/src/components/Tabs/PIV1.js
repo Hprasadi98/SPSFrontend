@@ -12,10 +12,10 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                PIV NO
+                PIV Number
               </label>
               <div className="flex ">
                 <input
@@ -24,7 +24,7 @@ const PIV1 = ({formData, handleChange  }) => {
                  id="pivNo"
                  value={formData.pivNo}
                     onChange={handleChange}
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="430.00/ABS/25/xxxx"
                 />
                
@@ -35,28 +35,29 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                VAT Reg No
+                Vat Registration Number
               </label>
               <input
+                type="text"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 People's Bank Branch
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                
               />
             </div>
@@ -64,32 +65,65 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 CEB Branch
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                
               />
             </div>
           </div>
         </div>
+
+        <div className="flex flex-wrap">
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                Job Description
+              </label>
+              <input
+                type="text"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                htmlFor="grid-password"
+              >
+                ID Number
+              </label>
+              <input
+                type="text"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              />
+            </div>
+          </div>
+        </div>
+
+        
         <div className="flex flex-wrap">
           <div className="w-full lg:w-4/12 px-4">
           <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
               
-                Cost Center No
+                Cost Center Number
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="430.00"
               />
             </div>
@@ -97,7 +131,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Date
@@ -105,7 +139,7 @@ const PIV1 = ({formData, handleChange  }) => {
               <input
                 type="date"
                 name="date"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -125,14 +159,14 @@ const PIV1 = ({formData, handleChange  }) => {
             </div> */}
               <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                  Reference No
+                  Reference Number
               </label>
               <select
                 name="ApplicationType"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="BS">Ref</option>
                 <option value="Other">OTHER</option>
@@ -141,57 +175,28 @@ const PIV1 = ({formData, handleChange  }) => {
           </div>
         </div>
  
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                Job Description
-              </label>
-              <input
-                type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-          <div className="w-full lg:w-6/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                htmlFor="grid-password"
-              >
-                ID No
-              </label>
-              <input
-                type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-        </div>
+       
 
      
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                Depositor's Name
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
   <div className="relative w-full mb-3">
     <label
-      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+      className="block  text-blueGray-600 text-xs font-bold mb-2"
       htmlFor="description"
     >
       Address
@@ -199,7 +204,7 @@ const PIV1 = ({formData, handleChange  }) => {
     <textarea
       name="description"
       rows="3"
-      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
       placeholder="Enter Address" 
     ></textarea>
   </div>
@@ -229,7 +234,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Payment mode
@@ -257,7 +262,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Pay Date
@@ -265,7 +270,7 @@ const PIV1 = ({formData, handleChange  }) => {
               <input
                 type="date"
                 name="date"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -275,14 +280,14 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Bank Code
               </label>
               <select
                 name="ApplicationType"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="BS">Bank1</option>
                 <option value="Other">OTHER</option>
@@ -292,14 +297,14 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Branch Code
               </label>
               <select
                 name="ApplicationType"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="BS">Branch1</option>
                 <option value="Other">OTHER</option>
@@ -313,7 +318,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Cheque Date
@@ -321,21 +326,21 @@ const PIV1 = ({formData, handleChange  }) => {
               <input
                 type="date"
                 name="date"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Cheque No
+                Cheque Number
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -346,21 +351,21 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                Amount Allocated
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
   <div className="relative w-full mb-3">
     <label
-      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+      className="block  text-blueGray-600 text-xs font-bold mb-2"
       htmlFor="description"
     >
       Amount in words
@@ -368,7 +373,7 @@ const PIV1 = ({formData, handleChange  }) => {
     <textarea
       name="description"
       rows="3"
-      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
       placeholder="Enter description"
     ></textarea>
   </div>
@@ -379,28 +384,28 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Prepared by
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Certified By
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -411,7 +416,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Depositor's Siqnature
@@ -419,21 +424,21 @@ const PIV1 = ({formData, handleChange  }) => {
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                  Bank Officer's Siqnature
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>

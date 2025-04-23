@@ -224,24 +224,22 @@ export default function Sidebar() {
               </li>
             </ul> */}
 
-<hr className="my-4 md:min-w-full" />
+            <hr className="my-2 md:min-w-full" />
             {/* Heading */}
             <Link
               className={
-                "text-s py-3 font-bold block " +
+                "text-s font-bold block " +
                 (window.location.href.indexOf("/applicant/newapplicant") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-700 hover:text-blueGray-500")
               }
               to="/applicant/newapplicant"
             >
-              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
                 Customer
               </h6>
             </Link>
-            
 
-          
             {/* Divider */}
             {/* <hr className="my-4 md:min-w-full" /> */}
 
@@ -254,7 +252,7 @@ export default function Sidebar() {
             {/* Navigation */}
 
             {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none"> */}
-              {/* <li className="items-center">
+            {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -278,7 +276,7 @@ export default function Sidebar() {
                   New Customer
                 </Link>
               </li> */}
-              {/* <li className="items-center">
+            {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -305,19 +303,20 @@ export default function Sidebar() {
               </li> */}
             {/* </ul> */}
 
-            <hr className="my-4 md:min-w-full" />
+            <hr className="my-2 md:min-w-full" />
             {/* Heading */}
             <Link
               className={
-                "text-s py-3 font-bold block " +
-                (window.location.href.indexOf("/modifyProgress/addProMile") !== -1
+                "text-s font-bold block " +
+                (window.location.href.indexOf("/modifyProgress/addProMile") !==
+                -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-700 hover:text-blueGray-500")
               }
               to="/modifyProgress/addProMile"
             >
-              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
-              Progress Monitoring
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
+                Progress Monitering
               </h6>
             </Link>
             {/* Divider */}
@@ -354,7 +353,7 @@ export default function Sidebar() {
                   Add Progress Milestone
                 </Link>
               </li> */}
-              {/* <li className="items-center">
+            {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -414,53 +413,60 @@ export default function Sidebar() {
               </li>
             </ul> */}
             {/* PIV END */}
-            <hr className="my-4 md:min-w-full" />
+            <hr className="my-2 md:min-w-full" />
             {/* Heading */}
             <Link
               className={
-                "text-s py-3 font-bold block " +
+                "text-s font-bold block " +
                 (window.location.href.indexOf("/piv/newPiv") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-700 hover:text-blueGray-500")
               }
               to="/piv/newPiv"
             >
-              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
                 PIV
               </h6>
             </Link>
 
-            
             {/* Divider */}
             {/* Navigation */}
-            <hr className="my-4 md:min-w-full" />
+            <hr className="my-2 md:min-w-full" />
             {/* Heading */}
             <Link
               className={
-                "text-s py-3 font-bold block " +
+                "text-s font-bold block " +
                 (window.location.href.indexOf("/application/new") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-700 hover:text-blueGray-500")
               }
               to="/application/new"
             >
-              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
                 Application
               </h6>
             </Link>
-            
 
-          
             {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
+            <hr className="my-2 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Job Constructor
-            </h6>
+            <Link
+              className={
+                "text-s font-bold block " +
+                (window.location.href.indexOf("/jobcontractor/new") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/jobcontractor/new"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
+                Job Constructor
+              </h6>
+            </Link>
             {/* Navigation */}
             {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"> */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
                   className={
@@ -506,7 +512,7 @@ export default function Sidebar() {
                   Modify Job Constructor
                 </Link>
               </li>
-            </ul>
+            </ul> */}
 
             {/* Divider */}
             {/* <hr className="my-4 md:min-w-full" /> */}

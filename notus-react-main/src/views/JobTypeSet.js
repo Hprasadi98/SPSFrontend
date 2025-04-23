@@ -54,7 +54,7 @@ export default function JobTypeSet() {
             <div className="relative w-full mb-3">
               <div className="flex">
                 <label
-                  className="block uppercase text-blueGray-800 text-xs font-bold mb-2"
+                  className="block text-blueGray-800 text-sm font-bold mb-2"
                   htmlFor="grid-password"
                 >
                   Select Job Type
@@ -71,7 +71,7 @@ export default function JobTypeSet() {
                   id="jobtype"
                   value={selectedJobType}
                   onChange={(e) => setSelectedJobType(e.target.value)}
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue=""
                 >
                   <option value="" disabled>
@@ -87,12 +87,12 @@ export default function JobTypeSet() {
                 <button
                   onClick={handleNext}
                   disabled={!selectedJobType}
-                  className={`ml-2 active:bg-blueGray-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150
-                    ${
-                      selectedJobType
-                        ? "bg-blueGray-800 text-white hover:bg-blueGray-600"
-                        : "bg-blueGray-600 text-white"
-                    }`}
+                  style={{backgroundColor:`${
+                    selectedJobType
+                      ? "#7c0000"	
+                      : "#b23200"
+                  }`}}
+                  className={"ml-2 text-white active:bg-blueGray-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"}
                 >
                   Next
                 </button>

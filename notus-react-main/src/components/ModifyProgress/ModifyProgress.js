@@ -23,7 +23,7 @@ export default function ModifyProgress() {
       <button
         className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
       >
-       Submit
+       Update
       </button>
    
         </div>

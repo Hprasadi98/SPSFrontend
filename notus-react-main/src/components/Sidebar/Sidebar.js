@@ -224,16 +224,37 @@ export default function Sidebar() {
               </li>
             </ul> */}
 
-            {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
+<hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            <Link
+              className={
+                "text-s py-3 font-bold block " +
+                (window.location.href.indexOf("/applicant/newapplicant") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/applicant/newapplicant"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+                Customer
+              </h6>
+            </Link>
+            
+
+          
+            {/* Divider */}
+            {/* <hr className="my-4 md:min-w-full" /> */}
+
+            {/* Divider */}
+            {/* <hr className="my-4 md:min-w-full" /> */}
+            {/* Heading */}
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               Customer
-            </h6>
+            </h6> */}
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-              <li className="items-center">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none"> */}
+              {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -256,8 +277,8 @@ export default function Sidebar() {
                   ></i>{" "}
                   New Customer
                 </Link>
-              </li>
-              <li className="items-center">
+              </li> */}
+              {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -281,18 +302,33 @@ export default function Sidebar() {
                   ></i>{" "}
                   Modify Customer
                 </Link>
-              </li>
-            </ul>
+              </li> */}
+            {/* </ul> */}
 
-            {/* Divider */}
             <hr className="my-4 md:min-w-full" />
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            <Link
+              className={
+                "text-s py-3 font-bold block " +
+                (window.location.href.indexOf("/modifyProgress/addProMile") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/modifyProgress/addProMile"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
               Progress Monitering
-            </h6>
+              </h6>
+            </Link>
+            {/* Divider */}
+            {/* <hr className="my-4 md:min-w-full" /> */}
+            {/* Heading */}
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+              Progress Monitering
+            </h6> */}
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
                   className={
@@ -317,8 +353,8 @@ export default function Sidebar() {
                   ></i>{" "}
                   Add Progress Milestone
                 </Link>
-              </li>
-              <li className="items-center">
+              </li> */}
+              {/* <li className="items-center">
                 <Link
                   className={
                     "text-xs uppercase py-3 font-bold block " +
@@ -342,19 +378,19 @@ export default function Sidebar() {
                   ></i>{" "}
                   Modify Progress
                 </Link>
-              </li>
-            </ul>
+              </li> */}
+            {/* </ul> */}
 
             {/* PIV */}
             {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
+            {/* <hr className="my-4 md:min-w-full" /> */}
             {/* Heading */}
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
+            {/* <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
               PIV
-            </h6>
+            </h6> */}
             {/* Navigation */}
 
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+            {/* <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
                   className={
@@ -376,8 +412,23 @@ export default function Sidebar() {
                   PIV NEW
                 </Link>
               </li>
-            </ul>
+            </ul> */}
             {/* PIV END */}
+            <hr className="my-4 md:min-w-full" />
+            {/* Heading */}
+            <Link
+              className={
+                "text-s py-3 font-bold block " +
+                (window.location.href.indexOf("/piv/newPiv") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/piv/newPiv"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+                PIV
+              </h6>
+            </Link>
 
             
             {/* Divider */}

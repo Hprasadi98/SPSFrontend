@@ -35,17 +35,17 @@ export default function Table2({ color }) {
                             <tr>
                                 <th
                                     className={
-                                        "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                                        "px-6 align-middle border border-solid py-3 text-xs  border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                                         (color === "light"
                                             ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                             : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                                     }
                                 >
-                                   Code No
+                                   Code Nomber
                                 </th>
                                 <th
                                     className={
-                                        "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                                        "px-6 align-middle border border-solid py-3 text-xs  border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                                         (color === "light"
                                             ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                             : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
@@ -55,7 +55,7 @@ export default function Table2({ color }) {
                                 </th>
                                 <th
                                     className={
-                                        "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                                        "px-6 align-middle border border-solid py-3 text-xs  border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                                         (color === "light"
                                             ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                             : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
@@ -64,7 +64,7 @@ export default function Table2({ color }) {
                 
                                 <th
                                     className={
-                                        "px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
+                                        "px-6 align-middle border border-solid py-3 text-xs  border-l-0 border-r-0 whitespace-nowrap font-semibold text-left " +
                                         (color === "light"
                                             ? "bg-blueGray-50 text-blueGray-500 border-blueGray-100"
                                             : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
@@ -82,7 +82,7 @@ export default function Table2({ color }) {
                                     1300
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                 Miscellaneous Income
                                 </td>
 
@@ -98,7 +98,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -113,7 +113,7 @@ export default function Table2({ color }) {
                                     3600
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                 Electricity Debtors
                                 </td>
 
@@ -129,7 +129,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -144,7 +144,7 @@ export default function Table2({ color }) {
                                     5600
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                     Security Deposit
                                 </td>
 
@@ -160,7 +160,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -175,7 +175,7 @@ export default function Table2({ color }) {
                                     5610
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                 Service Connection/ Electricity Schemes
                                 </td>
 
@@ -191,7 +191,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -206,7 +206,7 @@ export default function Table2({ color }) {
                                     5640
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                     Tender Deposit
                                 </td>
 
@@ -222,7 +222,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -237,7 +237,7 @@ export default function Table2({ color }) {
                                     5660
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                 Miscellaneous Deposit
                                 </td>
 
@@ -253,7 +253,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -268,7 +268,7 @@ export default function Table2({ color }) {
                                     5800
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                     Cash in Transit
                                 </td>
 
@@ -284,7 +284,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -299,7 +299,7 @@ export default function Table2({ color }) {
                                     5910
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                 For Dishonoured Cheque
                                 </td>
 
@@ -315,7 +315,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -330,7 +330,7 @@ export default function Table2({ color }) {
                                     1380
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                     Application Fee
                                 </td>
 
@@ -346,7 +346,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -361,7 +361,7 @@ export default function Table2({ color }) {
                                     5222
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                     Sub Total
                                 </td>
                                 
@@ -378,7 +378,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>
@@ -393,7 +393,7 @@ export default function Table2({ color }) {
                                     1300
                                 </td>
 
-                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs uppercase text-blueGray-600  font-bold whitespace-nowrap p-4">
+                                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs  text-blueGray-600  font-bold whitespace-nowrap p-4">
                                     Grand Total
                                 </td>
 
@@ -409,7 +409,7 @@ export default function Table2({ color }) {
 
                                                 <input
                                                     type="text"
-                                                    className="border-0 px-3 py-3 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                                                    className="border-0 px-3 h-0.5 bg-blueGray-50 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                                                 />
                                             </div>
                                         </div>

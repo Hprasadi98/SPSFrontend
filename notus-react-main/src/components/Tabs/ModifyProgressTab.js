@@ -9,7 +9,7 @@ const ModifyProgressTab = ({ }) => {
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
-   <div className="block uppercase text-blueGray-600 text-m font-bold mb-3 ml-3">Modify Progress</div>
+   <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Modify Progress</div>
 
       {/* //new */}
         <div className="flex flex-wrap ">
@@ -17,11 +17,11 @@ const ModifyProgressTab = ({ }) => {
 
 {/* drop down */}
             <div className="w-full lg:w-6/12 px-4 mb-2">
-                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                      <label className="block  text-blueGray-600 text-xs font-bold mb-2">
                       Construction Reference
                       </label>
                       <select
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         
                       >
                         <option value="">Select Document</option>
@@ -32,11 +32,11 @@ const ModifyProgressTab = ({ }) => {
 
 
                     <div className="w-full lg:w-6/12 px-4">
-                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                      <label className="block text-blueGray-600 text-xs font-bold mb-2">
                       Job Reference
                       </label>
                       <select
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         
                       >
                         <option value="">Select Document</option>
@@ -51,7 +51,7 @@ const ModifyProgressTab = ({ }) => {
                     <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Commercial Reference
@@ -60,14 +60,14 @@ const ModifyProgressTab = ({ }) => {
                 type="text"
                 name="idType"
                
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Cost Center Estimate No
@@ -77,7 +77,7 @@ const ModifyProgressTab = ({ }) => {
                   type="text"
                   name="idNo"
                   
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
                 <button
                  
@@ -91,11 +91,11 @@ const ModifyProgressTab = ({ }) => {
           {/* second field row end */}
 
           <div className="w-full lg:w-6/12 px-4 mb-2">
-                      <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+                      <label className="block  text-blueGray-600 text-xs font-bold mb-2">
                       Job no
                       </label>
                       <select
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         
                       >
                         <option value="">Select Document</option>
@@ -108,7 +108,7 @@ const ModifyProgressTab = ({ }) => {
                       <div className="w-full lg:w-6/12 px-4">
   <div className="relative w-full mb-3">
     <label
-      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+      className="block  text-blueGray-600 text-xs font-bold mb-2"
       htmlFor="description"
     >
       Description
@@ -116,7 +116,7 @@ const ModifyProgressTab = ({ }) => {
     <textarea
       name="description"
       rows="3"
-      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
       placeholder="Enter description"
     ></textarea>
   </div>
@@ -127,8 +127,8 @@ const ModifyProgressTab = ({ }) => {
           {/* Progress Milestone*/}
           <div className="w-full lg:w-12/12 px-4">
           <div className="relative w-full mb-3">
-              <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">Progress Milestone</label>
-              <select className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+              <label className="block  text-blueGray-600 text-xs font-bold mb-2">Progress Milestone</label>
+              <select className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
                 <option>Personal</option>
                 <option>Corporate</option>
               </select>
@@ -139,21 +139,21 @@ const ModifyProgressTab = ({ }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 No of metering points
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Estimate categoty
@@ -161,14 +161,14 @@ const ModifyProgressTab = ({ }) => {
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                
@@ -176,7 +176,7 @@ const ModifyProgressTab = ({ }) => {
               </label>
               <input
                 type="text"
-                className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
@@ -184,7 +184,7 @@ const ModifyProgressTab = ({ }) => {
           
           <div className="relative w-full mb-3 ml-3">
     <label
-      className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+      className="block  text-blueGray-600 text-xs font-bold mb-2"
       htmlFor="description"
     >
       Remark
@@ -192,7 +192,7 @@ const ModifyProgressTab = ({ }) => {
     <textarea
       name="description"
       rows="2"
-      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
       placeholder="Enter description"
     ></textarea>
   </div>

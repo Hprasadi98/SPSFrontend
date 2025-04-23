@@ -1,30 +1,22 @@
-
-
-
 import React, { useState, useEffect, useCallback } from "react";
-import { useLocation } from "react-router-dom";
 import CardEstimatePage1 from "components/Cards/CardEstimatePage1";
 import CardEstimatePage2 from "components/Cards/CardEstimatePage2";
 import CardEstimatePage3 from "components/Cards/CardEstimatePage3";
 
 function EstimateForm() {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const mode = searchParams.get("mode") || "new";
-
   const [activeTab, setActiveTab] = useState(0);
   const [completedTabs, setCompletedTabs] = useState([false, false, false]);
   const [formData, setFormData] = useState({
     estimateNo: "",
-    revNo: "1", // Will be sent as a Short (string in form, parsed on backend)
+    revNo: "1",
     deptId: "52010",
-    costCenter: "", // Maps to projectNo
+    costCenter: "",
     warehouse: "",
-    estimateDt: "", // Maps to etimateDt (typo in backend)
+    estimateDt: "",
     divSec: "",
     district: "",
     area: "",
-    esName: "", // Maps to clientNm
+    esName: "",
     descr: "",
     rejectReason: "",
     eCSC: "",
@@ -43,13 +35,13 @@ function EstimateForm() {
     aprDt1: new Date().toISOString().split("T")[0],
     aprDt2: new Date().toISOString().split("T")[0],
     aprDt3: new Date().toISOString().split("T")[0],
+    heatingDt: new Date().toISOString().split("T")[0],
     aprDt4: new Date().toISOString().split("T")[0],
     aprDt5: new Date().toISOString().split("T")[0],
     rejctDt: new Date().toISOString().split("T")[0],
     reviseDt: new Date().toISOString().split("T")[0],
     partialPmt: "N",
-    status: "0", // Will be sent as a Short (string in form, parsed on backend)
-    // Additional fields to match backend schema
+    status: "0",
     partPcnt: "",
     partialAmt: "",
     taxPcnt: "",
@@ -147,7 +139,7 @@ function EstimateForm() {
     const payload = {
       id: {
         estimateNo: formData.estimateNo,
-        revNo: formData.revNo, // Backend expects Short, sending as string (parsed by backend)
+        revNo: formData.revNo,
         deptId: formData.deptId,
       },
       projectNo: formData.costCenter || null,
@@ -171,43 +163,43 @@ function EstimateForm() {
       label8: formData.label8 || null,
       label9: formData.label9 || null,
       label10: formData.label10 || null,
-      etimateDt: formData.estimateDt || null, // Required field
+      etimateDt: formData.estimateDt || null,
       actualUnits: formData.actualUnits ? parseInt(formData.actualUnits) : null,
       fundSource: formData.fundSource || null,
       fundId: formData.fundId || null,
-      stdCost: formData.stdCost ? parseInt(formData.stdCost) : null, // Backend expects Long
+      stdCost: formData.stdCost ? parseInt(formData.stdCost) : null,
       controlled: formData.controlled || null,
       clientNm: formData.esName || null,
       priority: formData.priority || false,
-      custContrib: formData.custContrib ? parseInt(formData.custContrib) : null, // Backend expects Long
+      custContrib: formData.custContrib ? parseInt(formData.custContrib) : null,
       paidAmt: formData.paidAmt ? parseInt(formData.paidAmt) : null,
       allocPaid: formData.allocPaid ? parseInt(formData.allocPaid) : null,
       fundContrib: formData.fundContrib ? parseInt(formData.fundContrib) : null,
       settledAmt: formData.settledAmt ? parseInt(formData.settledAmt) : null,
       allocSettle: formData.allocSettle ? parseInt(formData.allocSettle) : null,
       normDefault: formData.normDefault || false,
-      status: formData.status ? parseInt(formData.status) : 0, // Backend expects Short
+      status: formData.status ? parseInt(formData.status) : 0,
       logId: formData.logId ? parseInt(formData.logId) : null,
       entBy: formData.entBy || null,
-      entDt: formData.entDt || null, // Required field
+      entDt: formData.entDt || null,
       confBy: formData.confBy || null,
-      confDt: formData.confDt || null, // Required field
+      confDt: formData.confDt || null,
       aprUid1: formData.aprUid1 || null,
-      aprDt1: formData.aprDt1 || null, // Required field
+      aprDt1: formData.aprDt1 || null,
       aprUid2: formData.aprUid2 || null,
-      aprDt2: formData.aprDt2 || null, // Required field
+      aprDt2: formData.aprDt2 || null,
       aprUid3: formData.aprUid3 || null,
-      aprDt3: formData.aprDt3 || null, // Required field
+      aprDt3: formData.aprDt3 || null,
       aprUid4: formData.aprUid4 || null,
-      aprDt4: formData.aprDt4 || null, // Required field
+      aprDt4: formData.aprDt4 || null,
       aprUid5: formData.aprUid5 || null,
-      aprDt5: formData.aprDt5 || null, // Required field
+      aprDt5: formData.aprDt5 || null,
       rejctUid: formData.rejctUid || null,
-      rejctDt: formData.rejctDt || null, // Required field
+      rejctDt: formData.rejctDt || null,
       reviseEst: formData.reviseEst ? parseInt(formData.reviseEst) : null,
       estType: formData.estType || null,
       reviseUid: formData.reviseUid || null,
-      reviseDt: formData.reviseDt || null, // Required field
+      reviseDt: formData.reviseDt || null,
       revReason: formData.revReason || null,
       descr: formData.descr || null,
       prjAssDt: formData.prjAssDt || null,
@@ -236,6 +228,10 @@ function EstimateForm() {
     }
 
     return await response.json();
+  };
+
+  const handleEdit = () => {
+    alert("Edit mode activated. You can now modify the form fields.");
   };
 
   const handleSubmit = async () => {
@@ -364,14 +360,7 @@ function EstimateForm() {
   useEffect(() => {
     const newCompletedTabs = [validateForm(0), validateForm(1), validateForm(2)];
     setCompletedTabs(newCompletedTabs);
-
-    if (mode === "modify" && formData.estimateNo === "") {
-      setFormData((prev) => ({
-        ...prev,
-        estimateNo: "600.41/CN/17/0032",
-      }));
-    }
-  }, [formData, mode, validateForm]);
+  }, [formData, validateForm]);
 
   const tabs = [
     {
@@ -382,7 +371,6 @@ function EstimateForm() {
           onChange={handleFormDataChange}
           errors={errors}
           onNext={handleNext}
-          mode={mode}
         />
       ),
     },
@@ -461,12 +449,21 @@ function EstimateForm() {
                 </button>
               )}
               {activeTab < tabs.length - 1 && (
-                <button
-                  onClick={handleNext}
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
-                >
-                  Next
-                </button>
+                <>
+                  <button
+                    onClick={handleEdit}
+                    style={{backgroundColor: "#3ECF8E "}}
+                    className=" text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+                  >
+                    Update
+                  </button>
+                  <button
+                    onClick={handleNext}
+                    className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+                  >
+                    Next
+                  </button>
+                </>
               )}
               {activeTab === tabs.length - 1 && (
                 <button

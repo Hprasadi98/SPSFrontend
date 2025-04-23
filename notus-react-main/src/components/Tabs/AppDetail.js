@@ -38,7 +38,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
                   name="applicationId"
                   value={appData.applicationId}
                   onChange={handleChange}
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 height-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="430.00/ABS/25/xxxx"
                 />
                 {isModify && (

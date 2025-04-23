@@ -25,7 +25,10 @@ export default function Allocation({}) {
       <button
       
        type="button"
-        className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+        className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+        style={{
+          backgroundColor:"#620000",
+        }}
       >
        Submit
       </button>
@@ -34,9 +37,14 @@ export default function Allocation({}) {
         </div>
 
             </div>
+
+            
             </div>
+            
             </div>
+           
             </div>
+
             
             // </div>
     );

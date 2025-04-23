@@ -9,7 +9,7 @@ const AllocationOCJ = ({ }) => {
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
-   <div className="block uppercase text-blueGray-600 text-m font-bold mb-3 ml-3">Allocation of CON Job </div>
+   <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Allocation of CON Job </div>
 
       {/* //new */}
         <div className="flex flex-wrap ">
@@ -28,21 +28,24 @@ const AllocationOCJ = ({ }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                ID No
+                Estimate Number
               </label>
               <div className="flex ">
                 <input
                   type="text"
                   name="idNo"
                   
-                  className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                  className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
                 <button
                  
                   className="ml-2 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  style={{
+                     backgroundColor: "#7c0000",
+                  }}
                 >
                   Print
                 </button>

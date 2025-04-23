@@ -590,35 +590,35 @@ export default function Sidebar() {
             </ul>
 
             {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
+            <hr className="my-2 md:min-w-full" />
             {/* Heading */}
             <Link
               className={
-                "text-s py-3 font-bold block " +
+                "text-s font-bold block " +
                 (window.location.href.indexOf("/estimate/estimateform") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-700 hover:text-blueGray-500")
               }
               to="/estimate/estimateform"
             >
-              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
                 Work Estimate
               </h6>
             </Link>
 
             {/* allocation */}
-            <hr className="my-4 md:min-w-full" />
+            <hr className="my-2 md:min-w-full" />
             {/* Heading */}
             <Link
               className={
-                "text-s py-3 font-bold block " +
+                "text-s font-bold block " +
                 (window.location.href.indexOf("/allocation/allocationOCJ1") !== -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-700 hover:text-blueGray-500")
               }
               to="/allocation/allocationOCJ1"
             >
-              <h6 className="md:min-w-full text-blueGray-500 text-s font-bold block pt-1 pb-4 no-underline">
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
                 Letters
               </h6>
             </Link>

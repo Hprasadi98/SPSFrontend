@@ -8,14 +8,22 @@ import "assets/styles/tailwind.css";
 // layouts
 import Admin from "layouts/Admin.js";
 import Auth from "layouts/Auth.js";
+import Estimate from "layouts/Estimate";
 import Application from "layouts/Application.js";
+import JobContractor from "layouts/JobContractor.js";
 import Estimation from "layouts/Estimation.js";
+
 
 // views without layouts
 import Landing from "views/Landing.js";
 import Profile from "views/Profile.js";
 import Index from "views/Index.js";
+import Applicant from "layouts/Applicant";
 import SessionCheck from "views/CheckSession";
+import JobTypeSet from "views/JobTypeSet";
+import ModifyProgress from "layouts/ModifyProgress";
+import PIV from "layouts/PIV";
+import Allocation from "layouts/Allocation";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -25,17 +33,24 @@ ReactDOM.render(
         {/* add routes with layouts */}
         <Route path="/admin" component={Admin} />
         <Route path="/auth" component={Auth} />
+        <Route path="/applicant" component={Applicant} />
+        <Route path="/modifyProgress" component={ModifyProgress} />
         <Route path="/application" component={Application} />
-        <Route path="/estimate" component={Estimation} />
+        <Route path="/jobcontractor" component={JobContractor} />
+        <Route path="/estimation" component={Estimation} />
+        <Route path="/estimate" component={Estimate} />
         {/* add routes without layouts */}
+        <Route path="/piv" component={PIV} />
+        <Route path="/allocation" component={Allocation} />
         <Route path="/landing" exact component={Landing} />
         <Route path="/profile" exact component={Profile} />
-        <Route path="/" exact component={Index} />
+        <Route path="/index" exact component={Index} />
+        <Route path="/auth" exact component={Index} />
+        <Route path="/jobtypeset" exact component={JobTypeSet} />
         {/* add redirect for first page */}
-        <Redirect from="*" to="/" />
+        <Redirect from="*" to="/auth" />
       </Switch>
     </>
-
   </BrowserRouter>,
   document.getElementById("root")
 );

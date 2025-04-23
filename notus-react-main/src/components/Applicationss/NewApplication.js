@@ -5,6 +5,7 @@ import TechDetails from "components/Tabs/TechDetails";
 import { CheckCircle } from "lucide-react";
 import { useState } from "react";
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 const tabs = [
   {
@@ -15,7 +16,7 @@ const tabs = [
   { id: "personal", label: "Personal Details", component: <PersonalDetails /> },
   {
     id: "locational",
-    label: "Locational Details",
+    label: "Service Location Details",
     component: <LocationalDetails />,
   },
   { id: "technical", label: "Technical Details", component: <TechDetails /> },
@@ -23,6 +24,7 @@ const tabs = [
 
 const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleSearch }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const history = useHistory();
 
   // const validateCurrentTab = () => {
   //   const currentTab = tabs[currentIndex].id;
@@ -68,6 +70,10 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
     onFormSubmit(formData);
   };
 
+  const handleUpdateClick = () => {
+    history.push("/application/modify");
+  };
+
   return (
     <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6">
       {/* Stepper */}
@@ -77,10 +83,10 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
             key={tab.id}
             className={`flex-1 flex flex-col items-center cursor-pointer relative${
               index <= currentIndex
-                ? "text-blue-600 uppercase"
+                ? "text-blue-600"
                 : index === currentIndex
-                ? "text-blue-600 uppercase"
-                : "text-gray-400 uppercase"
+                ? "text-blue-600"
+                : "text-gray-400"
             }`}
           >
             {index > 0 && (
@@ -108,17 +114,26 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
               }`}
             ></div>
           )}
-            <span className="text-xs mt-2">{tab.label}</span>
+            <span className="text-sm mt-2">{tab.label}</span>
           </div>
         ))}
       </div>
 
       {/* Content */}
       <div className="p-6 bg-blueGray-100 rounded-lg">
-        <div className="px-12 ml-2">
-          <h3 className="text-blueGray-700 text-lg font-bold">
+        <div className="flex justify-between px-12 ml-2">
+          <h3 className="text-blueGray-700 text-lg font-bold mt-2">
             {tabs[currentIndex].label}
           </h3>
+          {!isModify && (
+          <button
+            onClick={handleUpdateClick}
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+          >
+            Edit
+          </button>
+          )}
         </div>
         {tabs[currentIndex].id === "application" && (
           <AppDetails
@@ -155,14 +170,16 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         {currentIndex === 0 ? (
           <button
             disabled
-            className="bg-lightBlue-300 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor:not-allowed"
+            style={{backgroundColor: "#7c0000", opacity: 0.5}}
+            className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor:not-allowed"
           >
             Previous
           </button>
         ) : (
           <button
             onClick={handlePrevious}
-            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             Previous
           </button>
@@ -170,14 +187,16 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         {currentIndex < tabs.length - 1 ? (
           <button
             onClick={handleNext}
-            className="bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#7c0000"}}
+            className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             Next
           </button>
         ) : (
           <button
             onClick={handleSubmit}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{backgroundColor: "#620000"}}
+            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             {isModify ? "Update" : "Submit"}
           </button>

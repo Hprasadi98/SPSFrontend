@@ -1,8 +1,8 @@
-import React from "react";
 
+import React from "react";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
 
-export default function Navbar() {
+export default function AdminNavbar() {
   return (
     <>
       {/* Navbar */}
@@ -39,3 +39,4 @@ export default function Navbar() {
     </>
   );
 }
+

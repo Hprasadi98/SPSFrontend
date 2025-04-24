@@ -159,10 +159,10 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
             {/* Step Number */}
             <span
               className={`flex items-center justify-center w-10 h-10 text-lg font-medium rounded-full border-2 mb-2 ${currentIndex === index
-                  ? " bg-red-400 text-white border-black"
+                  ? " bg-yellow-500 text-white border-black"
                   : index < currentIndex
                     ? " bg-emerald-400 text-white border-gray-700 cursor-not-allowed"
-                    : "bg-lightBlue-500 text-gray-700 border-gray-400"
+                    : " text-gray-700 border-gray-400"
                 }`}
             >
               {index + 1}
@@ -176,18 +176,14 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
               <div className="w-16 border-t-2 border-lightBlue-500 border-dashed mx-4"></div>
             )}
 
-
-
           </div>
         ))}
-
-        
       </div>
 
 
       <div className="flex justify-between px-12 ml-2">
           <h3 className="block text-blueGray-600 text-m font-bold mb-3 ">
-          {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"}
+          {/* {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"} */}
           </h3>
           {!isModify && (
           <button

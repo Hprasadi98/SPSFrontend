@@ -157,22 +157,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           {/* end */}
 
           {/* personalCorporate */}
-          {/* personal/corporate */}
-          <div className="w-full lg:w-12/12 px-4">
-            <div className="relative w-full mb-3">
-              <label className="block  text-blueGray-600 text-xs font-bold mb-2">Personal/Corporate</label>
-              <select
-               name="personalCorporate"
-              // value={appData.personalCorporate}
-              //value={appData.personalCorporate || ""}
-              onChange={handleChange}
-               className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                <option value="Per" >Personal</option>
-                <option value="Cop" >Corporate</option>
-              </select>
-            </div>
-          </div>
-          {/* raw 2 */}
+        
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
@@ -228,6 +213,24 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
               />
             </div>
           </div>
+
+            {/* personal/corporate */}
+            <div className="w-full lg:w-12/12 px-4">
+            <div className="relative w-full mb-3">
+              <label className="block  text-blueGray-600 text-xs font-bold mb-2">Personal/Corporate</label>
+              <select
+               name="personalCorporate"
+              // value={appData.personalCorporate}
+              //value={appData.personalCorporate || ""}
+              onChange={handleChange}
+               className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
+                <option value="Per" >Personal</option>
+                <option value="Cop" >Corporate</option>
+              </select>
+            </div>
+          </div>
+          {/* raw 2 */}
+          
 
 
           {/* raw 2 */}

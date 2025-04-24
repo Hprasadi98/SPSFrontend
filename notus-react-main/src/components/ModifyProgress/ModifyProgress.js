@@ -6,7 +6,13 @@ export default function ModifyProgress() {
     return (
         <div className="w-full max-w-2xl bg-white  rounded-lg p-6">
  
-<div class="flex justify-center items-center mt-20"></div>
+ <div class="flex justify-center items-center mt-10"></div>
+
+<div className="flex justify-between px-12 ml-2 pt-0">
+                            <h3 className="block text-blueGray-600 text-m font-bold mb-2">
+                            Modify Progress 
+                            </h3>
+                            </div>
 
  <div className="rounded-t bg-white  ">
  <div className="flex justify-between items-center ">

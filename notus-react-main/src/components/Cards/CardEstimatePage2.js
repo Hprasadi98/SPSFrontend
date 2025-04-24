@@ -13,14 +13,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="catCd"
               >
                 Category Code
               </label>
               <select
                 id="catCd"
-                className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
                 value={formData.catCd || ""}
                 onChange={onChange}
               >
@@ -35,7 +35,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="stdCost"
               >
                 Standard Cost
@@ -43,7 +43,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
               <input
                 type="number"
                 id="stdCost"
-                className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.stdCost ? "border-red-500" : ""
                 }`}
                 value={formData.stdCost || ""}
@@ -57,14 +57,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="omsRefNo"
               >
                 OMS Reference No
               </label>
               <select
                 id="omsRefNo"
-                className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
                 value={formData.omsRefNo || ""}
                 onChange={onChange}
               >
@@ -78,14 +78,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="fundSource"
               >
                 Fund Source
               </label>
               <select
                 id="fundSource"
-                className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
                 value={formData.fundSource || ""}
                 onChange={onChange}
               >
@@ -99,14 +99,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="fundId"
               >
                 Fund ID
               </label>
               <select
                 id="fundId"
-                className="border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
                 value={formData.fundId || ""}
                 onChange={onChange}
               >
@@ -120,7 +120,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="pivDate"
               >
                 PIV Date
@@ -128,7 +128,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
               <input
                 type="date"
                 id="pivDate"
-                className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.pivDate ? "border-red-500" : ""
                 }`}
                 value={formData.pivDate || ""}
@@ -141,7 +141,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="pivNumber"
               >
                 PIV Number
@@ -149,7 +149,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
               <input
                 type="text"
                 id="pivNumber"
-                className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.pivNumber ? "border-red-500" : ""
                 }`}
                 value={formData.pivNumber || ""}
@@ -163,7 +163,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="pivAmount"
               >
                 PIV Amount
@@ -171,7 +171,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
               <input
                 type="number"
                 id="pivAmount"
-                className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.pivAmount ? "border-red-500" : ""
                 }`}
                 value={formData.pivAmount || ""}
@@ -185,7 +185,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className=" text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="custContrib"
               >
                 Customer Contribution
@@ -193,7 +193,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
               <input
                 type="number"
                 id="custContrib"
-                className={`border-0 px-3 py-3 bg-white rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.custContrib ? "border-red-500" : ""
                 }`}
                 value={formData.custContrib || ""}

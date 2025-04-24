@@ -117,23 +117,22 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
           </div>
         ))}
       </div>
-
-      {/* Content */}
-      <div className="p-6 bg-blueGray-100 rounded-lg">
-        <div className="flex justify-between px-12 ml-2">
-          <h3 className="text-blueGray-700 text-lg font-bold mt-2">
-            {tabs[currentIndex].label}
+      <div className="flex justify-between px-12 ml-2">
+          <h3 className="text-blueGray-700 text-lg font-bold mb-2">
+            {/* {tabs[currentIndex].label} */}
           </h3>
           {!isModify && (
           <button
             onClick={handleUpdateClick}
             style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mb-2"
           >
             Edit
           </button>
           )}
         </div>
+      {/* Content */}
+      <div className="p-6 bg-blueGray-100 rounded-lg">
         {tabs[currentIndex].id === "application" && (
           <AppDetails
             onInputChange={(data) => handleInputChange("appDetails", data)}
@@ -165,7 +164,8 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
       </div>
 
       {/* Navigation Buttons */}
-
+      <div className="px-12 mr-1 flex justify-end items-center mt-2 mb-4">
+        {currentIndex > 0 ? (
           <button
           onClick={handlePrevious}
           style={{backgroundColor: "#7c0000"}}

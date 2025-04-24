@@ -25,7 +25,7 @@ const TechDetails = () => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-2">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-1"
+                className="block text-blueGray-600 text-xs font-bold mb-1"
                 htmlFor="grid-password"
               >
                 HT/LT Metering
@@ -49,7 +49,7 @@ const TechDetails = () => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-2">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Does Premises already have electricity supply
@@ -73,7 +73,7 @@ const TechDetails = () => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Capacity of Service
@@ -87,7 +87,7 @@ const TechDetails = () => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 No of metering points
@@ -101,7 +101,7 @@ const TechDetails = () => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Account Numbers
@@ -115,7 +115,7 @@ const TechDetails = () => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Type of Supply
@@ -130,7 +130,7 @@ const TechDetails = () => {
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
-            <label className="block text-blueGray-600 text-sm font-bold mb-2">
+            <label className="block text-blueGray-600 text-xs font-bold mb-2">
               Document to Be Submitted
             </label>
             <select
@@ -148,7 +148,7 @@ const TechDetails = () => {
             >
               <input {...getInputProps()} />
               <FaCloudUploadAlt size={35} className="mx-auto text-gray-500" />
-              <p className="block text-blueGray-600 text-sm mb-2">
+              <p className="block text-blueGray-600 text-xs mb-2">
                 Drag & Drop files here or click to upload
               </p>
             </div>
@@ -171,7 +171,7 @@ const TechDetails = () => {
 
           {/*  */}
           <div className="w-full lg:w-6/12 px-4">
-            <label className="block text-blueGray-600 text-sm font-bold mb-2">
+            <label className="block text-blueGray-600 text-xs font-bold mb-2">
               Document to Be Submitted
             </label>
             <select
@@ -189,7 +189,7 @@ const TechDetails = () => {
             >
               <input {...getInputProps()} />
               <FaCloudUploadAlt size={35} className="mx-auto text-gray-500" />
-              <p className="block text-blueGray-600 text-sm mb-2">
+              <p className="block text-blueGray-600 text-xs mb-2">
                 Drag & Drop files here or click to upload
               </p>
             </div>

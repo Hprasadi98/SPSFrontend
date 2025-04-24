@@ -81,7 +81,6 @@ export default function Sidebar() {
               </div>
             </form>
             {/* Divider */}
-
             <hr className="my-2 md:min-w-full" />
             {/* Heading */}
             <Link
@@ -135,85 +134,39 @@ export default function Sidebar() {
             </Link>
 
             {/* Divider */}
-            <hr className="my-4 md:min-w-full" />
-            <h6 className="md:min-w-full text-blueGray-500 text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-              Standard Estimate
-            </h6>
-            {/* Navigation */}
-            <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf("/estimation/estimate") !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/estimation/estimate"
-                >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/estimation/estimate") !==
-                      -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  New Estimate
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf(
-                      "/estimation/modify-estimate"
-                    ) !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/estimation/modify-estimate"
-                >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf(
-                        "/estimation/modify-estimate"
-                      ) !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  Modify Estimate
-                </Link>
-              </li>
-              <li className="items-center">
-                <Link
-                  className={
-                    "text-xs uppercase py-3 font-bold block " +
-                    (window.location.href.indexOf(
-                      "/estimation/standard-rates"
-                    ) !== -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
-                      : "text-blueGray-700 hover:text-blueGray-500")
-                  }
-                  to="/estimation/standard-rates"
-                >
-                  <i
-                    className={
-                      "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf(
-                        "/estimation/standard-rates"
-                      ) !== -1
-                        ? "opacity-75"
-                        : "text-blueGray-300")
-                    }
-                  ></i>{" "}
-                  CEB Standard Rates
-                </Link>
-              </li>
-            </ul>
+            <hr className="my-2 md:min-w-full" />
+            {/* Heading */}
+            <Link
+              className={
+                "text-s font-bold block " +
+                (window.location.href.indexOf("/estimation/estimate") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/estimation/estimate"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
+                Standard Estimate
+              </h6>
+            </Link>
+
+            {/* Divider */}
+            <hr className="my-2 md:min-w-full" />
+            {/* Heading */}
+            <Link
+              className={
+                "text-s font-bold block " +
+                (window.location.href.indexOf("/estimation/standard-rates") !== -1
+                  ? "text-lightBlue-500 hover:text-lightBlue-600"
+                  : "text-blueGray-700 hover:text-blueGray-500")
+              }
+              to="/estimation/standard-rates"
+            >
+              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
+                Standard Rates
+              </h6>
+            </Link>
+          
 
             {/* Divider */}
             <hr className="my-2 md:min-w-full" />

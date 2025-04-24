@@ -12,7 +12,6 @@ const Tabs = () => {
   const [completedTabs, setCompletedTabs] = useState(Array(6).fill(false));
 
   const [generalInfo, setGeneralInfo] = useState({
-
     appNo: "",
     stdNo: "",
     deptId: "",
@@ -83,36 +82,37 @@ const Tabs = () => {
       alert("Please fill in stdNo and deptId.");
       return;
     }
-  
+
     const payload = {
       appNo: generalInfo.appNo,
-      stdNo: generalInfo.appNo, 
-      deptId: "510.00",  // Hardcoded deptId
+      stdNo: generalInfo.appNo,
+      deptId: "510.00", // Hardcoded deptId
       jobName: generalInfo.jobDescription,
       description: generalInfo.jobDescription,
-      contingency: "none", // Hardcoded contingency 
+      contingency: "none", // Hardcoded contingency
       beneficiaries: generalInfo.beneficiaries,
-      powerSupply: generalInfo.powerSupply, 
+      powerSupply: generalInfo.powerSupply,
       rejectedReason: generalInfo.rejectedReason,
       entryDate: new Date().toISOString(), // Use the current date for entry
 
       demand: technicalDetails.demand,
-      mvlinetype: technicalDetails.mvlinetype, 
-      fundSource: technicalDetails.fundSource,  
+      mvlinetype: technicalDetails.mvlinetype,
+      fundSource: technicalDetails.fundSource,
       sinNo: technicalDetails.SinNo,
-      exCapacity: technicalDetails.ExistingCapacity,  
-      newCapacity: technicalDetails.NewCapacity,  
-      voltageLevel: technicalDetails.VoltageLevel, 
-      lineLength: technicalDetails.LineLengthCustomerPremises,  
-      lineLengthMVLineOutsideCustomerPremises: technicalDetails.LineLengthMVLineOutsideCustomerPremises, 
+      exCapacity: technicalDetails.ExistingCapacity,
+      newCapacity: technicalDetails.NewCapacity,
+      voltageLevel: technicalDetails.VoltageLevel,
+      lineLength: technicalDetails.LineLengthCustomerPremises,
+      lineLengthMVLineOutsideCustomerPremises:
+        technicalDetails.LineLengthMVLineOutsideCustomerPremises,
 
       secDeposit: costMeasurements.securityDeposit,
-      vatCost: costMeasurements.vat,  
+      vatCost: costMeasurements.vat,
       nbtCost: costMeasurements.nbt,
-      loanPercentage: costMeasurements.loanPercentage, 
+      loanPercentage: costMeasurements.loanPercentage,
       totalCost: costMeasurements.totalCost,
     };
-  
+
     try {
       const response = await fetch("http://localhost:8081/api/estimation", {
         method: "POST",
@@ -121,7 +121,7 @@ const Tabs = () => {
         },
         body: JSON.stringify(payload),
       });
-  
+
       if (response.ok) {
         alert(`Details saved successfully! AppNo: ${payload.appNo}`);
       } else {
@@ -132,8 +132,6 @@ const Tabs = () => {
       alert("Error saving details");
     }
   };
-  
-  
 
   const tabs = [
     {
@@ -231,30 +229,48 @@ const Tabs = () => {
             <h6 className="px-6 py-0 text-xl font-bold text-blueGray-700">
               {tabs[activeTab].name}
             </h6>
-            <div className="flex space-x-4 mr-4">
-              {activeTab > 0 && (
-                <button
-                  onClick={handlePrev}
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-3 mr-4 rounded shadow hover:shadow-md transition duration-150"
-                >
-                  Previous
-                </button>
-              )}
-
-              {activeTab < tabs.length - 1 && (
-                <button
-                  onClick={handleNext}
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150"
-                >
-                  Next
-                </button>
-              )}
-            </div>
           </div>
 
           <div className="ml-0 p-5 bg-blueGray-100">
             <div className="p-5 mr-4 rounded">{tabs[activeTab].content}</div>
           </div>
+        </div>
+        <div className="px-6 flex justify-between items-center mt-2 mb-4">
+          {activeTab === 0 ? (
+            <button
+              disabled
+              style={{ backgroundColor: "#7c0000", opacity: 0.5 }}
+              className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor-not-allowed"
+            >
+              previous
+            </button>
+          ) : (
+            <button
+              onClick={handlePrev}
+              style={{ backgroundColor: "#7c0000" }}
+              className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            >
+              previous
+            </button>
+          )}
+
+          {activeTab < tabs.length - 1 ? (
+            <button
+              onClick={handleNext}
+              style={{ backgroundColor: "#7c0000" }}
+              className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            >
+              next
+            </button>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              style={{ backgroundColor: "#620000" }}
+              className="text-white font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            >
+              {/* {isModify ? "update" : "submit"} */}
+            </button>
+          )}
         </div>
       </div>
     </div>

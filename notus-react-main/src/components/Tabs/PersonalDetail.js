@@ -72,7 +72,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Id Type
@@ -89,7 +89,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Id No
@@ -115,7 +115,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 First Name (Initials)
@@ -132,7 +132,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Last Name
@@ -151,7 +151,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Street Address
@@ -166,7 +166,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Suburb
@@ -181,7 +181,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 City
@@ -196,7 +196,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-3/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Postal Code
@@ -213,7 +213,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Telephone No
@@ -228,7 +228,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Mobile No
@@ -243,7 +243,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Email
@@ -258,7 +258,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Preferred Language
@@ -273,7 +273,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 CEB Employee

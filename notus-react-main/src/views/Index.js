@@ -533,7 +533,7 @@ export default function Index() {
                       <img
                         alt="..."
                         className="align-middle border-none max-w-full h-auto rounded-lg"
-                        src={require("assets/img/profile.jpeg").default}
+                        src={require("../assets/img/profile.jpeg").default}
                       />
                     </div>
                   </Link>

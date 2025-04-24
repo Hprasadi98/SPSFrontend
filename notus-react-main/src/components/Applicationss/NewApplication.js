@@ -118,7 +118,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
           </div>
         ))}
       </div>
-      <div className="flex justify-between px-4 ml-2 mb-2">
+      <div className="flex justify-between px-12 ml-2 mb-2">
           <h3 className="text-blueGray-700 text-lg font-bold">
             {tabs[currentIndex].label}
           </h3>
@@ -126,7 +126,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
           <button
             onClick={handleUpdateClick}
             style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150"
           >
             Edit
           </button>
@@ -165,7 +165,7 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
       </div>
 
       {/* Navigation Buttons */}
-      <div className="px-6 flex justify-between items-center mt-2 mb-4">
+      <div className="px-12 mr-1 flex justify-end items-center mt-2 mb-4">
         {currentIndex === 0 ? (
           <button
             disabled
@@ -194,7 +194,6 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         ) : (
           <button
             onClick={handleSubmit}
-            style={{backgroundColor: "#620000"}}
             className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             {isModify ? "Update" : "Submit"}

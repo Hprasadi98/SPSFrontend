@@ -215,7 +215,7 @@ export default function Sidebar() {
               to="/jobcontractor/new"
             >
               <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Job Constructor
+              Job Contractor
               </h6>
             </Link>
 

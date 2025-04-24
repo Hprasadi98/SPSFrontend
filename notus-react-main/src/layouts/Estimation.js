@@ -5,7 +5,7 @@ import Sidebar from "components/Sidebar/Sidebar.js";
 import AdminNavbar from "components/Navbars/AdminNavbar.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
 
-import NewEstimate from "views/estimate/NewEstimate.js";
+import StandardEstimate from "views/estimate/StandardEstimate.js";
 import StandardRates from "views/estimate/StandardRates.js";
 import ModifyEstimate from "views/estimate/ModifyEstimate";
 import HeaderStatsWithoutCards from "components/Headers/HeaderStatsWithoutCards";
@@ -20,7 +20,7 @@ export default function Estimation() {
         <HeaderStatsWithoutCards/>
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Switch>
-            <Route path="/estimation/estimate" exact component={NewEstimate} />
+            <Route path="/estimation/estimate" exact component={StandardEstimate} />
             <Route path="/estimation/standard-rates" exact component={StandardRates} />
             <Route path="/estimation/modify-estimate" exact component={ModifyEstimate} />
 

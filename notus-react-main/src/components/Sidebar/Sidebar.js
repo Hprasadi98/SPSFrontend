@@ -425,7 +425,7 @@ export default function Sidebar() {
               to="/piv/newPiv"
             >
               <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                PIV
+              Generate PIV
               </h6>
             </Link>
 

@@ -15,23 +15,17 @@ export default function AddProgress({ handleChange, handleSubmit, formData,isMod
   return (
         <div className="w-full max-w-2xl bg-white  rounded-lg p-6">
  
-<div class="flex justify-center items-center mt-20"></div>
+<div class="flex justify-center items-center mt-10"></div>
 
- <div className="rounded-t bg-white  ">
- <div className="flex justify-between items-center ">
-       
-                  {/* Tab Content */}
-                  <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
-                        
-                        {/* Add the title and edit button here */}
-                        <div className="flex justify-between px-12 ml-2 pt-4">
-                            <h3 className="block text-blueGray-600 text-m font-bold mb-3">
+     {/* Add the title and edit button here */}
+     <div className="flex justify-between px-12 ml-2 pt-0">
+                            <h3 className="block text-blueGray-600 text-m font-bold mt-3">
                                 Add Progress Milestone
                             </h3>
                             {!isModify && (
                                 <button
                                     onClick={handleUpdateClick}
-                                    className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+                                    className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
                                     style={{
                                         backgroundColor: "#7c0000",
                                     }}
@@ -41,6 +35,14 @@ export default function AddProgress({ handleChange, handleSubmit, formData,isMod
                             )}
                         </div>
       {/* <div className="p-6"> */}
+
+ <div className="rounded-t bg-white  ">
+ <div className="flex justify-between items-center ">
+       
+                  {/* Tab Content */}
+                  <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
+                        
+                   
         <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
         <AddProgressMilestone 
   handleChange={(e) => {

@@ -7,7 +7,13 @@ export default function Allocation({}) {
     return (
         <div className="w-full max-w-2xl bg-white  rounded-lg p-6">
  
-<div class="flex justify-center items-center mt-20"></div>
+<div class="flex justify-center items-center mt-10"></div>
+
+<div className="flex justify-between px-12 ml-2 pt-0">
+                            <h3 className="block text-blueGray-600 text-m font-bold mb-2">
+                            Download Letters
+                            </h3>
+                            </div>
 
  <div className="rounded-t bg-white  ">
  <div className="flex justify-between items-center ">
@@ -22,7 +28,7 @@ export default function Allocation({}) {
         <div className="rounded-t bg-white mb-0 px-6 py-6">
         <div className="flex justify-end items-center">
             {/* Left-aligned "Previous" button */}
-      <button
+      {/* <button
       
        type="button"
         className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
@@ -31,7 +37,7 @@ export default function Allocation({}) {
         }}
       >
        Submit
-      </button>
+      </button> */}
    
         </div>
         </div>

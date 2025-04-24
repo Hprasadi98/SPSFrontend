@@ -10,6 +10,7 @@ import Uploads from "../../components/EstimationForms/Uploads";
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [completedTabs, setCompletedTabs] = useState(Array(6).fill(false));
+  const [editMode, setEditMode] = useState(false);
 
   const [generalInfo, setGeneralInfo] = useState({
     appNo: "",
@@ -140,6 +141,7 @@ const Tabs = () => {
         <GeneralInfo
           formData={generalInfo}
           handleChange={handleGeneralInfoChange}
+          editMode={editMode}
         />
       ),
     },
@@ -225,6 +227,18 @@ const Tabs = () => {
             ))}
           </div>
 
+          {!editMode && (
+            <div className="flex justify-end px-6 mb-2">
+            <button
+              onClick={() => setEditMode(true)}
+              style={{ backgroundColor: "#7c0000" }}
+              className="text-white font-semibold px-4 py-1 rounded shadow hover:shadow-md transition duration-150"
+            >
+              Edit
+            </button>
+          </div>
+          )}
+
           {/* <div className="flex justify-between items-center mb-1">
             <h6 className="px-6 py-0 text-xl font-bold text-blueGray-700">
               {tabs[activeTab].name}
@@ -265,7 +279,7 @@ const Tabs = () => {
           ) : (
             <button
               onClick={handleSubmit}
-              style={{ backgroundColor: "#620000" }}
+              style={{ backgroundColor: "#7c0000" }}
               className="text-white ml-2 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
             >
               Submit

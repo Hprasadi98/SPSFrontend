@@ -59,7 +59,7 @@ const NewJobContractor = ({  onFormSubmit, isModify, formData, setFormData, hand
           <button
             onClick={handleUpdateClick}
             style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
+            className="text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
           >
             Edit
           </button>
@@ -80,14 +80,14 @@ const NewJobContractor = ({  onFormSubmit, isModify, formData, setFormData, hand
       <div className="px-12 flex justify-end items-center mt-2 mb-4">
           <button
             onClick={handleSubmit}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             {isModify ? "Update" : "Submit"}
           </button>
           <button
             onClick={downloadUserReport}
             style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150"
+            className="text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150"
           >
             Download
           </button>

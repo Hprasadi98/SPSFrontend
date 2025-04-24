@@ -5,6 +5,7 @@ import ceb from "../../assets/img/ceb.png";
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
+import AdminNavbar from "components/Navbars/AdminNavbar";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -156,7 +157,8 @@ export default function Sidebar() {
             <Link
               className={
                 "text-s font-bold block " +
-                (window.location.href.indexOf("/estimation/standard-rates") !== -1
+                (window.location.href.indexOf("/estimation/standard-rates") !==
+                -1
                   ? "text-lightBlue-500 hover:text-lightBlue-600"
                   : "text-blueGray-700 hover:text-blueGray-500")
               }
@@ -166,7 +168,6 @@ export default function Sidebar() {
                 Standard Rates
               </h6>
             </Link>
-          
 
             {/* Divider */}
             <hr className="my-2 md:min-w-full" />
@@ -215,7 +216,7 @@ export default function Sidebar() {
               to="/jobcontractor/new"
             >
               <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-              Job Contractor
+                Job Contractor
               </h6>
             </Link>
 
@@ -251,10 +252,14 @@ export default function Sidebar() {
               to="/allocation/allocationOCJ1"
             >
               <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Letters
+                Letter
               </h6>
             </Link>
+            
           </div>
+          <div className="mt-64">
+              <AdminNavbar />
+            </div>
         </div>
       </nav>
     </>

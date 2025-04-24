@@ -22,7 +22,13 @@ const tabs = [
   { id: "technical", label: "Technical Details", component: <TechDetails /> },
 ];
 
-const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleSearch }) => {
+const NewApplication = ({
+  onFormSubmit,
+  isModify,
+  formData,
+  setFormData,
+  handleSearch,
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const history = useHistory();
 
@@ -90,47 +96,47 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
             }`}
           >
             {index > 0 && (
-        <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-0.5 bg-gray-300 z-0"></div>
-      )}
+              <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-0.5 bg-gray-300 z-0"></div>
+            )}
             <div
               className="w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all "
               style={{
-                backgroundColor: index < currentIndex ? "#34d399" : index === currentIndex ? "#ffd800" : "transparent",
-                borderColor: index < currentIndex ? "#34d399" : index === currentIndex ? "#ffd800" : "#d1d5db",
-                color: index < currentIndex || index === currentIndex ? "white" : "black",
+                backgroundColor:
+                  index < currentIndex
+                    ? "#34d399"
+                    : index === currentIndex
+                    ? "#ffd800"
+                    : "transparent",
+                borderColor:
+                  index < currentIndex
+                    ? "#34d399"
+                    : index === currentIndex
+                    ? "#ffd800"
+                    : "#d1d5db",
+                color:
+                  index < currentIndex || index === currentIndex
+                    ? "white"
+                    : "black",
               }}
             >
               {currentIndex[index] ? (
-              <CheckCircle size={20} />
-            ) : (
-              <span className="font-bold">{index + 1}</span>
-            )}
+                <CheckCircle size={20} />
+              ) : (
+                <span className="font-bold">{index + 1}</span>
+              )}
             </div>
             {index < tabs.length - 1 && (
-            <div
-              className={`h-2 ml-0 flex-1 ${
-                currentIndex[index] ? "bg-lightBlue-500" : "bg-gray-300"
-              }`}
-            ></div>
-          )}
+              <div
+                className={`h-2 ml-0 flex-1 ${
+                  currentIndex[index] ? "bg-lightBlue-500" : "bg-gray-300"
+                }`}
+              ></div>
+            )}
             <span className="text-sm mt-2">{tab.label}</span>
           </div>
         ))}
       </div>
-      <div className="flex justify-between px-12 ml-2">
-          <h3 className="text-blueGray-700 text-lg font-bold mb-2">
-            {/* {tabs[currentIndex].label} */}
-          </h3>
-          {!isModify && (
-          <button
-            onClick={handleUpdateClick}
-            style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mb-2"
-          >
-            Edit
-          </button>
-          )}
-        </div>
+      
       {/* Content */}
       <div className="p-6 bg-blueGray-100 rounded-lg">
         {tabs[currentIndex].id === "application" && (
@@ -163,34 +169,48 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         )}
       </div>
 
+      <div className="flex justify-between px-12 ml-2">
+        <div>
+        {!isModify && (
+          <button
+            onClick={handleUpdateClick}
+            style={{ backgroundColor: "#7c0000" }}
+            className="text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+          >
+            Edit
+          </button>
+        )}
+        </div>
+      
+
       {/* Navigation Buttons */}
-      <div className="px-12 mr-1 flex justify-end items-center mt-2 mb-4">
+      <div className="mr-1 flex justify-end items-center mt-2 mb-4">
         {currentIndex > 0 ? (
           <button
-          onClick={handlePrevious}
-          style={{backgroundColor: "#7c0000"}}
-          className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-        >
-          Previous
-        </button>
-        ):null}
+            onClick={handlePrevious}
+            style={{ backgroundColor: "#7c0000" }}
+            className="text-white active:bg-lightBlue-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+          >
+            Previous
+          </button>
+        ) : null}
         {currentIndex < tabs.length - 1 ? (
           <button
             onClick={handleNext}
-            style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            style={{ backgroundColor: "#7c0000" }}
+            className="text-white active:bg-lightBlue-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             Next
           </button>
         ) : (
           <button
             onClick={handleSubmit}
-            style={{backgroundColor: "#620000"}}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
           >
             {isModify ? "Update" : "Submit"}
           </button>
         )}
+      </div>
       </div>
     </div>
   );

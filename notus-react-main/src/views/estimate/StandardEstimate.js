@@ -192,7 +192,7 @@ const Tabs = () => {
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
       <div className="w-full max-w-4xl px-4">
-        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded p-1">
+        <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded p-1">
           {/* Stepper */}
           <div className="flex justify-between items-center mb-4 mt-4 relative w-full">
             {tabs.map((tab, index) => (
@@ -225,32 +225,32 @@ const Tabs = () => {
             ))}
           </div>
 
-          <div className="flex justify-between items-center mb-1">
+          {/* <div className="flex justify-between items-center mb-1">
             <h6 className="px-6 py-0 text-xl font-bold text-blueGray-700">
               {tabs[activeTab].name}
             </h6>
-          </div>
+          </div> */}
 
           <div className="ml-0 p-5 bg-blueGray-100">
             <div className="p-5 mr-4 rounded">{tabs[activeTab].content}</div>
           </div>
         </div>
-        <div className="px-6 flex justify-between items-center mt-2 mb-4">
+        <div className="bg-white rounded px-6 h-16 flex justify-end items-center mb-4 space-x-2">
           {activeTab === 0 ? (
             <button
               disabled
               style={{ backgroundColor: "#7c0000", opacity: 0.5 }}
-              className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor-not-allowed"
+              className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150 cursor-not-allowed"
             >
-              previous
+              Previous
             </button>
           ) : (
             <button
               onClick={handlePrev}
               style={{ backgroundColor: "#7c0000" }}
-              className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
             >
-              previous
+              Previous
             </button>
           )}
 
@@ -258,17 +258,17 @@ const Tabs = () => {
             <button
               onClick={handleNext}
               style={{ backgroundColor: "#7c0000" }}
-              className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              className="text-white ml-2 active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
             >
-              next
+              Next
             </button>
           ) : (
             <button
               onClick={handleSubmit}
               style={{ backgroundColor: "#620000" }}
-              className="text-white font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+              className="text-white ml-2 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
             >
-              {/* {isModify ? "update" : "submit"} */}
+              Submit
             </button>
           )}
         </div>

@@ -3,7 +3,7 @@ const TechnicalDetails = ({ formData, handleChange }) => {
     <form>
       <div className="flex flex-wrap">
         <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             Demand
           </label>
           <input
@@ -11,19 +11,19 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="demand"
             value={formData.demand}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
 
         <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             MV Line Type
           </label>
           <select
             name="mvlinetype"
             value={formData.mvlinetype}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           >
             <option value="MV Line 33kV Single Circuit 7/4.09mm RACOON">
               MV Line 33kV Single Circuit 7/4.09mm RACOON
@@ -32,7 +32,7 @@ const TechnicalDetails = ({ formData, handleChange }) => {
           </select>
         </div>
         <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             Fund Source
           </label>
           <input
@@ -40,11 +40,11 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="fundSource"
             value={formData.fundSource}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
         <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             SIN No
           </label>
           <input
@@ -52,11 +52,11 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="SinNo"
             value={formData.SinNo}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
         <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             Existing Capacity(kVA)
           </label>
           <input
@@ -64,11 +64,11 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="ExistingCapacity"
             value={formData.ExistingCapacity}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
         <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             New Capacity(kVA)
           </label>
           <input
@@ -76,11 +76,11 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="NewCapacity"
             value={formData.NewCapacity}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
         <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             Voltage Level
           </label>
           <input
@@ -88,11 +88,11 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="VoltageLevel"
             value={formData.VoltageLevel}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
         <div className="w-full px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             Line Length of the Customer Premises(m) (Maximum values : 100m for
             95kVA and 200m for 70kVA)
           </label>
@@ -101,11 +101,11 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="LineLengthCustomerPremises"
             value={formData.LineLengthCustomerPremises}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
         <div className="w-full px-4 py-3">
-          <label className="block uppercase text-blueGray-600 text-xs font-bold mb-2">
+          <label className="block text-blueGray-600 text-xs font-bold mb-2">
             Line Length of MV Line Outside the Customer Premises(km)
           </label>
           <input
@@ -113,7 +113,7 @@ const TechnicalDetails = ({ formData, handleChange }) => {
             name="LineLengthMVLineOutsideCustomerPremises"
             value={formData.LineLengthMVLineOutsideCustomerPremises}
             onChange={handleChange}
-            className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
       </div>

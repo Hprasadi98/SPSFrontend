@@ -93,13 +93,12 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
         <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-0.5 bg-gray-300 z-0"></div>
       )}
             <div
-              className={`w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all ${
-                index < currentIndex
-                  ? "bg-emerald-400 text-white border-blue-600"
-                  : index === currentIndex
-                  ? "bg-red-400 text-white border-orange-600"
-                  : "border-gray-400"
-              }`}
+              className="w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all "
+              style={{
+                backgroundColor: index < currentIndex ? "#34d399" : index === currentIndex ? "#ffd800" : "transparent",
+                borderColor: index < currentIndex ? "#34d399" : index === currentIndex ? "#ffd800" : "#d1d5db",
+                color: index < currentIndex || index === currentIndex ? "white" : "black",
+              }}
             >
               {currentIndex[index] ? (
               <CheckCircle size={20} />
@@ -166,24 +165,15 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
       </div>
 
       {/* Navigation Buttons */}
-      <div className="px-6 flex justify-between items-center mt-2 mb-4">
-        {currentIndex === 0 ? (
+
           <button
-            disabled
-            style={{backgroundColor: "#7c0000", opacity: 0.5}}
-            className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor:not-allowed"
-          >
-            Previous
-          </button>
-        ) : (
-          <button
-            onClick={handlePrevious}
-            style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-          >
-            Previous
-          </button>
-        )}
+          onClick={handlePrevious}
+          style={{backgroundColor: "#7c0000"}}
+          className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+        >
+          Previous
+        </button>
+        ):null}
         {currentIndex < tabs.length - 1 ? (
           <button
             onClick={handleNext}

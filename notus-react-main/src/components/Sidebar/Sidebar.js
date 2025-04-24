@@ -251,7 +251,7 @@ export default function Sidebar() {
               to="/allocation/allocationOCJ1"
             >
               <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Letter
+                Letters
               </h6>
             </Link>
           </div>

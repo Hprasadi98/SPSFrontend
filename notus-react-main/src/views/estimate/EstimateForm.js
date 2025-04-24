@@ -90,6 +90,7 @@ function EstimateForm() {
     secDepYear: "",
   });
   const [errors, setErrors] = useState({});
+  const [isPeggingScheduleFilled, setIsPeggingScheduleFilled] = useState(false);
 
   const handleFormDataChange = (e) => {
     const { id, value, type, checked } = e.target;
@@ -235,10 +236,10 @@ function EstimateForm() {
   };
 
   const handleSubmit = async () => {
-    const isValid = [0, 1, 2].every((step) => validateForm(step));
+    const isValid = [0, 1].every((step) => validateForm(step));
 
-    if (!isValid) {
-      alert("Please fill in all required fields before submitting.");
+    if (!isValid || !isPeggingScheduleFilled) {
+      alert("Please fill in all required fields, including the Pegging Schedule, before submitting.");
       return;
     }
 
@@ -276,6 +277,7 @@ function EstimateForm() {
         aprDt1: new Date().toISOString().split("T")[0],
         aprDt2: new Date().toISOString().split("T")[0],
         aprDt3: new Date().toISOString().split("T")[0],
+        heatingDt: new Date().toISOString().split("T")[0],
         aprDt4: new Date().toISOString().split("T")[0],
         aprDt5: new Date().toISOString().split("T")[0],
         rejctDt: new Date().toISOString().split("T")[0],
@@ -332,6 +334,7 @@ function EstimateForm() {
       setActiveTab(0);
       setCompletedTabs([false, false, false]);
       setErrors({});
+      setIsPeggingScheduleFilled(false);
     } catch (error) {
       console.error("Failed to create estimate:", error);
       const errorDetails = await error.response?.text() || error.message;
@@ -357,21 +360,31 @@ function EstimateForm() {
     setActiveTab((prev) => prev - 1);
   };
 
+  const handlePeggingScheduleInteraction = () => {
+    setIsPeggingScheduleFilled(true);
+  };
+
   useEffect(() => {
-    const newCompletedTabs = [validateForm(0), validateForm(1), validateForm(2)];
+    const newCompletedTabs = [
+      validateForm(0),
+      validateForm(1),
+      isPeggingScheduleFilled, // Tab 2 completion depends on interaction
+    ];
     setCompletedTabs(newCompletedTabs);
-  }, [formData, validateForm]);
+  }, [formData, validateForm, isPeggingScheduleFilled]);
 
   const tabs = [
     {
       name: "General Information",
       content: (
-        <CardEstimatePage1
-          formData={formData}
-          onChange={handleFormDataChange}
-          errors={errors}
-          onNext={handleNext}
-        />
+        <div>
+          <CardEstimatePage1
+            formData={formData}
+            onChange={handleFormDataChange}
+            errors={errors}
+            onNext={handleNext}
+          />
+        </div>
       ),
     },
     {
@@ -394,6 +407,7 @@ function EstimateForm() {
           errors={errors}
           onBack={handleBack}
           onSubmit={handleSubmit}
+          onInteraction={handlePeggingScheduleInteraction}
         />
       ),
     },
@@ -403,6 +417,9 @@ function EstimateForm() {
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
       <div className="w-full max-w-4xl px-4">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded p-1">
+
+          {/* Progress steps */}
+
           <div className="flex justify-between items-center mb-4 mt-4 relative w-full">
             {tabs.map((tab, index) => (
               <div key={index} className="relative flex-1 flex flex-col items-center">
@@ -419,8 +436,8 @@ function EstimateForm() {
                     completedTabs[index]
                       ? "bg-emerald-400 text-white border-emerald-600"
                       : index === activeTab
-                      ? "bg-red-400 text-white border-red-600"
-                      : "bg-white text-gray-700 border-gray-400 hover:bg-gray-100"
+                      ? "bg-yellow-500 text-white border-red-600"
+                      : "bg-red-400 text-white border-red-600 hover:bg-gray-100"
                   }`}
                   onClick={() => {
                     if (index < activeTab || completedTabs[index - 1] || index === 0) {
@@ -435,49 +452,63 @@ function EstimateForm() {
             ))}
           </div>
 
-          <div className="flex justify-between items-center mb-1 px-6">
+          {/* Update button placed in the top area */}
+
+          {activeTab === 0 && (
+            <div className="flex justify-end px-6 mb-1">
+              <button
+                onClick={handleEdit}
+                style={{backgroundColor: "#7c0000"}}
+                className="text-white font-bold  text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+              >
+                Edit
+              </button>
+            </div>
+          )}
+
+          {/* Form title */}
+
+          {/* <div className="px-6 mb-1">
             <h6 className="py-0 text-xl font-bold text-blueGray-700">
               {tabs[activeTab].name}
             </h6>
+          </div> */}
+
+          {/* Form content */}
+
+          <div className="ml-0 p-5 bg-blueGray-100">
+            <div className="p-5 mr-4 rounded">{tabs[activeTab].content}</div>
+          </div>
+
+          {/* Bottom navigation bar */}
+          <div className="w-full bg-white p-4 flex justify-end items-center border-t border-gray-200">
             <div className="flex space-x-4">
               {activeTab > 0 && (
                 <button
                   onClick={handleBack}
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+                  style={{backgroundColor: "#7c0000"}}
+                  className=" text-white font-bold  text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
                 >
                   Previous
                 </button>
               )}
-              {activeTab < tabs.length - 1 && (
-                <>
-                  <button
-                    onClick={handleEdit}
-                    style={{backgroundColor: "#3ECF8E "}}
-                    className=" text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
-                  >
-                    Update
-                  </button>
-                  <button
-                    onClick={handleNext}
-                    className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
-                  >
-                    Next
-                  </button>
-                </>
-              )}
-              {activeTab === tabs.length - 1 && (
+              {activeTab < tabs.length - 1 ? (
+                <button
+                  onClick={handleNext}
+                  style={{backgroundColor: "#7c0000"}}
+                  className=" text-white font-bold  text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+                >
+                  Next
+                </button>
+              ) : (
                 <button
                   onClick={handleSubmit}
-                  className="bg-emerald-500 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+                  className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                 >
                   Submit
                 </button>
               )}
             </div>
-          </div>
-
-          <div className="ml-0 p-5 bg-blueGray-100">
-            <div className="p-5 mr-4 rounded">{tabs[activeTab].content}</div>
           </div>
         </div>
       </div>

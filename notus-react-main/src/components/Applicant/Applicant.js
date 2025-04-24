@@ -240,12 +240,12 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
 
           {/* Navigation Buttons and bottom white bar */}
           <div className="rounded-t bg-white mb-0 px-6 py-6">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-end items-center">
               {/* Left-aligned "Previous" button */}
               {currentIndex > 0 ? (
                 <button
                   onClick={handlePrevious}
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-lightBlue-500 mr-2 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   style={{
                     backgroundColor: "#7c0000",
                   }}

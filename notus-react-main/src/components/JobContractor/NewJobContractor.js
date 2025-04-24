@@ -51,9 +51,7 @@ const NewJobContractor = ({  onFormSubmit, isModify, formData, setFormData, hand
 
   return (
     <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6">
-      {/* Content */}
-      <div className="p-6 bg-blueGray-100 rounded-lg">
-        <div className="flex justify-between px-12 ml-2">
+      <div className="flex justify-between px-4 ml-2 mb-2">
           <h3 className="text-blueGray-700 text-lg font-bold pt-2">
             {isModify ? "Update Contractor" : "Add Contractor"}
           </h3>
@@ -67,6 +65,9 @@ const NewJobContractor = ({  onFormSubmit, isModify, formData, setFormData, hand
           </button>
           )}
         </div>
+      {/* Content */}
+      <div className="p-6 bg-blueGray-100 rounded-lg">
+        
           <JobContractor
             onInputChange={(data) => handleInputChange("contractorDetails", data)}
             isModify={isModify}

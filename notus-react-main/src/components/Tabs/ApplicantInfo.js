@@ -84,7 +84,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                    // checked={appData.idType === "BRN"}
                     onChange={handleChange}
                     className="form-radio accent-blue-600" />
-                  Business Registration Nomber
+                  Business Registration Number
                 </label>
               </div>
 

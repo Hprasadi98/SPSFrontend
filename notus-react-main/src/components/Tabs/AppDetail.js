@@ -30,7 +30,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
                 className="block text-blueGray-600 text-sm font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Temporarily ID
+                Temporary ID
               </label>
               <div className="flex ">
                 <input

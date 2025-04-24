@@ -18,13 +18,11 @@ export default function ModifyProgress() {
                 
                 {/* Navigation Buttons and bottom white bar */}
         <div className="rounded-t bg-white mb-0 px-6 py-6">
-        <div className="flex justify-end items-center">
+        <div className="flex justify-end items-center px-6 mr-2">
             {/* Left-aligned "Previous" button */}
       <button
-        className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
-        style={{
-          backgroundColor: "#620000",
-        }}
+        className="bg-emerald-400 text-white font-bold bg-green text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+       
       >
        Update
       </button>

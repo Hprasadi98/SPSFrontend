@@ -165,23 +165,15 @@ const NewApplication = ({ onFormSubmit, isModify, formData, setFormData, handleS
 
       {/* Navigation Buttons */}
       <div className="px-12 mr-1 flex justify-end items-center mt-2 mb-4">
-        {currentIndex === 0 ? (
+        {currentIndex > 0 ? (
           <button
-            disabled
-            style={{backgroundColor: "#7c0000", opacity: 0.5}}
-            className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 cursor:not-allowed"
-          >
-            Previous
-          </button>
-        ) : (
-          <button
-            onClick={handlePrevious}
-            style={{backgroundColor: "#7c0000"}}
-            className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-          >
-            Previous
-          </button>
-        )}
+          onClick={handlePrevious}
+          style={{backgroundColor: "#7c0000"}}
+          className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+        >
+          Previous
+        </button>
+        ):null}
         {currentIndex < tabs.length - 1 ? (
           <button
             onClick={handleNext}

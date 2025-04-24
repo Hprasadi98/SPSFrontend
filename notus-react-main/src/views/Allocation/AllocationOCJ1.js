@@ -32,7 +32,7 @@ const AllocationOCJ1 = () => {
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="BS">Allocation Of CON Job</option>
-                <option value="Other">Allocation Of CON Job-Organized by Construction</option>
+            
                 <option value="ev">Estimate Variance</option>
               </select>
             </div>
@@ -51,7 +51,7 @@ const AllocationOCJ1 = () => {
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="BS">Maintenace</option>
-                <option value="Other">OTHER</option>
+              
               </select>
             </div>
             </div>
@@ -69,7 +69,7 @@ const AllocationOCJ1 = () => {
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="BS">Area</option>
-                <option value="Other">OTHER</option>
+             
               </select>
             </div>
 

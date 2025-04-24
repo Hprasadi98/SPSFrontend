@@ -176,12 +176,32 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
               <div className="w-16 border-t-2 border-lightBlue-500 border-dashed mx-4"></div>
             )}
 
+
+
           </div>
         ))}
+
+        
       </div>
 
 
-
+      <div className="flex justify-between px-12 ml-2">
+          <h3 className="block text-blueGray-600 text-m font-bold mb-3 ">
+          {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"}
+          </h3>
+          {!isModify && (
+          <button
+          // /applicant/modifyapplicant
+          onClick={handleUpdateClick}
+            className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+            style={{
+              backgroundColor: "#7c0000",
+            }}
+          >
+            Edit
+          </button>
+          )}
+        </div>
 
       {/* 
       <div className="rounded-t bg-white mb-0 px-6 py-6">
@@ -200,23 +220,7 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
       <div className="p-6">
         <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
           {/* now edited */}
-        <div className="flex justify-between px-12 ml-2">
-          <h3 className="block text-blueGray-600 text-m font-bold mb-3 ">
-          {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"}
-          </h3>
-          {!isModify && (
-          <button
-          // /applicant/modifyapplicant
-          onClick={handleUpdateClick}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
-            style={{
-              backgroundColor: "#7c0000",
-            }}
-          >
-            Edit
-          </button>
-          )}
-        </div>
+       
         {/* now edited end */}
           {tabs[currentIndex].id === "info" && (
             <ApplicantInfo
@@ -236,12 +240,12 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
 
           {/* Navigation Buttons and bottom white bar */}
           <div className="rounded-t bg-white mb-0 px-6 py-6">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-end items-center">
               {/* Left-aligned "Previous" button */}
               {currentIndex > 0 ? (
                 <button
                   onClick={handlePrevious}
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-lightBlue-500 mr-2 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   style={{
                     backgroundColor: "#7c0000",
                   }}

@@ -1,5 +1,6 @@
 import React from "react";
 import { createPopper } from "@popperjs/core";
+import profileimg from "../../assets/img/profile.jpeg";
 
 const UserDropdown = () => {
   // dropdown props
@@ -15,6 +16,32 @@ const UserDropdown = () => {
   const closeDropdownPopover = () => {
     setDropdownPopoverShow(false);
   };
+
+  const handleLogout = async () => {
+    setDropdownPopoverShow(false); // Close the dropdown
+    try {
+      const response = await fetch("http://localhost:8081/api/v1/logout", {
+        method: "POST",
+        credentials: "include", // Include cookies in the request
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa("user:admin123"),
+        },
+      });
+  
+      if (response.ok) {
+        // Redirect to the login page
+        window.location.href = "/auth/login";
+      } else {
+        console.error("Logout failed:", response.statusText);
+        alert("Logout failed. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error during logout:", error);
+      alert("An error occurred during logout. Please try again.");
+    }
+  };
+
   return (
     <>
       <a
@@ -31,7 +58,7 @@ const UserDropdown = () => {
             <img
               alt="..."
               className="w-full rounded-full align-middle border-none shadow-lg"
-              src={require("assets/img/team-1-800x800.jpg").default}
+              src={profileimg}
             />
           </span>
         </div>
@@ -76,9 +103,9 @@ const UserDropdown = () => {
           className={
             "text-sm py-2 px-4 font-normal block w-full whitespace-nowrap bg-transparent text-blueGray-700"
           }
-          onClick={(e) => e.preventDefault()}
+          onClick={handleLogout}
         >
-          Seprated link
+          Log Out
         </a>
       </div>
     </>

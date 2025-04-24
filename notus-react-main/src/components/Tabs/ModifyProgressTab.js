@@ -9,7 +9,7 @@ const ModifyProgressTab = ({ }) => {
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
       <form>
-   <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Modify Progress</div>
+
 
       {/* //new */}
         <div className="flex flex-wrap ">
@@ -195,7 +195,7 @@ const ModifyProgressTab = ({ }) => {
     <textarea
       name="description"
       rows="2"
-      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+      className="border-0   px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
       placeholder="Enter description"
     ></textarea>
   </div>

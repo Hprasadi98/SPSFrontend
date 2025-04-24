@@ -159,10 +159,10 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
             {/* Step Number */}
             <span
               className={`flex items-center justify-center w-10 h-10 text-lg font-medium rounded-full border-2 mb-2 ${currentIndex === index
-                  ? " bg-red-400 text-white border-black"
+                  ? " bg-yellow-500 text-white border-black"
                   : index < currentIndex
                     ? " bg-emerald-400 text-white border-gray-700 cursor-not-allowed"
-                    : "bg-lightBlue-500 text-gray-700 border-gray-400"
+                    : " text-gray-700 border-gray-400"
                 }`}
             >
               {index + 1}
@@ -176,24 +176,20 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
               <div className="w-16 border-t-2 border-lightBlue-500 border-dashed mx-4"></div>
             )}
 
-
-
           </div>
         ))}
-
-        
       </div>
 
 
       <div className="flex justify-between px-12 ml-2">
           <h3 className="block text-blueGray-600 text-m font-bold mb-3 ">
-          {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"}
+          {/* {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"} */}
           </h3>
           {!isModify && (
           <button
           // /applicant/modifyapplicant
           onClick={handleUpdateClick}
-            className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+            className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
             style={{
               backgroundColor: "#7c0000",
             }}
@@ -240,12 +236,12 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
 
           {/* Navigation Buttons and bottom white bar */}
           <div className="rounded-t bg-white mb-0 px-6 py-6">
-            <div className="flex justify-end items-center">
+            <div className="flex justify-end items-center px-2 mr-4">
               {/* Left-aligned "Previous" button */}
               {currentIndex > 0 ? (
                 <button
                   onClick={handlePrevious}
-                  className="bg-lightBlue-500 mr-2 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-lightBlue-500 mr-2 text-white font-bold  text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   style={{
                     backgroundColor: "#7c0000",
                   }}
@@ -260,20 +256,21 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
               {currentIndex < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
-                  style={{
+                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
+            style={{
                     backgroundColor: "#7c0000",
                   }}
                 >
                   Next
                 </button>
               ) : (
+                
                 <button
                   onClick={handleSubmit}
-                  className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
-                  style={{
-                    backgroundColor: "#620000",
-                  }}
+                  className="bg-emerald-400 bg-green text-white font-bold  text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  // style={{
+                  //   backgroundColor: "#620000",
+                  // }}
                 >
                   {isModify ? "Update" : "Submit"}
                 </button>

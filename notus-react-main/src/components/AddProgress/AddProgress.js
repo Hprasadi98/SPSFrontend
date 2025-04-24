@@ -25,7 +25,7 @@ export default function AddProgress({ handleChange, handleSubmit, formData,isMod
                             {!isModify && (
                                 <button
                                     onClick={handleUpdateClick}
-                                    className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+                                    className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
                                     style={{
                                         backgroundColor: "#7c0000",
                                     }}
@@ -56,15 +56,13 @@ export default function AddProgress({ handleChange, handleSubmit, formData,isMod
 
         {/* Navigation Buttons and bottom white bar */}
         <div className="rounded-t bg-white mb-0 px-6 py-6">
-        <div className="flex justify-end items-center">
+        <div className="flex justify-end items-center px-3 mr-4">
             {/* Left-aligned "Previous" button */}
       <button
       onClick={handleSubmit}
        type="button"
-        className="bg-emerald-400 text-white font-bold uppercase text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
-      style={{
-        backgroundColor: "#620000",
-      }}
+        className="bg-emerald-400 text-white font-bold bg-green text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+      
       >
        Submit
       </button>

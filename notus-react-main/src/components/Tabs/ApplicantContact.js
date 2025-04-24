@@ -75,7 +75,7 @@ const ApplicantContact = ({applicant = {}, onInputChange ,contactData}) => {
                 className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
-                Email address
+                Email Address
               </label>
               <input
                 type="email"

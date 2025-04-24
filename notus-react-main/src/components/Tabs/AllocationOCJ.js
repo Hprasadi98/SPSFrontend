@@ -8,8 +8,10 @@ const AllocationOCJ = ({ }) => {
  
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
-      <form>
-   <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Allocation of CON Job </div>
+      <form> 
+        
+          {/* <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Download Letters</div> */}
+
 
       {/* //new */}
         <div className="flex flex-wrap ">

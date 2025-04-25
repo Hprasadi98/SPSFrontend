@@ -193,7 +193,7 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Standard Rates
+                  Approved Rate Schedule
                 </Link>
               </li>
               <li className="items-center">

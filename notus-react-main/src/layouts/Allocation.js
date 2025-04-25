@@ -19,7 +19,6 @@ export default function Allocation() {
           <Sidebar />
           <div className="relative md:ml-64 bg-blueGray-100 min-h-screen flex flex-col">
             {/* Content Wrapper */}
-            <AdminNavbar />
             <HeaderStatsWithoutCards />
             <div className="flex-grow">
               {/* <div className="bg-lightBlue-600 pt-32"></div> */}

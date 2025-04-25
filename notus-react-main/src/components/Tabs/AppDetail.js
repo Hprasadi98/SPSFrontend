@@ -27,7 +27,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Temporary ID
@@ -43,7 +43,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
                 />
                 {isModify && (
                   <button
-                    className="ml-2 text-white active:bg-lightBlue-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                    className="ml-2 text-white active:bg-lightBlue-600 font-bold text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     style={{ backgroundColor: "#7c0000" }}
                     onClick={handleSearch}
                   >
@@ -56,7 +56,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Date
@@ -71,7 +71,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Area
@@ -88,7 +88,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 CostCenter
@@ -105,7 +105,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Application Type
@@ -122,7 +122,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Found Source
@@ -141,7 +141,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Representative 1
@@ -155,7 +155,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Description
@@ -174,7 +174,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Consumer Reference
@@ -188,7 +188,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Job Name
@@ -207,7 +207,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Nature of Supply
@@ -237,7 +237,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-sm font-bold mb-2"
+                className="block text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="grid-password"
               >
                 Is Loan App

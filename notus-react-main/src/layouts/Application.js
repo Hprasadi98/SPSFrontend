@@ -17,7 +17,6 @@ export default function Application() {
           <div className="relative md:ml-64 bg-blueGray-100">
             {/* <div className="bg-lightBlue-600 pt-24">
             </div> */}
-            <AdminNavbar />
             <HeaderStatsWithoutCards />
             <div className="relative px-4 md:px-10 mx-auto w-full h-screen -m-24">
               <Switch>

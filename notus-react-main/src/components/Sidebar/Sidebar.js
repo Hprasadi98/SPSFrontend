@@ -5,6 +5,7 @@ import ceb from "../../assets/img/ceb.png";
 
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
+import AdminNavbar from "components/Navbars/AdminNavbar";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -80,180 +81,242 @@ export default function Sidebar() {
                 />
               </div>
             </form>
-            {/* Divider */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/applicant/newapplicant") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/applicant/newapplicant"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Applicant
-              </h6>
-            </Link>
 
-            {/* Divider */}
-            {/* Navigation */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/application/new") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/application/new"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Application
-              </h6>
-            </Link>
-
-            {/* Divider */}
-
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/piv/newPiv") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/piv/newPiv"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Generate PIV
-              </h6>
-            </Link>
-
-            {/* Divider */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/estimation/estimate") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/estimation/estimate"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Standard Estimate
-              </h6>
-            </Link>
-
-            {/* Divider */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/estimation/standard-rates") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/estimation/standard-rates"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Standard Rates
-              </h6>
-            </Link>
-          
-
-            {/* Divider */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/estimate/estimateform") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/estimate/estimateform"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Work Estimate
-              </h6>
-            </Link>
-
-            {/* Divider */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/jobcontractor/new") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/jobcontractor/new"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Revise Job
-              </h6>
-            </Link>
-
-            {/* Divider */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/jobcontractor/new") !== -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/jobcontractor/new"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-              Job Contractor
-              </h6>
-            </Link>
-
-            {/* Divider */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/modifyProgress/addProMile") !==
-                -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/modifyProgress/addProMile"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Progress Monitoring
-              </h6>
-            </Link>
-
-            {/* allocation */}
-            <hr className="my-2 md:min-w-full" />
-            {/* Heading */}
-            <Link
-              className={
-                "text-s font-bold block " +
-                (window.location.href.indexOf("/allocation/allocationOCJ1") !==
-                -1
-                  ? "text-lightBlue-500 hover:text-lightBlue-600"
-                  : "text-blueGray-700 hover:text-blueGray-500")
-              }
-              to="/allocation/allocationOCJ1"
-            >
-              <h6 className="md:min-w-full text-blueGray-500 text-sm font-bold block pt-1 no-underline">
-                Letters
-              </h6>
-            </Link>
+            <ul className="md:flex-col md:min-w-full flex flex-col list-none">
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf("/applicant/newapplicant") !==
+                    -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/applicant/newapplicant"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf(
+                        "/applicant/newapplicant"
+                      ) !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Applicant
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf("/application/new") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/application/new"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/application/new") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Application
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf("/piv/newPiv") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/piv/newPiv"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/piv/newPiv") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Generate PIV
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf("/estimation/estimate") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimation/estimate"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/estimation/estimate") !==
+                      -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Standard Estimate
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf(
+                      "/estimation/standard-rates"
+                    ) !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimation/standard-rates"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf(
+                        "/estimation/standard-rates"
+                      ) !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Standard Rates
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf("/estimate/estimateform") !==
+                    -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/estimate/estimateform"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf(
+                        "/estimate/estimateform"
+                      ) !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Work Estimate
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf("/jobcontractor/new") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/jobcontractor/new"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/jobcontractor/new") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Revise Job
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf("/jobcontractor/new") !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/jobcontractor/new"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf("/jobcontractor/new") !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Job Contractor
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf(
+                      "/modifyProgress/addProMile"
+                    ) !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/modifyProgress/addProMile"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf(
+                        "/modifyProgress/addProMile"
+                      ) !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Progress Monitoring
+                </Link>
+              </li>
+              <li className="items-center">
+                <Link
+                  className={
+                    "text-sm py-3 font-bold block " +
+                    (window.location.href.indexOf(
+                      "/allocation/allocationOCJ1"
+                    ) !== -1
+                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  to="/allocation/allocationOCJ1"
+                >
+                  <i
+                    className={
+                      "fas fa-tv mr-2 text-sm " +
+                      (window.location.href.indexOf(
+                        "/allocation/allocationOCJ1"
+                      ) !== -1
+                        ? "opacity-75"
+                        : "text-blueGray-300")
+                    }
+                  ></i>{" "}
+                  Letter
+                </Link>
+              </li>
+            </ul>
+            {/* <hr className="my-2 md:min-w-full" /> */}
+          </div>
+          <div className="mt-64">
+            <AdminNavbar />
           </div>
         </div>
       </nav>

@@ -117,7 +117,8 @@ export default function StandardRates({ color }) {
             <h3 className={"font-semibold text-lg " + color}>Standard Rates</h3>
             <button
               onClick={handleAddRow}
-              className="bg-lightBlue-500 text-white px-3 py-1 rounded"
+              style={{ backgroundColor: "#7c0000" }}
+              className=" text-white px-3 py-1 rounded"
             >
               Add New
             </button>
@@ -126,19 +127,19 @@ export default function StandardRates({ color }) {
             <table className="items-center w-full bg-transparent border-collapse">
               <thead>
                 <tr>
-                  <th className="px-6 py-3 text-xs uppercase font-semibold text-left">
+                  <th className="px-6 py-3 text-xs  font-semibold text-left">
                     ID
                   </th>
-                  <th className="px-6 py-3 text-xs uppercase font-semibold text-left">
+                  <th className="px-6 py-3 text-xs  font-semibold text-left">
                     UOM
                   </th>
-                  <th className="px-6 py-3 text-xs uppercase font-semibold text-left">
+                  <th className="px-6 py-3 text-xs  font-semibold text-left">
                     Standard Cost
                   </th>
-                  <th className="px-6 py-3 text-xs uppercase font-semibold text-left">
+                  <th className="px-6 py-3 text-xs  font-semibold text-left">
                     Description
                   </th>
-                  <th className="px-6 py-3 text-xs uppercase font-semibold text-left">
+                  <th className="px-6 py-3 text-xs  font-semibold text-left">
                     Parent ID
                   </th>
                   {/* <th className="px-6 py-3 text-xs uppercase font-semibold text-left">Actions</th> */}
@@ -194,7 +195,8 @@ export default function StandardRates({ color }) {
                               rate.standardCost
                             )
                           }
-                          className="bg-emerald-400 text-white px-2 py-1 rounded w-full"
+                          className=" text-white px-2 py-1 rounded w-full"
+                          style={{ backgroundColor: "#7c0000" }}
                         >
                           Edit
                         </button>
@@ -261,10 +263,11 @@ export default function StandardRates({ color }) {
               </tbody>
             </table>
           </div>
-          <div className="flex justify-center mt-4 space-x-2 pb-2">
+          <div className="flex justify-end mt-4 space-x-2 pb-2">
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              className="bg-lightBlue-500 text-white px-3 py-1 pb-2 rounded"
+              className=" text-white px-3 py-1 pb-2 rounded"
+              style={{ backgroundColor: "#7c0000" }}
               disabled={currentPage === 1}
             >
               Previous
@@ -276,7 +279,8 @@ export default function StandardRates({ color }) {
               onClick={() =>
                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
               }
-              className="bg-lightBlue-500 text-white px-3 py-1 pb-2 rounded"
+              className=" text-white px-3 py-1 pb-2 rounded mr-2"
+              style={{ backgroundColor: "#7c0000" }}
               disabled={currentPage === totalPages}
             >
               Next

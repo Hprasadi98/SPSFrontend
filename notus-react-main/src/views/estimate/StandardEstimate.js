@@ -10,6 +10,7 @@ import Uploads from "../../components/EstimationForms/Uploads";
 const Tabs = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [completedTabs, setCompletedTabs] = useState(Array(6).fill(false));
+  const [editMode, setEditMode] = useState(false);
 
   const [generalInfo, setGeneralInfo] = useState({
     appNo: "",
@@ -140,6 +141,7 @@ const Tabs = () => {
         <GeneralInfo
           formData={generalInfo}
           handleChange={handleGeneralInfoChange}
+          editMode={editMode}
         />
       ),
     },
@@ -191,7 +193,7 @@ const Tabs = () => {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
-      <div className="w-full max-w-4xl px-4">
+      <div className="w-full max-w-4xl px-4 mb-2">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded p-1">
           {/* Stepper */}
           <div className="flex justify-between items-center mb-4 mt-4 relative w-full">
@@ -225,6 +227,8 @@ const Tabs = () => {
             ))}
           </div>
 
+          
+
           {/* <div className="flex justify-between items-center mb-1">
             <h6 className="px-6 py-0 text-xl font-bold text-blueGray-700">
               {tabs[activeTab].name}
@@ -236,6 +240,15 @@ const Tabs = () => {
           </div>
         </div>
         <div className="bg-white rounded px-6 h-16 flex justify-end items-center mb-4 space-x-2">
+        {!editMode && (
+            <button
+              onClick={() => setEditMode(true)}
+              style={{ backgroundColor: "#7c0000" }}
+              className="text-white mr-2 font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150 cursor-not-allowed"
+            >
+              Edit
+            </button>
+          )}
           {activeTab === 0 ? (
             <button
               disabled
@@ -265,7 +278,7 @@ const Tabs = () => {
           ) : (
             <button
               onClick={handleSubmit}
-              style={{ backgroundColor: "#620000" }}
+              style={{ backgroundColor: "#7c0000" }}
               className="text-white ml-2 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
             >
               Submit

@@ -446,40 +446,40 @@ function EstimateForm() {
           </div>
 
           {/* Bottom navigation bar */}
-          <div className="w-full bg-white p-4 flex justify-between items-center border-t border-gray-200">
+          <div className="flex justify-between rounded-t bg-white mb-0 px-12 py-6">
             <div>
               <button
                 onClick={handleEdit}
+                className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ml-3 ease-linear transition-all duration-150 mt-2"
                 style={{ backgroundColor: "#7c0000" }}
-                className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
               >
                 Edit
               </button>
             </div>
-            <div className="flex space-x-4">
-              {activeTab > 0 && (
-                <div className="mr-1">
-                  <button
-                    onClick={handleBack}
-                    style={{ backgroundColor: "#7c0000" }}
-                    className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
-                  >
-                    Previous
-                  </button>
-                </div>
+            <div className="flex justify-end items-center mr-4">
+              {activeTab > 0 ? (
+                <button
+                  onClick={handleBack}
+                  className="bg-lightBlue-500 mr-2 text-white font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  style={{ backgroundColor: "#7c0000" }}
+                >
+                  Previous
+                </button>
+              ) : (
+                <div></div> // Empty div to maintain spacing when Previous button is hidden
               )}
               {activeTab < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
+                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-4 ease-linear transition-all duration-150 mt-2"
                   style={{ backgroundColor: "#7c0000" }}
-                  className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
                 >
                   Next
                 </button>
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  className="bg-emerald-400 text-white font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                 >
                   Submit
                 </button>

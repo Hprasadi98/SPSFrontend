@@ -6,6 +6,7 @@ import ceb from "../../assets/img/ceb.png";
 import NotificationDropdown from "components/Dropdowns/NotificationDropdown.js";
 import UserDropdown from "components/Dropdowns/UserDropdown.js";
 import AdminNavbar from "components/Navbars/AdminNavbar";
+import colors from "tailwindcss/colors";
 
 export default function Sidebar() {
   const location = useLocation();
@@ -89,8 +90,13 @@ export default function Sidebar() {
                     "text-sm py-3 block " +
                     (window.location.href.indexOf("/applicant/newapplicant") !==
                     -1
-                      ? "text-lightBlue-500 hover:text-lightBlue-600"
+                      ? ""
                       : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  style={
+                    window.location.href.indexOf("/applicant/newapplicant") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
                   }
                   to="/applicant/newapplicant"
                 >
@@ -115,6 +121,11 @@ export default function Sidebar() {
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
+                  style={
+                    window.location.href.indexOf("/application/new") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
+                  }
                   to="/application/new"
                 >
                   <i
@@ -136,6 +147,11 @@ export default function Sidebar() {
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
+                  style={
+                    window.location.href.indexOf("/piv/newPiv") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
+                  }
                   to="/piv/newPiv"
                 >
                   <i
@@ -156,6 +172,11 @@ export default function Sidebar() {
                     (window.location.href.indexOf("/estimation/estimate") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  style={
+                    window.location.href.indexOf("/estimation/estimate") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
                   }
                   to="/estimation/estimate"
                 >
@@ -181,6 +202,11 @@ export default function Sidebar() {
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
+                  style={
+                    window.location.href.indexOf("/estimation/standard-rates") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
+                  }
                   to="/estimation/standard-rates"
                 >
                   <i
@@ -205,6 +231,11 @@ export default function Sidebar() {
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
+                  style={
+                    window.location.href.indexOf("/estimate/estimateform") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
+                  }
                   to="/estimate/estimateform"
                 >
                   <i
@@ -228,6 +259,11 @@ export default function Sidebar() {
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
+                  style={
+                    window.location.href.indexOf("/jobcontractor/new") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
+                  }
                   to="/jobcontractor/new"
                 >
                   <i
@@ -248,6 +284,11 @@ export default function Sidebar() {
                     (window.location.href.indexOf("/jobcontractor/new") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  style={
+                    window.location.href.indexOf("/jobcontractor/new") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
                   }
                   to="/jobcontractor/new"
                 >
@@ -271,6 +312,11 @@ export default function Sidebar() {
                     ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  style={
+                    window.location.href.indexOf("/modifyProgress/addProMile") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
                   }
                   to="/modifyProgress/addProMile"
                 >
@@ -296,6 +342,11 @@ export default function Sidebar() {
                     ) !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
+                  }
+                  style={
+                    window.location.href.indexOf("/allocation/allocationOCJ1") !== -1
+                      ? { color: "#b23200" }
+                      : {  }
                   }
                   to="/allocation/allocationOCJ1"
                 >

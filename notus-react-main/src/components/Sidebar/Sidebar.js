@@ -86,7 +86,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf("/applicant/newapplicant") !==
                     -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
@@ -104,13 +104,13 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Applicant
+                  Applicant Profile
                 </Link>
               </li>
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf("/application/new") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
@@ -125,13 +125,13 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Application
+                  Application Submission
                 </Link>
               </li>
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf("/piv/newPiv") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
@@ -152,7 +152,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf("/estimation/estimate") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
@@ -168,13 +168,13 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Standard Estimate
+                  Standard Cost Estimate
                 </Link>
               </li>
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf(
                       "/estimation/standard-rates"
                     ) !== -1
@@ -199,7 +199,7 @@ export default function Sidebar() {
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf("/estimate/estimateform") !==
                     -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
@@ -217,13 +217,13 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Work Estimate
+                  Detailed Work Estimate
                 </Link>
               </li>
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf("/jobcontractor/new") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
@@ -238,13 +238,13 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Revise Job
+                  Job Revision
                 </Link>
               </li>
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf("/jobcontractor/new") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
@@ -259,13 +259,13 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Job Contractor
+                  Contractor Assignment
                 </Link>
               </li>
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf(
                       "/modifyProgress/addProMile"
                     ) !== -1
@@ -284,13 +284,13 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Progress Monitoring
+                  Progress Dashboard
                 </Link>
               </li>
               <li className="items-center">
                 <Link
                   className={
-                    "text-sm py-3 font-bold block " +
+                    "text-sm py-3 block " +
                     (window.location.href.indexOf(
                       "/allocation/allocationOCJ1"
                     ) !== -1
@@ -309,7 +309,7 @@ export default function Sidebar() {
                         : "text-blueGray-300")
                     }
                   ></i>{" "}
-                  Letter
+                  Official Correspondence
                 </Link>
               </li>
             </ul>

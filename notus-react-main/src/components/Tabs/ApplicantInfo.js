@@ -111,7 +111,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 />
                 {/* 
 //{isModify && ( */}
-                <button className="bg-lightBlue-500 text-white px-4 py-2 rounded ml-2"
+                <button className="bg-lightBlue-500 text-white text-xs font-bold px-4 rounded ml-2"
                 style={{
                   backgroundColor: "#7c0000",}}
                   type="button"

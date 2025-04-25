@@ -43,7 +43,7 @@ const AppDetails = ({ onInputChange, isModify, data, handleSearch }) => {
                 />
                 {isModify && (
                   <button
-                    className="ml-2 text-white active:bg-lightBlue-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                    className="ml-2 text-white active:bg-lightBlue-600 font-bold text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     style={{ backgroundColor: "#7c0000" }}
                     onClick={handleSearch}
                   >

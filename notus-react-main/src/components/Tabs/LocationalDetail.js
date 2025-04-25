@@ -92,7 +92,7 @@ const LocationalDetails = ({ onInputChange, data }) => {
                   onChange={handleChange}
                   className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 />
-                <button className="ml-3 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" style={{ backgroundColor: "#7c0000" }}>
+                <button className="ml-3 bg-lightBlue-500 text-white active:bg-lightBlue-600 font-bold text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150" style={{ backgroundColor: "#7c0000" }}>
                   Search
                 </button>
               </div>

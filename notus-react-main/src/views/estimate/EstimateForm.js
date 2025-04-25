@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useCallback } from "react";
 import CardEstimatePage1 from "components/Cards/CardEstimatePage1";
 import CardEstimatePage2 from "components/Cards/CardEstimatePage2";
 import CardEstimatePage3 from "components/Cards/CardEstimatePage3";
@@ -98,6 +98,7 @@ function EstimateForm() {
       ...prev,
       [id]: type === "checkbox" ? checked : value,
     }));
+    // Clear error for the field being edited
     setErrors((prev) => ({ ...prev, [id]: "" }));
   };
 
@@ -130,7 +131,7 @@ function EstimateForm() {
         }
       });
 
-      setErrors(newErrors);
+      setErrors((prev) => ({ ...prev, ...newErrors }));
       return isValid;
     },
     [formData]
@@ -337,8 +338,6 @@ function EstimateForm() {
       setIsPeggingScheduleFilled(false);
     } catch (error) {
       console.error("Failed to create estimate:", error);
-      const errorDetails = await error.response?.text() || error.message;
-      console.log("Full error details:", errorDetails);
       alert(`Failed to create estimate: ${error.message}. Check console for details.`);
     }
   };
@@ -363,15 +362,6 @@ function EstimateForm() {
   const handlePeggingScheduleInteraction = () => {
     setIsPeggingScheduleFilled(true);
   };
-
-  useEffect(() => {
-    const newCompletedTabs = [
-      validateForm(0),
-      validateForm(1),
-      isPeggingScheduleFilled, // Tab 2 completion depends on interaction
-    ];
-    setCompletedTabs(newCompletedTabs);
-  }, [formData, validateForm, isPeggingScheduleFilled]);
 
   const tabs = [
     {
@@ -417,9 +407,7 @@ function EstimateForm() {
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
       <div className="w-full max-w-4xl px-4">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded p-1">
-
           {/* Progress steps */}
-
           <div className="flex justify-between items-center mb-4 mt-4 relative w-full">
             {tabs.map((tab, index) => (
               <div key={index} className="relative flex-1 flex flex-col items-center">
@@ -452,51 +440,39 @@ function EstimateForm() {
             ))}
           </div>
 
-          {/* Update button placed in the top area */}
-
-          {activeTab === 0 && (
-            <div className="flex justify-end px-6 mb-1">
-              <button
-                onClick={handleEdit}
-                style={{backgroundColor: "#7c0000"}}
-                className="text-white font-bold  text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
-              >
-                Edit
-              </button>
-            </div>
-          )}
-
-          {/* Form title */}
-
-          {/* <div className="px-6 mb-1">
-            <h6 className="py-0 text-xl font-bold text-blueGray-700">
-              {tabs[activeTab].name}
-            </h6>
-          </div> */}
-
           {/* Form content */}
-
           <div className="ml-0 p-5 bg-blueGray-100">
             <div className="p-5 mr-4 rounded">{tabs[activeTab].content}</div>
           </div>
 
           {/* Bottom navigation bar */}
-          <div className="w-full bg-white p-4 flex justify-end items-center border-t border-gray-200">
+          <div className="w-full bg-white p-4 flex justify-between items-center border-t border-gray-200">
+            <div>
+              <button
+                onClick={handleEdit}
+                style={{ backgroundColor: "#7c0000" }}
+                className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+              >
+                Edit
+              </button>
+            </div>
             <div className="flex space-x-4">
               {activeTab > 0 && (
-                <button
-                  onClick={handleBack}
-                  style={{backgroundColor: "#7c0000"}}
-                  className=" text-white font-bold  text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
-                >
-                  Previous
-                </button>
+                <div className="mr-1">
+                  <button
+                    onClick={handleBack}
+                    style={{ backgroundColor: "#7c0000" }}
+                    className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+                  >
+                    Previous
+                  </button>
+                </div>
               )}
               {activeTab < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  style={{backgroundColor: "#7c0000"}}
-                  className=" text-white font-bold  text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
+                  style={{ backgroundColor: "#7c0000" }}
+                  className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
                 >
                   Next
                 </button>

@@ -1,10 +1,7 @@
-
-
 // import { useState } from "react";
 
 // import ApplicantContact from "components/Tabs/ApplicantContact";
 // import ApplicantInfo from "components/Tabs/ApplicantInfo";
-
 
 // const Applicant = () => {
 //   const [step, setStep] = useState(1);
@@ -72,17 +69,22 @@
 
 // export default Applicant;
 
-
 import { useState } from "react";
 import ApplicantContact from "components/Tabs/ApplicantContact";
 import ApplicantInfo from "components/Tabs/ApplicantInfo";
 import { data } from "autoprefixer";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import badgeColors from "@material-tailwind/react/theme/components/badge/badgeColors";
 // For named export
 //import { ApplicantInfo } from "components/Tabs/ApplicantInfo";
 
-const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }) => {
+const Applicant = ({
+  onFormSubmit,
+  handleSearch,
+  isModify,
+  appData,
+  setAppData,
+}) => {
   const history = useHistory();
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -92,34 +94,32 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
     applicantContact: {},
   });
 
-
-
   const tabs = [
     {
       id: "info",
       // label: "Applicant Information",
-      component: (<ApplicantInfo
-        onInputChange={(data) => handleInputChange("applicantInfo", data)}
-        isModify={isModify}
-        data={formData.applicantInfo}
-        handleSearch={handleSearch}
-        appData={appData}
-        setAppData={setAppData}
-      />),
+      component: (
+        <ApplicantInfo
+          onInputChange={(data) => handleInputChange("applicantInfo", data)}
+          isModify={isModify}
+          data={formData.applicantInfo}
+          handleSearch={handleSearch}
+          appData={appData}
+          setAppData={setAppData}
+        />
+      ),
     },
     {
       id: "contact",
       // label: "Applicant Contact Details",
-      component: (<ApplicantContact
-        onInputChange={(data) => handleInputChange("applicantContact", data)}
-        data={formData.applicantContact}
-      />),
+      component: (
+        <ApplicantContact
+          onInputChange={(data) => handleInputChange("applicantContact", data)}
+          data={formData.applicantContact}
+        />
+      ),
     },
   ];
-
-
-
-
 
   const handleNext = () => {
     if (currentIndex < tabs.length - 1) {
@@ -151,41 +151,47 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
 
   return (
     <div className="w-full max-w-2xl bg-white  rounded-lg p-6">
-
       {/* Stepper */}
       <div className="flex justify-center items-center mt-4">
         {tabs.map((tab, index) => (
           <div key={tab.id} className="flex  items-center">
             {/* Step Number */}
             <span
-              className={`flex items-center justify-center w-10 h-10 text-lg font-medium rounded-full border-2 mb-2 ${currentIndex === index
+              className={`flex items-center justify-center w-10 h-10 text-lg font-medium rounded-full border-2 mb-2 ${
+                currentIndex === index
                   ? " bg-yellow-500 text-white border-black"
                   : index < currentIndex
-                    ? " bg-emerald-400 text-white border-gray-700 cursor-not-allowed"
-                    : " text-gray-700 border-gray-400"
-                }`}
+                  ? " bg-emerald-400 text-white border-gray-700 cursor-not-allowed"
+                  : " text-gray-700 border-gray-400"
+              }`}
             >
               {index + 1}
             </span>
             {/* Step Labels */}
-            {index === 0 && <span className="text-sm text-gray-700 ml-2 ">Applicant Information</span>}
-            {index === 1 && <span className="text-sm text-gray-700 ml-2">Applicant Contact Details</span>}
+            {index === 0 && (
+              <span className="text-sm text-gray-700 ml-2 ">
+                Applicant Information
+              </span>
+            )}
+            {index === 1 && (
+              <span className="text-sm text-gray-700 ml-2">
+                Applicant Contact Details
+              </span>
+            )}
 
             {/* Dashed Connecting Line */}
             {index < tabs.length - 1 && (
               <div className="w-16 border-t-2 border-lightBlue-500 border-dashed mx-4"></div>
             )}
-
           </div>
         ))}
       </div>
 
-
-      <div className="flex justify-between px-12 ml-2">
-          <h3 className="block text-blueGray-600 text-m font-bold mb-3 ">
-          {/* {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"} */}
-          </h3>
-          {!isModify && (
+      {/* <div className="flex justify-between px-12 ml-2">
+          <h3 className="block text-blueGray-600 text-m font-bold mb-3 "> */}
+      {/* {currentIndex === 0 ? "Applicant Information" : "Applicant Contact Details"} */}
+      {/* </h3> */}
+      {/* {!isModify && (
           <button
           // /applicant/modifyapplicant
           onClick={handleUpdateClick}
@@ -196,8 +202,8 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
           >
             Edit
           </button>
-          )}
-        </div>
+          )} */}
+      {/* </div> */}
 
       {/* 
       <div className="rounded-t bg-white mb-0 px-6 py-6">
@@ -210,14 +216,12 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
         </div>
       </div> */}
 
-
-
       {/* Tab Content */}
       <div className="p-6">
         <div className="relative flex flex-col min-w-0 break-words w-full shadow-lg rounded-b-lg bg-blueGray-100 border-0">
           {/* now edited */}
-       
-        {/* now edited end */}
+
+          {/* now edited end */}
           {tabs[currentIndex].id === "info" && (
             <ApplicantInfo
               handleSearch={handleSearch}
@@ -230,13 +234,29 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
           )}
           {tabs[currentIndex].id === "contact" && (
             <ApplicantContact
-              onInputChange={(data) => handleInputChange("applicantContact", data)}
+              onInputChange={(data) =>
+                handleInputChange("applicantContact", data)
+              }
             />
           )}
 
           {/* Navigation Buttons and bottom white bar */}
-          <div className="rounded-t bg-white mb-0 px-6 py-6">
-            <div className="flex justify-end items-center px-2 mr-4">
+          <div className="flex justify-between rounded-t bg-white mb-0 px-12 py-6">
+            <div>
+              {!isModify && (
+                <button
+                  // /applicant/modifyapplicant
+                  onClick={handleUpdateClick}
+                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
+                  style={{
+                    backgroundColor: "#7c0000",
+                  }}
+                >
+                  Edit
+                </button>
+              )}
+            </div>
+            <div className="flex justify-end items-center mr-4">
               {/* Left-aligned "Previous" button */}
               {currentIndex > 0 ? (
                 <button
@@ -256,15 +276,14 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
               {currentIndex < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
-            style={{
+                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
+                  style={{
                     backgroundColor: "#7c0000",
                   }}
                 >
                   Next
                 </button>
               ) : (
-                
                 <button
                   onClick={handleSubmit}
                   className="bg-emerald-400 bg-green text-white font-bold  text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
@@ -277,15 +296,9 @@ const Applicant = ({ onFormSubmit, handleSearch, isModify, appData, setAppData }
               )}
             </div>
           </div>
-
-
-
-
         </div>
       </div>
     </div>
-
-
   );
 };
 

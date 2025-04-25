@@ -136,7 +136,7 @@ const NewApplication = ({
           </div>
         ))}
       </div>
-      <div className="text-center flex justify-center mb-1">
+      <div className="text-center flex justify-center mb-2">
           <h6 className="text-blueGray-700 text-sm font-bold">
             {tabs[currentIndex].label}
           </h6>

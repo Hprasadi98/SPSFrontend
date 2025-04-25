@@ -3,7 +3,16 @@ import FileUpload from "./FileUpload";
 
 const nicRegex = /^(\d{9}[Vv]|\d{12})$/; // Validates both old and new NIC formats
 
-const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, isModify, data = {}, appData = {}, setAppData = () => { } }) => {
+const ApplicantInfo = ({
+  applicant = {},
+  onInputChange,
+  onSearch,
+  handleSearch,
+  isModify,
+  data = {},
+  appData = {},
+  setAppData = () => {},
+}) => {
   //const [appData, setAppData] = useState({});
   const [nicError, setNicError] = useState(""); // State to handle error messages
   const [loading, setLoading] = useState(false); // To show loading state during API call
@@ -17,7 +26,6 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
     //setAppData(newData); // Ensure this is a valid function
     onInputChange({ [name]: value });
 
-
     // Validate NIC number
     if (name === "idNo") {
       if (!nicRegex.test(value)) {
@@ -27,30 +35,24 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
       }
     }
 
-
     // Make sure appData is defined before spreading it
     const newData = { ...(appData || {}), [name]: value };
     console.log("New Data:", newData);
 
     // Only call setAppData if it's a function
-    if (typeof setAppData === 'function') {
+    if (typeof setAppData === "function") {
       setAppData(newData);
     }
 
-
     // Call onInputChange with the updated field
-    if (typeof onInputChange === 'function') {
+    if (typeof onInputChange === "function") {
       onInputChange({ [name]: value });
     }
   };
 
-
-
-
   return (
-    <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
+    <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
       <form>
-        
         {/* <div className="block text-blueGray-600 text-m font-bold mb-3 ml-3">Applicant Information</div> */}
 
         {/* //new */}
@@ -58,18 +60,20 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="flex"></div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
-
-              >
+              <label className="block text-blueGray-600 text-sm mb-2">
                 ID Type
               </label>
-              <div className="flex space-x-4">
-                <label className="mr-3">
-                  <input type="radio" name="idType" value="NIC"
+              <div className="flex gap-4 mt-2">
+                <label className="text-sm mr-4">
+                  <input
+                    type="radio"
+                    name="idType"
+                    value="NIC"
+                    defaultChecked
                     //checked={appData.idType === "NIC"}
+                    className="mr-1"
                     onChange={handleChange}
-                    className="form-radio accent-blue-600" />
+                  />
                   NIC
                 </label>
                 {/* <label className="mr-3">
@@ -79,23 +83,27 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                     className="form-radio accent-blue-600" />
                   Passport
                 </label> */}
-                <label className="mr-3">
-                  <input type="radio" name="idType" value="BRN"
-                   // checked={appData.idType === "BRN"}
+                <label className="text-sm">
+                  <input
+                    type="radio"
+                    name="idType"
+                    value="BRN"
+                    // checked={appData.idType === "BRN"}
+                    className="mr-1"
                     onChange={handleChange}
-                    className="form-radio accent-blue-600" />
+                  />
                   Business Registration Number
                 </label>
               </div>
-
-
             </div>
           </div>
 
-
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
-              <label className="block text-blueGray-600 text-xs font-bold mb-2" htmlFor="grid-password">
+              <label
+                className="block text-blueGray-600 text-sm mb-2"
+                htmlFor="grid-password"
+              >
                 ID Number
               </label>
 
@@ -103,28 +111,33 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 <input
                   type="text"
                   name="idNo"
-                  value={(appData && appData.idNo)}
+                  value={appData && appData.idNo}
                   onChange={handleChange}
-                  className={`border-0 px-3 h-0.5  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${nicError ? "border-red-500" : ""
-                    }`}
+                  className={`border-0 px-3 h-0.5  placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150 ${
+                    nicError ? "border-red-500" : ""
+                  }`}
                   placeholder="NIC No"
                 />
                 {/* 
 //{isModify && ( */}
-                <button className="bg-lightBlue-500 text-white text-xs font-bold px-4 rounded ml-2"
-                style={{
-                  backgroundColor: "#7c0000",}}
+                <button
+                  className="bg-lightBlue-500 text-white text-sm px-4 rounded ml-2"
+                  style={{
+                    backgroundColor: "#7c0000",
+                  }}
                   type="button"
                   onClick={handleSearch}
-                  disabled={loading}>
+                  disabled={loading}
+                >
                   {loading ? "Searching..." : "Search"}
                 </button>
                 {/* //)} */}
               </div>
-              {nicError && <p className="text-red-500 text-xs mt-1">{nicError}</p>}
+              {nicError && (
+                <p className="text-red-500 text-xs mt-1">{nicError}</p>
+              )}
             </div>
           </div>
-
 
           {/* raw 2  with file uplaod and ID no*/}
 
@@ -157,11 +170,11 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           {/* end */}
 
           {/* personalCorporate */}
-        
+
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 First Name (Initials)/Company Name/Requested By
@@ -172,14 +185,14 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 value={appData.firstName}
                 onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                defaultValue="Enter First Name"
+                placeholder="Enter First Name"
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Last Name/Company Type
@@ -190,7 +203,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 value={appData.lastName}
                 onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                defaultValue="Enter Last Name"
+                placeholder="Enter Last Name"
               />
             </div>
           </div>
@@ -198,7 +211,7 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Full Name/Requested By/Cost Center
@@ -209,84 +222,99 @@ const ApplicantInfo = ({ applicant = {}, onInputChange, onSearch, handleSearch, 
                 value={appData.fullName}
                 onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                defaultValue="Enter Full Name"
+                placeholder="Enter Full Name"
               />
             </div>
           </div>
 
-            {/* personal/corporate */}
-            <div className="w-full lg:w-12/12 px-4">
+          {/* personal/corporate */}
+          <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
-              <label className="block  text-blueGray-600 text-xs font-bold mb-2">Personal/Corporate</label>
+              <label className="block  text-blueGray-600 text-sm mb-2">
+                Personal/Corporate
+              </label>
               <select
-               name="personalCorporate"
-              // value={appData.personalCorporate}
-              //value={appData.personalCorporate || ""}
-              onChange={handleChange}
-               className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                <option value="Per" >Personal</option>
-                <option value="Cop" >Corporate</option>
+                name="personalCorporate"
+                // value={appData.personalCorporate}
+                //value={appData.personalCorporate || ""}
+                onChange={handleChange}
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              >
+                <option value="Per">Personal</option>
+                <option value="Cop">Corporate</option>
               </select>
             </div>
           </div>
           {/* raw 2 */}
-          
-
 
           {/* raw 2 */}
 
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
-
-              >
+              <label className="block text-blueGray-600 text-sm mb-2">
                 CEB Employee
               </label>
               <div className="flex space-x-4 ">
-                <label className="mr-3 ">
-                  <input type="radio" name="cebEmployee" value="y"
-                  //  checked={appData.cebEmployee === "yes"}
-                    onChange={handleChange} /> Yes
+                <label className="text-sm mr-4">
+                  <input
+                    type="radio"
+                    name="cebEmployee"
+                    value="y"
+                    className="mr-1"
+                    defaultChecked
+                    //  checked={appData.cebEmployee === "yes"}
+                    onChange={handleChange}
+                  />{" "}
+                  Yes
                 </label>
-                <label>
-                  <input type="radio" name="cebEmployee" value="n"
-                 //   checked={appData.cebEmployee === "no"}
-                    onChange={handleChange} /> No
+                <label className="text-sm">
+                  <input
+                    type="radio"
+                    name="cebEmployee"
+                    value="n"
+                    className="mr-1"
+                    //   checked={appData.cebEmployee === "no"}
+                    onChange={handleChange}
+                  />{" "}
+                  No
                 </label>
               </div>
-
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
-
-              >
+              <label className="block text-blueGray-600 text-sm mb-2">
                 Preferred Language
               </label>
               <div className="flex space-x-4">
-                <label className="mr-3">
-                  <input type="radio" name="preferredLanguage" value="SN"
-                 //   checked={appData.preferredLanguage === "SN"}
-                    onChange={handleChange} /> Sinhala
+                <label className="text-sm mr-4">
+                  <input
+                    type="radio"
+                    name="preferredLanguage"
+                    value="SN"
+                    className="mr-1"
+                    defaultChecked
+                    //   checked={appData.preferredLanguage === "SN"}
+                    onChange={handleChange}
+                  />{" "}
+                  Sinhala
                 </label>
-                <label>
-                  <input type="radio" name="preferredLanguage" value="EN"
-                  //  checked={appData.preferredLanguage === "EN"}
-                    onChange={handleChange} /> English
+                <label className="text-sm">
+                  <input
+                    type="radio"
+                    name="preferredLanguage"
+                    value="EN"
+                    className="mr-1"
+                    //  checked={appData.preferredLanguage === "EN"}
+                    onChange={handleChange}
+                  />{" "}
+                  English
                 </label>
               </div>
-
             </div>
           </div>
           {/* end */}
-
-
         </div>
-
-
 
         {/* test */}
       </form>

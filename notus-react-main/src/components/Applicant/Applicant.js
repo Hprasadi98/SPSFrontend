@@ -274,12 +274,12 @@ const Applicant = ({
                 </button>
               )}
             </div>
-            <div className="flex justify-end items-center mr-4 ml-2">
+            <div className="flex justify-end items-center mr-4 ml-2 mb-2">
               {/* Left-aligned "Previous" button */}
               {currentIndex > 0 ? (
                 <button
                   onClick={handlePrevious}
-                  className="bg-lightBlue-500 mr-2 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-lightBlue-500 mr-2 mt-2 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   style={{
                     backgroundColor: "#7c0000",
                   }}
@@ -294,7 +294,7 @@ const Applicant = ({
               {currentIndex < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  className="bg-emerald-400 mb-2 ml-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 mt-2"
+                  className="bg-emerald-400 mb-2 ml-2 mt-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 mt-2"
                   style={{
                     backgroundColor: "#7c0000",
                   }}
@@ -304,7 +304,7 @@ const Applicant = ({
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="bg-emerald-400 bg-green text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-emerald-400 bg-green text-white text-sm mt-2 px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   // style={{
                   //   backgroundColor: "#620000",
                   // }}

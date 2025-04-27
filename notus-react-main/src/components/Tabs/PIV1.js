@@ -1,10 +1,7 @@
-
 import { useState, useEffect } from "react";
 import Table2 from "./Table2";
 
-const PIV1 = ({formData, handleChange  }) => {
-  
-
+const PIV1 = ({ formData, handleChange }) => {
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
       <form>
@@ -12,7 +9,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 PIV Number
@@ -21,21 +18,19 @@ const PIV1 = ({formData, handleChange  }) => {
                 <input
                   type="text"
                   name="pivNo"
-                 id="pivNo"
-                 value={formData.pivNo}
-                    onChange={handleChange}
+                  id="pivNo"
+                  value={formData.pivNo}
+                  onChange={handleChange}
                   className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   placeholder="430.00/ABS/25/xxxx"
                 />
-               
-            
               </div>
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Vat Registration Number
@@ -43,14 +38,13 @@ const PIV1 = ({formData, handleChange  }) => {
               <input
                 type="text"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-               
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 People's Bank Branch
@@ -58,14 +52,13 @@ const PIV1 = ({formData, handleChange  }) => {
               <input
                 type="text"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-               
               />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 CEB Branch
@@ -73,7 +66,6 @@ const PIV1 = ({formData, handleChange  }) => {
               <input
                 type="text"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-               
               />
             </div>
           </div>
@@ -83,7 +75,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Job Description
@@ -97,7 +89,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 ID Number
@@ -110,15 +102,13 @@ const PIV1 = ({formData, handleChange  }) => {
           </div>
         </div>
 
-        
         <div className="flex flex-wrap">
           <div className="w-full lg:w-4/12 px-4">
-          <div className="relative w-full mb-3">
+            <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-              
                 Cost Center Number
               </label>
               <input
@@ -131,7 +121,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Date
@@ -157,12 +147,12 @@ const PIV1 = ({formData, handleChange  }) => {
                 placeholder="430.00"
               />
             </div> */}
-              <div className="relative w-full mb-3">
+            <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                  Reference Number
+                Reference Number
               </label>
               <select
                 name="ApplicationType"
@@ -174,18 +164,15 @@ const PIV1 = ({formData, handleChange  }) => {
             </div>
           </div>
         </div>
- 
-       
 
-     
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-               Depositor's Name
+                Depositor's Name
               </label>
               <input
                 type="text"
@@ -194,24 +181,24 @@ const PIV1 = ({formData, handleChange  }) => {
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
-  <div className="relative w-full mb-3">
-    <label
-      className="block  text-blueGray-600 text-xs font-bold mb-2"
-      htmlFor="description"
-    >
-      Address
-    </label>
-    <textarea
-      name="description"
-      rows="3"
-      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-      placeholder="Enter Address" 
-    ></textarea>
-  </div>
-</div>
+            <div className="relative w-full mb-3">
+              <label
+                className="block  text-blueGray-600 text-sm mb-2"
+                htmlFor="description"
+              >
+                Address
+              </label>
+              <textarea
+                name="description"
+                rows="3"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Enter Address"
+              ></textarea>
+            </div>
+          </div>
         </div>
-                      {/* raw 4 */}
-                      {/* <div className="w-full lg:w-6/12 px-4">
+        {/* raw 4 */}
+        {/* <div className="w-full lg:w-6/12 px-4">
   <div className="relative w-full mb-3">
     <label
       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
@@ -228,18 +215,16 @@ const PIV1 = ({formData, handleChange  }) => {
   </div>
 </div> */}
 
-
         <div className="flex flex-wrap">
-        
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Payment mode
+                Payment Mode
               </label>
-              <div className="flex gap-4 mt-6">
+              <div className="flex gap-4 mt-2">
                 <label className="text-sm mr-4">
                   <input
                     type="radio"
@@ -262,7 +247,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Pay Date
@@ -280,7 +265,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Bank Code
@@ -297,7 +282,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Branch Code
@@ -313,12 +298,11 @@ const PIV1 = ({formData, handleChange  }) => {
           </div>
         </div>
 
-
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Cheque Date
@@ -333,7 +317,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Cheque Number
@@ -346,15 +330,14 @@ const PIV1 = ({formData, handleChange  }) => {
           </div>
         </div>
 
-        
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-               Amount Allocated
+                Amount Allocated
               </label>
               <input
                 type="text"
@@ -363,31 +346,31 @@ const PIV1 = ({formData, handleChange  }) => {
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
-  <div className="relative w-full mb-3">
-    <label
-      className="block  text-blueGray-600 text-xs font-bold mb-2"
-      htmlFor="description"
-    >
-      Amount in words
-    </label>
-    <textarea
-      name="description"
-      rows="3"
-      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-      placeholder="Enter description"
-    ></textarea>
-  </div>
-</div>
+            <div className="relative w-full mb-3">
+              <label
+                className="block  text-blueGray-600 text-sm mb-2"
+                htmlFor="description"
+              >
+                Amount In Words
+              </label>
+              <textarea
+                name="description"
+                rows="3"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                placeholder="Enter description"
+              ></textarea>
+            </div>
+          </div>
         </div>
 
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Prepared by
+                Prepared By
               </label>
               <input
                 type="text"
@@ -398,7 +381,7 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Certified By
@@ -411,16 +394,14 @@ const PIV1 = ({formData, handleChange  }) => {
           </div>
         </div>
 
-
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Depositor's Siqnature
-             
               </label>
               <input
                 type="text"
@@ -431,10 +412,10 @@ const PIV1 = ({formData, handleChange  }) => {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                 Bank Officer's Siqnature
+                Bank Officer's Siqnature
               </label>
               <input
                 type="text"
@@ -443,9 +424,9 @@ const PIV1 = ({formData, handleChange  }) => {
             </div>
           </div>
         </div>
-<div className="mt-3 ml-3 mr-3">
-  <Table2 color="light"/>
-</div>
+        <div className="mt-3 ml-3 mr-3">
+          <Table2 color="light" />
+        </div>
       </form>
     </div>
   );

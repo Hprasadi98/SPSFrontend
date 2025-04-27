@@ -28,7 +28,7 @@ export default function Sidebar() {
             className="md:block text-left md:pb-2 text-blueGray-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
             to="/"
           >
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center sticky">
               <img alt="ceb logo" className="w-20 h-20" src={ceb} />
             </div>
           </Link>
@@ -83,6 +83,7 @@ export default function Sidebar() {
               </div>
             </form>
 
+            <div className="overflow-y-auto h-full">
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               <li className="items-center">
                 <Link
@@ -94,9 +95,10 @@ export default function Sidebar() {
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
                   style={
-                    window.location.href.indexOf("/applicant/newapplicant") !== -1
+                    window.location.href.indexOf("/applicant/newapplicant") !==
+                    -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/applicant/newapplicant"
                 >
@@ -124,7 +126,7 @@ export default function Sidebar() {
                   style={
                     window.location.href.indexOf("/application/new") !== -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/application/new"
                 >
@@ -150,7 +152,7 @@ export default function Sidebar() {
                   style={
                     window.location.href.indexOf("/piv/newPiv") !== -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/piv/newPiv"
                 >
@@ -176,7 +178,7 @@ export default function Sidebar() {
                   style={
                     window.location.href.indexOf("/estimation/estimate") !== -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/estimation/estimate"
                 >
@@ -203,9 +205,11 @@ export default function Sidebar() {
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
                   style={
-                    window.location.href.indexOf("/estimation/standard-rates") !== -1
+                    window.location.href.indexOf(
+                      "/estimation/standard-rates"
+                    ) !== -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/estimation/standard-rates"
                 >
@@ -232,9 +236,10 @@ export default function Sidebar() {
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
                   style={
-                    window.location.href.indexOf("/estimate/estimateform") !== -1
+                    window.location.href.indexOf("/estimate/estimateform") !==
+                    -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/estimate/estimateform"
                 >
@@ -262,7 +267,7 @@ export default function Sidebar() {
                   style={
                     window.location.href.indexOf("/jobcontractor/new") !== -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/jobcontractor/new"
                 >
@@ -288,7 +293,7 @@ export default function Sidebar() {
                   style={
                     window.location.href.indexOf("/jobcontractor/new") !== -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/jobcontractor/new"
                 >
@@ -304,7 +309,7 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="items-center">
-                <Link
+                {/* <Link
                   className={
                     "text-sm py-3 block " +
                     (window.location.href.indexOf(
@@ -331,7 +336,82 @@ export default function Sidebar() {
                     }
                   ></i>{" "}
                   Progress Dashboard
-                </Link>
+                </Link> */}
+
+                <div className="relative">
+                  <button
+                    className="text-sm py-3 block w-full text-left focus:outline-none"
+                    onClick={() =>
+                      setCollapseShow(
+                        collapseShow === "progress" ? "" : "progress"
+                      )
+                    }
+                  >
+                    <i
+                      className={
+                        "fas fa-tv mr-2 text-sm " +
+                        (window.location.href.indexOf(
+                          ""
+                        ) !== -1
+                          ? "opacity-75"
+                          : "text-blueGray-300")
+                      }
+                    ></i>{" "}
+                    Progress Dashboard
+                  </button>
+                  {collapseShow === "progress" && (
+                    <ul className="ml-4 px-4">
+                      <li>
+                        <Link
+                          className="text-sm py-2 block text-blueGray-700 hover:text-blueGray-500"
+                          to=""
+                        >
+                          <i
+                            className={
+                              "fas fa-envelope mr-2 text-sm " +
+                              (window.location.href.indexOf("/letters/") !== -1
+                                ? "opacity-75"
+                                : "text-blueGray-300")
+                            }
+                          ></i>{" "}
+                          Progress Overview
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className="text-sm py-2 block text-blueGray-700 hover:text-blueGray-500"
+                          to="/modifyProgress/addProMile"
+                        >
+                          <i
+                            className={
+                              "fas fa-envelope mr-2 text-sm " +
+                              (window.location.href.indexOf("/letters/") !== -1
+                                ? "opacity-75"
+                                : "text-blueGray-300")
+                            }
+                          ></i>{" "}
+                          Progress Update
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          className="text-sm py-2 block text-blueGray-700 hover:text-blueGray-500"
+                          to=""
+                        >
+                          <i
+                            className={
+                              "fas fa-envelope mr-2 text-sm " +
+                              (window.location.href.indexOf("/letters/") !== -1
+                                ? "opacity-75"
+                                : "text-blueGray-300")
+                            }
+                          ></i>{" "}
+                          Milestone Tracking
+                        </Link>
+                      </li>
+                    </ul>
+                  )}
+                </div>
               </li>
               <li className="items-center">
                 <Link
@@ -344,9 +424,11 @@ export default function Sidebar() {
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
                   style={
-                    window.location.href.indexOf("/allocation/allocationOCJ1") !== -1
+                    window.location.href.indexOf(
+                      "/allocation/allocationOCJ1"
+                    ) !== -1
                       ? { color: "#b23200" }
-                      : {  }
+                      : {}
                   }
                   to="/allocation/allocationOCJ1"
                 >
@@ -364,9 +446,10 @@ export default function Sidebar() {
                 </Link>
               </li>
             </ul>
+            </div>
             {/* <hr className="my-2 md:min-w-full" /> */}
           </div>
-          <div className="mt-64">
+          <div className="mt-64 sticky">
             <AdminNavbar />
           </div>
         </div>

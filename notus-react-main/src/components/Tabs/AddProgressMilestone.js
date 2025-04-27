@@ -1,65 +1,66 @@
 import { useState } from "react";
 import FileUpload from "./FileUpload";
 import ModifyProgress from "layouts/ModifyProgress";
-import React, { useEffect } from 'react';
-import axios from 'axios';
+import React, { useEffect } from "react";
+import axios from "axios";
 
 const nicRegex = /^(\d{9}[Vv]|\d{12})$/; // Validates both old and new NIC formats
 
-const AddProgressMilestone = ({ handleChange, formData = {}}) => {
-  const [deptId, setDeptId] = useState('');
+const AddProgressMilestone = ({ handleChange, formData = {} }) => {
+  const [deptId, setDeptId] = useState("");
 
   useEffect(() => {
     // Fetch session data from the backend
-    axios.get('http://localhost:8081/api/v1/session-info', {
-      withCredentials: true ,// Include cookies/session credentials
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + btoa('user:admin123')
-      }
-    })
-    .then(response => {
-      if (response.data.deptId) {
-        setDeptId(response.data.deptId);
+    axios
+      .get("http://localhost:8081/api/v1/session-info", {
+        withCredentials: true, // Include cookies/session credentials
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa("user:admin123"),
+        },
+      })
+      .then((response) => {
+        if (response.data.deptId) {
+          setDeptId(response.data.deptId);
 
-         // Update formData with the deptId
-         if (handleChange) {
-          handleChange({
-            target: {
-              name: 'deptId',
-              value: response.data.deptId
-            }
-          });
+          // Update formData with the deptId
+          if (handleChange) {
+            handleChange({
+              target: {
+                name: "deptId",
+                value: response.data.deptId,
+              },
+            });
+          }
         }
-      }
-    })
-    .catch(error => {
-      console.error('Error fetching session data:', error);
-      // Set a fallback value or show a user-friendly message
-      setDeptId('Not authenticated - please log in');
-      
-      // Optionally redirect to login if needed
-      // if (error.response && error.response.status === 401) {
-      //   window.location.href = '/auth/login';
-      // }
-    });
-  }, [handleChange]);
- 
-  return (
-    <div className="flex-auto px-4 lg:px-10 py-10 pt-1">
-      <form>
-   {/* <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Add Progress Milestone</div> */}
+      })
+      .catch((error) => {
+        console.error("Error fetching session data:", error);
+        // Set a fallback value or show a user-friendly message
+        setDeptId("Not authenticated - please log in");
 
-      {/* //new */}
+        // Optionally redirect to login if needed
+        // if (error.response && error.response.status === 401) {
+        //   window.location.href = '/auth/login';
+        // }
+      });
+  }, [handleChange]);
+
+  return (
+    <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
+      <form>
+        {/* <div className="block  text-blueGray-600 text-m font-bold mb-3 ml-3">Add Progress Milestone</div> */}
+
+        {/* //new */}
         <div className="flex flex-wrap ">
           <div className="flex"></div>
 
-{/* drop down */}
-<div className="w-full lg:w-6/12 px-4">
+          {/* drop down */}
+          <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Name
@@ -74,11 +75,10 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
             </div>
           </div>
 
-
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Progress Milestone ID Number
@@ -93,13 +93,13 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
             </div>
           </div>
 
-                    {/* drop doun end */}
+          {/* drop doun end */}
 
-{/* second field row */}
-                    <div className="w-full lg:w-6/12 px-4">
+          {/* second field row */}
+          <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Department ID
@@ -108,15 +108,16 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
                 type="text"
                 name="deptId"
                 value={deptId}
-               // onChange={handleChange}
+                // onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              readOnly/>
+                readOnly
+              />
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Percentage
@@ -149,19 +150,15 @@ const AddProgressMilestone = ({ handleChange, formData = {}}) => {
             </div>
           </div> */}
 
-                      {/* raw 4 */}
-  
+          {/* raw 4 */}
+
           {/* raw 4 end */}
-         
+
           {/* Progress Milestone*/}
-    
-        
         </div>
-        
-        
 
         {/* test */}
-        </form>
+      </form>
     </div>
   );
 };

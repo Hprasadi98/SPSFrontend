@@ -346,12 +346,17 @@ export default function Sidebar() {
                         collapseShow === "progress" ? "" : "progress"
                       )
                     }
+                    style={
+                      window.location.href.indexOf("/modifyProgress/addProMile") !== -1
+                        ? { color: "#b23200" }
+                        : {}
+                    }
                   >
                     <i
                       className={
                         "fas fa-tv mr-2 text-sm " +
                         (window.location.href.indexOf(
-                          ""
+                          "/modifyProgress/addProMile"
                         ) !== -1
                           ? "opacity-75"
                           : "text-blueGray-300")

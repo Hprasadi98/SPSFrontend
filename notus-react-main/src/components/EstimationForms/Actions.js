@@ -3,7 +3,7 @@ const Actions = ({ handleSubmit }) => {
     <div className="flex justify-center mt-4">
       <button
         onClick={handleSubmit}
-        className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150"
+        className="bg-emerald-400 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md transition duration-150"
       >
         Submit
       </button>

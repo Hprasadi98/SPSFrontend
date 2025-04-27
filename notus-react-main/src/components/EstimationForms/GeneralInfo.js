@@ -2,25 +2,25 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
   return (
     <form>
       <div className="flex flex-wrap">
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block text-gray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4 py-1">
+          <label className=" text-gray-600 text-sm mb-2">
             Application Reference No
           </label>
 
-          <div className="flex space-x-2">
-              <input
-                type="text"
-                name="appNo"
-                value={formData.appNo}
-                onChange={handleChange}
-                className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
-              />
+          <div className="flex space-x-2 mt-2">
+            <input
+              type="text"
+              name="appNo"
+              value={formData.appNo}
+              onChange={handleChange}
+              className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+            />
 
             {editMode && (
               <button
                 type="button"
                 style={{ backgroundColor: "#7c0000" }}
-                className="text-white px-4 py-1 rounded font-semibold text-sm ml-2 shadow hover:shadow-md transition duration-150"
+                className="text-white px-4 py-2 rounded text-sm ml-2 shadow hover:shadow-md transition duration-150"
                 onClick={() => {
                   alert(`Searching for App No: ${formData.appNo}`);
                 }}
@@ -31,10 +31,8 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block text-blueGray-600 text-xs font-bold mb-2">
-            Name
-          </label>
+        <div className="w-full lg:w-6/12 px-4 py-2">
+          <label className="block text-blueGray-600 text-sm mb-2">Name</label>
           <input
             type="text"
             name="stdNo"
@@ -44,8 +42,8 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4 py-2">
+          <label className="block text-blueGray-600 text-sm mb-2">
             Address
           </label>
           <input
@@ -57,8 +55,8 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4 py-2">
+          <label className="block text-blueGray-600 text-sm mb-2">
             Job Description
           </label>
           <input
@@ -70,8 +68,8 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4 py-2">
+          <label className="block text-blueGray-600 text-sm mb-2">
             No of Beneficiaries
           </label>
           <input
@@ -83,8 +81,8 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4 py-2">
+          <label className="block text-blueGray-600 text-sm mb-2">
             Power to Supply
           </label>
           <input
@@ -96,8 +94,8 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
           />
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4 py-2">
+          <label className="block text-blueGray-600 text-sm mb-2">
             Rejected Reason
           </label>
           <input

@@ -34,9 +34,9 @@ const Uploads = () => {
         <input {...getInputProps()} />
         <FaCloudUploadAlt size={35} className="mx-auto text-gray-500" />
         {isDragActive ? (
-          <p className="text-gray-600">Drop the files here...</p>
+          <p className="text-gray-600 text-sm">Drop the files here...</p>
         ) : (
-          <p className="text-gray-600">Drag & Drop files here or click to upload</p>
+          <p className="text-gray-600 text-sm">Drag & Drop files here or click to upload</p>
         )}
       </div>
 

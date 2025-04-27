@@ -192,7 +192,7 @@ const Tabs = () => {
   };
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
+    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6 mt-6">
       <div className="w-full max-w-4xl px-4 mb-2">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full shadow-lg rounded p-1">
           {/* Stepper */}
@@ -212,78 +212,85 @@ const Tabs = () => {
 
                 {/* Step circle */}
                 <div
-                  className={`relative z-10 w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all ${
-                    completedTabs[index]
-                      ? "bg-emerald-400 text-white border-blue-600"
-                      : index === activeTab
-                      ? "bg-red-400 text-white border-orange-600"
-                      : "border-gray-400"
-                  }`}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all "
+                  style={{
+                    backgroundColor:
+                      index < activeTab
+                        ? "#34d399"
+                        : index === activeTab
+                        ? "#ffd800"
+                        : "transparent",
+                    borderColor:
+                      index < activeTab
+                        ? "#34d399"
+                        : index === activeTab
+                        ? "#ffd800"
+                        : "#d1d5db",
+                    color:
+                      index < activeTab || index === activeTab
+                        ? "white"
+                        : "black",
+                  }}
                 >
                   {index + 1}
                 </div>
-                <span className="text-xs mt-2">{tab.name}</span>
+                <span className="text-sm mt-2">{tab.name}</span>
               </div>
             ))}
           </div>
 
-          
-
-          {/* <div className="flex justify-between items-center mb-1">
-            <h6 className="px-6 py-0 text-xl font-bold text-blueGray-700">
+          <div className="flex justify-center items-center mb-2">
+            <h6 className="px-6 text-sm font-bold text-blueGray-700">
               {tabs[activeTab].name}
             </h6>
-          </div> */}
+          </div>
 
-          <div className="ml-0 p-5 bg-blueGray-100">
-            <div className="p-5 mr-4 rounded">{tabs[activeTab].content}</div>
+          <div className="ml-0 bg-blueGray-100">
+            <div className="px-12 rounded pb-4">{tabs[activeTab].content}</div>
           </div>
         </div>
-        <div className="bg-white rounded px-6 h-16 flex justify-end items-center mb-4 space-x-2">
-        {!editMode && (
-            <button
-              onClick={() => setEditMode(true)}
-              style={{ backgroundColor: "#7c0000" }}
-              className="text-white mr-2 font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150 cursor-not-allowed"
-            >
-              Edit
-            </button>
-          )}
-          {activeTab === 0 ? (
-            <button
-              disabled
-              style={{ backgroundColor: "#7c0000", opacity: 0.5 }}
-              className="text-white font-bold text-sm px-6 py-2 rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150 cursor-not-allowed"
-            >
-              Previous
-            </button>
-          ) : (
-            <button
-              onClick={handlePrev}
-              style={{ backgroundColor: "#7c0000" }}
-              className="text-white active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
-            >
-              Previous
-            </button>
-          )}
+        <div className="bg-white rounded px-12 h-16 flex justify-between items-center mb-4 space-x-2">
+          <div className="ml-4 pl-4">
+            {!editMode && (
+              <button
+                onClick={() => setEditMode(true)}
+                style={{ backgroundColor: "#7c0000" }}
+                className="text-white text-sm px-6 py-2 rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150 cursor-not-allowed"
+              >
+                Edit
+              </button>
+            )}
+          </div>
+          <div className="mr-4 pr-2">
+            {activeTab > 0 ? (
+              <button
+                onClick={handlePrev}
+                style={{ backgroundColor: "#7c0000" }}
+                className="text-white text-sm px-6 py-2 rounded shadow outline-none focus:outline-none ease-linear transition-all duration-150 cursor-not-allowed"
+              >
+                Previous
+              </button>
+            ) : (
+              ""
+            )}
 
-          {activeTab < tabs.length - 1 ? (
-            <button
-              onClick={handleNext}
-              style={{ backgroundColor: "#7c0000" }}
-              className="text-white ml-2 active:bg-lightBlue-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
-            >
-              Next
-            </button>
-          ) : (
-            <button
-              onClick={handleSubmit}
-              style={{ backgroundColor: "#7c0000" }}
-              className="text-white ml-2 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
-            >
-              Submit
-            </button>
-          )}
+            {activeTab < tabs.length - 1 ? (
+              <button
+                onClick={handleNext}
+                style={{ backgroundColor: "#7c0000" }}
+                className="text-white ml-2 mr-12 active:bg-lightBlue-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+              >
+                Next
+              </button>
+            ) : (
+              <button
+                onClick={handleSubmit}
+                className="bg-emerald-400 text-white ml-2 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+              >
+                Submit
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

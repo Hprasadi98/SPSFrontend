@@ -1,42 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./TreeView.css";
-
-const treeData = {
-  name: "MATERIAL",
-  children: [
-    { name: "LABOUR_NWP" },
-    { name: "MACHINE_COST" },
-    { name: "LABOUR-OH" },
-    { name: "CONCCREATING" },
-    { name: "PHM" },
-    { name: "LINE POLE" },
-    { name: "BINDING" },
-    {
-      name: "SUBSTATIONS",
-      children: [
-        {
-          name: "Double Pole",
-          children: [
-            {
-              name: "33KV/LV",
-              children: [
-                { name: "100KVA", children: [{ name: "PS SUBDP/33/100" }] },
-                { name: "160KVA" },
-                { name: "250KVA" },
-                { name: "400KVA" },
-              ],
-            },
-            { name: "11KV/LV" },
-          ],
-        },
-        { name: "Single Pole" },
-      ],
-    },
-    { name: "Plinth" },
-    { name: "MV/LV line HW" },
-    { name: "DDLO SETS" },
-  ],
-};
 
 const TreeNode = ({ node }) => {
   const [expanded, setExpanded] = useState(false);
@@ -64,11 +27,77 @@ const TreeNode = ({ node }) => {
   );
 };
 
-const TreeView = () => {
+const TreeView = ({ onInteraction }) => {
+  const [treeData, setTreeData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:8082/api/sppeg", {
+          headers: {
+            "Origin": "http://localhost:3000",
+          },
+        });
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+
+        // Filter data to include only records where deptId is "4"
+        const filteredData = data.filter(item => item.deptId === "4");
+
+        // Build the tree structure with specified root nodes
+        const tree = buildTree(filteredData);
+        setTreeData(tree);
+        setLoading(false);
+        onInteraction(); // Call the callback to mark the page as interacted with
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [onInteraction]);
+
+  // Function to build the tree structure from filtered data
+  const buildTree = (data) => {
+    // Create a map of ID to node for quick lookup
+    const nodeMap = new Map();
+    data.forEach(item => {
+      nodeMap.set(item.id, {
+        id: item.id,
+        name: item.name,
+        parentId: item.parentId,
+        children: []
+      });
+    });
+
+    // Identify root nodes (files with parentId = "1")
+    const tree = [];
+    nodeMap.forEach((node, id) => {
+      if (node.parentId === "1") {
+        tree.push(node);
+      } else if (nodeMap.has(node.parentId)) {
+        // Add this node as a child of its parent (if parent exists in filtered data)
+        nodeMap.get(node.parentId).children.push(node);
+      }
+    });
+
+    return tree;
+  };
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error}</div>;
+
   return (
     <div className="tree-container bg-white p-4 rounded-lg shadow-md">
       <ul className="tree list-none">
-        <TreeNode node={treeData} />
+        {treeData.map((node, index) => (
+          <TreeNode key={index} node={node} />
+        ))}
       </ul>
     </div>
   );

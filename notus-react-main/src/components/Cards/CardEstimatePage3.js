@@ -18,7 +18,7 @@ function CardEstimatePage3({ formData, errors, onBack, onSubmit, onInteraction }
               <div className="pegging-label">
                 <button
                   type="button"
-                  className="bg-lightBlue-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md"
+                  className="bg-emerald-400 text-white text-sm px-4 py-2 rounded shadow hover:shadow-md"
                   onClick={toggleTreeView}
                 >
                   {showTreeView ? "Hide Material" : "Show Material"}

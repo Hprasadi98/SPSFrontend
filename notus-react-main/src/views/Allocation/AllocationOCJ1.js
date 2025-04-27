@@ -22,7 +22,7 @@ const AllocationOCJ1 = () => {
           <div className="w-full lg:w-4/12 px-4">
       <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                   Con/Mnt/Area/Phm
@@ -41,7 +41,7 @@ const AllocationOCJ1 = () => {
             <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                   Maintenace
@@ -59,7 +59,7 @@ const AllocationOCJ1 = () => {
             <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block  text-blueGray-600 text-xs font-bold mb-2"
+                className="block  text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                   Area

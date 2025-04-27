@@ -1,8 +1,6 @@
-
-
 import React from "react";
 
-function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
+function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditMode }) {
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
       <form onSubmit={(e) => { e.preventDefault(); onNext(); }}>
@@ -10,7 +8,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="catCd"
               >
                 Category Code
@@ -32,7 +30,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="stdCost"
               >
                 Standard Cost
@@ -46,6 +44,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
                 value={formData.stdCost || ""}
                 onChange={onChange}
                 placeholder="Enter Standard Cost"
+                required
               />
               {errors.stdCost && <p className="text-red-500 text-xs mt-1">{errors.stdCost}</p>}
             </div>
@@ -54,7 +53,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="omsRefNo"
               >
                 OMS Reference No
@@ -75,7 +74,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="fundSource"
               >
                 Fund Source
@@ -96,7 +95,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="fundId"
               >
                 Fund ID
@@ -117,7 +116,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="pivDate"
               >
                 PIV Date
@@ -130,6 +129,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
                 }`}
                 value={formData.pivDate || ""}
                 onChange={onChange}
+                required
               />
               {errors.pivDate && <p className="text-red-500 text-xs mt-1">{errors.pivDate}</p>}
             </div>
@@ -138,7 +138,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="pivNumber"
               >
                 PIV Number
@@ -152,6 +152,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
                 value={formData.pivNumber || ""}
                 onChange={onChange}
                 placeholder="Enter PIV Number"
+                required
               />
               {errors.pivNumber && <p className="text-red-500 text-xs mt-1">{errors.pivNumber}</p>}
             </div>
@@ -160,7 +161,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="pivAmount"
               >
                 PIV Amount
@@ -174,6 +175,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
                 value={formData.pivAmount || ""}
                 onChange={onChange}
                 placeholder="Enter PIV Amount"
+                required
               />
               {errors.pivAmount && <p className="text-red-500 text-xs mt-1">{errors.pivAmount}</p>}
             </div>
@@ -182,7 +184,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-xs font-bold mb-2"
                 htmlFor="custContrib"
               >
                 Customer Contribution
@@ -200,8 +202,6 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
               {errors.custContrib && <p className="text-red-500 text-xs mt-1">{errors.custContrib}</p>}
             </div>
           </div>
-
-        
         </div>
       </form>
     </div>
@@ -209,4 +209,3 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext }) {
 }
 
 export default CardEstimatePage2;
-

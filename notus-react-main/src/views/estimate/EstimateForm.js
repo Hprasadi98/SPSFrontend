@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import CardEstimatePage1 from "components/Cards/CardEstimatePage1";
 import CardEstimatePage2 from "components/Cards/CardEstimatePage2";
 import CardEstimatePage3 from "components/Cards/CardEstimatePage3";
@@ -6,6 +6,8 @@ import CardEstimatePage3 from "components/Cards/CardEstimatePage3";
 function EstimateForm() {
   const [activeTab, setActiveTab] = useState(0);
   const [completedTabs, setCompletedTabs] = useState([false, false, false]);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [estimates, setEstimates] = useState([]);
   const [formData, setFormData] = useState({
     estimateNo: "",
     revNo: "1",
@@ -92,14 +94,61 @@ function EstimateForm() {
   const [errors, setErrors] = useState({});
   const [isPeggingScheduleFilled, setIsPeggingScheduleFilled] = useState(false);
 
+  // Fetch estimates when entering edit mode
+  useEffect(() => {
+    if (isEditMode) {
+      const fetchEstimates = async () => {
+        try {
+          const response = await fetch("http://localhost:8082/api/pcesthtt/estimateNos");
+          if (!response.ok) {
+            throw new Error(`Failed to fetch estimates: ${response.status} ${response.statusText}`);
+          }
+          const data = await response.json();
+          setEstimates(data);
+        } catch (error) {
+          console.error("Failed to fetch estimates:", error.message);
+          alert(`Failed to load estimates: ${error.message}`);
+          setEstimates([]);
+        }
+      };
+      fetchEstimates();
+    }
+  }, [isEditMode]);
+
   const handleFormDataChange = (e) => {
     const { id, value, type, checked } = e.target;
     setFormData((prev) => ({
       ...prev,
       [id]: type === "checkbox" ? checked : value,
     }));
-    // Clear error for the field being edited
     setErrors((prev) => ({ ...prev, [id]: "" }));
+  };
+
+  const handleEstimateSelect = async (estimateNo) => {
+    try {
+      const encodedEstimateNo = encodeURIComponent(estimateNo);
+      const response = await fetch(`http://localhost:8082/api/pcesthtt/${encodedEstimateNo}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch estimate details: ${response.status} ${response.statusText}`);
+      }
+      const data = await response.json();
+      setFormData((prev) => ({
+        ...prev,
+        estimateNo: data.id.estimateNo,
+        revNo: String(data.id.revNo), // Convert to string as formData expects strings
+        deptId: data.id.deptId,
+        costCenter: data.projectNo || "",
+        estimateDt: data.etimateDt || "",
+        descr: data.descr || "",
+        rejectReason: data.rejectReason || "",
+        esName: data.clientNm || "",
+        fileRef: data.fileRef || "",
+        warehouse: data.warehouse || "",
+      }));
+    } catch (error) {
+      console.error("Failed to fetch estimate details:", error.message);
+      alert(`Failed to load estimate details: ${error.message}`);
+    }
   };
 
   const validateForm = useCallback(
@@ -141,7 +190,7 @@ function EstimateForm() {
     const payload = {
       id: {
         estimateNo: formData.estimateNo,
-        revNo: formData.revNo,
+        revNo: parseInt(formData.revNo),
         deptId: formData.deptId,
       },
       projectNo: formData.costCenter || null,
@@ -214,10 +263,13 @@ function EstimateForm() {
       secDepYear: formData.secDepYear || null,
     };
 
-    console.log("Sending payload to backend:", JSON.stringify(payload, null, 2));
+    const method = isEditMode ? "PUT" : "POST";
+    const url = isEditMode 
+      ? `http://localhost:8082/api/pcesthtt/${encodeURIComponent(formData.estimateNo)}`
+      : "http://localhost:8082/api/pcesthtt";
 
-    const response = await fetch("http://localhost:8082/api/pcesthtt", {
-      method: "POST",
+    const response = await fetch(url, {
+      method,
       headers: {
         "Content-Type": "application/json",
       },
@@ -233,7 +285,7 @@ function EstimateForm() {
   };
 
   const handleEdit = () => {
-    alert("Edit mode activated. You can now modify the form fields.");
+    setIsEditMode(true);
   };
 
   const handleSubmit = async () => {
@@ -246,8 +298,8 @@ function EstimateForm() {
 
     try {
       const response = await createEstimate(formData);
-      console.log("Estimate created successfully:", response);
-      alert(`Estimate created successfully! Estimate Number: ${formData.estimateNo}`);
+      console.log(`${isEditMode ? "Estimate updated" : "Estimate created"} successfully:`, response);
+      alert(`${isEditMode ? "Estimate updated" : "Estimate created"} successfully! Estimate Number: ${formData.estimateNo}`);
 
       setFormData({
         estimateNo: "",
@@ -336,9 +388,11 @@ function EstimateForm() {
       setCompletedTabs([false, false, false]);
       setErrors({});
       setIsPeggingScheduleFilled(false);
+      setIsEditMode(false);
+      setEstimates([]);
     } catch (error) {
-      console.error("Failed to create estimate:", error);
-      alert(`Failed to create estimate: ${error.message}. Check console for details.`);
+      console.error(`Failed to ${isEditMode ? "update" : "create"} estimate:`, error);
+      alert(`Failed to ${isEditMode ? "update" : "create"} estimate: ${error.message}. Check console for details.`);
     }
   };
 
@@ -373,6 +427,9 @@ function EstimateForm() {
             onChange={handleFormDataChange}
             errors={errors}
             onNext={handleNext}
+            isEditMode={isEditMode}
+            estimates={estimates}
+            onEstimateSelect={handleEstimateSelect}
           />
         </div>
       ),
@@ -466,7 +523,7 @@ function EstimateForm() {
                   Previous
                 </button>
               ) : (
-                <div></div> // Empty div to maintain spacing when Previous button is hidden
+                <div></div>
               )}
               {activeTab < tabs.length - 1 ? (
                 <button

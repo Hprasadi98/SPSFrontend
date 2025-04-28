@@ -68,13 +68,13 @@ export default function Login() {
                 src={ceb}/>
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0 mt-2">
-                <div className="text-blueGray-400 text-center font-bold">
-                  <small>Sign in with credentials</small>
+                <div className="text-blueGray-400 text-center text-sm">
+                  Sign In With Credentials
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="relative w-full mb-3">
                     <label
-                      className="block text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
                       Email
@@ -90,7 +90,7 @@ export default function Login() {
 
                   <div className="relative w-full mb-3">
                     <label
-                      className="block text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
                       Password
@@ -110,15 +110,15 @@ export default function Login() {
                         type="checkbox"
                         className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
                       />
-                      <span className="ml-2 text-xs font-semibold text-blueGray-600">
-                        Remember me
+                      <span className="ml-2 text-sm text-blueGray-600">
+                        Remember Me
                       </span>
                     </label>
                   </div>
 
                   <div className="text-center mt-6">
                     <button
-                      className="text-white active:bg-red-200 text-sm font-bold px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="text-white active:bg-red-200 text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="submit"
                       style={{ backgroundColor: "#7c0000" }}
                     >
@@ -130,13 +130,13 @@ export default function Login() {
             </div>
             <div className="flex flex-wrap mt-6 relative">
               <div className="w-1/2">
-                <Link to="/auth/forgot" className="text-blueGray-400">
-                  <small>Forgot password?</small>
+                <Link to="/auth/forgot" className="text-blueGray-400 text-sm">
+                  Forgot password?
                 </Link>
               </div>
               <div className="w-1/2 text-right">
-                <Link to="/auth/register" className="text-blueGray-400">
-                  <small>Create new account</small>
+                <Link to="/auth/register" className="text-blueGray-400 text-sm">
+                  Create new account
                 </Link>
               </div>
             </div>

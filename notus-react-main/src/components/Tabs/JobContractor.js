@@ -89,7 +89,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Code
@@ -106,7 +106,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
                 {isModify && (
                   <button
                   style={{backgroundColor:"#7c0000"}}
-                    className="ml-2 text-white active:bg-lightBlue-600 font-bold text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                    className="ml-2 text-white active:bg-lightBlue-600 text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                     //   onClick={handleSearch}
                   >
                     Search
@@ -118,7 +118,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-8/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Contractor Name
@@ -135,7 +135,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="address"
               >
                 Address
@@ -155,7 +155,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Department ID
@@ -172,7 +172,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Bond Number
@@ -187,7 +187,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Bond Amount
@@ -204,7 +204,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Tender Amount
@@ -219,7 +219,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Start Date
@@ -234,7 +234,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 End Date
@@ -251,7 +251,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 Performance Amount
@@ -266,13 +266,13 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block text-blueGray-600 text-xs font-bold mb-2"
+                className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 VAT (%)
               </label>
               <div className="flex items-center">
-                <span className="mr-2">Rs.</span>{" "}
+                <span className="mr-2 text-sm">Rs.</span>{" "}
                 <input
                   type="text"
                   name="vat"
@@ -286,13 +286,13 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
           <div className="w-full lg:w-4/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                className="block uppercase text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
                 NBT (%)
               </label>
               <div className="flex items-center">
-                <span className="mr-2">Rs.</span>{" "}
+                <span className="mr-2 text-sm">Rs.</span>{" "}
                 <input
                   type="text"
                   name="nbt"

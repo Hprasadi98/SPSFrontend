@@ -9,6 +9,7 @@ import NewApp from "views/application/Application";
 import ModifyApp from "views/application/ModifyApplication";
 import HeaderStatsWithoutCards from "components/Headers/HeaderStatsWithoutCards";
 import AdminNavbar from "components/Navbars/AdminNavbar";
+import FooterAdmin from "components/Footers/FooterAdmin";
 
 export default function Application() {
     return (
@@ -25,6 +26,8 @@ export default function Application() {
               </Switch>
             </div>
           </div>
+          {/* Footer Always at Bottom */}
+          {/* <FooterAdmin /> */}
         </>
       );
   }

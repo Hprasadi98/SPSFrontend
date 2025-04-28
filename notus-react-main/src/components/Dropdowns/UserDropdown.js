@@ -53,7 +53,7 @@ const UserDropdown = () => {
           dropdownPopoverShow ? closeDropdownPopover() : openDropdownPopover();
         }}
       >
-        <div className="items-center flex">
+        <div className=" flex">
           <span className="w-12 h-12 text-sm text-white bg-blueGray-200 inline-flex items-center justify-center rounded-full">
             <img
               alt="..."

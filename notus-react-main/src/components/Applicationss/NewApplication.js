@@ -83,7 +83,7 @@ const NewApplication = ({
   return (
     <div className="w-full max-w-2xl bg-white shadow-lg rounded-lg p-6">
       {/* Stepper */}
-      <div className="flex justify-between items-center mb-4 mt-4 relative">
+      <div className="flex justify-between items-center mb-2 mt-4 relative">
         {tabs.map((tab, index) => (
           <div
             key={tab.id}
@@ -136,9 +136,14 @@ const NewApplication = ({
           </div>
         ))}
       </div>
-      
+      <div className="text-center flex justify-center mb-2">
+          <h6 className="text-blueGray-700 text-sm font-bold">
+            {tabs[currentIndex].label}
+          </h6>
+        </div>
       {/* Content */}
       <div className="p-6 bg-blueGray-100 rounded-lg">
+        
         {tabs[currentIndex].id === "application" && (
           <AppDetails
             onInputChange={(data) => handleInputChange("appDetails", data)}
@@ -171,46 +176,45 @@ const NewApplication = ({
 
       <div className="flex justify-between px-12 ml-2">
         <div>
-        {!isModify && (
-          <button
-            onClick={handleUpdateClick}
-            style={{ backgroundColor: "#7c0000" }}
-            className="text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
-          >
-            Edit
-          </button>
-        )}
+          {!isModify && (
+            <button
+              onClick={handleUpdateClick}
+              style={{ backgroundColor: "#7c0000" }}
+              className="text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+            >
+              Edit
+            </button>
+          )}
         </div>
-      
 
-      {/* Navigation Buttons */}
-      <div className="mr-1 flex justify-end items-center mt-2 mb-4">
-        {currentIndex > 0 ? (
-          <button
-            onClick={handlePrevious}
-            style={{ backgroundColor: "#7c0000" }}
-            className="text-white active:bg-lightBlue-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-          >
-            Previous
-          </button>
-        ) : null}
-        {currentIndex < tabs.length - 1 ? (
-          <button
-            onClick={handleNext}
-            style={{ backgroundColor: "#7c0000" }}
-            className="text-white active:bg-lightBlue-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-          >
-            Next
-          </button>
-        ) : (
-          <button
-            onClick={handleSubmit}
-            className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-          >
-            {isModify ? "Update" : "Submit"}
-          </button>
-        )}
-      </div>
+        {/* Navigation Buttons */}
+        <div className="mr-1 flex justify-end items-center mt-2 mb-4">
+          {currentIndex > 0 ? (
+            <button
+              onClick={handlePrevious}
+              style={{ backgroundColor: "#7c0000" }}
+              className="text-white active:bg-lightBlue-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            >
+              Previous
+            </button>
+          ) : null}
+          {currentIndex < tabs.length - 1 ? (
+            <button
+              onClick={handleNext}
+              style={{ backgroundColor: "#7c0000" }}
+              className="text-white active:bg-lightBlue-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            >
+              Next
+            </button>
+          ) : (
+            <button
+              onClick={handleSubmit}
+              className="bg-emerald-400 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+            >
+              {isModify ? "Update" : "Submit"}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

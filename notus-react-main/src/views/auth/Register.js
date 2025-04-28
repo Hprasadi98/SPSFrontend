@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import ceb from "assets/img/ceb.png";
+import { Link } from "react-router-dom";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -67,13 +68,13 @@ export default function Register() {
                 src={ceb}/>
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0 mt-2">
-                <div className="text-blueGray-400 text-center font-bold">
-                  <small>Sign up with credentials</small>
+                <div className="text-blueGray-400 text-center text-sm">
+                  Sign Up With Credentials
                 </div>
                 <form onSubmit={handleSubmit}>
                   <div className="relative w-full mb-3">
                     <label
-                      className="block text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
                       Name
@@ -89,7 +90,7 @@ export default function Register() {
 
                   <div className="relative w-full mb-3">
                     <label
-                      className="block text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
                       Email
@@ -105,7 +106,7 @@ export default function Register() {
 
                   <div className="relative w-full mb-3">
                     <label
-                      className="block text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
                       Electricity Account Number
@@ -133,7 +134,7 @@ export default function Register() {
 
                   <div className="relative w-full mb-3">
                     <label
-                      className="block text-blueGray-600 text-xs font-bold mb-2"
+                      className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
                       Password
@@ -176,7 +177,7 @@ export default function Register() {
 
                   <div className="text-center mt-6">
                     <button
-                      className="text-white active:bg-red-600 text-sm font-bold px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                      className="text-white active:bg-red-600 text-sm px-6 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="submit"
                       style={{ backgroundColor: "#7c0000" }}
                     >
@@ -184,6 +185,14 @@ export default function Register() {
                     </button>
                   </div>
                 </form>
+              </div>
+            </div>
+            <div className="flex flex-wrap mt-6 justify-center relative">
+              <div className="w-1/2 text-blueGray-400 text-sm">
+              Have an account?{" "}
+                <Link to="/auth/login" className="text-blueGray-600 text-sm">
+                  Sign In
+                </Link>
               </div>
             </div>
           </div>

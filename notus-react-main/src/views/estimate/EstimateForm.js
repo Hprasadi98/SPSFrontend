@@ -214,7 +214,10 @@ function EstimateForm() {
       secDepYear: formData.secDepYear || null,
     };
 
-    console.log("Sending payload to backend:", JSON.stringify(payload, null, 2));
+    console.log(
+      "Sending payload to backend:",
+      JSON.stringify(payload, null, 2)
+    );
 
     const response = await fetch("http://localhost:8082/api/pcesthtt", {
       method: "POST",
@@ -226,7 +229,9 @@ function EstimateForm() {
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+      throw new Error(
+        `HTTP error! status: ${response.status}, message: ${errorText}`
+      );
     }
 
     return await response.json();
@@ -240,14 +245,18 @@ function EstimateForm() {
     const isValid = [0, 1].every((step) => validateForm(step));
 
     if (!isValid || !isPeggingScheduleFilled) {
-      alert("Please fill in all required fields, including the Pegging Schedule, before submitting.");
+      alert(
+        "Please fill in all required fields, including the Pegging Schedule, before submitting."
+      );
       return;
     }
 
     try {
       const response = await createEstimate(formData);
       console.log("Estimate created successfully:", response);
-      alert(`Estimate created successfully! Estimate Number: ${formData.estimateNo}`);
+      alert(
+        `Estimate created successfully! Estimate Number: ${formData.estimateNo}`
+      );
 
       setFormData({
         estimateNo: "",
@@ -338,7 +347,9 @@ function EstimateForm() {
       setIsPeggingScheduleFilled(false);
     } catch (error) {
       console.error("Failed to create estimate:", error);
-      alert(`Failed to create estimate: ${error.message}. Check console for details.`);
+      alert(
+        `Failed to create estimate: ${error.message}. Check console for details.`
+      );
     }
   };
 
@@ -404,86 +415,114 @@ function EstimateForm() {
   ];
 
   return (
-    <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
-      <div className="w-full max-w-4xl px-4">
+    <div className="flex flex-col items-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-4xl px-12 mt-6">
         <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded p-1">
           {/* Progress steps */}
           <div className="flex justify-between items-center mb-4 mt-4 relative w-full">
             {tabs.map((tab, index) => (
-              <div key={index} className="relative flex-1 flex flex-col items-center">
+              <div
+                key={index}
+                className="relative flex-1 flex flex-col items-center"
+              >
                 {index > 0 && (
                   <div
                     className={`absolute top-1/2 left-0 transform -translate-y-1/2 h-1 w-full ${
-                      completedTabs[index - 1] ? "bg-emerald-400" : "bg-gray-300"
+                      completedTabs[index - 1]
+                        ? "bg-emerald-400"
+                        : "bg-gray-300"
                     }`}
                     style={{ zIndex: -1 }}
                   ></div>
                 )}
                 <div
-                  className={`relative z-10 w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all cursor-pointer ${
-                    completedTabs[index]
-                      ? "bg-emerald-400 text-white border-emerald-600"
-                      : index === activeTab
-                      ? "bg-yellow-500 text-white border-red-600"
-                      : "bg-red-400 text-white border-red-600 hover:bg-gray-100"
-                  }`}
+                  className="w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all "
+                  style={{
+                    backgroundColor:
+                      index < activeTab
+                        ? "#34d399"
+                        : index === activeTab
+                        ? "#ffd800"
+                        : "transparent",
+                    borderColor:
+                      index < activeTab
+                        ? "#34d399"
+                        : index === activeTab
+                        ? "#ffd800"
+                        : "#d1d5db",
+                    color:
+                      index < activeTab || index === activeTab
+                        ? "white"
+                        : "black",
+                  }}
                   onClick={() => {
-                    if (index < activeTab || completedTabs[index - 1] || index === 0) {
+                    if (
+                      index < activeTab ||
+                      completedTabs[index - 1] ||
+                      index === 0
+                    ) {
                       setActiveTab(index);
                     }
                   }}
                 >
-                  {completedTabs[index] ? "✓" : index + 1}
+                  { index + 1}
                 </div>
-                <span className="text-xs mt-2 text-center">{tab.name}</span>
+                <span className="text-sm mt-2 text-center">{tab.name}</span>
               </div>
             ))}
           </div>
+          <div className="text-center flex justify-center mb-2">
+            <h6 className="text-blueGray-700 text-sm font-bold">
+              {tabs[activeTab].name}
+            </h6>
+          </div>
 
           {/* Form content */}
-          <div className="ml-0 p-5 bg-blueGray-100">
-            <div className="p-5 mr-4 rounded">{tabs[activeTab].content}</div>
+          <div className="ml-0 bg-blueGray-100">
+            <div className="pt-2 rounded">{tabs[activeTab].content}</div>
           </div>
 
           {/* Bottom navigation bar */}
-          <div className="w-full bg-white p-4 flex justify-between items-center border-t border-gray-200">
+          <div className="flex justify-between rounded-t bg-white mb-0 px-12 py-2">
             <div>
               <button
                 onClick={handleEdit}
+                className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ml-3 ease-linear transition-all duration-150 mt-2"
                 style={{ backgroundColor: "#7c0000" }}
-                className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
               >
                 Edit
               </button>
             </div>
-            <div className="flex space-x-4">
-              {activeTab > 0 && (
-                <div className="mr-1">
-                  <button
-                    onClick={handleBack}
-                    style={{ backgroundColor: "#7c0000" }}
-                    className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
-                  >
-                    Previous
-                  </button>
-                </div>
+            <div className="flex justify-end items-center ml-4">
+              {activeTab > 0 ? (
+                <button
+                  onClick={handleBack}
+                  className="bg-lightBlue-500 mr-2 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  style={{ backgroundColor: "#7c0000" }}
+                >
+                  Previous
+                </button>
+              ) : (
+                <div></div> // Empty div to maintain spacing when Previous button is hidden
               )}
+          
               {activeTab < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
+                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-4 ease-linear transition-all duration-150 mt-2"
                   style={{ backgroundColor: "#7c0000" }}
-                  className="text-white font-bold text-xs px-6 py-3 rounded shadow hover:shadow-md transition duration-150 ease-linear"
                 >
                   Next
                 </button>
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="bg-emerald-400 text-white active:bg-emerald-600 font-bold text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
+                  className="bg-emerald-400 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                 >
                   Submit
                 </button>
               )}
+              
             </div>
           </div>
         </div>

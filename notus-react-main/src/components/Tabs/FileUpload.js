@@ -35,7 +35,7 @@
 //         <option value="id_proof">ID Proof</option>
 //         <option value="address_proof">Address Proof</option>
 //       </select> */}
-      
+
 //       <div
 //         className={`mt-4 p-8 border-2 border-blue-600 border-dashed rounded-lg text-center cursor-pointer ${dragging ? "bg-blue-100" : ""}`}
 //         onDragOver={(event) => {
@@ -50,7 +50,7 @@
 //         <p className="block text-blueGray-600 text-xs mb-2">Drag & Drop files here or click to upload</p>
 //         <label htmlFor="fileInput" className="block mt-2 p-2 bg-blue-500 text-white rounded-lg cursor-pointer hover:bg-blue-600">Browse Files</label>
 //       </div>
-      
+
 //       <div className="mt-4 space-y-2">
 //         {files.map((file) => (
 //           <div key={file.name} className="flex items-center justify-between p-2 border rounded-lg">
@@ -64,7 +64,6 @@
 // };
 
 // export default FileUpload;
-
 
 import React, { useState } from "react";
 import { FaTrash } from "react-icons/fa";
@@ -96,7 +95,7 @@ const FileUpload = () => {
           onChange={handleFileChange}
         />
 
-{file && (
+        {file && (
           <div className="mt-3 flex items-center justify-between p-2 border rounded-lg">
             <p className="truncate">{file.name}</p>
             <FaTrash

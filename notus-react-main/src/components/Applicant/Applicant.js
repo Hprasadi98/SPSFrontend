@@ -154,20 +154,35 @@ const Applicant = ({
       {/* Stepper */}
       <div className="flex justify-center items-center mt-4">
         {tabs.map((tab, index) => (
-          <div key={tab.id} className="flex  items-center">
+          <div key={tab.id} className="flex flex-col justify-between  items-center px-12">
             {/* Step Number */}
+            <div>
             <span
-              className={`flex items-center justify-center w-10 h-10 text-lg font-medium rounded-full border-2 mb-2 ${
-                currentIndex === index
-                  ? " bg-yellow-500 text-white border-black"
-                  : index < currentIndex
-                  ? " bg-emerald-400 text-white border-gray-700 cursor-not-allowed"
-                  : " text-gray-700 border-gray-400"
-              }`}
+              className={"flex flex-col items-center justify-center w-10 h-10 text-lg font-medium rounded-full border-2 mb-2"}
+              style={{
+                  backgroundColor:
+                    index < currentIndex
+                      ? "#34d399"
+                      : index === currentIndex
+                      ? "#ffd800"
+                      : "transparent",
+                  borderColor:
+                    index < currentIndex
+                      ? "#34d399"
+                      : index === currentIndex
+                      ? "#ffd800"
+                      : "#d1d5db",
+                  color:
+                    index < currentIndex || index === currentIndex
+                      ? "white"
+                      : "black",
+                }}
             >
               {index + 1}
             </span>
+            </div>
             {/* Step Labels */}
+            <div>
             {index === 0 && (
               <span className="text-sm text-gray-700 ml-2 ">
                 Applicant Information
@@ -178,11 +193,12 @@ const Applicant = ({
                 Applicant Contact Details
               </span>
             )}
+            </div>
 
             {/* Dashed Connecting Line */}
-            {index < tabs.length - 1 && (
+            {/* {index < tabs.length - 1 && (
               <div className="w-16 border-t-2 border-lightBlue-500 border-dashed mx-4"></div>
-            )}
+            )} */}
           </div>
         ))}
       </div>
@@ -205,16 +221,18 @@ const Applicant = ({
           )} */}
       {/* </div> */}
 
-      {/* 
-      <div className="rounded-t bg-white mb-0 px-6 py-6">
-        <div className="text-center flex justify-between">
-          <h6 className="text-blueGray-700 text-xl font-bold">
-            {tabs[currentIndex].label}
-          </h6>
-          
-         
-        </div>
-      </div> */}
+      <div className="text-center flex justify-center mb-2 mt-2">
+        {currentIndex === 0 && (
+          <span className="text-sm text-gray-700 ml-2 font-bold">
+            Applicant Information
+          </span>
+        )}
+        {currentIndex === 1 && (
+          <span className="text-sm text-gray-700 ml-2 font-bold">
+            Applicant Contact Details
+          </span>
+        )}
+      </div>
 
       {/* Tab Content */}
       <div className="p-6">
@@ -241,13 +259,13 @@ const Applicant = ({
           )}
 
           {/* Navigation Buttons and bottom white bar */}
-          <div className="flex justify-between rounded-t bg-white mb-0 px-12 py-6">
-            <div>
+          <div className="flex justify-between rounded-t bg-white mb-0 px-12">
+            <div className="ml-2">
               {!isModify && (
                 <button
                   // /applicant/modifyapplicant
                   onClick={handleUpdateClick}
-                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
+                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
                   style={{
                     backgroundColor: "#7c0000",
                   }}
@@ -256,12 +274,12 @@ const Applicant = ({
                 </button>
               )}
             </div>
-            <div className="flex justify-end items-center mr-4">
+            <div className="flex justify-end items-center mr-4 ml-2 mb-2">
               {/* Left-aligned "Previous" button */}
               {currentIndex > 0 ? (
                 <button
                   onClick={handlePrevious}
-                  className="bg-lightBlue-500 mr-2 text-white font-bold  text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-lightBlue-500 mr-2 mt-2 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   style={{
                     backgroundColor: "#7c0000",
                   }}
@@ -276,7 +294,7 @@ const Applicant = ({
               {currentIndex < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 font-bold text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150 mt-2"
+                  className="bg-emerald-400 mb-2 ml-2 mt-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150 mt-2"
                   style={{
                     backgroundColor: "#7c0000",
                   }}
@@ -286,7 +304,7 @@ const Applicant = ({
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="bg-emerald-400 bg-green text-white font-bold  text-xs px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-emerald-400 bg-green text-white text-sm mt-2 px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   // style={{
                   //   backgroundColor: "#620000",
                   // }}

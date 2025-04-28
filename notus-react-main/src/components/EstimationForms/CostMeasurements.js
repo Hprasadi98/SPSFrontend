@@ -1,10 +1,10 @@
 const CostMeasurements = ({ formData, handleChange }) => {
   return (
     <form>
-      <div className="flex flex-wrap">
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <div className="relative w-full mb-3">
-            <label className="block text-blueGray-600 text-xs font-bold mb-2">
+      <div className="flex flex-wrap mt-2">
+      <div className="w-full lg:w-6/12 px-4">
+      <div className="relative w-full mb-3">
+            <label className="block text-blueGray-600 text-sm mb-2">
               Security Deposit
             </label>
             <input
@@ -17,9 +17,9 @@ const CostMeasurements = ({ formData, handleChange }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <div className="relative w-full mb-3">
-            <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+            <label className="block text-blueGray-600 text-sm mb-2">
               VAT
             </label>
             <input
@@ -32,9 +32,9 @@ const CostMeasurements = ({ formData, handleChange }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <div className="relative w-full mb-3">
-            <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+            <label className="block text-blueGray-600 text-sm mb-2">
               NBT
             </label>
             <input
@@ -47,9 +47,9 @@ const CostMeasurements = ({ formData, handleChange }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <div className="relative w-full mb-3">
-            <label className="block text-blueGray-600 text-xs font-bold mb-2">
+        <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+            <label className="block text-blueGray-600 text-sm mb-2">
               Loan Percentage
             </label>
             <input
@@ -62,10 +62,10 @@ const CostMeasurements = ({ formData, handleChange }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-6/12 px-4 py-3">
-          <div className="relative w-full mb-3">
-            <label className="block text-blueGray-600 text-xs font-bold mb-2">
-            Total Cost
+        <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+            <label className="block text-blueGray-600 text-sm mb-2">
+              Total Cost
             </label>
             <input
               type="text"
@@ -76,8 +76,6 @@ const CostMeasurements = ({ formData, handleChange }) => {
             />
           </div>
         </div>
-
-        
 
         {/* Repeat for other fields */}
       </div>

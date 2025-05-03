@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import TreeView from "./TreeView";
 import PcestdttTable from "./PcestdttTable";
 
 function CardEstimatePage3({ formData, errors, onBack, onSubmit, onInteraction }) {
+  const [estimateData, setEstimateData] = useState([]);
+
+  const handleAddEstimate = (newEstimate) => {
+    setEstimateData((prev) => [...prev, newEstimate]);
+  };
+
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
       <form onSubmit={(e) => { e.preventDefault(); onSubmit(); }}>
@@ -12,13 +18,13 @@ function CardEstimatePage3({ formData, errors, onBack, onSubmit, onInteraction }
               <div className="pegging-label">
                 <h3 className="text-lg font-bold text-blueGray-700 mb-2">Material List</h3>
               </div>
-              <TreeView onInteraction={onInteraction} />
+              <TreeView onInteraction={onInteraction} onAddEstimate={handleAddEstimate} />
             </div>
           </div>
           <div className="w-full lg:w-12/12 px-4 mt-6">
             <div className="relative w-full mb-3">
               <h3 className="text-lg font-bold text-blueGray-700 mb-2">Estimate Data</h3>
-              <PcestdttTable onInteraction={onInteraction} />
+              <PcestdttTable onInteraction={onInteraction} estimateData={estimateData} />
             </div>
           </div>
         </div>

@@ -1,15 +1,34 @@
 import React, { useEffect, useState } from "react";
 
-function PcestdttTable({ onInteraction }) {
+function PcestdttTable({ onInteraction, estimateData }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [editingCell, setEditingCell] = useState(null); // Track which cell is being edited
-  const [editValue, setEditValue] = useState(""); // Store the current input value
+  const [editingCell, setEditingCell] = useState(null);
+  const [editValue, setEditValue] = useState("");
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (estimateData && estimateData.length > 0) {
+      setData((prev) => {
+        const newData = [...prev];
+        estimateData.forEach((newEstimate) => {
+          const existingIndex = newData.findIndex(
+            (item) => item.resCd === newEstimate.resCd && item.estimateNo === newEstimate.estimateNo
+          );
+          if (existingIndex === -1) {
+            newData.push(newEstimate);
+          } else {
+            newData[existingIndex] = { ...newData[existingIndex], ...newEstimate };
+          }
+        });
+        return newData;
+      });
+    }
+  }, [estimateData]);
 
   const fetchData = async () => {
     try {

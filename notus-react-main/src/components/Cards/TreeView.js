@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useCallback } from "react";
-import _ from "lodash"; // Requires lodash for debounce
+import _ from "lodash";
 
 // Disable session check for development
 const disableSessionCheck = true;
 
-const TreeNode = ({ node, onNodeClick, parentName }) => {
+const TreeNode = ({ node, onNodeClick, parentName, grandParentName }) => {
   const [expanded, setExpanded] = useState(false);
   const hasChildren = node.children && node.children.length > 0;
 
   const handleNodeClick = () => {
     if (!hasChildren) {
-      onNodeClick(node.id, node.name); // Trigger onNodeClick for all leaf nodes
+      onNodeClick(node.id, node.name, parentName, grandParentName);
     }
   };
 
@@ -39,6 +39,7 @@ const TreeNode = ({ node, onNodeClick, parentName }) => {
               node={child}
               onNodeClick={onNodeClick}
               parentName={node.name}
+              grandParentName={parentName}
             />
           ))}
         </ul>
@@ -47,7 +48,7 @@ const TreeNode = ({ node, onNodeClick, parentName }) => {
   );
 };
 
-const TreeView = ({ onInteraction }) => {
+const TreeView = ({ onInteraction, onAddEstimate }) => {
   const [treeData, setTreeData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -58,6 +59,8 @@ const TreeView = ({ onInteraction }) => {
   const [showTableButton, setShowTableButton] = useState(false);
   const [showInputField, setShowInputField] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [parentName, setParentName] = useState(null);
+  const [grandParentName, setGrandParentName] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -151,32 +154,80 @@ const TreeView = ({ onInteraction }) => {
     }
   };
 
-  const handleNodeClick = (lineSectionTypeId, nodeName) => {
-    setTableData([]); // Reset table data
-    setIsTableVisible(false); // Hide table initially
-    setShowInputField(false); // Reset input field visibility
-    setInputValue(""); // Reset input value
+  const handleNodeClick = (lineSectionTypeId, nodeName, parent, grandParent) => {
+    setTableData([]);
+    setIsTableVisible(false);
+    setShowInputField(false);
+    setInputValue("");
     setSelectedNodeId(lineSectionTypeId);
     setSelectedNodeName(nodeName);
-    setShowTableButton(true); // Show the "Show Table" button
-    setShowInputField(true); // Show the "Add Option" input field
+    setParentName(parent);
+    setGrandParentName(grandParent);
+    setShowTableButton(true);
+    if (parent === "LINE POLE" && grandParent === "MATERIAL") {
+      setShowInputField(true);
+    } else {
+      setShowInputField(false);
+    }
   };
 
   const handleShowTable = useCallback(
     _.debounce((event) => {
-      event.preventDefault(); // Prevent form submission
+      event.preventDefault();
       if (tableData.length === 0) {
-        fetchTableData(selectedNodeId); // Fetch data if not already fetched
+        fetchTableData(selectedNodeId);
       }
       setIsTableVisible(true);
     }, 300),
     [selectedNodeId, tableData]
   );
 
-  const handleAddOption = () => {
-    if (inputValue.trim()) {
-      console.log(`Added option for ${selectedNodeName}: ${inputValue}`);
-      setInputValue(""); // Clear input after adding
+  const handleAddOption = async () => {
+    if (inputValue.trim() && parentName === "LINE POLE" && grandParentName === "MATERIAL") {
+      try {
+        const response = await fetch("http://localhost:8082/api/pcestdtt/add-for-node", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Origin": "http://localhost:3000",
+          },
+          credentials: disableSessionCheck ? "omit" : "include",
+          body: JSON.stringify({
+            resCd: selectedNodeId,
+            deptId: "4",
+            inputValue: inputValue,
+            estimateNo: "DEFAULT_EST",
+            revNo: "1",
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error("Failed to save to backend");
+        }
+
+        const savedData = await response.json();
+        const newEstimate = {
+          resCd: savedData.resCd,
+          resType: savedData.resType || "LINE_POLE",
+          uom: savedData.uom || "UNIT",
+          unitPrice: savedData.unitPrice || "0",
+          estimateQty: savedData.estimateQty || inputValue,
+          estimateCost: savedData.estimateCost || "0",
+          returnedQty: savedData.returnedQty || "0",
+          returnedCost: savedData.returnedCost || "0",
+          approvedQty: savedData.approvedQty || "0",
+          damageQty: savedData.damageQty || "0",
+          estimateNo: savedData.estimateNo || "DEFAULT_EST",
+          revNo: savedData.revNo || "1",
+          deptId: savedData.deptId || "4",
+        };
+
+        onAddEstimate(newEstimate);
+        setInputValue("");
+        console.log(`Added option for ${selectedNodeName}: ${inputValue}`);
+      } catch (err) {
+        console.error("Error saving to backend:", err);
+      }
     }
   };
 
@@ -194,6 +245,7 @@ const TreeView = ({ onInteraction }) => {
               node={node}
               onNodeClick={handleNodeClick}
               parentName={null}
+              grandParentName={null}
             />
           ))}
         </ul>
@@ -203,7 +255,7 @@ const TreeView = ({ onInteraction }) => {
         <div className="bg-white p-4 rounded-lg shadow-md mt-4">
           <h3 className="text-lg font-bold mb-2">View Details {selectedNodeName}</h3>
           <button
-            type="button" // Prevent form submission
+            type="button"
             onClick={handleShowTable}
             disabled={loading}
             className={`px-4 py-2 bg-red-500 text-white rounded hover:bg-blue-600 ${

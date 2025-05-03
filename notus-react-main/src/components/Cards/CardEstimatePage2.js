@@ -8,7 +8,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="catCd"
               >
                 Category Code
@@ -30,7 +30,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="stdCost"
               >
                 Standard Cost
@@ -53,7 +53,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm mb-2"
                 htmlFor="omsRefNo"
               >
                 OMS Reference No
@@ -74,7 +74,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="fundSource"
               >
                 Fund Source
@@ -95,7 +95,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="fundId"
               >
                 Fund ID
@@ -116,7 +116,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="pivDate"
               >
                 PIV Date
@@ -138,7 +138,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="pivNumber"
               >
                 PIV Number
@@ -161,7 +161,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="pivAmount"
               >
                 PIV Amount
@@ -184,7 +184,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="custContrib"
               >
                 Customer Contribution

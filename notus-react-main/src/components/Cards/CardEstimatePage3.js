@@ -1,6 +1,6 @@
-
 import React from "react";
 import TreeView from "./TreeView";
+import PcestdttTable from "./PcestdttTable";
 
 function CardEstimatePage3({ formData, errors, onBack, onSubmit, onInteraction }) {
   return (
@@ -10,11 +10,32 @@ function CardEstimatePage3({ formData, errors, onBack, onSubmit, onInteraction }
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <div className="pegging-label">
-                <h3 className="text-lg font-bold text-blueGray-700 mb-2">Material Stratification</h3>
+                <h3 className="text-lg font-bold text-blueGray-700 mb-2">Material List</h3>
               </div>
               <TreeView onInteraction={onInteraction} />
             </div>
           </div>
+          <div className="w-full lg:w-12/12 px-4 mt-6">
+            <div className="relative w-full mb-3">
+              <h3 className="text-lg font-bold text-blueGray-700 mb-2">Estimate Data</h3>
+              <PcestdttTable onInteraction={onInteraction} />
+            </div>
+          </div>
+        </div>
+        <div className="flex justify-between mt-6">
+          <button
+            type="button"
+            onClick={onBack}
+            className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+          >
+            Back
+          </button>
+          <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Submit
+          </button>
         </div>
       </form>
     </div>

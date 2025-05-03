@@ -24,6 +24,7 @@ import JobTypeSet from "views/JobTypeSet";
 import ModifyProgress from "layouts/ModifyProgress";
 import PIV from "layouts/PIV";
 import Allocation from "layouts/Allocation";
+import ReviceJob from "layouts/ReviseJob";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -39,6 +40,7 @@ ReactDOM.render(
         <Route path="/jobcontractor" component={JobContractor} />
         <Route path="/estimation" component={Estimation} />
         <Route path="/estimate" component={Estimate} />
+        <Route path="/jobrevision" component={ReviceJob} />
         {/* add routes without layouts */}
         <Route path="/piv" component={PIV} />
         <Route path="/allocation" component={Allocation} />

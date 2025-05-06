@@ -55,7 +55,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="estimateNo"
               >
                 Estimate No
@@ -104,7 +104,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="costCenter"
               >
                 Cost Center (Project No)
@@ -129,7 +129,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="warehouse"
               >
                 Warehouse
@@ -154,7 +154,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="estimateDt"
               >
                 Estimate Date
@@ -178,7 +178,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm mb-2"
                 htmlFor="fileRef"
               >
                 File Reference
@@ -203,7 +203,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="rejectReason"
               >
                 Reject Reason
@@ -222,7 +222,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="esName"
               >
                 Client Name
@@ -242,7 +242,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-xs font-bold mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="descr"
               >
                 Description

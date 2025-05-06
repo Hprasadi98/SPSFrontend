@@ -31,9 +31,16 @@ const AllocationOCJ1 = () => {
                 name="ApplicationType"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
-                <option value="BS">Allocation Of CON Job</option>
-            
-                <option value="ev">Estimate Variance</option>
+                <option value="BS"> Construction Job Allocation</option>
+                <option value="BS"> Allocation of Construction-Originated Jobs</option>
+                <option value="BS"> Variance Estimation</option>
+                <option value="BS"> Job Number Assignment</option>
+                <option value="BS"> Contractor Proposal</option>
+                <option value="BS"> Construction Job Completion</option>
+                <option value="BS"> Handover of Completed Job</option>
+                <option value="BS"> Asset Transfer of Completed Job</option>
+                <option value="BS"> Final Job Report</option>
+                <option value="BS">Job Termination</option>
               </select>
             </div>
             </div>

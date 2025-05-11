@@ -8,6 +8,7 @@ import ModProgress from "views/ModifyProgress/ModProgress";
 import AddProMile from "views/ModifyProgress/AddProMile";
 import AdminNavbar from "components/Navbars/AdminNavbar";
 import HeaderStatsWithoutCards from "components/Headers/HeaderStatsWithoutCards";
+import ProgressBar from "views/ModifyProgress/ProgressBar";
 
 //views
 // import NewApplicant from "views/applicant/NewApplicant";
@@ -26,6 +27,7 @@ export default function ModifyProgress() {
                 <Switch>
                   {/* <Route path="/applicant/newapplicant" exact component={NewApplicant} /> */}
                   <Route path="/modifyProgress/addProMile" exact component={AddProMile} />
+                  <Route path="/modifyProgress/progressBar" exact component={ProgressBar} />
                   <Route path="/modifyProgress/modProgress" exact component={ModProgress} />
                   <Redirect from="/modifyProgress" to="/modifyProgress/modProgress" />
                 </Switch>

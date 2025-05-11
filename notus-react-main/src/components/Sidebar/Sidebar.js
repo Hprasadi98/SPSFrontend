@@ -395,13 +395,13 @@ export default function Sidebar() {
                                 : "text-blueGray-300")
                             }
                           ></i>{" "}
-                          Progress Update
+                          Add Progress Milestone
                         </Link>
                       </li>
                       <li>
                         <Link
                           className="text-sm py-2 block text-blueGray-700 hover:text-blueGray-500"
-                          to=""
+                          to="/modifyProgress/progressBar"
                         >
                           <i
                             className={
@@ -411,7 +411,7 @@ export default function Sidebar() {
                                 : "text-blueGray-300")
                             }
                           ></i>{" "}
-                          Milestone Tracking
+                          Progress Bar
                         </Link>
                       </li>
                     </ul>

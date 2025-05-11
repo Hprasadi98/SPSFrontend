@@ -9,8 +9,12 @@ export default function CardStats({
   statsData = [],
   navigatePath = "",
   isLoading = false,
-  hasError = null
+  hasError = null,
+  validNumbers = [], 
 }) {
+  // Add these state variables in CardStats component
+const [isValidating, setIsValidating] = useState(false);
+const [validationError, setValidationError] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [customNumber, setCustomNumber] = useState("");
   const dropdownRef = useRef(null);
@@ -31,14 +35,65 @@ export default function CardStats({
   };
   
   // Add the missing form submit handler
-  const handleCustomNumberSubmit = (e) => {
-    e.preventDefault();
-    if (customNumber.trim() && navigatePath) {
+ // In CardStats.js
+const handleCustomNumberSubmit = async (e) => {
+  e.preventDefault();
+  if (customNumber.trim() && navigatePath) {
+    // Check if the number exists in the valid numbers array
+    if (validNumbers.includes(Number(customNumber)) || validNumbers.includes(customNumber)) {
+      // Number is valid, navigate
       setShowDropdown(false);
       history.push(`${navigatePath}?number=${customNumber}`);
       setCustomNumber("");
+    } else {
+      // Number is not valid
+      setValidationError("Application number not found in database");
+      setTimeout(() => setValidationError(""), 3000);
     }
-  };
+  }
+
+  try {
+    // Show loading indicator
+    setIsValidating(true);
+    
+    // Validate if the number exists in the database
+    const response = await fetch(
+      `http://localhost:8081/api/application/validate?number=${customNumber}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Basic " + btoa("user:admin123"),
+        },
+        credentials: "include",
+      }
+    );
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    
+    if (data.exists) {
+      // If the number exists, navigate to the path
+      setShowDropdown(false);
+      history.push(`${navigatePath}?number=${customNumber}`);
+      setCustomNumber("");
+    } else {
+      // If the number doesn't exist, show an error
+      setValidationError("Application number not found in database");
+      setTimeout(() => setValidationError(""), 3000); // Clear error after 3 seconds
+    }
+  } catch (error) {
+    console.error("Error validating application number:", error);
+    setValidationError("Error validating application number");
+    setTimeout(() => setValidationError(""), 3000); // Clear error after 3 seconds
+  } finally {
+    setIsValidating(false);
+  }
+};
+
   
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -113,21 +168,28 @@ export default function CardStats({
                           <input
                             type="text"
                             placeholder="Number"
-                            className="w-20 px-2 py-1 text-sm border rounded-l focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            className={`w-20 px-2 py-1 text-sm border rounded-l focus:outline-none focus:ring-1 ${
+                              validationError ? "border-red-500 focus:ring-red-500" : "focus:ring-blue-500"
+                            }`}
                             value={customNumber}
                             onChange={(e) => setCustomNumber(e.target.value)}
+                            disabled={isValidating}
                           />
                           <button
                             type="submit"
                             className="text-white px-2 py-1 text-sm rounded-r"
                             style={{
-                              backgroundColor: "#7c0000",
+                              backgroundColor: isValidating ? "#999999" : "#7c0000",
                             }}
-                            disabled={!customNumber.trim()}
+                            disabled={!customNumber.trim() || isValidating}
                           >
-                            Go
+                            {isValidating ? "..." : "Go"}
                           </button>
                         </form>
+                        {/* Show validation error if present */}
+  {validationError && (
+    <div className="mt-2 text-xs text-red-500">{validationError}</div>
+  )}
                       </div>
                     </>
                   )}

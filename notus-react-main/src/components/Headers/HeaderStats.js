@@ -136,34 +136,10 @@ export default function HeaderStats() {
     0
   );
   
-  // // Sample data for dropdowns
-  // const pendingAllocationData = [
-  //   { label: "Regional Office  East",value: 12 },
-  //   { label: "Regional Office West", value: 8 },
-  //   { label: "Regional Office North", value: 10 },
-  //   { label: "Regional Office South", value: 8 },
-  //   { label: "Total", value: 38 }
-  // ];
-  
-  // const standardEstimatesData = [
-  //   { label: "Residential", value: 32 },
-  //   { label: "Commercial", value: 25 },
-  //   { label: "Industrial", value: 20 },
-  //   { label: "Total", value: 77 }
-  // ];
-  
-  // const applicationNumberData = [
-  //   { label: "Pending Verification", value: 128 },
-  //   { label: "Pending Approval", value: 95 },
-  //   { label: "Ready for Generation", value: 100 },
-  //   { label: "Total", value: 323 }
-  // ];
-  
-  // const confirmedPiviiData = [
-  //   { label: "Last 24 Hours", value: 5 },
-  //   { label: "Last 7 Days", value: 9 },
-  //   { label: "Total", value: 14 }
-  // ];
+  // In HeaderStats.js before your return statement:
+
+// Extract just the application numbers from applicationNumberData for validation
+const applicationNumbers = applicationNumberData.map(item => item.value);
   return (
     <>
       {/* Header */}
@@ -200,6 +176,7 @@ export default function HeaderStats() {
                     navigatePath="/application/new"
                     isLoading={loading}
                     hasError={error}
+                    validNumbers={applicationNumbers} 
                 />
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">

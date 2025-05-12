@@ -32,16 +32,16 @@ export default function ProgressBar2({
 
               {/* Navigation Buttons and bottom white bar */}
               <div className="rounded-t bg-white mb-0 px-6 py-2">
-                <div className="flex justify-between items-center px-6">
+                <div className="flex justify-between items-center px-6 mb-6">
                   {/* Left-aligned "Previous" button */}
                   
-                  <button
+                  {/* <button
                   
                     type="button"
                     className="bg-emerald-400 mr-2 text-white bg-green text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   >
                     Submit
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </div>

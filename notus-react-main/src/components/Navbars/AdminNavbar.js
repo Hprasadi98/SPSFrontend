@@ -4,7 +4,7 @@ import UserDropdown from "components/Dropdowns/UserDropdown.js";
 
 export default function Navbar() {
   return (
-    <>
+    <div>
       {/* Navbar */}
         <div className="w-full mx-autp flex md:flex-nowrap flex-wrap">
           {/* User */}
@@ -26,6 +26,6 @@ export default function Navbar() {
           </form>
         </div>
       {/* End Navbar */}
-    </>
+    </div>
   );
 }

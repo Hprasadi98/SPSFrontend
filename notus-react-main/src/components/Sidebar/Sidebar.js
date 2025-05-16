@@ -260,21 +260,21 @@ export default function Sidebar() {
                 <Link
                   className={
                     "text-sm py-3 block " +
-                    (window.location.href.indexOf("/jobcontractor/new") !== -1
+                    (window.location.href.indexOf("/jobrevision/new") !== -1
                       ? "text-lightBlue-500 hover:text-lightBlue-600"
                       : "text-blueGray-700 hover:text-blueGray-500")
                   }
                   style={
-                    window.location.href.indexOf("/jobcontractor/new") !== -1
+                    window.location.href.indexOf("/jobrevision/new") !== -1
                       ? { color: "#b23200" }
                       : {}
                   }
-                  to="/jobcontractor/new"
+                  to="/jobrevision/new"
                 >
                   <i
                     className={
                       "fas fa-tv mr-2 text-sm " +
-                      (window.location.href.indexOf("/jobcontractor/new") !== -1
+                      (window.location.href.indexOf("/jobrevision/new") !== -1
                         ? "opacity-75"
                         : "text-blueGray-300")
                     }

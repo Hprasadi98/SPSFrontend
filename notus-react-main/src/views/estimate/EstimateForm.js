@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from "react";
 import CardEstimatePage1 from "components/Cards/CardEstimatePage1";
 import CardEstimatePage2 from "components/Cards/CardEstimatePage2";
 import CardEstimatePage3 from "components/Cards/CardEstimatePage3";
+import { useHistory } from "react-router-dom";
 
 function EstimateForm() {
   const [activeTab, setActiveTab] = useState(0);
@@ -90,10 +91,11 @@ function EstimateForm() {
     lbRateYear: "",
     fundCost: "",
     secDepYear: "",
-    peggingSchedule: [], // Added to store pegging schedule data
+    peggingSchedule: [],
   });
   const [errors, setErrors] = useState({});
   const [isPeggingScheduleFilled, setIsPeggingScheduleFilled] = useState(false);
+  const history = useHistory();
 
   // Fetch estimates when entering Edit mode
   useEffect(() => {
@@ -213,7 +215,7 @@ function EstimateForm() {
         secDepYear: data.secDepYear || "",
         peggingSchedule: data.peggingSchedule ? JSON.parse(data.peggingSchedule) : [],
       }));
-      setIsPeggingScheduleFilled(!!data.peggingSchedule); // Mark as filled if data exists
+      setIsPeggingScheduleFilled(!!data.peggingSchedule);
     } catch (error) {
       console.error("Failed to fetch estimate details:", error.message);
       alert(`Failed to load estimate details: ${error.message}`);
@@ -358,6 +360,7 @@ function EstimateForm() {
 
   const handleEdit = () => {
     setIsEditMode(true);
+    history.push("/estimate/modify");
     alert("Edit mode activated. Please select an estimate to modify.");
   };
 
@@ -496,17 +499,15 @@ function EstimateForm() {
     {
       name: "General Information",
       content: (
-        <div>
-          <CardEstimatePage1
-            formData={formData}
-            onChange={handleFormDataChange}
-            errors={errors}
-            onNext={handleNext}
-            isEditMode={isEditMode}
-            estimates={estimates}
-            onEstimateSelect={handleEstimateSelect}
-          />
-        </div>
+        <CardEstimatePage1
+          formData={formData}
+          onChange={handleFormDataChange}
+          errors={errors}
+          onNext={handleNext}
+          isEditMode={isEditMode}
+          estimates={estimates}
+          onEstimateSelect={handleEstimateSelect}
+        />
       ),
     },
     {
@@ -557,7 +558,7 @@ function EstimateForm() {
                   ></div>
                 )}
                 <div
-                  className="w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all "
+                  className="w-10 h-10 flex items-center justify-center rounded-full border-2 transition-all"
                   style={{
                     backgroundColor:
                       index < activeTab
@@ -600,42 +601,43 @@ function EstimateForm() {
           </div>
 
           {/* Bottom navigation bar */}
-          <div className="flex justify-between rounded-t bg-white mb-0 px-12 py-2">
+          <div className="flex justify-between px-12 ml-2">
             <div>
-              <button
-                onClick={handleEdit}
-                className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ml-3 ease-linear transition-all duration-150 mt-2"
-                style={{ backgroundColor: "#7c0000" }}
-              >
-                Edit
-              </button>
+              {!isEditMode && (
+                <button
+                  onClick={handleEdit}
+                  style={{ backgroundColor: "#7c0000" }}
+                  className="text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150 mt-2"
+                >
+                  Edit
+                </button>
+              )}
             </div>
-            <div className="flex justify-end items-center ml-4">
-              {activeTab > 0 ? (
+
+            <div className="flex justify-end items-center mt-2 mb-4">
+              {activeTab > 0 && (
                 <button
                   onClick={handleBack}
-                  className="bg-lightBlue-500 mr-2 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
                   style={{ backgroundColor: "#7c0000" }}
+                  className="text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                 >
                   Previous
                 </button>
-              ) : (
-                <div></div>
               )}
               {activeTab < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
-                  className="bg-emerald-400 mb-2 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-4 ease-linear transition-all duration-150 mt-2"
                   style={{ backgroundColor: "#7c0000" }}
+                  className="text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                 >
                   Next
                 </button>
               ) : (
                 <button
                   onClick={handleSubmit}
-                  className="bg-emerald-400 text-white text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none ease-linear transition-all duration-150"
+                  className="bg-emerald-400 text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
                 >
-                  Submit
+                  {isEditMode ? "Update" : "Submit"}
                 </button>
               )}
             </div>

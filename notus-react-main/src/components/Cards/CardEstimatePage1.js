@@ -43,6 +43,12 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
     }
   };
 
+  // Common input styles
+  const inputStyles = "border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150";
+
+  // Common label styles
+  const labelStyles = "block text-blueGray-600 text-sm mb-2";
+
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
       <form
@@ -55,7 +61,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="estimateNo"
               >
                 Estimate No
@@ -63,9 +69,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
               {isEditMode ? (
                 <select
                   id="estimateNo"
-                  className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                    errors.estimateNo ? "border-red-500" : ""
-                  }`}
+                  className={`${inputStyles} ${errors.estimateNo ? "border-red-500" : ""}`}
                   value={formData.estimateNo || ""}
                   onChange={handleEstimateChange}
                   required
@@ -80,9 +84,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
               ) : (
                 <select
                   id="estimateNo"
-                  className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                    errors.estimateNo ? "border-red-500" : ""
-                  }`}
+                  className={`${inputStyles} ${errors.estimateNo ? "border-red-500" : ""}`}
                   value={formData.estimateNo || ""}
                   onChange={onChange}
                   required
@@ -104,7 +106,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="costCenter"
               >
                 Cost Center (Project No)
@@ -112,9 +114,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
               <input
                 type="text"
                 id="costCenter"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.costCenter ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.costCenter ? "border-red-500" : ""}`}
                 value={formData.costCenter || ""}
                 onChange={onChange}
                 placeholder="Enter Cost Center"
@@ -129,14 +129,14 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="warehouse"
               >
                 Warehouse
               </label>
               <select
                 id="warehouse"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className={inputStyles}
                 value={formData.warehouse || ""}
                 onChange={onChange}
                 required
@@ -154,7 +154,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="estimateDt"
               >
                 Estimate Date
@@ -162,9 +162,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
               <input
                 type="date"
                 id="estimateDt"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.estimateDt ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.estimateDt ? "border-red-500" : ""}`}
                 value={formData.estimateDt || ""}
                 onChange={onChange}
                 required
@@ -178,7 +176,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm mb-2"
+                className={labelStyles}
                 htmlFor="fileRef"
               >
                 File Reference
@@ -186,9 +184,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
               <input
                 type="text"
                 id="fileRef"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.fileRef ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.fileRef ? "border-red-500" : ""}`}
                 value={formData.fileRef || ""}
                 onChange={onChange}
                 placeholder="Enter File Reference"
@@ -203,7 +199,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="rejectReason"
               >
                 Reject Reason
@@ -211,7 +207,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
               <input
                 type="text"
                 id="rejectReason"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className={inputStyles}
                 value={formData.rejectReason || ""}
                 onChange={onChange}
                 placeholder="Enter Reject Reason"
@@ -222,7 +218,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="esName"
               >
                 Client Name
@@ -230,7 +226,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
               <input
                 type="text"
                 id="esName"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className={inputStyles}
                 value={formData.esName || ""}
                 onChange={onChange}
                 placeholder="Enter Client Name"
@@ -242,14 +238,14 @@ function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, est
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="descr"
               >
                 Description
               </label>
               <textarea
                 id="descr"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full h-48 resize-vertical"
+                className={`${inputStyles} h-48 resize-vertical`}
                 value={formData.descr || ""}
                 onChange={onChange}
                 placeholder="Enter Description"

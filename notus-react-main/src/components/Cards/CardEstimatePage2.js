@@ -1,6 +1,12 @@
 import React from "react";
 
 function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditMode }) {
+  // Common input styles
+  const inputStyles = "border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150";
+
+  // Common label styles
+  const labelStyles = "block text-blueGray-600 text-sm mb-2";
+
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
       <form onSubmit={(e) => { e.preventDefault(); onNext(); }}>
@@ -8,14 +14,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="catCd"
               >
                 Category Code
               </label>
               <select
                 id="catCd"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className={inputStyles}
                 value={formData.catCd || ""}
                 onChange={onChange}
               >
@@ -30,7 +36,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="stdCost"
               >
                 Standard Cost
@@ -38,9 +44,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
               <input
                 type="number"
                 id="stdCost"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.stdCost ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.stdCost ? "border-red-500" : ""}`}
                 value={formData.stdCost || ""}
                 onChange={onChange}
                 placeholder="Enter Standard Cost"
@@ -53,14 +57,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm mb-2"
+                className={labelStyles}
                 htmlFor="omsRefNo"
               >
                 OMS Reference No
               </label>
               <select
                 id="omsRefNo"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className={inputStyles}
                 value={formData.omsRefNo || ""}
                 onChange={onChange}
               >
@@ -74,14 +78,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="fundSource"
               >
                 Fund Source
               </label>
               <select
                 id="fundSource"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className={inputStyles}
                 value={formData.fundSource || ""}
                 onChange={onChange}
               >
@@ -95,14 +99,14 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="fundId"
               >
                 Fund ID
               </label>
               <select
                 id="fundId"
-                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className={inputStyles}
                 value={formData.fundId || ""}
                 onChange={onChange}
               >
@@ -116,7 +120,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="pivDate"
               >
                 PIV Date
@@ -124,9 +128,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
               <input
                 type="date"
                 id="pivDate"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.pivDate ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.pivDate ? "border-red-500" : ""}`}
                 value={formData.pivDate || ""}
                 onChange={onChange}
                 required
@@ -138,7 +140,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="pivNumber"
               >
                 PIV Number
@@ -146,9 +148,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
               <input
                 type="text"
                 id="pivNumber"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.pivNumber ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.pivNumber ? "border-red-500" : ""}`}
                 value={formData.pivNumber || ""}
                 onChange={onChange}
                 placeholder="Enter PIV Number"
@@ -161,7 +161,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="pivAmount"
               >
                 PIV Amount
@@ -169,9 +169,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
               <input
                 type="number"
                 id="pivAmount"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.pivAmount ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.pivAmount ? "border-red-500" : ""}`}
                 value={formData.pivAmount || ""}
                 onChange={onChange}
                 placeholder="Enter PIV Amount"
@@ -184,7 +182,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className="text-blueGray-600 text-sm  mb-2"
+                className={labelStyles}
                 htmlFor="custContrib"
               >
                 Customer Contribution
@@ -192,9 +190,7 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
               <input
                 type="number"
                 id="custContrib"
-                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.custContrib ? "border-red-500" : ""
-                }`}
+                className={`${inputStyles} ${errors.custContrib ? "border-red-500" : ""}`}
                 value={formData.custContrib || ""}
                 onChange={onChange}
                 placeholder="Enter Customer Contribution"
@@ -209,4 +205,3 @@ function CardEstimatePage2({ formData, onChange, errors, onBack, onNext, isEditM
 }
 
 export default CardEstimatePage2;
-

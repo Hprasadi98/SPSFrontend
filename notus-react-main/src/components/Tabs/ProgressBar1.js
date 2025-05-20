@@ -141,6 +141,8 @@ const ProgressBar1 = () => {
   const [estimateNo, setEstimateNo] = useState(""); // State for the estimate number
    const [error, setError] = useState(""); // State for error messages
   const [estimateDate, setEstimateDate] = useState(""); // State for storing estimate date
+   const [projectAssignDate, setProjectAssignDate] = useState(""); // State for storing project assignment date
+
 
 
   // Function to check if estimate exists and update progress
@@ -152,6 +154,7 @@ const ProgressBar1 = () => {
     try {
       setError(""); // Clear any previous errors
       setEstimateDate(""); // Clear any previous estimate date
+      setProjectAssignDate(""); // Clear any previous project assignment date
 
 
       // API call with Basic Authentication to check if the estimate exists
@@ -173,7 +176,12 @@ const ProgressBar1 = () => {
       if (response.data.etimateDt) {
         setProgress(10); // Set progress to 10% as required
         setEstimateDate(response.data.etimateDt); // Store the estimate date
-      } else {
+      }
+       // Check if we have a project assignment date
+          if (response.data.prjAssDt) {
+            setProjectAssignDate(response.data.prjAssDt); // Store the project assignment date
+          }
+           else {
         setError("Estimate found but missing date information");
         setProgress(0);
       }
@@ -235,6 +243,12 @@ const ProgressBar1 = () => {
                   <strong>Estimate Date:</strong> {estimateDate}
                 </div>
               )}
+                 {/* Display project assignment date if available */}
+              {projectAssignDate && (
+                <div className="text-green-600 text-sm mt-2">
+                  <strong>Project Assign Date:</strong> {projectAssignDate}
+                </div>
+              )}
 
               {/* --- Progress Bar --- */}
             
@@ -269,6 +283,7 @@ const ProgressBar1 = () => {
                    onClick={() => {
                     setProgress(0);
                     setEstimateDate("");
+                    setProjectAssignDate("");
                   }}
                   className="px-2 py-1 bg-blue-500 text-blue rounded text-xs"
                 >

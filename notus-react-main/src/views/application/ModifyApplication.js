@@ -1,5 +1,7 @@
 import NewApplication from "components/Applicationss/NewApplication";
 import { useState } from "react";
+import {toast} from "react-toastify";
+
 const ModifyApp = () => {
   const [formData, setFormData] = useState({
     appDetails: {},
@@ -7,6 +9,8 @@ const ModifyApp = () => {
     locationalDetails: {},
     techDetails: {},
   });
+
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const handleFormModify = async (data) => {
     const hardcodedData = {
@@ -30,7 +34,7 @@ const ModifyApp = () => {
     const applicationId = mergedData.applicationId;
     try {
       const response = await fetch(
-        `http://localhost:8081/api/application/update?applicationId=${applicationId}`,
+        `${baseUrl}/api/application/update?applicationId=${applicationId}`,
         {
           method: "PATCH",
           headers: {
@@ -43,12 +47,12 @@ const ModifyApp = () => {
       );
 
       if (response.ok) {
-        alert("Form modified successfully!");
+        toast.success("Form modified successfully!");
       } else {
-        alert("Form modification failed!");
+        toast.error("Form modification failed!");
       }
     } catch (error) {
-      alert("An error occurred!");
+      toast.error("An error occurred!");
       console.error(error);
     }
   };
@@ -63,7 +67,7 @@ const ModifyApp = () => {
 
     try {
       const response = await fetch(
-        `http://localhost:8081/api/application/search?applicationId=${applicationId}`,
+        `${baseUrl}/api/application/search?applicationId=${applicationId}`,
         {
           method: "GET",
           headers: {

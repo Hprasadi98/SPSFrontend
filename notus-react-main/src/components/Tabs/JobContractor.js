@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 const JobContractor = ({ onInputChange, isModify, data }) => {
   const [vat, setVat] = useState("0.00");
   const [nbt, setNbt] = useState("0.00");
-  const [departmentId, setDepartmentId] = useState("");
 
   const [contractorData, setcontractorData] = useState({
     contractorId: "",
@@ -30,44 +29,46 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
     }
   };
 
-  useEffect(() => {
-    // Fetch department ID from the API
-    const fetchDepartmentId = async () => {
-      try {
-        const response = await fetch(
-          "http://localhost:8081/api/v1/session-info",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: "Basic " + btoa("user:admin123"),
-            },
-            credentials: "include",
-          }
-        );
+  // useEffect(() => {
+  //   // Fetch department ID from the API
+  //   const fetchDepartmentId = async () => {
+  //     try {
+  //       const response = await fetch(
+  //         "http://localhost:8081/api/v1/sessioninfo",
+  //         {
+  //           method: "GET",
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             Authorization: "Basic " + btoa("user:admin123"),
+  //           },
+  //           credentials: "include",
+  //         }
+  //       );
 
-        if (response.ok) {
-          const sessionData = await response.json();
-          console.log("Session Data:", sessionData); // Log the response to verify structure
-          setDepartmentId(sessionData.departmentId || "");
-          console.log(departmentId); // Set department ID
-        } else {
-          console.error("Failed to fetch session info");
-        }
-      } catch (error) {
-        console.error("Error fetching session info:", error);
-      }
-    };
+  //       if (response.ok) {
+  //         const sessionData = await response.json();
+  //         console.log("Session Data:", sessionData); // Log the response to verify structure
+  //         setDeptId(sessionData.deptId || "");
+  //         console.log(deptId); // Set department ID
+  //       } else {
+  //         console.error("Failed to fetch session info");
+  //       }
+  //     } catch (error) {
+  //       console.error("Error fetching session info:", error);
+  //     }
+  //   };
 
-    fetchDepartmentId();
-  }, []);
+  //   fetchDepartmentId();
+  // }, []);
+
+  const deptId = sessionStorage.getItem("deptId");
 
   useEffect(() => {
     setcontractorData((prevData) => ({
       ...prevData,
-      deptId: departmentId,
+      deptId,
     }));
-  }, [departmentId]);
+  }, [deptId]);
 
   useEffect(() => {
     if (data) {
@@ -163,7 +164,7 @@ const JobContractor = ({ onInputChange, isModify, data }) => {
               <input
                 type="text"
                 name="deptId"
-                value={departmentId}
+                value={deptId}
                 disabled
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />

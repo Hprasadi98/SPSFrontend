@@ -11,34 +11,34 @@ const NewJobContractor = ({
   handleSearch,
 }) => {
   const history = useHistory();
-  const downloadUserReport = () => {
-    fetch("http://localhost:8081/api/users/report/download", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Basic " + btoa("user:admin123"),
-      },
-      credentials: "include",
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch PDF");
-        }
-        return response.blob();
-      })
-      .then((blob) => {
-        const url = window.URL.createObjectURL(new Blob([blob]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", `user_report.pdf`);
-        document.body.appendChild(link);
-        link.click();
-        link.parentNode.removeChild(link);
-      })
-      .catch((error) => {
-        console.error("Error downloading the report:", error);
-      });
-  };
+  // const downloadUserReport = () => {
+  //   fetch("http://localhost:8081/api/users/report/download", {
+  //     method: "GET",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: "Basic " + btoa("user:admin123"),
+  //     },
+  //     credentials: "include",
+  //   })
+  //     .then((response) => {
+  //       if (!response.ok) {
+  //         throw new Error("Failed to fetch PDF");
+  //       }
+  //       return response.blob();
+  //     })
+  //     .then((blob) => {
+  //       const url = window.URL.createObjectURL(new Blob([blob]));
+  //       const link = document.createElement("a");
+  //       link.href = url;
+  //       link.setAttribute("download", `user_report.pdf`);
+  //       document.body.appendChild(link);
+  //       link.click();
+  //       link.parentNode.removeChild(link);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error downloading the report:", error);
+  //     });
+  // };
 
   const handleInputChange = (section, data) => {
     setFormData((prevData) => ({
@@ -101,13 +101,13 @@ const NewJobContractor = ({
           >
             {isModify ? "Update" : "Submit"}
           </button>
-          <button
+          {/* <button
             onClick={downloadUserReport}
             style={{ backgroundColor: "#7c0000" }}
             className="text-white active:bg-emerald-600 text-sm px-6 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-2 ease-linear transition-all duration-150"
           >
             Download
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

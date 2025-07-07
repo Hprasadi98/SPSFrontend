@@ -6,9 +6,10 @@ export default function JobTypeSet() {
   const history = useHistory();
   const [jobTypes, setJobTypes] = useState([]);
   const [selectedJobType, setSelectedJobType] = useState("");
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    fetch("http://localhost:8081/api/application/type", {
+    fetch(`${baseUrl}/api/application/type`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

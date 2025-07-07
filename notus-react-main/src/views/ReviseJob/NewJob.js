@@ -4,25 +4,24 @@ const NewJob = () => {
   const [isModify, setisModify] = useState(false);
 
   const [formData, setFormData] = useState({
-    appDetails: {},
-    personalDetails: {},
-    locationalDetails: {},
-    techDetails: {},
+    jrgeneral: {},
+    jrcostmeasure: {},
+    jrpegging: {},
   });
+
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const handleFormSubmit = async (data) => {
     const hardcodedData = {
-      applicationType: "gy",
-      submitDate: "2021-09-01",
-      status: "bn",
     };
 
     // Merge hardcoded data with form data
     const mergedData = {
       ...data,
-      idNo: data.personalDetails?.idNo || "",
-      applicationId: data.appDetails?.applicationId || "",
-      description: data.appDetails?.description || "",
+      costcenter: data.jrgeneral?.costcenter || "",
+      warehouse: data.jrgeneral?.warehouse || "",
+      projectNumber: data.jrgeneral?.projectNumber || "",
+      description: data.jrgeneral?.description || "",
       ...hardcodedData,
     };
 

@@ -1,5 +1,7 @@
 import NewApplication from "components/Applicationss/NewApplication";
 import { useState, useEffect } from "react";
+import {toast} from "react-toastify";
+
 const NewApp = () => {
   const [isModify, setisModify] = useState(false);
 
@@ -9,6 +11,8 @@ const NewApp = () => {
     locationalDetails: {},
     techDetails: {},
   });
+
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const handleFormSubmit = async (data) => {
     const hardcodedData = {
@@ -31,7 +35,7 @@ const NewApp = () => {
     // Send the data to the backend via REST API
     try {
       const response = await fetch(
-        "http://localhost:8081/api/application/save",
+        `${baseUrl}/api/application/save`,
         {
           method: "POST",
           headers: {
@@ -44,12 +48,13 @@ const NewApp = () => {
       );
 
       if (response.ok) {
-        alert("Form submitted successfully!");
+        toast.success("Form submitted successfully!");
       } else {
-        alert("Form submission failed!");
+        toast.error("Form submission failed!");
+        console.log("Form submission failed", response);
       }
     } catch (error) {
-      alert("An error occurred!");
+      toast.error("An error occurred!");
       console.error(error);
     }
   };

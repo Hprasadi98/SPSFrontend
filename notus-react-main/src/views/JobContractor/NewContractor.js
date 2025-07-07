@@ -1,9 +1,13 @@
 import NewJobContractor from "components/JobContractor/NewJobContractor";
 import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+
 const NewContractor = () => {
   const [isModify, setisModify] = useState(false);
 
   const [formData, setFormData] = useState({});
+
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const handleFormSubmit = async (data) => {
     const contractordata = {
@@ -16,7 +20,7 @@ const NewContractor = () => {
     setFormData(contractordata);
     console.log(contractordata);
     try {
-      const response = await fetch('http://localhost:8081/api/spestcnd/save', {
+      const response = await fetch(`${baseUrl}/api/spestcnd/save`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -29,13 +33,13 @@ const NewContractor = () => {
       if (response.ok) {
           const data = await response.json();
           console.log("Response data:", data);
-          alert("Saved Successfully!");
+          toast.success("Saved Successfully!");
       } else {
-          alert("Error saving data. Status: " + response.status);
+          toast.error("Error saving data. Status: " + response.status);
       }
   } catch (error) {
       console.error("Error:", error);
-      alert("Failed to connect to server.");
+      toast.error("Failed to connect to server.");
   }
   };
 

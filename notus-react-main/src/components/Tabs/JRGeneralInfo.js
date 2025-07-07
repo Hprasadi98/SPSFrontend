@@ -1,22 +1,37 @@
 import { useState, useEffect } from "react";
 
 const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
-  const [appData, setAppData] = useState({
-    applicationId: "",
+  const [generalData, setgeneralData] = useState({
+    pno: "",
+    costcenter:"",
+    warehouse: "",
+    filereference: "",
+    edate: "",
+    ecategory: "",
+    revisereason: "",
+    rejectreason: "",
     description: "",
-    jobName: "",
   });
 
   useEffect(() => {
     if (data) {
-      setAppData(data);
+      setgeneralData(data);
     }
   }, [data]);
 
+  const costcenter = sessionStorage.getItem("deptId");
+
+  useEffect(() => {
+    setgeneralData((prevData) => ({
+      ...prevData,
+      costcenter: costcenter || "",
+    }));
+  }, [costcenter]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const newData = { ...appData, [name]: value };
-    setAppData(newData);
+    const newData = { ...generalData, [name]: value };
+    setgeneralData(newData);
     onInputChange(newData);
   };
 
@@ -36,6 +51,8 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
                 <select
                   name="pno"
                   id="pno"
+                  value={generalData.pno}
+                  onChange={handleChange}
                   className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue=""
                 >
@@ -65,7 +82,9 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
               </label>
               <input
                 type="text"
+                disabled
                 name="costcenter"
+                value={costcenter}
                 className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -82,6 +101,8 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
               defaultValue=""
                 name="warehouse"
                 id="warehouse"
+                value={generalData.warehouse}
+                onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="" disabled>
@@ -100,6 +121,9 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
               </label>
               <input
                 type="text"
+                name="filereference"
+                value={generalData.filereference}
+                onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -117,6 +141,8 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
               <input
                 type="date"
                 name="edate"
+                value={generalData.edate}
+                onChange={handleChange}
                 className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -133,6 +159,8 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
                 defaultValue=""
                 id="ecategory"
                 name="ecategory"
+                value={generalData.ecategory}
+                onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               >
                 <option value="" disabled>
@@ -153,7 +181,7 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
                 type="textarea"
                 placeholder="Enter Reason"
                 name="revisereason"
-                value={appData.description}
+                value={generalData.revisereason}
                 onChange={handleChange}
                 className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
@@ -171,7 +199,7 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
                 type="textarea"
                 placeholder="Enter Reason"
                 name="rejectreason"
-                value={appData.description}
+                value={generalData.rejectreason}
                 onChange={handleChange}
                 className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
@@ -189,7 +217,7 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
                 type="textarea"
                 placeholder="Enter Description"
                 name="description"
-                value={appData.description}
+                value={generalData.description}
                 onChange={handleChange}
                 className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />

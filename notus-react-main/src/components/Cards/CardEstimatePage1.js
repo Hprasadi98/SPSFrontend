@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
-function CardEstimatePage1({ formData, onChange, errors, onNext }) {
-  // List of dummy estimate numbers
+function CardEstimatePage1({ formData, onChange, errors, onNext, isEditMode, estimates, onEstimateSelect }) {
+  // List of dummy estimate numbers (used when not in edit mode)
   const estimateNumbers = [
     "600.41/CN/25/0001",
     "600.41/CN/25/0002",
@@ -35,6 +35,14 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
     }
   }, [formData.estimateNo, onChange]);
 
+  // Handle estimate number selection in edit mode
+  const handleEstimateChange = (e) => {
+    onChange(e);
+    if (isEditMode && e.target.value) {
+      onEstimateSelect(e.target.value);
+    }
+  };
+
   return (
     <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
       <form
@@ -47,27 +55,46 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="estimateNo"
               >
                 Estimate No
               </label>
-              <select
-                id="estimateNo"
-                className={`border-0 text-sm mt-2 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
-                  errors.estimateNo ? "border-red-500" : ""
-                }`}
-                value={formData.estimateNo || ""}
-                onChange={onChange}
-                required
-              >
-                <option value="">--Select--</option>
-                {estimateNumbers.map((estimate, index) => (
-                  <option key={index} value={estimate}>
-                    {estimate}
-                  </option>
-                ))}
-              </select>
+              {isEditMode ? (
+                <select
+                  id="estimateNo"
+                  className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
+                    errors.estimateNo ? "border-red-500" : ""
+                  }`}
+                  value={formData.estimateNo || ""}
+                  onChange={handleEstimateChange}
+                  required
+                >
+                  <option value="">--Select--</option>
+                  {estimates.map((estimate, index) => (
+                    <option key={index} value={estimate}>
+                      {estimate}
+                    </option>
+                  ))}
+                </select>
+              ) : (
+                <select
+                  id="estimateNo"
+                  className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
+                    errors.estimateNo ? "border-red-500" : ""
+                  }`}
+                  value={formData.estimateNo || ""}
+                  onChange={onChange}
+                  required
+                >
+                  <option value="">--Select--</option>
+                  {estimateNumbers.map((estimate, index) => (
+                    <option key={index} value={estimate}>
+                      {estimate}
+                    </option>
+                  ))}
+                </select>
+              )}
               {errors.estimateNo && (
                 <p className="text-red-500 text-xs mt-1">{errors.estimateNo}</p>
               )}
@@ -77,7 +104,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="costCenter"
               >
                 Cost Center (Project No)
@@ -85,7 +112,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
               <input
                 type="text"
                 id="costCenter"
-                className={`border-0 text-sm mt-2 px-3 h-0.5 bg-gray-300 rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.costCenter ? "border-red-500" : ""
                 }`}
                 value={formData.costCenter || ""}
@@ -102,14 +129,14 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="warehouse"
               >
                 Warehouse
               </label>
               <select
                 id="warehouse"
-                className="border-0 text-sm mt-2 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
                 value={formData.warehouse || ""}
                 onChange={onChange}
                 required
@@ -127,7 +154,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="estimateDt"
               >
                 Estimate Date
@@ -135,7 +162,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
               <input
                 type="date"
                 id="estimateDt"
-                className={`border-0 text-sm mt-2 px-3 py-2 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.estimateDt ? "border-red-500" : ""
                 }`}
                 value={formData.estimateDt || ""}
@@ -151,7 +178,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm mb-2"
                 htmlFor="fileRef"
               >
                 File Reference
@@ -159,7 +186,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
               <input
                 type="text"
                 id="fileRef"
-                className={`border-0 text-sm mt-2 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
+                className={`border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full ${
                   errors.fileRef ? "border-red-500" : ""
                 }`}
                 value={formData.fileRef || ""}
@@ -176,7 +203,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="rejectReason"
               >
                 Reject Reason
@@ -184,7 +211,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
               <input
                 type="text"
                 id="rejectReason"
-                className="border-0 text-sm mt-2 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
                 value={formData.rejectReason || ""}
                 onChange={onChange}
                 placeholder="Enter Reject Reason"
@@ -195,7 +222,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="esName"
               >
                 Client Name
@@ -203,7 +230,7 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
               <input
                 type="text"
                 id="esName"
-                className="border-0 text-sm mt-2 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full"
                 value={formData.esName || ""}
                 onChange={onChange}
                 placeholder="Enter Client Name"
@@ -215,14 +242,14 @@ function CardEstimatePage1({ formData, onChange, errors, onNext }) {
           <div className="w-full lg:w-12/12 px-4">
             <div className="relative w-full mb-3">
               <label
-                className=" text-blueGray-600 text-sm mb-2"
+                className="text-blueGray-600 text-sm  mb-2"
                 htmlFor="descr"
               >
                 Description
               </label>
               <textarea
                 id="descr"
-                className="border-0 text-sm mt-2 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full h-48 resize-vertical"
+                className="border-0 px-3 h-0.5 bg-gray-300 z-0 rounded shadow focus:outline-none focus:ring w-full h-48 resize-vertical"
                 value={formData.descr || ""}
                 onChange={onChange}
                 placeholder="Enter Description"

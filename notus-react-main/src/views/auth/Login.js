@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import ceb from "../../assets/img/ceb.png"
+import { toast } from "react-toastify";
 
 export default function Login() {
   const [userId, setuserId] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const handleSubmit = async (e) => {
     //history.push("/jobtypeset");
     e.preventDefault();
     try {
+
       const response = await fetch("http://127.0.0.1:8088/SPS/api/v1/auth/login", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -29,11 +33,23 @@ export default function Login() {
         data = await response.text();
       }
       if (response.ok) {
-        // Extract user level from the response
-        const userlevel = data.userLevel; // Ensure the backend sends this value
-
-        sessionStorage.setItem("user", JSON.stringify(data));
-        sessionStorage.setItem("isAuthenticated", "true");
+        // Store in sessionStorage
+        sessionStorage.setItem("userId", data.userId);
+        sessionStorage.setItem("userLevel", data.userLevel);
+        // sessionStorage.setItem("eAccountNo", data.eAccountNo);
+        sessionStorage.setItem("deptId", data.costcenter);
+        sessionStorage.setItem("userName", data.userName);	
+        sessionStorage.setItem("sessionStart", Date.now().toString());
+  
+        const userlevel = data.userLevel;
+  
+        console.log("Session storage saved:", {
+          userId: sessionStorage.getItem("userId"),
+          userLevel: sessionStorage.getItem("userLevel"),
+          deptId: sessionStorage.getItem("deptId"),
+          userName: sessionStorage.getItem("userName"),
+          sessionStart: sessionStorage.getItem("sessionStart"),
+        });
 
         if (userlevel === "CE") {
           history.push("/admin/dashboardCE");
@@ -42,11 +58,11 @@ export default function Login() {
         } else {
           history.push("/jobtypeset"); // Default page
         }
-        alert("Login successful");
+        toast.success("Login successfully!");
         console.log("Login successful", data);
       } else {
         // Handle login error
-        alert(
+        toast.error(
           "If you have not account, register first. If you registered verify your email address. Otherwise check your email address and password"
         );
         console.error("Login failed", data);
@@ -77,11 +93,13 @@ export default function Login() {
                       className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
+
                       User Name
                     </label>
                     <input
                       type="text"
                      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+
                       placeholder="userId"
                       value={userId}
                       onChange={(e) => setuserId(e.target.value)}

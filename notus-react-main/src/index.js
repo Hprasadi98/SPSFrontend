@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "assets/styles/tailwind.css";
@@ -24,6 +26,8 @@ import JobTypeSet from "views/JobTypeSet";
 import ModifyProgress from "layouts/ModifyProgress";
 import PIV from "layouts/PIV";
 import Allocation from "layouts/Allocation";
+import ReviceJob from "layouts/ReviseJob";
+import ReviseAllocation from "views/ReviseAllocation/ReviseAllocation";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -39,6 +43,7 @@ ReactDOM.render(
         <Route path="/jobcontractor" component={JobContractor} />
         <Route path="/estimation" component={Estimation} />
         <Route path="/estimate" component={Estimate} />
+        <Route path="/jobrevision" component={ReviceJob} />
         {/* add routes without layouts */}
         <Route path="/piv" component={PIV} />
         <Route path="/allocation" component={Allocation} />
@@ -47,9 +52,11 @@ ReactDOM.render(
         <Route path="/index" exact component={Index} />
         <Route path="/auth" exact component={Index} />
         <Route path="/jobtypeset" exact component={JobTypeSet} />
+        <Route path="/reviseallocation" exact component={ReviseAllocation} />
         {/* add redirect for first page */}
         <Redirect from="*" to="/auth" />
       </Switch>
+      <ToastContainer position="top-right" autoClose={3000} />
     </>
   </BrowserRouter>,
   document.getElementById("root")

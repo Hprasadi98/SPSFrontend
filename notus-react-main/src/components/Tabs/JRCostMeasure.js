@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 
-const PersonalDetails = ({ onInputChange, data }) => {
+const JRCostMeasure = ({ onInputChange, data }) => {
   const [personalData, setpersonalData] = useState({
     idType: "",
     idNo: "",
     fname: "",
     lname: "",
   });
-
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
       if (data) {
@@ -32,7 +30,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
 
     try {
       const response = await fetch(
-        `${baseUrl}/api/v1/search?nicno=${personalData.idNo}`,
+        `http://localhost:8081/api/v1/search?nicno=${personalData.idNo}`,
         {
           method: "GET",
           headers: {
@@ -71,21 +69,22 @@ const PersonalDetails = ({ onInputChange, data }) => {
     <div className="flex-auto px-4 lg:px-10 py-10 pt-2">
       <form>
         <div className="flex flex-wrap">
-          <div className="w-full lg:w-6/12 px-4">
+        <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
               <label
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Id Type
+                Fund Source
               </label>
-              <input
-                type="text"
-                name="idType"
-                value={personalData.idType}
-                onChange={handleChange}
+              <select
+                name="fundsource"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
+              >
+                <option value="" disabled>
+                  --Please Select--
+                </option>
+              </select>
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
@@ -94,24 +93,16 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Id No
+                Fund ID
               </label>
-              <div className="flex ">
-                <input
-                  type="text"
-                  name="idNo"
-                  value={personalData.idNo}
-                  onChange={handleChange}
-                  className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                />
-                <button
-                  onClick={handleSearch}
-                  style={{backgroundColor:"#7c0000"}}
-                  className="ml-2 text-white active:bg-lightBlue-600 text-sm px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                >
-                  Search
-                </button>
-              </div>
+              <select
+                name="fundid"
+                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              >
+                <option value="" disabled>
+                  --Please Select--
+                </option>
+              </select>
             </div>
           </div>
           <div className="w-full lg:w-6/12 px-4">
@@ -120,12 +111,11 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                First Name (Initials)
+                PIV Number
               </label>
               <input
                 type="text"
-                disabled
-                name="fname"
+                name="pivno"
                 value={personalData.fname}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
@@ -137,80 +127,18 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Last Name
+                Amount
               </label>
               <input
                 type="text"
-                disabled
-                name="lname"
+                name="amount"
                 value={personalData.lname}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
           </div>
         </div>
-        <div className="flex flex-wrap">
-          <div className="w-full lg:w-3/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm mb-2"
-                htmlFor="grid-password"
-              >
-                Street Address
-              </label>
-              <input
-                type="text"
-                disabled
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-          <div className="w-full lg:w-3/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm mb-2"
-                htmlFor="grid-password"
-              >
-                Suburb
-              </label>
-              <input
-                type="text"
-                disabled
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-          <div className="w-full lg:w-3/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm mb-2"
-                htmlFor="grid-password"
-              >
-                City
-              </label>
-              <input
-                type="text"
-                disabled
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-          <div className="w-full lg:w-3/12 px-4">
-            <div className="relative w-full mb-3">
-              <label
-                className="block text-blueGray-600 text-sm mb-2"
-                htmlFor="grid-password"
-              >
-                Postal Code
-              </label>
-              <input
-                type="text"
-                disabled
-                className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-              />
-            </div>
-          </div>
-        </div>
+        
         <div className="flex flex-wrap">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative w-full mb-3">
@@ -218,11 +146,26 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Telephone No
+                PIV Date
+              </label>
+              <input
+                type="date"
+                name="pivdate"
+                className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+              />
+            </div>
+          </div>
+          <div className="w-full lg:w-6/12 px-4">
+            <div className="relative w-full mb-3">
+              <label
+                className="block text-blueGray-600 text-sm mb-2"
+                htmlFor="grid-password"
+              >
+                Rebate
               </label>
               <input
                 type="text"
-                disabled
+                name="rebate"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -233,11 +176,10 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Mobile No
+                Total Cost
               </label>
               <input
                 type="text"
-                disabled
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -248,11 +190,10 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Email
+                Total Cost of Initial Detail Estimate
               </label>
               <input
-                type="Email"
-                disabled
+                type="text"
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -263,11 +204,10 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                Preferred Language
+                Total Cost of Current Revision
               </label>
               <input
                 type="text"
-                disabled
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -278,11 +218,10 @@ const PersonalDetails = ({ onInputChange, data }) => {
                 className="block text-blueGray-600 text-sm mb-2"
                 htmlFor="grid-password"
               >
-                CEB Employee
+                Variance
               </label>
               <input
                 type="text"
-                disabled
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
               />
             </div>
@@ -293,4 +232,4 @@ const PersonalDetails = ({ onInputChange, data }) => {
   );
 };
 
-export default PersonalDetails;
+export default JRCostMeasure;

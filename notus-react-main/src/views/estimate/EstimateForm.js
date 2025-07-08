@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import CardEstimatePage1 from "components/Cards/CardEstimatePage1";
 import CardEstimatePage2 from "components/Cards/CardEstimatePage2";
 import CardEstimatePage3 from "components/Cards/CardEstimatePage3";
@@ -6,6 +6,8 @@ import CardEstimatePage3 from "components/Cards/CardEstimatePage3";
 function EstimateForm() {
   const [activeTab, setActiveTab] = useState(0);
   const [completedTabs, setCompletedTabs] = useState([false, false, false]);
+  const [isEditMode, setIsEditMode] = useState(false);
+  const [estimates, setEstimates] = useState([]);
   const [formData, setFormData] = useState({
     estimateNo: "",
     revNo: "1",
@@ -88,9 +90,31 @@ function EstimateForm() {
     lbRateYear: "",
     fundCost: "",
     secDepYear: "",
+    peggingSchedule: [], // Added to store pegging schedule data
   });
   const [errors, setErrors] = useState({});
   const [isPeggingScheduleFilled, setIsPeggingScheduleFilled] = useState(false);
+
+  // Fetch estimates when entering Edit mode
+  useEffect(() => {
+    if (isEditMode) {
+      const fetchEstimates = async () => {
+        try {
+          const response = await fetch("http://localhost:8082/api/pcesthtt/estimateNos");
+          if (!response.ok) {
+            throw new Error(`Failed to fetch estimates: ${response.status} ${response.statusText}`);
+          }
+          const data = await response.json();
+          setEstimates(data);
+        } catch (error) {
+          console.error("Failed to fetch estimates:", error.message);
+          alert(`Failed to load estimates: ${error.message}`);
+          setEstimates([]);
+        }
+      };
+      fetchEstimates();
+    }
+  }, [isEditMode]);
 
   const handleFormDataChange = (e) => {
     const { id, value, type, checked } = e.target;
@@ -98,8 +122,102 @@ function EstimateForm() {
       ...prev,
       [id]: type === "checkbox" ? checked : value,
     }));
-    // Clear error for the field being edited
     setErrors((prev) => ({ ...prev, [id]: "" }));
+  };
+
+  const handleEstimateSelect = async (estimateNo) => {
+    try {
+      const encodedEstimateNo = encodeURIComponent(estimateNo);
+      const response = await fetch(`http://localhost:8082/api/pcesthtt/${encodedEstimateNo}`);
+      if (!response.ok) {
+        throw new Error(`Failed to fetch estimate details: ${response.status} ${response.statusText}`);
+      }
+      const data = await response.json();
+      setFormData((prev) => ({
+        ...prev,
+        estimateNo: data.id.estimateNo,
+        revNo: String(data.id.revNo),
+        deptId: data.id.deptId,
+        costCenter: data.projectNo || "",
+        estimateDt: data.etimateDt || "",
+        descr: data.descr || "",
+        rejectReason: data.rejectReason || "",
+        esName: data.clientNm || "",
+        fileRef: data.fileRef || "",
+        warehouse: data.warehouse || "",
+        catCd: data.catCd || "",
+        stdCost: data.stdCost ? String(data.stdCost) : "",
+        omsRefNo: data.omsRefNo || "",
+        fundSource: data.fundSource || "",
+        fundId: data.fundId || "",
+        pivDate: data.pivDate || "",
+        pivNumber: data.pivNumber || "",
+        pivAmount: data.pivAmount ? String(data.pivAmount) : "",
+        custContrib: data.custContrib ? String(data.custContrib) : "",
+        partialPmt: data.partialPmt || "N",
+        partPcnt: data.partPcnt ? String(data.partPcnt) : "",
+        partialAmt: data.partialAmt ? String(data.partialAmt) : "",
+        taxPcnt: data.taxPcnt ? String(data.taxPcnt) : "",
+        taxAmt: data.taxAmt ? String(data.taxAmt) : "",
+        subCont: data.subCont || "",
+        contNo: data.contNo || "",
+        supCd: data.supCd || "",
+        tmplId: data.tmplId || "",
+        label1: data.label1 || "",
+        label2: data.label2 || "",
+        label3: data.label3 || "",
+        label4: data.label4 || "",
+        label5: data.label5 || "",
+        label6: data.label6 || "",
+        label7: data.label7 || "",
+        label8: data.label8 || "",
+        label9: data.label9 || "",
+        label10: data.label10 || "",
+        actualUnits: data.actualUnits ? String(data.actualUnits) : "",
+        controlled: data.controlled || "",
+        priority: data.priority || false,
+        paidAmt: data.paidAmt ? String(data.paidAmt) : "",
+        allocPaid: data.allocPaid ? String(data.allocPaid) : "",
+        fundContrib: data.fundContrib ? String(data.fundContrib) : "",
+        settledAmt: data.settledAmt ? String(data.settledAmt) : "",
+        allocSettle: data.allocSettle ? String(data.allocSettle) : "",
+        normDefault: data.normDefault || false,
+        status: data.status ? String(data.status) : "0",
+        logId: data.logId ? String(data.logId) : "",
+        entBy: data.entBy || "",
+        entDt: data.entDt || new Date().toISOString().split("T")[0],
+        confBy: data.confBy || "",
+        confDt: data.confDt || new Date().toISOString().split("T")[0],
+        aprUid1: data.aprUid1 || "",
+        aprDt1: data.aprDt1 || new Date().toISOString().split("T")[0],
+        aprUid2: data.aprUid2 || "",
+        aprDt2: data.aprDt2 || new Date().toISOString().split("T")[0],
+        aprUid3: data.aprUid3 || "",
+        aprDt3: data.aprDt3 || new Date().toISOString().split("T")[0],
+        aprUid4: data.aprUid4 || "",
+        aprDt4: data.aprDt4 || new Date().toISOString().split("T")[0],
+        aprUid5: data.aprUid5 || "",
+        aprDt5: data.aprDt5 || new Date().toISOString().split("T")[0],
+        rejctUid: data.rejctUid || "",
+        rejctDt: data.rejctDt || new Date().toISOString().split("T")[0],
+        reviseEst: data.reviseEst ? String(data.reviseEst) : "",
+        estType: data.estType || "",
+        reviseUid: data.reviseUid || "",
+        reviseDt: data.reviseDt || new Date().toISOString().split("T")[0],
+        revReason: data.revReason || "",
+        prjAssDt: data.prjAssDt || "",
+        estimatedYear: data.estimatedYear || "",
+        estimatedyear: data.estimatedyear || "",
+        lbRateYear: data.lbRateYear || "",
+        fundCost: data.fundCost ? String(data.fundCost) : "",
+        secDepYear: data.secDepYear || "",
+        peggingSchedule: data.peggingSchedule ? JSON.parse(data.peggingSchedule) : [],
+      }));
+      setIsPeggingScheduleFilled(!!data.peggingSchedule); // Mark as filled if data exists
+    } catch (error) {
+      console.error("Failed to fetch estimate details:", error.message);
+      alert(`Failed to load estimate details: ${error.message}`);
+    }
   };
 
   const validateForm = useCallback(
@@ -141,7 +259,7 @@ function EstimateForm() {
     const payload = {
       id: {
         estimateNo: formData.estimateNo,
-        revNo: formData.revNo,
+        revNo: parseInt(formData.revNo),
         deptId: formData.deptId,
       },
       projectNo: formData.costCenter || null,
@@ -212,15 +330,18 @@ function EstimateForm() {
       lbRateYear: formData.lbRateYear || null,
       fundCost: formData.fundCost ? parseInt(formData.fundCost) : null,
       secDepYear: formData.secDepYear || null,
+      peggingSchedule: formData.peggingSchedule ? JSON.stringify(formData.peggingSchedule) : null,
     };
 
-    console.log(
-      "Sending payload to backend:",
-      JSON.stringify(payload, null, 2)
-    );
+    console.log("Sending payload to backend:", JSON.stringify(payload, null, 2));
 
-    const response = await fetch("http://localhost:8082/api/pcesthtt", {
-      method: "POST",
+    const method = isEditMode ? "PUT" : "POST";
+    const url = isEditMode
+      ? `http://localhost:8082/api/pcesthtt/${encodeURIComponent(formData.estimateNo)}`
+      : "http://localhost:8082/api/pcesthtt";
+
+    const response = await fetch(url, {
+      method,
       headers: {
         "Content-Type": "application/json",
       },
@@ -229,35 +350,31 @@ function EstimateForm() {
 
     if (!response.ok) {
       const errorText = await response.text();
-      throw new Error(
-        `HTTP error! status: ${response.status}, message: ${errorText}`
-      );
+      throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
     }
 
     return await response.json();
   };
 
   const handleEdit = () => {
-    alert("Edit mode activated. You can now modify the form fields.");
+    setIsEditMode(true);
+    alert("Edit mode activated. Please select an estimate to modify.");
   };
 
   const handleSubmit = async () => {
     const isValid = [0, 1].every((step) => validateForm(step));
 
     if (!isValid || !isPeggingScheduleFilled) {
-      alert(
-        "Please fill in all required fields, including the Pegging Schedule, before submitting."
-      );
+      alert("Please fill in all required fields, including the Pegging Schedule, before submitting.");
       return;
     }
 
     try {
       const response = await createEstimate(formData);
-      console.log("Estimate created successfully:", response);
-      alert(
-        `Estimate created successfully! Estimate Number: ${formData.estimateNo}`
-      );
+      console.log(`${isEditMode ? "Estimate updated" : "Estimate created"} successfully:`, response);
+      alert(`${isEditMode ? "Estimate updated" : "Estimate created"} successfully! Estimate Number: ${formData.estimateNo}`);
 
+      // Reset form after submission
       setFormData({
         estimateNo: "",
         revNo: "1",
@@ -340,16 +457,17 @@ function EstimateForm() {
         lbRateYear: "",
         fundCost: "",
         secDepYear: "",
+        peggingSchedule: [],
       });
       setActiveTab(0);
       setCompletedTabs([false, false, false]);
       setErrors({});
       setIsPeggingScheduleFilled(false);
+      setIsEditMode(false);
+      setEstimates([]);
     } catch (error) {
-      console.error("Failed to create estimate:", error);
-      alert(
-        `Failed to create estimate: ${error.message}. Check console for details.`
-      );
+      console.error(`Failed to ${isEditMode ? "update" : "create"} estimate:`, error);
+      alert(`Failed to ${isEditMode ? "update" : "create"} estimate: ${error.message}. Check console for details.`);
     }
   };
 
@@ -384,6 +502,9 @@ function EstimateForm() {
             onChange={handleFormDataChange}
             errors={errors}
             onNext={handleNext}
+            isEditMode={isEditMode}
+            estimates={estimates}
+            onEstimateSelect={handleEstimateSelect}
           />
         </div>
       ),
@@ -397,6 +518,7 @@ function EstimateForm() {
           errors={errors}
           onBack={handleBack}
           onNext={handleNext}
+          isEditMode={isEditMode}
         />
       ),
     },
@@ -409,6 +531,7 @@ function EstimateForm() {
           onBack={handleBack}
           onSubmit={handleSubmit}
           onInteraction={handlePeggingScheduleInteraction}
+          isEditMode={isEditMode}
         />
       ),
     },
@@ -428,9 +551,7 @@ function EstimateForm() {
                 {index > 0 && (
                   <div
                     className={`absolute top-1/2 left-0 transform -translate-y-1/2 h-1 w-full ${
-                      completedTabs[index - 1]
-                        ? "bg-emerald-400"
-                        : "bg-gray-300"
+                      completedTabs[index - 1] ? "bg-emerald-400" : "bg-gray-300"
                     }`}
                     style={{ zIndex: -1 }}
                   ></div>
@@ -456,16 +577,12 @@ function EstimateForm() {
                         : "black",
                   }}
                   onClick={() => {
-                    if (
-                      index < activeTab ||
-                      completedTabs[index - 1] ||
-                      index === 0
-                    ) {
+                    if (index < activeTab || completedTabs[index - 1] || index === 0) {
                       setActiveTab(index);
                     }
                   }}
                 >
-                  { index + 1}
+                  {index + 1}
                 </div>
                 <span className="text-sm mt-2 text-center">{tab.name}</span>
               </div>
@@ -503,9 +620,8 @@ function EstimateForm() {
                   Previous
                 </button>
               ) : (
-                <div></div> // Empty div to maintain spacing when Previous button is hidden
+                <div></div>
               )}
-          
               {activeTab < tabs.length - 1 ? (
                 <button
                   onClick={handleNext}
@@ -522,7 +638,6 @@ function EstimateForm() {
                   Submit
                 </button>
               )}
-              
             </div>
           </div>
         </div>

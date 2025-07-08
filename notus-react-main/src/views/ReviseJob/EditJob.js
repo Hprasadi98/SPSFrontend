@@ -1,16 +1,12 @@
-import NewApplication from "components/Applicationss/NewApplication";
+import JobRevision from "components/JobRevision/JobRevision";
 import { useState } from "react";
-import {toast} from "react-toastify";
-
-const ModifyApp = () => {
+const EditJob = () => {
   const [formData, setFormData] = useState({
     appDetails: {},
     personalDetails: {},
     locationalDetails: {},
     techDetails: {},
   });
-
-  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const handleFormModify = async (data) => {
     const hardcodedData = {
@@ -34,7 +30,7 @@ const ModifyApp = () => {
     const applicationId = mergedData.applicationId;
     try {
       const response = await fetch(
-        `${baseUrl}/api/application/update?applicationId=${applicationId}`,
+        `http://localhost:8081/api/application/update?applicationId=${applicationId}`,
         {
           method: "PATCH",
           headers: {
@@ -47,12 +43,12 @@ const ModifyApp = () => {
       );
 
       if (response.ok) {
-        toast.success("Form modified successfully!");
+        alert("Form modified successfully!");
       } else {
-        toast.error("Form modification failed!");
+        alert("Form modification failed!");
       }
     } catch (error) {
-      toast.error("An error occurred!");
+      alert("An error occurred!");
       console.error(error);
     }
   };
@@ -67,7 +63,7 @@ const ModifyApp = () => {
 
     try {
       const response = await fetch(
-        `${baseUrl}/api/application/search?applicationId=${applicationId}`,
+        `http://localhost:8081/api/application/search?applicationId=${applicationId}`,
         {
           method: "GET",
           headers: {
@@ -119,7 +115,7 @@ const ModifyApp = () => {
   return (
     <div className="container mx-auto rounded-lg">
       <div className="flex justify-center px-4 mb-5 mx-48 mt-5 md:px-10 lg:px-20 rounded-lg">
-        <NewApplication
+        <JobRevision
           onFormSubmit={handleFormModify}
           isModify={true}
           formData={formData}
@@ -131,4 +127,4 @@ const ModifyApp = () => {
   );
 };
 
-export default ModifyApp;
+export default EditJob;

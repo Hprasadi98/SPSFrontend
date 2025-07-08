@@ -3,7 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import ceb from "../../assets/img/ceb.png"
 
 export default function Login() {
-  const [email, setEmail] = useState("");
+  const [userId, setuserId] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
@@ -11,13 +11,13 @@ export default function Login() {
     //history.push("/jobtypeset");
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:8081/api/v1/login", {
+      const response = await fetch("http://127.0.0.1:8088/SPS/api/v1/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: "Basic " + btoa("user:admin123"),
         },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ userId, password }),
         credentials: "include",
       });
       // const data = await response.json();
@@ -77,14 +77,14 @@ export default function Login() {
                       className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
-                      Email
+                      User Name
                     </label>
                     <input
-                      type="email"
-                      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                      placeholder="Email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      type="text"
+                     className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      placeholder="userId"
+                      value={userId}
+                      onChange={(e) => setuserId(e.target.value)}
                     />
                   </div>
 

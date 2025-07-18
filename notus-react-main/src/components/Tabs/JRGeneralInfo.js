@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 
 const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
   const [generalData, setgeneralData] = useState({
     pno: "",
-    costcenter:"",
+    costcenter: "",
     warehouse: "",
     filereference: "",
     edate: "",
@@ -18,6 +19,87 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
       setgeneralData(data);
     }
   }, [data]);
+
+  const [projectNos, setProjectNos] = useState([]);
+  const [selectedProjectNo, setSelectedProjectNo] = useState("");
+  const [estimateData, setEstimateData] = useState(null);
+
+  useEffect(() => {
+    const fetchDropdownData = async () => {
+      try {
+        const response = await fetch(
+          `${baseUrl}/api/v1/estimates/dropdowndata`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Basic " + btoa("user:admin123"),
+            },
+            credentials: "include",
+          }
+        );
+
+        const contentType = response.headers.get("content-type");
+        let data;
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+          data = await response.json();
+        } else {
+          throw new Error("Invalid content type");
+        }
+
+        if (data.projectNos) {
+          setProjectNos(data.projectNos);
+        }
+      } catch (error) {
+        console.error("Fetch dropdown data error:", error);
+      }
+    };
+
+    fetchDropdownData();
+  }, []);
+
+  useEffect(() => {
+    if (!selectedProjectNo) return;
+
+    const fetchEstimateData = async () => {
+      try {
+        const response = await fetch(
+          `${baseUrl}/api/v1/estimate/byproject?projectNo=${selectedProjectNo}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Basic " + btoa("user:admin123"),
+            },
+          }
+        );
+        const data = await response.json();
+        setEstimateData(data);
+        console.log("Estimate data fetched:", data);
+        if (data && data.length > 0) {
+          const estimateItem = data[0];
+          const updatedData = {
+            ...generalData,
+            pno: estimateItem.projectNo || selectedProjectNo,
+            warehouse: estimateItem.warehouse || "",
+            filereference: estimateItem.filereference || "",
+            edate: estimateItem.etimateDt || "",
+            ecategory: estimateItem.ecategory || "",
+            revisereason: estimateItem.revReason || "",
+            rejectreason: estimateItem.rejectReason || "",
+            description: estimateItem.descr || ""
+          };
+          setgeneralData(updatedData);
+          // Notify parent component of the changes
+          onInputChange(updatedData);
+        }
+      } catch (error) {
+        console.error("Estimate fetch error:", error);
+      }
+    };
+
+    fetchEstimateData();
+  }, [selectedProjectNo]);
 
   const costcenter = sessionStorage.getItem("deptId");
 
@@ -51,14 +133,19 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
                 <select
                   name="pno"
                   id="pno"
-                  value={generalData.pno}
-                  onChange={handleChange}
+                  value={generalData.pno || selectedProjectNo}
+                  onChange={(e) => setSelectedProjectNo(e.target.value)}
                   className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                   defaultValue=""
                 >
                   <option value="" disabled>
                     --Please Select--
                   </option>
+                  {projectNos.map((projectNo) => (
+                    <option key={projectNo} value={projectNo}>
+                      {projectNo}
+                    </option>
+                  ))}
                 </select>
                 {isModify && (
                   <button
@@ -98,7 +185,7 @@ const JRGeneralInfo = ({ onInputChange, isModify, data, handleSearch }) => {
                 Ware House
               </label>
               <select
-              defaultValue=""
+                defaultValue=""
                 name="warehouse"
                 id="warehouse"
                 value={generalData.warehouse}

@@ -8,12 +8,12 @@ export default function HeaderStats() {
   return (
     <>
       {/* Header */}
-      <div style={{ backgroundColor: '#b23200' }} className="relative md:pt-32 pb-32 pt-12">
+      <div style={{ backgroundColor: '#b23200' }} className="relative md:pt-24 pb-16 pt-12">
         <div className="px-4 md:px-10 mx-auto w-full">
           <div>
             {/* Card stats */}
             <div className="flex flex-wrap">
-              <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+              <div className="w-full lg:w-6/12 xl:w-3/12 px-4 pt-4">
                 <CardStats
                   statSubtitle="TRAFFIC"
                   statTitle="350,897"

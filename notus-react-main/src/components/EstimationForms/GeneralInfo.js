@@ -1,107 +1,119 @@
-const GeneralInfo = ({ formData, handleChange, editMode }) => {
+import react from "react";
+
+const generalinfo = ({
+  formData,
+  handleChange,
+  editMode,
+  onSearch,
+  loadingSearch,
+}) => {
   return (
     <form>
       <div className="flex flex-wrap">
+        {/* application reference no */}
         <div className="w-full lg:w-6/12 px-4 py-1">
-          <label className=" text-gray-600 text-sm mb-2">
-            Application Reference No
+          <label className="text-gray-600 text-sm mb-2">
+            application reference no
           </label>
-
           <div className="flex space-x-2 mt-2">
             <input
               type="text"
               name="appNo"
-              value={formData.appNo}
+              value={formData.appNo || ""}
               onChange={handleChange}
               className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
             />
-
             {editMode && (
               <button
                 type="button"
+                onClick={onSearch}
+                disabled={loadingSearch}
                 style={{ backgroundColor: "#7c0000" }}
-                className="text-white px-4 py-2 rounded text-sm ml-2 shadow hover:shadow-md transition duration-150"
-                onClick={() => {
-                  alert(`Searching for App No: ${formData.appNo}`);
-                }}
+                className="text-white px-4 py-2 rounded text-sm ml-2 shadow hover:shadow-md transition duration-150 disabled:opacity-50"
               >
-                Search
+                {loadingSearch ? "loading..." : "search"}
               </button>
             )}
           </div>
         </div>
 
+        {/* name */}
         <div className="w-full lg:w-6/12 px-4 py-2">
-          <label className="block text-blueGray-600 text-sm mb-2">Name</label>
+          <label className="block text-blueGray-600 text-sm mb-2">name</label>
           <input
             type="text"
-            name="stdNo"
-            value={formData.stdNo}
+            name="name"
+            value={formData.name || ""}
             onChange={handleChange}
             className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
 
+        {/* address */}
         <div className="w-full lg:w-6/12 px-4 py-2">
           <label className="block text-blueGray-600 text-sm mb-2">
-            Address
+            address
           </label>
           <input
             type="text"
-            name="deptId"
-            value={formData.deptId}
+            name="address"
+            value={formData.address || ""}
             onChange={handleChange}
             className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
 
+        {/* job description */}
         <div className="w-full lg:w-6/12 px-4 py-2">
           <label className="block text-blueGray-600 text-sm mb-2">
-            Job Description
+            job description
           </label>
           <input
             type="text"
             name="jobDescription"
-            value={formData.jobDescription}
+            value={formData.jobDescription || ""}
             onChange={handleChange}
             className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
 
+        {/* no of beneficiaries */}
         <div className="w-full lg:w-6/12 px-4 py-2">
           <label className="block text-blueGray-600 text-sm mb-2">
-            No of Beneficiaries
+            no of beneficiaries
           </label>
           <input
             type="text"
             name="beneficiaries"
-            value={formData.beneficiaries}
+            value={formData.beneficiaries || ""}
             onChange={handleChange}
             className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
 
+        {/* power to supply */}
         <div className="w-full lg:w-6/12 px-4 py-2">
           <label className="block text-blueGray-600 text-sm mb-2">
-            Power to Supply
+            power to supply
           </label>
           <input
             type="text"
             name="powerSupply"
-            value={formData.powerSupply}
+            value={formData.powerSupply || ""}
             onChange={handleChange}
             className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
         </div>
 
+        {/* rejected reason */}
         <div className="w-full lg:w-6/12 px-4 py-2">
           <label className="block text-blueGray-600 text-sm mb-2">
-            Rejected Reason
+            rejected reason
           </label>
           <input
             type="text"
             name="rejectedReason"
-            value={formData.rejectedReason}
+            value={formData.rejectedReason || ""}
             onChange={handleChange}
             className="border-0 px-3 h-0.5 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
           />
@@ -111,4 +123,4 @@ const GeneralInfo = ({ formData, handleChange, editMode }) => {
   );
 };
 
-export default GeneralInfo;
+export default generalinfo;

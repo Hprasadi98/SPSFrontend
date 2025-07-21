@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import CardStats from "components/Cards/CardStats.js";
+import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 export default function HeaderStats() {
@@ -12,6 +13,20 @@ export default function HeaderStats() {
   const [estimatesLoading, setEstimatesLoading] = useState(true); // Add loading state for estimates
   const [error, setError] = useState(null);
   const [estimatesError, setEstimatesError] = useState(null); // Add error state for estimates
+  const history = useHistory();
+
+  // Updated click handler to pass application number
+  const handlePendingAllocationClick = (applicationNo = null) => {
+    console.log("Pending Allocation number clicked:", applicationNo);
+    
+    if (applicationNo) {
+      // Navigate to schedule2 with application number as URL parameter
+      history.push(`/schedule2?applicationNo=${encodeURIComponent(applicationNo)}`);
+    } else {
+      // Navigate to schedule2 without specific application number
+      history.push("/schedule2");
+    }
+  };
 
   // Fetch estimates data from the backend
   useEffect(() => {
@@ -21,7 +36,7 @@ export default function HeaderStats() {
         console.log("Starting API call to fetch estimates data...");
 
         const response = await fetch(
-          "http://127.0.0.1:8088/SPS/api/v1/estimates",
+          "http://127.0.0.1:8088/SPS/api/application/all",
           {
             method: "GET",
             headers: {
@@ -44,45 +59,25 @@ export default function HeaderStats() {
         const data = await response.json();
         console.log("Estimates API Response data:", data);
 
-        // Process the estimates data similar to application data
+          // Process the estimates data to include application numbers
         if (Array.isArray(data)) {
-          // Transform the data into the format CardStats expects
-          const formattedData = data.map(estimateNo => ({
-            value: estimateNo  // Just store the estimate number
-          }));
-          setPendingAllocationData(formattedData);
-        } else if (data && Array.isArray(data.estimates)) {
-          // If the API returns an object with an estimates array
-          const formattedData = data.estimates.map(estimateNo => ({
-            value: estimateNo
+          const formattedData = data.map(applicationNo => ({
+            value: applicationNo,
+            applicationNo: applicationNo, // Store the application number for clicking
+            label: `App: ${applicationNo}`
           }));
           setPendingAllocationData(formattedData);
         } else {
           console.warn("Unexpected estimates data format from API:", data);
-          // Fallback to default data
-          setPendingAllocationData([
-            { label: "Regional Office East", value: 12 },
-            { label: "Regional Office West", value: 8 },
-            { label: "Regional Office North", value: 10 },
-            { label: "Regional Office South", value: 8 },
-            { label: "Total", value: 38 }
-          ]);
-        }
+          setPendingAllocationData([]);
+        } 
 
         setEstimatesLoading(false);
       } catch (err) {
         console.error("Error fetching estimates data:", err);
         setEstimatesError("Failed to load estimates data");
         setEstimatesLoading(false);
-
-        // Fallback to default data if API call fails
-        setPendingAllocationData([
-          { label: "Regional Office East", value: 12 },
-          { label: "Regional Office West", value: 8 },
-          { label: "Regional Office North", value: 10 },
-          { label: "Regional Office South", value: 8 },
-          { label: "Total", value: 38 }
-        ]);
+        setPendingAllocationData([]);
       }
     };
 
@@ -183,10 +178,15 @@ export default function HeaderStats() {
                   statIconName="far fa-chart-bar"
                   statIconColor="bg-red-500"
                   statsData={pendingAllocationData}
-                  navigatePath="/allocation/allocationOCJ1"
+                  navigatePath="/schedule2"
                   isLoading={estimatesLoading}
                   hasError={estimatesError}
                   validNumbers={estimateNumbers}
+                   onNumberClick={() => handlePendingAllocationClick()} // General click
+                  onItemClick={handlePendingAllocationClick} // Individual item click with applicationNo
+                  isClickable={true}
+                  showItemList={true} // Add this prop to show the list
+                
                 />
               </div>
               <div className="w-full lg:w-6/12 xl:w-3/12 px-4">

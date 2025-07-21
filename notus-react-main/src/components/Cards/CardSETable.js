@@ -1,13 +1,61 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 
-export default function CardSETable({
-  color,
-  data,
-  isModify,
-  handleClick,
-  handleLengthChange,
-}) {
+export default function CardSETable({ color }) {
+  // data,
+  // isModify,
+  // handleClick,
+  // handleLengthChange,
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+  const projectNo = "PRJ002";
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (!projectNo) return;
+
+      setLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(
+          `${baseUrl}/api/v1/estimates/byproject?projectNo=${projectNo}`,
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: "Basic " + btoa("user:admin123"),
+            },
+            credentials: "include",
+          }
+        );
+
+        const contentType = response.headers.get("content-type");
+        let result;
+        if (contentType && contentType.indexOf("application/json") !== -1) {
+          result = await response.json();
+        } else {
+          result = await response.text();
+        }
+
+        if (response.ok) {
+          setData(result);
+          console.log("Data fetched successfully:", result);
+        } else {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+      } catch (err) {
+        setError(err.message);
+        console.error("Error fetching data:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [projectNo, baseUrl]);
+
   return (
     <>
       <div
@@ -110,60 +158,89 @@ export default function CardSETable({
                       : "bg-lightBlue-800 text-lightBlue-300 border-lightBlue-700")
                   }
                 >
-                  extra
+                  Fitted Quantity
                 </th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left items-left">
-                  fvfd
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-                  dcsd
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-                  csdc
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-                  sssd
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-                  {/* {item.estCost.toFixed(2)} */}
-                  <input
-                    type="text"
-                    name="length"
-                    // value={item.length}
-                    // disabled={!isModify}
-                    // onChange={(e) =>
-                    //   handleLengthChange(
-                    //     index,
-                    //     parseFloat(e.target.value) || 0
-                    //   )
-                    // }
-                    className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  />
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-right">
-                  {/* {item.lineCost.toFixed(2)} */}
-                  <input
-                    type="text"
-                    name="length"
-                    // value={item.length}
-                    // disabled={!isModify}
-                    // onChange={(e) =>
-                    //   handleLengthChange(
-                    //     index,
-                    //     parseFloat(e.target.value) || 0
-                    //   )
-                    // }
-                    className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                  />
-                </td>
-                <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
-                  sssd
-                </td>
-                {/* <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
+              {loading ? (
+                <tr>
+                  <td
+                    colSpan="6"
+                    className="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4"
+                  >
+                    Loading...
+                  </td>
+                </tr>
+              ) : error ? (
+                <tr>
+                  <td
+                    colSpan="6"
+                    className="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-red-500"
+                  >
+                    Error: {error}
+                  </td>
+                </tr>
+              ) : data && data.length > 0 ? (
+                data.map((item, index) => (
+                  <tr key={index}>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-left items-left">
+                      {item.resCat || "-"}
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                      {item.resourceName || "-"}
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                      {item.uom || "-"}
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                      {item.unitPrice ? item.unitPrice.toFixed(2) : "-"}
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                      {/* {isModify ? (
+                        <input
+                          type="number"
+                          name="estimatedQuantity"
+                          value={item.estimatedQuantity || ""}
+                          onChange={(e) =>
+                            handleLengthChange &&
+                            handleLengthChange(
+                              index,
+                              parseFloat(e.target.value) || 0
+                            )
+                          }
+                          className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        />
+                      ) : (
+                        item.estimatedQuantity || "-"
+                      )} */}
+                      <input
+                          type="number"
+                          name="estimatedQuantity"
+                          value={item.estimateQty || ""}
+                          className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        />
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4 text-right">
+                      {/* {item.lineCost.toFixed(2)} */}
+                      <input
+                        type="text"
+                        name="length"
+                        value={item.estimateCost || ""}
+                        // disabled={!isModify}
+                        // onChange={(e) =>
+                        //   handleLengthChange(
+                        //     index,
+                        //     parseFloat(e.target.value) || 0
+                        //   )
+                        // }
+                        className="border-0 px-3 py-2 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      />
+                    </td>
+                    <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4">
+                      {item.filledqty || "-"}
+                    </td>
+                    {/* <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
                       <button
                         onClick={handleClick}
                         className={`ml-2 text-white active:bg-lightBlue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150
@@ -172,7 +249,18 @@ export default function CardSETable({
                         {isModify ? "Save" : "Edit"}
                       </button>
                     </td> */}
-              </tr>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td
+                    colSpan="6"
+                    className="text-center border-t-0 px-6 align-middle border-l-0 border-r-0 text-sm whitespace-nowrap p-4"
+                  >
+                    No data available
+                  </td>
+                </tr>
+              )}
             </tbody>
             {/* <tbody>
               {data && data.length > 0 ? (

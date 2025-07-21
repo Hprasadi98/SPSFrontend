@@ -4,17 +4,16 @@ import { Switch, Route, Redirect } from "react-router-dom";
 // components
 import Sidebar from "components/Sidebar/Sidebar.js";
 import FooterAdmin from "components/Footers/FooterAdmin.js";
-import ModProgress from "views/ModifyProgress/ModProgress";
-import AddProMile from "views/ModifyProgress/AddProMile";
-import AdminNavbar from "components/Navbars/AdminNavbar";
-import HeaderStatsWithoutCards from "components/Headers/HeaderStatsWithoutCards";
-import ProgressBar from "views/ModifyProgress/ProgressBar";
 
 //views
-// import NewApplicant from "views/applicant/NewApplicant";
-// import ModifyApplicant from "views/applicant/ModifyApplicant";
+import NewApplicant from "views/applicant/NewApplicant";
+import ModifyApplicant from "views/applicant/ModifyApplicant";
+import AdminNavbar from "components/Navbars/AdminNavbar";
+import HeaderStatsWithoutCards from "components/Headers/HeaderStatsWithoutCards";
+import Schedule2 from "views/Schedule2/Schedule2"; // Adjust the import path as necessary
 
-export default function ModifyProgress() {
+
+export default function Schedule2Layout() {
     return (
         <>
           <Sidebar />
@@ -25,11 +24,10 @@ export default function ModifyProgress() {
               {/* <div className="bg-lightBlue-600 pt-32"></div> */}
               <div className="relative px-4 md:px-10 mx-auto w-full  -m-24  ">
                 <Switch>
+                    <Route path="/schedule2" exact component={Schedule2} />
                   {/* <Route path="/applicant/newapplicant" exact component={NewApplicant} /> */}
-                  <Route path="/modifyProgress/addProMile" exact component={AddProMile} />
-                  <Route path="/modifyProgress/progressBar" exact component={ProgressBar} />
-                  <Route path="/modifyProgress/modProgress" exact component={ModProgress} />
-                  <Redirect from="/modifyProgress" to="/modifyProgress/modProgress" />
+                  {/* <Route path="/applicant/modifyapplicant" exact component={ModifyApplicant} /> */}
+                  <Redirect from="/applicant" to="/applicant/newapplicant" />
                 </Switch>
               </div>
             </div>

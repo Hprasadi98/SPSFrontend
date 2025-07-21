@@ -3,14 +3,27 @@ import PropTypes from "prop-types";
 import { useHistory } from "react-router-dom";
 
 export default function CardStats({
-  statSubtitle,
+   statSubtitle,
+  statTitle,
+  statArrow,
+  statPercent,
+  statPercentColor,
+  statDescripiton,
   statIconName,
   statIconColor,
-  statsData = [],
-  navigatePath = "",
-  isLoading = false,
-  hasError = null
+  statsData,
+  navigatePath,
+  isLoading,
+  hasError,
+  validNumbers,
+  onNumberClick,
+  onItemClick,
+  isClickable = false,
+  showItemList = false  
 }) {
+  // Add these state variables in CardStats component
+const [isValidating, setIsValidating] = useState(false);
+const [validationError, setValidationError] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
   const [customNumber, setCustomNumber] = useState("");
   const dropdownRef = useRef(null);
@@ -22,24 +35,110 @@ export default function CardStats({
   };
   
   // Add the missing number click handler
+  // const handleNumberClick = (e) => {
+  //    e.preventDefault();
+  //   e.stopPropagation();
+    
+  //   if (onNumberClick && isClickable) {
+  //     onNumberClick();
+  //   }
+  // };
+  
+ // Handle individual item click (for new functionality)
+  const handleItemClick = (item, e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    console.log("Item clicked:", item);
+    if (onItemClick && isClickable) {
+      onItemClick(item.applicationNo || item.value);
+    }
+  };
+  
+  // Original number click handler (for dropdown)
   const handleNumberClick = (item) => {
     if (navigatePath) {
       setShowDropdown(false);
       // Navigate to the path with the application number as a query parameter
-      history.push(`${navigatePath}?number=${item.value}`);
+      if (onItemClick && isClickable) {
+        // Use the new functionality if available
+        onItemClick(item.applicationNo || item.value);
+      } else {
+        // Fallback to original functionality
+        history.push(`${navigatePath}?number=${item.value}`);
+      }
     }
   };
-  
   // Add the missing form submit handler
-  const handleCustomNumberSubmit = (e) => {
+  const handleCustomNumberSubmit = async (e) => {
     e.preventDefault();
     if (customNumber.trim() && navigatePath) {
-      setShowDropdown(false);
-      history.push(`${navigatePath}?number=${customNumber}`);
-      setCustomNumber("");
+      // Check if the number exists in the valid numbers array
+      if (validNumbers && (validNumbers.includes(Number(customNumber)) || validNumbers.includes(customNumber))) {
+        // Number is valid, navigate
+        setShowDropdown(false);
+        if (onItemClick && isClickable) {
+          // Use new functionality
+          onItemClick(customNumber);
+        } else {
+          // Fallback to original functionality
+          history.push(`${navigatePath}?number=${customNumber}`);
+        }
+        setCustomNumber("");
+        return;
+      } else if (validNumbers) {
+        // Number is not valid
+        setValidationError("Application number not found in database");
+        setTimeout(() => setValidationError(""), 3000);
+        return;
+      }
+    }
+try {
+      // Show loading indicator
+      setIsValidating(true);
+      
+      // Validate if the number exists in the database
+      const response = await fetch(
+        `http://localhost:8081/api/application/validate?number=${customNumber}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa("user:admin123"),
+          },
+          credentials: "include",
+        }
+      );
+      
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      if (data.exists) {
+        // If the number exists, navigate to the path
+        setShowDropdown(false);
+        if (onItemClick && isClickable) {
+          // Use new functionality
+          onItemClick(customNumber);
+        } else {
+          // Fallback to original functionality
+          history.push(`${navigatePath}?number=${customNumber}`);
+        }
+        setCustomNumber("");
+      } else {
+        // If the number doesn't exist, show an error
+        setValidationError("Application number not found in database");
+        setTimeout(() => setValidationError(""), 3000); // Clear error after 3 seconds
+      }
+    } catch (error) {
+      console.error("Error validating application number:", error);
+      setValidationError("Error validating application number");
+      setTimeout(() => setValidationError(""), 3000); // Clear error after 3 seconds
+    } finally {
+      setIsValidating(false);
     }
   };
-  
   // Close dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
@@ -53,6 +152,9 @@ export default function CardStats({
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  const displayNumber = statTitle || (statsData ? statsData.length : 0);
+
 
   return (
     <>
@@ -113,21 +215,28 @@ export default function CardStats({
                           <input
                             type="text"
                             placeholder="Number"
-                            className="w-20 px-2 py-1 text-sm border rounded-l focus:outline-none focus:ring-1 focus:ring-blue-500"
+                            className={`w-20 px-2 py-1 text-sm border rounded-l focus:outline-none focus:ring-1 ${
+                              validationError ? "border-red-500 focus:ring-red-500" : "focus:ring-blue-500"
+                            }`}
                             value={customNumber}
                             onChange={(e) => setCustomNumber(e.target.value)}
+                            disabled={isValidating}
                           />
                           <button
                             type="submit"
                             className="text-white px-2 py-1 text-sm rounded-r"
                             style={{
-                              backgroundColor: "#7c0000",
+                              backgroundColor: isValidating ? "#999999" : "#7c0000",
                             }}
-                            disabled={!customNumber.trim()}
+                            disabled={!customNumber.trim() || isValidating}
                           >
-                            Go
+                            {isValidating ? "..." : "Go"}
                           </button>
                         </form>
+                        {/* Show validation error if present */}
+  {validationError && (
+    <div className="mt-2 text-xs text-red-500">{validationError}</div>
+  )}
                       </div>
                     </>
                   )}

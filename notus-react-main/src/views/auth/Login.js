@@ -13,7 +13,9 @@ export default function Login() {
     //history.push("/jobtypeset");
     e.preventDefault();
     try {
-      const response = await fetch(`${baseUrl}/api/v1/auth/login`, {
+
+      const response = await fetch("http://127.0.0.1:8088/SPS/api/v1/auth/login", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -91,11 +93,13 @@ export default function Login() {
                       className="block text-blueGray-600 text-sm mb-2"
                       htmlFor="grid-password"
                     >
-                      User ID
+
+                      User Name
                     </label>
                     <input
                       type="text"
-                      className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                     className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+
                       placeholder="userId"
                       value={userId}
                       onChange={(e) => setuserId(e.target.value)}

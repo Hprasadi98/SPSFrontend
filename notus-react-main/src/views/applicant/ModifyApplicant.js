@@ -103,7 +103,7 @@ const ModifyApplicant = () => {
   try {
     console.log(appData);
     const response = await fetch(
-      `http://localhost:8081/api/applicants/search?idNo=${appData.idNo}`,
+      `http://127.0.0.1:8088/SPS/api/applicants/search?idNo=${appData.idNo}`,
       {
         method: "GET",
         headers: {
@@ -173,7 +173,7 @@ const ModifyApplicant = () => {
 
     // Send the data to the backend via REST API
     try {
-      const response = await fetch("http://localhost:8081/api/applicants/save", {
+      const response = await fetch("http://127.0.0.1:8088/SPS/api/applicants/save", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

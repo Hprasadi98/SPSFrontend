@@ -28,6 +28,9 @@ import PIV from "layouts/PIV";
 import Allocation from "layouts/Allocation";
 import ReviceJob from "layouts/ReviseJob";
 import ReviseAllocation from "views/ReviseAllocation/ReviseAllocation";
+import Schedule2Layout from "layouts/Schedule2Layout";
+
+
 
 ReactDOM.render(
   <BrowserRouter>
@@ -44,6 +47,7 @@ ReactDOM.render(
         <Route path="/estimation" component={Estimation} />
         <Route path="/estimate" component={Estimate} />
         <Route path="/jobrevision" component={ReviceJob} />
+       <Route path="/schedule2" component={Schedule2Layout} />
         {/* add routes without layouts */}
         <Route path="/piv" component={PIV} />
         <Route path="/allocation" component={Allocation} />

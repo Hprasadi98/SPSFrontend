@@ -395,13 +395,13 @@ export default function Sidebar() {
                                 : "text-blueGray-300")
                             }
                           ></i>{" "}
-                          Progress Update
+                          Add Progress Milestone
                         </Link>
                       </li>
                       <li>
                         <Link
                           className="text-sm py-2 block text-blueGray-700 hover:text-blueGray-500"
-                          to=""
+                          to="/modifyProgress/progressBar"
                         >
                           <i
                             className={
@@ -411,7 +411,7 @@ export default function Sidebar() {
                                 : "text-blueGray-300")
                             }
                           ></i>{" "}
-                          Milestone Tracking
+                          Progress Bar
                         </Link>
                       </li>
                     </ul>
@@ -481,6 +481,32 @@ export default function Sidebar() {
                   ></i>{" "}
                   Revise Allocation
                 </Link>
+
+            {/* // Remove this entire section from lines 486-512 */}
+          <Link
+            // className={
+            //   "text-sm py-3 block " +
+            //   (window.location.href.indexOf("/schedule2") !== -1
+            //     ? "text-lightBlue-500 hover:text-lightBlue-600"
+            //     : "text-blueGray-700 hover:text-blueGray-500")
+            // }
+            // style={
+            //   window.location.href.indexOf("/schedule2") !== -1
+            //     ? { color: "#b23200" }
+            //     : {}
+            // }
+            to="/schedule2"
+          >
+            {/* <i
+              className={
+                "fas fa-calendar mr-2 text-sm " +
+                (window.location.href.indexOf("/schedule2") !== -1
+                  ? "opacity-75"
+                  : "text-blueGray-300")
+              }
+            ></i>{" "}
+            Schedule 2 */}
+          </Link>
               </li>
             </ul>
             </div>

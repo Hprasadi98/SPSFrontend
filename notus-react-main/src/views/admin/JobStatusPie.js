@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import JobStatusCard from '../../components/Cards/CardPieChart';
+import PieChartCard from '../../components/Cards/PieChartCard';
 
 const JobStatusPie = () => {
   const [jobStatus, setJobStatus] = useState(null);
@@ -64,7 +64,7 @@ const JobStatusPie = () => {
   return (
     <div >
       {jobStatus ? (
-        <JobStatusCard
+        <PieChartCard
           openJobs={jobStatus.openJobs}
           revisedJobs={jobStatus.revisedJobs}
           closedJobs={jobStatus.closedJobs}

@@ -8,6 +8,8 @@ const PersonalDetails = ({ onInputChange, data }) => {
     lname: "",
   });
 
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
+
   useEffect(() => {
       if (data) {
         setpersonalData(data);
@@ -30,7 +32,7 @@ const PersonalDetails = ({ onInputChange, data }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:8081/api/v1/search?nicno=${personalData.idNo}`,
+        `${baseUrl}/api/v1/search?nicno=${personalData.idNo}`,
         {
           method: "GET",
           headers: {

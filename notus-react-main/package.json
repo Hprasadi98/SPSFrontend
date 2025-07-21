@@ -1,20 +1,21 @@
 {
   "name": "notus-react-main",
   "version": "1.1.0",
+  "homepage": ".",
   "description": "Notus React - A free Tailwind CSS and React UI Kit and Admin by Creative Tim.",
   "repository": "https://github.com/creativetimofficial/notus-react-main",
   "license": "MIT",
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@fortawesome/fontawesome-free": "^5.15.3",
+    "@fortawesome/fontawesome-free": "5.15.3",
     "@material-tailwind/react": "^2.1.10",
     "@mui/material": "^6.4.7",
     "@popperjs/core": "2.9.1",
     "@tailwindcss/forms": "0.2.1",
     "autoprefixer": "10.2.5",
     "axios": "^1.8.3",
-    "chart.js": "^4.4.0",
+    "chart.js": "^4.3.3",
     "gulp-append-prepend": "1.0.8",
     "lodash": "^4.17.21",
     "lucide-react": "^0.477.0",
@@ -27,7 +28,8 @@
     "react-router": "5.3.4",
     "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
-    "tailwindcss": "2.0.4"
+    "react-toastify": "^11.0.5",
+    "tailwindcss": "^2.2.19"
   },
   "scripts": {
     "start": "react-scripts start",

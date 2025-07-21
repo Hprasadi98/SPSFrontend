@@ -17,7 +17,8 @@ const CardPieChart = ({  openJobs, revisedJobs, closedJobs }) => {
       {
         data: [openJobs, revisedJobs, closedJobs],
         backgroundColor: ['#36A2EB', '#FFCE56', '#FF6384'],
-        borderWidth: 1
+        borderWidth: 1,
+        cutout: '60%'
       }
     ]
   };

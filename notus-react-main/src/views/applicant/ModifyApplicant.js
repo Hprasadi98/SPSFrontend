@@ -114,26 +114,47 @@ const ModifyApplicant = () => {
       }
     );
 
+     console.log("📥 Full Response:", {
+      status: response.status,
+      statusText: response.statusText,
+      ok: response.ok,
+      headers: Object.fromEntries(response.headers.entries())
+    });
+
     console.log(response);
 
     if (!response.ok) {
+      const errorText = await response.text();
+      console.log("❌ Error response body:", errorText);
       throw new Error(`NIC not found (Status: ${response.status})`);
     }
     const data = await response.json();
-    console.log("API Response Data:", data);
+     console.log("✅ API Response Data:", data);
+    console.log("📊 Data type:", typeof data);
+    console.log("📝 Data keys:", Object.keys(data));
 
     if (!data || Object.keys(data).length === 0) {
       throw new Error("NIC not found in database.");
     }
 
+    console.log("🔄 Current appData before update:", appData);
+    
     // Update state with fetched data
-    setAppData({
+      const updatedData = {
       ...appData,
       firstName: data.firstName || "",
       lastName: data.lastName || "",
       fullName: data.fullName || "",
       streetAddress: data.streetAddress || "",
-    });
+    };
+    
+    console.log("📝 Updated data to set:", updatedData);
+    setAppData(updatedData);
+    
+    // Add a timeout to check if state actually updated
+    setTimeout(() => {
+      console.log("⏰ appData after state update:", appData);
+    }, 100);
   } catch (error) {
     alert(error.message);
     console.error("Error:", error);

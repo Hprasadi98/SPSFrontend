@@ -21,6 +21,7 @@ const ApplicantInfo = ({
   const idNo = applicant?.idNo || "";
 
   const handleChange = (e) => {
+    console.log("Handling change for:", e.target.name);
     const { name, value } = e.target;
     // const newData = { ...appData, [name]: value };
     //setAppData(newData); // Ensure this is a valid function
@@ -182,7 +183,7 @@ const ApplicantInfo = ({
               <input
                 type="text"
                 name="firstName"
-                value={appData.firstName}
+                value={appData?.firstName || ""}
                 onChange={handleChange}
                 className="border-0 px-3 h-0.5 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                 placeholder="Enter First Name"

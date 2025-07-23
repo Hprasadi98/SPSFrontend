@@ -12,6 +12,8 @@ import Dashboard from "views/admin/Dashboard.js";
 import Maps from "views/admin/Maps.js";
 import Settings from "views/admin/Settings.js";
 import Tables from "views/admin/Tables.js";
+import JobStatusPie from "views/admin/JobStatusPie";
+import CardSocialTraffic from "components/Cards/CardSocialTraffic";
 
 
 export default function Admin() {
@@ -20,6 +22,16 @@ export default function Admin() {
       <Sidebar />
       <div className="relative md:ml-64 bg-blueGray-100">
         <HeaderStats />
+        {/* <div className="flex flex-wrap mb-24"> 
+          <div className="w-full xl:w-1/3">
+          <JobStatusPie />
+          </div>
+          <div className="w-full xl:w-2/3">
+          
+                    <CardSocialTraffic />
+        </div>
+        </div> */}
+
         <div className="px-4 md:px-10 mx-auto w-full -m-24">
           <Switch>
             <Route path="/admin/dashboard" exact component={Dashboard} />

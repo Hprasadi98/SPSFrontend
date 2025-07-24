@@ -1,7 +1,7 @@
 import JRCostMeasure from "components/Tabs/JRCostMeasure";
 import JRGeneralInfo from "components/Tabs/JRGeneralInfo";
 import JRPegging from "components/Tabs/JRPegging";
-import { CheckCircle } from "lucide-react";
+//import { CheckCircle } from "lucide-react";
 import { useState } from "react";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -118,6 +118,7 @@ const JobRevision = ({
               }}
             >
               {currentIndex[index] ? (
+                // eslint-disable-next-line react/jsx-no-undef
                 <CheckCircle size={20} />
               ) : (
                 <span className="font-bold">{index + 1}</span>
@@ -157,9 +158,7 @@ const JobRevision = ({
         )}
         {tabs[currentIndex].id === "pegging" && (
           <JRPegging
-            onInputChange={(data) =>
-              handleInputChange("jrpegging", data)
-            }
+            onInputChange={(data) => handleInputChange("jrpegging", data)}
             data={formData.locationalDetails}
           />
         )}

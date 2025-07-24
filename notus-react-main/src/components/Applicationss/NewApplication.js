@@ -2,7 +2,7 @@ import AppDetails from "components/Tabs/AppDetail";
 import LocationalDetails from "components/Tabs/LocationalDetail";
 import PersonalDetails from "components/Tabs/PersonalDetail";
 import TechDetails from "components/Tabs/TechDetails";
-import { CheckCircle } from "lucide-react";
+// import { CheckCircle } from "lucide-react";
 import { useState } from "react";
 import React from "react";
 import { useHistory } from "react-router-dom";
@@ -120,6 +120,7 @@ const NewApplication = ({
               }}
             >
               {currentIndex[index] ? (
+                // eslint-disable-next-line react/jsx-no-undef
                 <CheckCircle size={20} />
               ) : (
                 <span className="font-bold">{index + 1}</span>
@@ -137,13 +138,12 @@ const NewApplication = ({
         ))}
       </div>
       <div className="text-center flex justify-center mb-2">
-          <h6 className="text-blueGray-700 text-sm font-bold">
-            {tabs[currentIndex].label}
-          </h6>
-        </div>
+        <h6 className="text-blueGray-700 text-sm font-bold">
+          {tabs[currentIndex].label}
+        </h6>
+      </div>
       {/* Content */}
       <div className="p-6 bg-blueGray-100 rounded-lg">
-        
         {tabs[currentIndex].id === "application" && (
           <AppDetails
             onInputChange={(data) => handleInputChange("appDetails", data)}

@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import { Trash, File, } from "lucide-react";
+//import { Trash, File, } from "lucide-react";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
 const Uploads = () => {
@@ -36,7 +36,9 @@ const Uploads = () => {
         {isDragActive ? (
           <p className="text-gray-600 text-sm">Drop the files here...</p>
         ) : (
-          <p className="text-gray-600 text-sm">Drag & Drop files here or click to upload</p>
+          <p className="text-gray-600 text-sm">
+            Drag & Drop files here or click to upload
+          </p>
         )}
       </div>
 
@@ -53,9 +55,11 @@ const Uploads = () => {
                 className="w-12 h-12 object-cover rounded"
               />
             ) : (
+              // eslint-disable-next-line react/jsx-no-undef
               <File size={30} className="text-gray-500" />
             )}
             <span className="text-sm truncate w-32">{file.name}</span>
+            {/* eslint-disable-next-line react/jsx-no-undef */}
             <Trash
               size={20}
               className="text-red-500 cursor-pointer"

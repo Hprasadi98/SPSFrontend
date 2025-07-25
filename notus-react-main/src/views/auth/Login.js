@@ -14,7 +14,7 @@ export default function Login() {
     e.preventDefault();
     try {
 
-      const response = await fetch("http://127.0.0.1:8088/SPS/api/v1/auth/login", {
+      const response = await fetch(`${baseUrl}/api/v1/auth/login`, {
 
         method: "POST",
         headers: {
@@ -76,12 +76,13 @@ export default function Login() {
       <div className="container mx-auto px-4 h-full">
         <div className="flex content-center items-center justify-center h-full">
           <div className="w-full lg:w-4/12 px-4">
-            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">-
+            <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
               <div className="flex justify-center items-center">
-                <img 
-                alt="ceb logo"
-                className="w-20 h-20"
-                src={ceb}/>
+                <img
+                  alt="ceb logo"
+                  className="w-20 h-20 mt-8"
+                  src={ceb}
+                />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0 mt-2">
                 <div className="text-blueGray-400 text-center text-sm">
@@ -121,7 +122,7 @@ export default function Login() {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
-                  <div>
+                  {/* <div>
                     <label className="inline-flex items-center cursor-pointer">
                       <input
                         id="customCheckLogin"
@@ -132,7 +133,7 @@ export default function Login() {
                         Remember Me
                       </span>
                     </label>
-                  </div>
+                  </div> */}
 
                   <div className="text-center mt-6">
                     <button

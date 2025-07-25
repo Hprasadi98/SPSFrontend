@@ -23,9 +23,8 @@ export default function Dashboard() {
           <ApplicationStatusChart />
         </div>
       </div>
-
-      <div className="flex flex-wrap">
-        <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
+       <div className="flex flex-wrap mt-4">
+        <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4">
           <CardBar />
         </div>
         <div className="w-full xl:w-6/12 px-4">

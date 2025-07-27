@@ -16,7 +16,7 @@ export default function Dashboard() {
     <>
 
       <div className="flex flex-wrap">
-        
+        <div className="flex flex-wrap mt-4"></div>
         {/* <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
           <CardLineChart />
         </div>
@@ -39,16 +39,16 @@ export default function Dashboard() {
         </div>
       </div>
       
-      <div className="flex flex-wrap mt-4">
+      // <div className="flex flex-wrap mt-4">
 
       {/* <div className="flex flex-wrap mt-4">
         </div> */}
-        <div className="w-full xl:w-4/12 mt-24 xl:mb-0 px-4">
+        {/* <div className="w-full xl:w-4/12 mt-24 xl:mb-0 px-4">
           <JobStatusPie />
         </div>
         <div className="w-full xl:w-8/12 mt-24 xl:mb-0 px-4">
           <ApplicationStatusChart />
-        </div>
+        </div> */}
       </div>
       
       <div className="flex flex-wrap mt-8">
@@ -58,7 +58,13 @@ export default function Dashboard() {
         <div className="w-full xl:w-4/12 px-4">
           <CardSocialTraffic />
         </div>
-      </div> */}
+
+        
+        <div className="w-full xl:w-4/12 mb-12 xl:mb-0 px-4">
+          <CardBar />
+        </div>
+       
+      </div> 
     </>
   );
 }

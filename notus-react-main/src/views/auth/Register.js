@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 import ceb from "assets/img/ceb.png";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -9,6 +10,7 @@ export default function Register() {
   const [password, setPassword] = useState("");
   const [eAccountNo, seteAccountNo] = useState("");
   const history = useHistory();
+  const baseUrl = process.env.REACT_APP_API_BASE_URL;
 
   const validatePassword = (password) => {
     const strongPasswordRegex =
@@ -25,7 +27,7 @@ export default function Register() {
       return;
     }
     try {
-      const response = await fetch("http://localhost:8081/api/v1/register", {
+      const response = await fetch(`${baseUrl}/api/v1/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -40,7 +42,7 @@ export default function Register() {
       });
 
       if (!response.ok) {
-        alert("Email Already Registered");
+        toast.error("Email Already Registered");
         history.push("/auth/login");
         throw new Error("Registration failed");
       }
@@ -48,7 +50,7 @@ export default function Register() {
       const data = await response.json();
       console.log("Registration successful", data);
       // Handle successful registration (e.g., redirect to login page)
-      alert("Registration successful");
+      toast.success("Registration successful");
       history.push("/auth/login");
     } catch (error) {
       console.error("Registration failed", error);

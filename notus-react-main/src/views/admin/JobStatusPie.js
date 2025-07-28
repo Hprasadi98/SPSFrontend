@@ -56,22 +56,31 @@ const JobStatusPie = () => {
       .finally(() => {
         setLoading(false);
       });
-  }, []); // Empty dependency array is fine since we're getting values inside useEffect
+  }, []);
 
   if (loading) return <p>Loading job status...</p>;
-  if (error) return <p>Error: {error}</p>;
 
   return (
-    <div >
-      {jobStatus ? (
-        <PieChartCard
-          openJobs={jobStatus.openJobs}
-          revisedJobs={jobStatus.revisedJobs}
-          closedJobs={jobStatus.closedJobs}
-        />
-      ) : (
-        <p>No job status data available</p>
+    <div>
+      {error && (
+        <div style={{ 
+          backgroundColor: '#fff3cd', 
+          border: '1px solid #ffeaa7', 
+          color: '#856404', 
+          padding: '10px', 
+          borderRadius: '5px', 
+          marginBottom: '20px',
+          textAlign: 'center'
+        }}>
+          <small>⚠️ {error} - Showing sample data</small>
+        </div>
       )}
+      
+      <PieChartCard
+        openJobs={jobStatus?.openJobs}
+        revisedJobs={jobStatus?.revisedJobs}
+        closedJobs={jobStatus?.closedJobs}
+      />
     </div>
   );
 };

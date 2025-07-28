@@ -28,7 +28,7 @@ export default function Register() {
     }
     try {
 
-      const response = await fetch("http://127.0.0.1:8088/SPSProjectBackend-0.0.1-SNAPSHOT/api/v1/register", {
+      const response = await fetch(`${baseUrl}/api/v1/register`, {
 
         method: "POST",
         headers: {

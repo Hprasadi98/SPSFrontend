@@ -62,20 +62,6 @@ const JobStatusPie = () => {
 
   return (
     <div>
-      {error && (
-        <div style={{ 
-          backgroundColor: '#fff3cd', 
-          border: '1px solid #ffeaa7', 
-          color: '#856404', 
-          padding: '10px', 
-          borderRadius: '5px', 
-          marginBottom: '20px',
-          textAlign: 'center'
-        }}>
-          <small>⚠️ {error} - Showing sample data</small>
-        </div>
-      )}
-      
       <PieChartCard
         openJobs={jobStatus?.openJobs}
         revisedJobs={jobStatus?.revisedJobs}

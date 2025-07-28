@@ -57,69 +57,69 @@ const ModifyApp = () => {
     }
   };
 
-  // const handleSearch = async (e) => {
-  //   console.log("Searching for application details...");
-  //   e.preventDefault();
-  //   const applicationId = formData.appDetails.applicationId;
-  //   if (!applicationId) {
-  //     alert("Please enter an ID number");
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await fetch(
-  //       `${baseUrl}/api/application/search?applicationId=${applicationId}`,
-  //       {
-  //         method: "GET",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //           Authorization: "Basic " + btoa("user:admin123"),
-  //         },
-  //         credentials: "include",
-  //       }
-  //     );
-
-  //     console.log(formData);
-
-  //     if (!response.ok) {
-  //       throw new Error(`HTTP error! Status: ${response.status}`);
-  //     }
-
-  //     const data = await response.json(); // Parse JSON response properly
-
-  //     setFormData((prevData) => ({
-  //       ...prevData,
-  //       appDetails: {
-  //         ...prevData.appDetails,
-  //         description: data.description || "",
-  //         jobName: data.jobName || "",
-  //       },
-  //       personalDetails: {
-  //         ...prevData.personalDetails,
-  //         idNo: data.idNo || "",
-  //         fname: data.fname || "",
-  //         lname: data.lname || "",
-  //         // Add personalDetails fields from data here
-  //       },
-  //       locationalDetails: {
-  //         ...prevData.locationalDetails,
-  //         // Add locationalDetails fields from data here
-  //       },
-  //       techDetails: {
-  //         ...prevData.techDetails,
-  //         // Add techDetails fields from data here
-  //       },
-  //     }));
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //     //console.log(applicationId);
-  //     alert("Failed to retrieve details. Please check the ID number.");
-  //   }
-  // };
-
-  const handleSearch = (e) => {
+  const handleSearch = async (e) => {
     console.log("Searching for application details...");
-  }
+    e.preventDefault();
+    const applicationId = formData.appDetails.applicationId;
+    if (!applicationId) {
+      alert("Please enter an ID number");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `${baseUrl}/api/application/search?applicationId=${applicationId}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Basic " + btoa("user:admin123"),
+          },
+          credentials: "include",
+        }
+      );
+
+      console.log(formData);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+
+      const data = await response.json(); // Parse JSON response properly
+
+      setFormData((prevData) => ({
+        ...prevData,
+        appDetails: {
+          ...prevData.appDetails,
+          description: data.description || "",
+          jobName: data.jobName || "",
+        },
+        personalDetails: {
+          ...prevData.personalDetails,
+          idNo: data.idNo || "",
+          fname: data.fname || "",
+          lname: data.lname || "",
+          // Add personalDetails fields from data here
+        },
+        locationalDetails: {
+          ...prevData.locationalDetails,
+          // Add locationalDetails fields from data here
+        },
+        techDetails: {
+          ...prevData.techDetails,
+          // Add techDetails fields from data here
+        },
+      }));
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      //console.log(applicationId);
+      alert("Failed to retrieve details. Please check the ID number.");
+    }
+  };
+
+  // const handleSearch = (e) => {
+  //   console.log("Searching for application details...");
+  // }
   
   return (
     <div className="container mx-auto rounded-lg">

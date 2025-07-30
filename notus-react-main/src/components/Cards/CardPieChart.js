@@ -106,4 +106,6 @@ export default function CardPieChart() {
       <Pie data={chartData} />
     </div>
   );
+
 }
+

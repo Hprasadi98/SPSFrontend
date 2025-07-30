@@ -1,7 +1,14 @@
-
 import React, { useEffect, useState } from "react";
 import { Pie } from "react-chartjs-2";
-import Chart from "chart.js/auto";
+import {
+  Chart as ChartJS,
+  ArcElement,
+  Tooltip,
+  Legend
+} from 'chart.js';
+
+// Register Chart.js components
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 const statusLabels = {
   1: "Pending",
@@ -77,7 +84,6 @@ export default function CardPieChart() {
             },
           ],
         };
-        
 
         console.log("Final chartData:", finalChartData);
 
@@ -94,14 +100,12 @@ export default function CardPieChart() {
   if (loading) return <div className="p-4">Loading chart...</div>;
   if (!chartData) return <div className="p-4">No data available.</div>;
 
-
   return (
     <div className="p-4 bg-white rounded-xl shadow">
       <h3 className="text-xl font-semibold mb-4">Status Distribution</h3>
       <Pie data={chartData} />
     </div>
   );
+
 }
-
-
 
